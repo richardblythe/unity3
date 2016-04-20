@@ -1,11 +1,12 @@
 <?php
 /*
-  Plugin Name: Unity 3 Software
-  Plugin URI: http://www.unity3software.com/
-  Description: Customize widgets and functions for client website
-  Version: 1.0.0
-  Author: Richard Blythe
-  Author URI: http://unity3software.com/richardblythe
+    Plugin Name: Unity 3 Software
+    Plugin URI: http://www.unity3software.com/
+    Description: Customized widgets and functions for client websites
+    Version: 1.2.0
+    Author: Richard Blythe
+    Author URI: http://unity3software.com/richardblythe
+    GitHub Plugin URI: https://github.com/richardblythe/unity3
  */
 class Unity3 {   
     public static $dir, $url;
