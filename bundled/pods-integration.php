@@ -6,7 +6,7 @@
  * Time: 12:12 PM
  */
 
-function unity3_pods_audio($ID) {
+function unity3_pods_audio($ID, $echo = false) {
     global $post;
     $pods = pods( 'sermon', $ID );
     $attr = array(
@@ -19,5 +19,9 @@ function unity3_pods_audio($ID) {
     if ($ogg = $pods->field('ogg')) {
         $attr['ogg'] = wp_get_attachment_url($ogg['ID']);
     }
-    echo wp_audio_shortcode( $attr );
+    $result = wp_audio_shortcode( $attr );
+    if ($echo)
+        echo $result;
+    else
+        return $result;
 }
