@@ -10,6 +10,7 @@ require_once (Unity3::$dir . 'bundled/url-shortcodes/url-shortcodes.php');
 require_once (Unity3::$dir . 'bundled/drag-sort-posts/drag-sort-posts.php');
 require_once (Unity3::$dir . 'bundled/taxonomy-metabox/plugin.php');
 require_once (Unity3::$dir . 'bundled/pods-integration.php');
+require_once (Unity3::$dir . 'bundled/restrict-pages.php');
 
 //widgets:
 require_once (Unity3::$dir . 'bundled/featured-url-widget/plugin.php');
