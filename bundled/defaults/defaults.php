@@ -3,6 +3,7 @@ function Load_Unity3Defaults() {
   class Unity3Defaults {
     public function __construct() {
         add_action( 'admin_init', array(&$this, 'admin_init') );
+        add_action( 'admin_head', array(&$this, 'admin_hide_meta_boxes'));
 
         //Remove the URL section on comments
         if (apply_filters('unity3_remove_genesis_comment_url', true)) {
@@ -70,6 +71,32 @@ function Load_Unity3Defaults() {
       add_filter( 'tiny_mce_before_init', array(&$this, 'mce_before_init'), 10, 2 );
       
       add_editor_style( plugins_url('/css/genesis-editor-columns.css', __FILE__) );
+    }
+
+    public function admin_hide_meta_boxes() {
+        global $pagenow;
+        if (!in_array( $pagenow, array( 'edit.php', 'post.php', 'post-new.php' ), FALSE ) )
+            return;
+
+        //Get a list of all the metaboxes to be hidden
+        $selectors = apply_filters('unity3_hide_meta_boxes', array('#pageparentdiv', '#trackbacksdiv', '#slugdiv', '#postcustom', '#genesis_inpost_seo_box', '#genesis_inpost_layout_box', '#genesis_inpost_scripts_box', '#ninja_forms_selector', '#twitter-custom'));
+        //now we will hide the Screen Option boxes that are related to the meta boxes
+        $screen_option_boxes = array();
+        foreach ($selectors as $selector) {
+            if (0 === strpos($selector, '#'))
+                $screen_option_boxes[] = 'label[for="'. substr($selector, 1) .'-hide"]';
+        }
+        $selectors = array_merge($selectors, $screen_option_boxes);
+        //
+        $misc_elements = apply_filters('unity3_hide_misc', array('#wp-content-media-buttons .nf-insert-form', '#add_pod_button'));
+        //
+        $selectors = array_merge($selectors, $misc_elements);
+        ?>
+        <!-- Unity3 Hide Elements  -->
+        <style type="text/css">
+            <?php echo implode(',', $selectors); ?>{display:none !important;}
+        </style>
+        <?php
     }
 
     public function admin_hide_pages( $query ) {
