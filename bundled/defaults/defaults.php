@@ -42,7 +42,7 @@ function Load_Unity3Defaults() {
     }
     
     public function enqueue_scripts() {
-        wp_enqueue_style('wpgmaps-default-style', plugins_url('/css/wpgmaps.css', __FILE__));
+        wp_enqueue_style('unity3-default-css', plugins_url('/css/index.min.css', __FILE__));
     }
 
     //forces the archive contents to show full content instead of excerpts
