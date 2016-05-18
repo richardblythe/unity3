@@ -19,7 +19,7 @@ function Load_Unity3Defaults() {
         //* Change the footer text
         add_filter('genesis_footer_creds_text', array(&$this, 'genesis_footer_creds') );
 
-        add_action( 'wp_enqueue_scripts', array(&$this, 'enqueue_scripts') );
+        add_action( 'admin_enqueue_scripts', array(&$this, 'enqueue_scripts') );
 
         //this disables (among other things) the uploading of audio.  
         add_filter('upload_mimes', array( &$this, 'default_mime_types' ), 10, 1 );
