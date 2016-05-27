@@ -79,7 +79,12 @@ function Load_Unity3Defaults() {
             return;
 
         //Get a list of all the metaboxes to be hidden
-        $selectors = apply_filters('unity3_hide_meta_boxes', array('#pageparentdiv', '#trackbacksdiv', '#slugdiv', '#postcustom', '#genesis_inpost_seo_box', '#genesis_inpost_layout_box', '#genesis_inpost_scripts_box', '#ninja_forms_selector', '#twitter-custom'));
+        $selectors = apply_filters('unity3_hide_meta_boxes', array('#pageparentdiv', '#trackbacksdiv', '#slugdiv',
+            '#postcustom', '#genesis_inpost_seo_box', '#genesis_inpost_layout_box', '#genesis_inpost_scripts_box',
+            '#ninja_forms_selector', '#twitter-custom',
+            '.post-type-tribe_events #event_venue', '.post-type-tribe_events #event_organizer',
+            '.post-type-tribe_events #event_url', '.post-type-tribe_events #event_cost')
+        );
         //now we will hide the Screen Option boxes that are related to the meta boxes
         $screen_option_boxes = array();
         foreach ($selectors as $selector) {
