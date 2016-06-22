@@ -5,6 +5,7 @@ function Load_Unity3Defaults() {
         add_action( 'admin_init', array(&$this, 'admin_init') );
         add_action( 'admin_head', array(&$this, 'admin_hide_meta_boxes'));
 
+        add_filter('comment_moderation_recipients', array(&$this, 'comment_moderation_recipients'), 11, 2);
         //Remove the URL section on comments
         if (apply_filters('unity3_remove_genesis_comment_url', true)) {
           add_filter( 'genesis_comment_form_args', array(&$this, 'url_filtered') );
@@ -72,6 +73,30 @@ function Load_Unity3Defaults() {
       
       add_editor_style( plugins_url('/css/genesis-editor-columns.css', __FILE__) );
     }
+
+    /**
+    * Filters wp_notify_moderator() recipients: $emails includes only author e-mail,
+    * unless the authors e-mail is missing or the author has no moderator rights.
+    *
+    * @since 0.4
+    *
+    * @param array $emails     List of email addresses to notify for comment moderation.
+    * @param int   $comment_id Comment ID.
+    * @return array
+    */
+    public function comment_moderation_recipients($emails, $comment_id)
+    {
+        $comment = get_comment($comment_id);
+        $post = get_post($comment->comment_post_ID);
+        $user = get_userdata($post->post_author);
+
+        // Return only the post author if the author can modify.
+        if ( user_can($user->ID, 'edit_comment', $comment_id) && !empty($user->user_email) )
+        return array( $user->user_email );
+
+        return $emails;
+    }
+
 
     public function admin_hide_meta_boxes() {
         global $pagenow;
