@@ -3,7 +3,7 @@
     Plugin Name: Unity 3 Software
     Plugin URI: http://www.unity3software.com/
     Description: Customized widgets and functions for client websites
-    Version: 1.6.1
+    Version: 1.7.0
     Author: Richard Blythe
     Author URI: http://unity3software.com/richardblythe
     GitHub Plugin URI: https://github.com/richardblythe/unity3
@@ -26,6 +26,7 @@ class Unity3 {
             add_action( 'wp_before_admin_bar_render', array(&$this, 'modify_admin_bar'), 0);
             add_action('admin_enqueue_scripts', array(&$this, 'admin_enqueue_scripts_styles'));
             add_action('login_enqueue_scripts', array(&$this, 'login_enqueue_scripts_styles'));
+	        add_filter( 'login_message', array(&$this, 'custom_login_message') );
             add_filter( 'request', array(&$this, 'filter_media' ));
             //strips <p> tags from images
             add_filter('the_content', array(&$this, 'filter_ptags'));
@@ -41,6 +42,14 @@ class Unity3 {
             add_filter( 'ajax_query_attachments_args', array(&$this, 'filter_media' ));
         }
 
+    }
+
+    function custom_login_message($message) {
+	    if ( empty($message) ){
+		    return "<p><strong>Welcome! Please login to access the control panel</strong></p>";
+	    } else {
+		    return $message;
+	    }
     }
 
     function filter_ptags($content){
@@ -62,7 +71,7 @@ class Unity3 {
 
     
     function login_enqueue_scripts_styles() {
-        wp_enqueue_style('unity3-login-style', plugins_url( 'includes/css/login.css', __FILE__ ));
+        wp_enqueue_style('unity3-login-style', plugins_url( 'includes/css/login.css', __FILE__ ), false, '1.8');
     }
     
     function admin_enqueue_scripts_styles() {
