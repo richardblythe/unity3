@@ -25,11 +25,11 @@ function Load_SiteUpdatedNotice() {
 		// update toolbar
 		function update_adminbar($wp_adminbar) {
 			// add Admin Bar menu
-			$wp_adminbar->add_node([
+			$wp_adminbar->add_node(array (
 				'id' => 'unity3-site-updated-notice',
 				'title' => 'Update Site Notice',
-				'href' => '#'
-			]);
+				'href' => '#')
+			);
 		}
 
 		function enqueue_scripts() {
