@@ -3,7 +3,7 @@
     Plugin Name: Unity 3 Software
     Plugin URI: http://www.unity3software.com/
     Description: Customized widgets and functions for client websites
-    Version: 1.7.1
+    Version: 1.7.2
     Author: Richard Blythe
     Author URI: http://unity3software.com/richardblythe
     GitHub Plugin URI: https://github.com/richardblythe/unity3
@@ -57,6 +57,7 @@ class Unity3 {
     }
 
     function hide_update_notice() {
+    	//yes I want to comment this out
         // global $current_user, $wp_filter;
         // if ($current_user && !in_array('developer', $current_user->roles)) {
         //     $admin_notices = $wp_filter['admin_notices'];
