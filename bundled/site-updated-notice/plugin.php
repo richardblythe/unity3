@@ -33,9 +33,9 @@ function Load_SiteUpdatedNotice() {
 		}
 
 		function enqueue_scripts() {
-		    wp_enqueue_script( 'unity3-site-updated-notice', plugins_url( 'unity3-site-updated-notice.js', __FILE__ ), array( 'jquery' ), '1.2' );
 			$current_user = wp_get_current_user();
 			if ('unity3software@gmail.com' == $current_user->user_email) {
+				wp_enqueue_script( 'unity3-site-updated-notice', plugins_url( 'unity3-site-updated-notice.js', __FILE__ ), array( 'jquery' ), '1.2' );
 				wp_enqueue_script( 'jquery-ui-dialog' );
 				wp_enqueue_script( 'jquery-effects-core' );
 				wp_enqueue_style( 'wp-jquery-ui-dialog' );
