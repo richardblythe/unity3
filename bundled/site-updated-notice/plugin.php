@@ -35,10 +35,14 @@ function Load_SiteUpdatedNotice() {
 		function enqueue_scripts() {
 			$current_user = wp_get_current_user();
 			if ('unity3software@gmail.com' == $current_user->user_email) {
-				wp_enqueue_script( 'unity3-site-updated-notice', plugins_url( 'unity3-site-updated-notice.js', __FILE__ ), array( 'jquery' ), '1.2' );
+				wp_enqueue_script( 'unity3-site-updated-notice', plugins_url( 'unity3-site-updated-notice.js', __FILE__ ), array( 'jquery' ), '1.14' );
 				wp_enqueue_script( 'jquery-ui-dialog' );
 				wp_enqueue_script( 'jquery-effects-core' );
 				wp_enqueue_style( 'wp-jquery-ui-dialog' );
+
+				wp_localize_script('unity3-site-updated-notice', 'unity3_site_update_notice', array(
+				    progress_gif => plugins_url( 'ajax-loader.gif', __FILE__ )
+                ) );
 			}
 		}
 
@@ -49,7 +53,7 @@ function Load_SiteUpdatedNotice() {
             <div id="unity3-site-update-dialog" title="Site Update" style="display: none">
                 <label for="unity3-site-update-time">Date:</label>
                 <input type="text" id="unity3-site-update-time" style="width: 99%;" autocomplete="off"
-                value="<?php echo date( 'm/j/Y', $option['time'] ); ?>"
+                value="<?php echo date( 'm/j/Y' ); ?>"
                 >
 
                 <label for="unity3-site-update-inspiration">Inspiration:</label>
@@ -64,20 +68,25 @@ function Load_SiteUpdatedNotice() {
 			if (false == $option) { return; }
 			?>
 			<div class="notice notice-info unity3-site-updated-notice is-dismissible">
-				<p><?php printf( __( 'This site was updated by unity3software on %s. %s', 'unity3_site_update_notice' ),
-						date( 'l, F j, Y',$option['time']), stripslashes($option['inspiration'])); ?></p>
+                <p class="content">
+                    <?php echo $this->get_notice_content($option) ?>
+                </p>
 			</div>
 			<?php
 		}
 
+		private function get_notice_content($option) {
+		    return sprintf( __( 'This site was updated by unity3software on %s. %s', 'unity3_site_update_notice' ),
+					date( 'l, F j, Y',$option['time']), stripslashes($option['inspiration']));
+        }
+
 		public function update() {
 		    update_option('unity3-site-update', array('time' =>  strtotime($_REQUEST['unity3_time']), 'inspiration' => $_REQUEST['unity3_inspiration']));
 			global $wpdb;
-			if ($wpdb->update($wpdb->usermeta, array('meta_value' => 0), array('meta_key' => 'unity3_site_updated_dismiss'))) {
-				wp_send_json_success();
-			} else {
-			    wp_send_json_error();
-			}
+			$wpdb->update($wpdb->usermeta, array('meta_value' => 0), array('meta_key' => 'unity3_site_updated_dismiss'));
+            $option = get_option('unity3-site-update', false);
+            $notice_content = $this->get_notice_content($option);
+            wp_send_json_success($notice_content);
 		}
 
 		public function dismiss() {

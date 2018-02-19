@@ -5,9 +5,26 @@ jQuery(document).ready( function($) {
     $( "#unity3-site-update-dialog" ).dialog({
         autoOpen: false,
         modal: true,
+
+        open: function( event, ui ) {
+            var $buttonset = $('#unity3-site-update-dialog').parent().find('.ui-dialog-buttonset');
+            var $progress = $buttonset.find('.ajax-progress');
+            //if the ajax progress bar does not exists...
+            if (0 == $progress.length) {
+                $progress = $('<img style="display: none;" class="ajax-progress">');
+                $progress.attr("src", unity3_site_update_notice.progress_gif);
+                $buttonset.append($progress);
+            }
+            $buttonset.find('.ui-button').show();
+            $progress.hide();
+        },
+
         buttons: {
             "Update": function() {
                 var $this = $(this);
+                var $buttonset = $('#unity3-site-update-dialog').parent().find('.ui-dialog-buttonset');
+                $buttonset.children().hide();
+                $buttonset.find('.ajax-progress').show();
                 $.ajax({
                     url: ajaxurl,
                     data: {
@@ -16,6 +33,9 @@ jQuery(document).ready( function($) {
                         unity3_inspiration: $("#unity3-site-update-inspiration").val()
                     },
                     success: function(data) {
+                        if ($.trim(data)) {
+                            $('.unity3-site-updated-notice .content').html(data.data);
+                        }
                         $this.dialog( "close" );
                     }
                 });
