@@ -23,7 +23,7 @@ class Unity3_Restrict_Pages {
 				}
 			}
 
-			if($_GET['permissions_error']) {
+			if(isset($_GET['permissions_error'])) {
 				add_action('admin_notices', array(&$this, 'admin_notice'));
 			}
 		}

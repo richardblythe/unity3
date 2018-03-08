@@ -3,7 +3,7 @@
     Plugin Name: Unity 3 Software
     Plugin URI: http://www.unity3software.com/
     Description: Customized widgets and functions for client websites
-    Version: 1.7.4
+    Version: 1.7.5
     Author: Richard Blythe
     Author URI: http://unity3software.com/richardblythe
     GitHub Plugin URI: https://github.com/richardblythe/unity3
