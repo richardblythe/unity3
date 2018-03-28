@@ -47,14 +47,18 @@ function unity3_flexible_widget_area_class( $id ) {
 function Init_Unity3Footer() {
   class Unity3Footer {
     public function __construct() {
-    	//register a default flexible widget area in the footer
+
+	    add_action( 'widgets_init', array($this, 'register') );
+	    add_action( 'genesis_footer', array($this, 'customize'), 0 );
+    }
+
+    public function register() {
+	    //register a default flexible widget area in the footer
 	    genesis_register_sidebar( array(
 		    'id' => 'unity3-footer',
 		    'name' => __( 'Flexible Footer', 'genesis' ),
 		    'description' => __( 'Add a dynamic number of footer widgets to this area', 'unity3' ),
 	    ) );
-
-	    add_action( 'genesis_footer', array($this, 'customize'), 0 );
     }
 
     public function customize() {
@@ -77,5 +81,5 @@ function Init_Unity3Footer() {
   }
 }
 
-add_action('init', 'Init_Unity3Footer');
+add_action('genesis_init', 'Init_Unity3Footer');
 

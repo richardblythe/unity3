@@ -23,14 +23,7 @@ class Unity3_Credits extends WP_Widget {
 	function __construct() {
 
 		$this->defaults = array(
-			'title'           => '',
-			'show_image'      => 0,
-			'image_alignment' => '',
-			'image_size'      => '',
-			'show_title'      => 0,
-			'show_content'    => 0,
-			'content_limit'   => '',
-			'more_text'       => '',
+			'type' => 'Basic',
 		);
 
 		$widget_ops = array(
@@ -64,14 +57,35 @@ class Unity3_Credits extends WP_Widget {
 		//* Merge with defaults
 		$instance = wp_parse_args( (array) $instance, $this->defaults );
 
-		if (!empty($instance['image_url']))
-			$instance['image_url'] = do_shortcode($instance['image_url']);
-		if (!empty($instance['description']))
-			$instance['description'] = do_shortcode($instance['description']);
+		$type            = empty($instance['type']) ? 'basic' : $instance['type'];
+        $copyright_owner = empty($instance['copyright_owner']) ? get_bloginfo('name') : $instance['copyright_owner'];
 
 		echo $args['before_widget'];
 
-		echo do_shortcode('[unity3_footer_info]');
+        switch ($type) {
+            case 'copyright':
+                printf('<span class="copyright">&#169; %s</span> <span class="business">%s</span> 
+                    <p class="copyright-content">Except as permitted by the copyright law applicable to you, 
+                    you may not reproduce any of the content on this website, 
+                    including files downloadable from this website, without the permission of 
+                    the copyright owner.</p>
+                    <p class="unity3-content">Site design by 
+                        <a href="mailto:unity3software@gmail.com" 
+                           title="Unity 3 Software"
+                           class="credits-unity3"
+                           style="white-space: nowrap;"
+                        >
+                          Unity 3 Software
+                       </a>
+                   </p>', date( 'Y' ), $copyright_owner);
+
+                break;
+            default: //'basic'
+	            echo do_shortcode('[unity3_footer_info]');
+                break;
+        }
+
+
 
 		echo $args['after_widget'];
 
@@ -92,10 +106,8 @@ class Unity3_Credits extends WP_Widget {
 	 */
 	function update( $new_instance, $old_instance ) {
 
-		$new_instance['title']     = strip_tags( $new_instance['title'] );
-		$new_instance['url'] = strip_tags( $new_instance['url'] );
-		$new_instance['image_url'] = strip_tags( $new_instance['image_url'] );
-		$new_instance['description'] = strip_tags( $new_instance['description'] );
+		$new_instance['type']            = strip_tags( $new_instance['type'] );
+		$new_instance['copyright_owner'] = strip_tags( $new_instance['copyright_owner'] );
 		return $new_instance;
 
 	}
@@ -111,28 +123,21 @@ class Unity3_Credits extends WP_Widget {
 
 		//* Merge with defaults
 		$instance = wp_parse_args( (array) $instance, $this->defaults );
-
+        
 		?>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'description' ); ?>"><?php _e( 'Description', 'genesis' ); ?>:</label>
-			<textarea rows="10" cols="20" id="<?php echo $this->get_field_id( 'description' ); ?>" name="<?php echo $this->get_field_name( 'description' ); ?>" class="widefat"><?php echo esc_attr( $instance['description'] ); ?></textarea>
-		</p>
-
-		<p>
-			<label for="<?php echo $this->get_field_id( 'image_url' ); ?>"><?php _e( 'Image Url', 'genesis' ); ?>:</label>
-			<input type="text" id="<?php echo $this->get_field_id( 'image_url' ); ?>" name="<?php echo $this->get_field_name( 'image_url' ); ?>" value="<?php echo esc_attr( $instance['image_url'] ); ?>" class="widefat" />
-		</p>
-
-		<p>
-			<label for="<?php echo $this->get_field_id( 'image_alignment' ); ?>"><?php _e( 'Image Alignment', 'genesis' ); ?>:</label>
-			<select id="<?php echo $this->get_field_id( 'image_alignment' ); ?>" name="<?php echo $this->get_field_name( 'image_alignment' ); ?>">
-				<option value="alignnone">- <?php _e( 'None', 'genesis' ); ?> -</option>
-				<option value="alignleft" <?php selected( 'alignleft', $instance['image_alignment'] ); ?>><?php _e( 'Left', 'genesis' ); ?></option>
-				<option value="alignright" <?php selected( 'alignright', $instance['image_alignment'] ); ?>><?php _e( 'Right', 'genesis' ); ?></option>
-				<option value="aligncenter" <?php selected( 'aligncenter', $instance['image_alignment'] ); ?>><?php _e( 'Center', 'genesis' ); ?></option>
+			<label for="<?php echo $this->get_field_id( 'type' ); ?>"><?php _e( 'Display Type', 'unity3' ); ?>:</label>
+			<select id="<?php echo $this->get_field_id( 'type' ); ?>" name="<?php echo $this->get_field_name( 'type' ); ?>">
+                <option value="basic" <?php selected( 'basic', $instance['type'] ); ?>><?php _e( 'Basic', 'unity3' ); ?></option>
+				<option value="copyright" <?php selected( 'copyright', $instance['type'] ); ?>><?php _e( 'Copyright', 'unity3' ); ?></option>
 			</select>
 		</p>
+        <p>
+            <label for="<?php echo $this->get_field_id( 'copyright_owner' ); ?>"><?php _e( 'Copyright Owner', 'unity3' ); ?>:</label>
+            <input type="text" id="<?php echo $this->get_field_id( 'copyright_owner' ); ?>" name="<?php echo $this->get_field_name( 'copyright_owner' ); ?>" value="<?php echo esc_attr( $instance['copyright_owner'] ); ?>" class="widefat" />
+        </p>
+
 		<?php
 
 	}
