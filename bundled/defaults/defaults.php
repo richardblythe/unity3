@@ -96,40 +96,43 @@ function Load_Unity3Defaults() {
 
         return $emails;
     }
+	  public function admin_hide_meta_boxes() {
+		  global $pagenow;
+		  if (!in_array( $pagenow, array( 'edit.php', 'post.php', 'post-new.php' ), FALSE ) )
+			  return;
+
+		  $current_user = wp_get_current_user();
+		  if ('unity3software' != $current_user->user_login) {
+			  //Get a list of all the metaboxes to be hidden
+			  $selectors = apply_filters('unity3_hide_meta_boxes', array('#pageparentdiv', '#trackbacksdiv', '#slugdiv',
+					  '#postcustom', '#genesis_inpost_seo_box', '#genesis_inpost_layout_box', '#genesis_inpost_scripts_box',
+					  '#ninja_forms_selector', '#twitter-custom',
+					  '.post-type-tribe_events #event_venue', '.post-type-tribe_events #event_organizer',
+					  '.post-type-tribe_events #event_url', '.post-type-tribe_events #event_cost')
+			  );
+			  //now we will hide the Screen Option boxes that are related to the meta boxes
+			  $screen_option_boxes = array();
+			  foreach ($selectors as $selector) {
+				  if (0 === strpos($selector, '#'))
+					  $screen_option_boxes[] = 'label[for="'. substr($selector, 1) .'-hide"]';
+			  }
+			  $selectors = array_merge($selectors, $screen_option_boxes);
+			  //
+			  $misc_elements = apply_filters('unity3_hide_misc', array('#wp-content-media-buttons .nf-insert-form', '#add_pod_button'));
+			  //
+			  $selectors = array_merge($selectors, $misc_elements);
+			  ?>
+              <!-- Unity3 Hide Elements  -->
+              <style type="text/css">
+                  <?php echo implode(',', $selectors); ?>{display:none !important;}
+              </style>
+			  <?php
+		  }
+	  }
 
 
-    public function admin_hide_meta_boxes() {
-        global $pagenow;
-        if (!in_array( $pagenow, array( 'edit.php', 'post.php', 'post-new.php' ), FALSE ) )
-            return;
 
-        //Get a list of all the metaboxes to be hidden
-        $selectors = apply_filters('unity3_hide_meta_boxes', array('#pageparentdiv', '#trackbacksdiv', '#slugdiv',
-            '#postcustom', '#genesis_inpost_seo_box', '#genesis_inpost_layout_box', '#genesis_inpost_scripts_box',
-            '#ninja_forms_selector', '#twitter-custom',
-            '.post-type-tribe_events #event_venue', '.post-type-tribe_events #event_organizer',
-            '.post-type-tribe_events #event_url', '.post-type-tribe_events #event_cost')
-        );
-        //now we will hide the Screen Option boxes that are related to the meta boxes
-        $screen_option_boxes = array();
-        foreach ($selectors as $selector) {
-            if (0 === strpos($selector, '#'))
-                $screen_option_boxes[] = 'label[for="'. substr($selector, 1) .'-hide"]';
-        }
-        $selectors = array_merge($selectors, $screen_option_boxes);
-        //
-        $misc_elements = apply_filters('unity3_hide_misc', array('#wp-content-media-buttons .nf-insert-form', '#add_pod_button'));
-        //
-        $selectors = array_merge($selectors, $misc_elements);
-        ?>
-        <!-- Unity3 Hide Elements  -->
-        <style type="text/css">
-            <?php echo implode(',', $selectors); ?>{display:none !important;}
-        </style>
-        <?php
-    }
-
-    public function admin_hide_pages( $query ) {
+	  public function admin_hide_pages( $query ) {
        if( isset( $_GET['post_type'] ) 
         && $_GET['post_type'] == 'page' 
         && $query->query['post_type'] == 'page' 
