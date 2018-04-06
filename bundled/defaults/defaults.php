@@ -41,6 +41,9 @@ function Load_Unity3Defaults() {
         //*****************************************************************
 
         add_filter( 'as3cf_allowed_mime_types', array( &$this, 'aws_allowed_mime_types' ), 10, 1 );
+
+        //allows a caller to use this action to safely use the unity3_register_post_type() method
+        do_action('unity3_register_post_type');
     }
     
     public function enqueue_scripts() {
