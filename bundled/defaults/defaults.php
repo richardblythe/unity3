@@ -41,11 +41,14 @@ function Load_Unity3Defaults() {
         //*****************************************************************
 
         add_filter( 'as3cf_allowed_mime_types', array( &$this, 'aws_allowed_mime_types' ), 10, 1 );
+        add_action('init', array($this, 'init_register_post_types'));
+    }
 
-        //allows a caller to use this action to safely use the unity3_register_post_type() method
+    public function init_register_post_types() {
+	    //allows a caller to use this action to safely use the unity3_register_post_type() method
         do_action('unity3_register_post_type');
     }
-    
+
     public function enqueue_scripts() {
         wp_enqueue_style('unity3-default-css', plugins_url('/css/index.min.css', __FILE__));
     }
