@@ -422,4 +422,61 @@ function unity3_footer_info_shortcode( ) {
 }
 add_shortcode( 'unity3_footer_info', 'unity3_footer_info_shortcode' );
 
+function unity3_register_post_type($slug, $singular, $plural, $args = array(), $merge_distinct = true) {
+	$defaults = array(
+		'label' => $plural,
+		'labels' => array(
+			'name' => $plural,
+			'singular_name' => $singular,
+			'menu_name' => $plural,
+			'add_new_item' => "Add New $singular",
+			'edit_item' => "Edit $singular",
+			'new_item' => "New $singular",
+			'view_item' => "View $singular",
+			'view_items' => "View $plural",
+			'search_items' => "Search $plural",
+			'not_found' => "No $plural found",
+			'not_found_in_trash' => "No $plural found in Trash",
+			'all_items' => "All $plural",
+			'archives' => "$singular Archives",
+			'attributes' => "$singular Attributes",
+			'insert_into_item' => "Insert into $singular"
+		),
+		'description' => '',
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true,
+		'show_in_rest' => false,
+		'has_archive' => true,
+		'show_in_menu' => true,
+		'exclude_from_search' => false,
+		'capability_type' => 'post',
+		'map_meta_cap' => true,
+		'hierarchical' => false,
+		'rewrite' => array( 'slug' => $slug, 'with_front' => true ),
+		'query_var' => true,
+		'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt' )
+	);
+	$args = $merge_distinct ? array_merge_recursive_distinct($defaults, $args) : array_merge($defaults, $args);
+
+	return register_post_type($slug, $args);
+}
+
+function array_merge_recursive_distinct(array &$array1, array &$array2)
+{
+	$merged = $array1;
+	foreach ($array2 as $key => &$value)
+	{
+		if (is_array($value) && isset($merged[$key]) && is_array($merged[$key]))
+		{
+			$merged[$key] = array_merge_recursive_distinct($merged[$key], $value);
+		}
+		else
+		{
+			$merged[$key] = $value;
+		}
+	}
+	return $merged;
+}
+
 add_action('init', 'Load_Unity3Defaults');
