@@ -1,0 +1,70 @@
+/* Unity 3 flexible widgets
+---------------------------------------------------------------------------------------------------- */
+
+.unity3-flexible-widget-area .widget {
+    float: left;
+    margin-bottom: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.unity3-flexible-widget-area .widget:last-of-type {
+    margin-bottom: 0;
+}
+
+.unity3-flexible-widget-area.widget-halves .widget:last-of-type {
+    margin-bottom: 40px;
+}
+
+.unity3-flexible-widget-area.widget-full .widget,
+.unity3-flexible-widget-area.widget-halves.uneven .widget:last-of-type {
+    width: 100%;
+}
+
+.unity3-flexible-widget-area.widget-fourths .widget {
+    width: 25%;
+}
+
+.unity3-flexible-widget-area.widget-halves .widget {
+    width: 50%;
+}
+
+.unity3-flexible-widget-area.widget-thirds .widget {
+    width: 33.33%;
+}
+
+.unity3-flexible-widget-area.widget-halves .widget:nth-child(odd),
+.unity3-flexible-widget-area.widget-thirds .widget:nth-child(4n+0),
+.unity3-flexible-widget-area.widget-fourths .widget:nth-child(5n+0) {
+    clear: left;
+}
+
+@media only screen and (max-width: 1280px) {
+
+    .unity3-flexible-widget-area.widget-fourths .widget {
+        width: 33.33%;
+    }
+
+    .unity3-flexible-widget-area.widget-thirds .widget {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 1023px) {
+
+    .unity3-flexible-widget-area.widget-fourths .widget {
+        width: 50%;
+    }
+    .unity3-flexible-widget-area.widget-thirds .widget {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+
+    .unity3-flexible-widget-area.widget-fourths .widget,
+    .unity3-flexible-widget-area.widget-halves .widget,
+    .unity3-flexible-widget-area.widget-thirds .widget {
+        width: 100%;
+    }
+}

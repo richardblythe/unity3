@@ -1,0 +1,13 @@
+//Hides the default Wordpress Gravatar box.  We use the Avatar Manager plugin
+.profile-php .user-profile-picture {
+  display: none;
+}
+
+//Hide the avatar rating.  All Unity 3 clients should use the G rating
+#avatar-manager tr:last-child {
+  display: none;
+}
+
+p.testing123 {
+  background: none;
+}
