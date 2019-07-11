@@ -3,46 +3,80 @@
     Plugin Name: Unity 3 Software
     Plugin URI: http://www.unity3software.com/
     Description: Customized widgets and functions for client websites
-    Version: 1.10.0
+    Version: 2.0.0
     Author: Richard Blythe
     Author URI: http://unity3software.com/richardblythe
     GitHub Plugin URI: https://github.com/richardblythe/unity3
  */
-class Unity3 {   
-    public static $dir, $url;
+class Unity3 {
+    public static $ver, $dir, $url, $vendor_url, $blank_img;
+    private $widgets;
     function __construct() {
-        add_filter( 'wp_page_menu_args', array(&$this, 'home_page_menu_args' ));
         //
+	    Unity3::$ver = '2.0.0';
         Unity3::$dir = plugin_dir_path( __FILE__ );
         Unity3::$url = plugin_dir_url( __FILE__ );
-        //load bundled plugins...
-        require_once (Unity3::$dir . '/bundled/loader.php');
-
-        if (!(defined('DOING_AJAX') && DOING_AJAX)) {
-            //this can appear in both admin and frontend when the user is logged in...
-            add_action('admin_bar_menu', array(&$this, 'unity3_admin_bar_logo'), 0);
-            add_action( 'admin_bar_menu', array(&$this, 'unity3_admin_bar_howdy'), 11 );
-            //
-            add_action( 'wp_before_admin_bar_render', array(&$this, 'modify_admin_bar'), 0);
-            add_action('admin_enqueue_scripts', array(&$this, 'admin_enqueue_scripts_styles'));
-            add_action('login_enqueue_scripts', array(&$this, 'login_enqueue_scripts_styles'));
-	        add_filter( 'login_message', array(&$this, 'custom_login_message') );
-            add_filter( 'request', array(&$this, 'filter_media' ));
-            //strips <p> tags from images
-            add_filter('the_content', array(&$this, 'filter_ptags'));
-
-            if (is_admin()) {
-                add_action('admin_init', array(&$this, 'admin_init'));
-                add_action('admin_menu', array(&$this,'hide_update_notice'), 9999 );
-
-                add_filter('admin_footer_text', array(&$this,'modify_admin_footer'),999); 
-                add_filter('update_footer', array(&$this, 'modify_admin_version_footer'), 999);
-            }
-        } else {
-            add_filter( 'ajax_query_attachments_args', array(&$this, 'filter_media' ));
-        }
-
+        Unity3::$vendor_url = plugin_dir_url( __FILE__ ) . '/vendor';
+	    Unity3::$blank_img = plugin_dir_url( __FILE__ ) . '/assets/images/blank.gif';
     }
+
+    public function initialize() {
+
+	    //load bundled plugins...
+	    require_once (Unity3::$dir . '/includes/loader.php');
+
+	    add_filter( 'wp_page_menu_args', array(&$this, 'home_page_menu_args' ));
+	    add_action( 'widgets_init', array(&$this, 'register_widgets'));
+
+	    if (!(defined('DOING_AJAX') && DOING_AJAX)) {
+		    //this can appear in both admin and frontend when the user is logged in...
+		    add_action('admin_bar_menu', array(&$this, 'unity3_admin_bar_logo'), 0);
+		    add_action( 'admin_bar_menu', array(&$this, 'unity3_admin_bar_howdy'), 11 );
+		    //
+		    add_action( 'wp_before_admin_bar_render', array(&$this, 'modify_admin_bar'), 0);
+		    add_action('admin_enqueue_scripts', array(&$this, 'admin_enqueue_scripts_styles'));
+		    add_action('login_enqueue_scripts', array(&$this, 'login_enqueue_scripts_styles'));
+		    add_filter( 'login_message', array(&$this, 'custom_login_message') );
+		    add_filter( 'request', array(&$this, 'filter_media' ));
+		    //strips <p> tags from images
+		    add_filter('the_content', array(&$this, 'filter_ptags'));
+
+
+		    if (is_admin()) {
+			    add_action('admin_init', array(&$this, 'admin_init'));
+			    add_action('admin_menu', array(&$this,'hide_update_notice'), 9999 );
+
+			    add_filter('admin_footer_text', array(&$this,'modify_admin_footer'),999);
+			    add_filter('update_footer', array(&$this, 'modify_admin_version_footer'), 999);
+		    }
+	    } else {
+		    add_filter( 'ajax_query_attachments_args', array(&$this, 'filter_media' ));
+	    }
+    }
+
+	function Dir( $sub_directory ) {
+		return Unity3::$dir . $sub_directory;
+	}
+
+	function Url( $sub_url ) {
+		return Unity3::$url . $sub_url;
+	}
+
+    public function AddWidget( $widget_name ){
+    	if (!isset($this->widgets)) {
+    		$this->widgets = array();
+	    }
+
+	    $this->widgets[] = $widget_name;
+    }
+
+	function register_widgets() {
+    	if (isset($this->widgets)) {
+    		foreach ($this->widgets as $widget) {
+			    register_widget( $widget );
+		    }
+	    }
+	}
 
     function custom_login_message($message) {
 	    if ( empty($message) ){
@@ -72,11 +106,11 @@ class Unity3 {
 
     
     function login_enqueue_scripts_styles() {
-        wp_enqueue_style('unity3-login-style', plugins_url( 'includes/css/login.css', __FILE__ ), false, '1.8');
+        wp_enqueue_style('unity3-login-style', plugins_url( 'assets/css/login.css', __FILE__ ), false, Unity3::$ver);
     }
     
     function admin_enqueue_scripts_styles() {
-        wp_enqueue_script('unity3-admin', plugins_url( 'includes/js/unity3.js', __FILE__ ), array('jquery'));
+        wp_enqueue_script('unity3-admin', plugins_url( 'assets/js/unity3.js', __FILE__ ), array('jquery'), Unity3::$ver);
     }
     
     function unity3_admin_bar_logo($wp_admin_bar) {      
@@ -153,7 +187,7 @@ class Unity3 {
         $screen = get_current_screen();
         if ('edit-page' == $screen->id || 'edit-post' == $screen->id) {
             $filter = apply_filters('unity3_hide_admin_posts', array());
-            $filter = $filter[$request['post_type']];
+            $filter = isset($filter[$request['post_type']]) ? $filter[$request['post_type']] : null;
             if (is_array($filter)) {
                 $request['post__not_in'] = $filter;
             }
@@ -163,7 +197,7 @@ class Unity3 {
     //-------------------------------------------
     function filter_media( $request ) {
         //Only filter the structural media items from non-administrators
-        if ($request['post_type'] != 'attachment' || current_user_can('manage_options'))
+        if ((isset($request['post_type']) && $request['post_type'] != 'attachment') || current_user_can('manage_options'))
             return $request;
 
         $is_wp_media = false;
@@ -208,4 +242,43 @@ class Unity3 {
         return $request;
     }
 }
-new Unity3();
+
+
+/*
+*  Unity3_Post_Types
+*
+*  The main function responsible for returning the one true acf Instance to functions everywhere.
+*  Use this function like you would a global variable, except without needing to declare the global.
+*
+*  Example: <?php $Unity3_Post_Types = Unity3_Post_Types(); ?>
+*
+*  @type	function
+*  @date	4/09/13
+*  @since	4.3.0
+*
+*  @param	N/A
+*  @return	(object)
+*/
+
+function unity3() {
+
+	// globals
+	global $unity3;
+
+
+	// initialize
+	if( !isset($unity3) ) {
+		$unity3 = new Unity3();
+		$unity3->initialize();
+	}
+
+
+	// return
+	return $unity3;
+
+}
+
+
+
+// initialize
+unity3();
