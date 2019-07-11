@@ -1,0 +1,22 @@
+body.login.login-action-login.wp-core-ui {
+    background-color: #F1F1F1;
+    background-image: url(../images/login-bg-mountains.jpg);
+    background-size: 760px 359px;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+}
+
+body.login div#login h1 a {
+    width: 100px;
+    height: 70px;
+    background-image: url(../images/unity3_logo_100.png);
+    background-size: 100px 70px;
+    margin-bottom: 5px;
+}
+
+.login #backtoblog,
+.login #nav {
+    background-color: rgba(241, 241, 241, 0.78);
+    padding: 16px 24px!important;
+    margin: 0!important;
+}
