@@ -3,7 +3,7 @@
     Plugin Name: Unity 3 Software
     Plugin URI: http://www.unity3software.com/
     Description: Customized widgets and functions for client websites
-    Version: 2.0.2
+    Version: 2.0.3
     Author: Richard Blythe
     Author URI: http://unity3software.com/richardblythe
     GitHub Plugin URI: https://github.com/richardblythe/unity3
@@ -37,7 +37,7 @@ class Unity3 {
 		    add_action('admin_enqueue_scripts', array(&$this, 'admin_enqueue_scripts_styles'));
 		    add_action('login_enqueue_scripts', array(&$this, 'login_enqueue_scripts_styles'));
 		    add_filter( 'login_message', array(&$this, 'custom_login_message') );
-		    add_filter( 'request', array(&$this, 'filter_media' ));
+//		    add_filter( 'request', array(&$this, 'filter_media' ));
 		    //strips <p> tags from images
 		    add_filter('the_content', array(&$this, 'filter_ptags'));
 
@@ -195,52 +195,52 @@ class Unity3 {
         return $request;
     }
     //-------------------------------------------
-    function filter_media( $request ) {
-        //Only filter the structural media items from non-administrators
-        if ((isset($request['post_type']) && $request['post_type'] != 'attachment') || current_user_can('manage_options'))
-            return $request;
-
-        $is_wp_media = false;
-        if (isset($_REQUEST['action']) && 'query-attachments' == $_REQUEST['action'])
-            $is_wp_media = true;
-        //
-        if (!$is_wp_media) {
-            $screen = get_current_screen();
-            $is_wp_media = (isset($screen) && 'upload' === $screen->id);
-        }
-
-        //if this is a wordpress media request
-        if ( $is_wp_media) {
-            if (apply_filters('unity3_filter_featured_media', true)) {
-                global $wpdb;
-                //get the media items that are featured page images
-                $post_ids = $wpdb->get_col(
-                    "SELECT meta_value FROM $wpdb->postmeta pm LEFT JOIN $wpdb->posts p
-                        ON pm.post_id=p.ID WHERE p.post_type = 'page' AND meta_key = '_thumbnail_id'");
-                //if we have results, filter out the media items that are attached to the post_ids 
-                if (isset($post_ids) && count($post_ids) != 0) {
-                    $request['post__not_in'] = isset($request['post__not_in']) ?
-                        array_merge($request['post__not_in'], $post_ids) : $post_ids;
-                }
-            }
-
-            if (apply_filters('unity3_filter_structure_media', true)) {
-                $request['meta_query'] = array(
-                    'relation' => 'AND',
-                    array(
-                        'key'     => '_wp_attachment_is_custom_background',
-                        'compare' => 'NOT EXISTS',
-                    ),
-                    array(
-                        'key'     => '_wp_attachment_is_custom_header',
-                        'compare' => 'NOT EXISTS',
-                    )
-                );
-            }
-        }
-
-        return $request;
-    }
+//    function filter_media( $request ) {
+//        //Only filter the structural media items from non-administrators
+//        if ((isset($request['post_type']) && $request['post_type'] != 'attachment') || current_user_can('manage_options'))
+//            return $request;
+//
+//        $is_wp_media = false;
+//        if (isset($_REQUEST['action']) && 'query-attachments' == $_REQUEST['action'])
+//            $is_wp_media = true;
+//        //
+//        if (!$is_wp_media) {
+//            $screen = get_current_screen();
+//            $is_wp_media = (isset($screen) && 'upload' === $screen->id);
+//        }
+//
+//        //if this is a wordpress media request
+//        if ( $is_wp_media) {
+//            if (apply_filters('unity3_filter_featured_media', true)) {
+//                global $wpdb;
+//                //get the media items that are featured page images
+//                $post_ids = $wpdb->get_col(
+//                    "SELECT meta_value FROM $wpdb->postmeta pm LEFT JOIN $wpdb->posts p
+//                        ON pm.post_id=p.ID WHERE p.post_type = 'page' AND meta_key = '_thumbnail_id'");
+//                //if we have results, filter out the media items that are attached to the post_ids
+//                if (isset($post_ids) && count($post_ids) != 0) {
+//                    $request['post__not_in'] = isset($request['post__not_in']) ?
+//                        array_merge($request['post__not_in'], $post_ids) : $post_ids;
+//                }
+//            }
+//
+//            if (apply_filters('unity3_filter_structure_media', true)) {
+//                $request['meta_query'] = array(
+//                    'relation' => 'AND',
+//                    array(
+//                        'key'     => '_wp_attachment_is_custom_background',
+//                        'compare' => 'NOT EXISTS',
+//                    ),
+//                    array(
+//                        'key'     => '_wp_attachment_is_custom_header',
+//                        'compare' => 'NOT EXISTS',
+//                    )
+//                );
+//            }
+//        }
+//
+//        return $request;
+//    }
 }
 
 

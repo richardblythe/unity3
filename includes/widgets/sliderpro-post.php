@@ -611,6 +611,7 @@ class Unity3_SliderPro_Post_Widget extends WP_Widget {
 			$skin_name = $settings['_skin']['value'];
 		}
 
+		$settings = apply_filters('sliderpro/settings', $settings, $query);
 		$sp_class = apply_filters('sliderpro/class', 'sliderpro ' . $skin_name, $query);
 		$sp_slides_class = apply_filters('sliderpro/slides/class', 'sp-slides', $query);
 		$sp_slide_class = apply_filters('sliderpro/slides/slide/class', 'sp-slide', $query);
