@@ -650,7 +650,7 @@ class Unity3_SliderPro_Post_Widget extends WP_Widget {
 
 			    if ("_sp" === substr( $field_name, 0, 3 )) {
                     //
-			        //convert special fields into sliderPro js_encode ready values
+			        //convert special fields into sliderPro js_encode ready values``
 					if ('_sp_thumbnail_size' == $field_name) {
 						$sizes = $this->get_image_sizes('raw');
 						$sp_values['thumbnailWidth'] = $sizes[$field['value']]['width'];
@@ -704,25 +704,52 @@ class Unity3_SliderPro_Post_Widget extends WP_Widget {
                  data-large="<?php echo wp_get_attachment_image_url($image_id, $settings['_sp_image_size_large']['value']); ?>"
             />
 
-			<?php if ($settings['_sp_show_title']['value']) : ?>
-                <h3 class="sp-layer sp-black sp-padding"
-                    data-horizontal="40" data-vertical="40"
-                    data-show-transition="left">
-					<?php the_title(); ?>
-                </h3>
-			<?php endif; ?>
+            <?php
 
-			<?php if ($settings['_sp_show_excerpt']['value']) :
-				$the_excerpt = get_the_excerpt();
-				?>
-                <p class="sp-layer sp-black sp-padding"
-                   data-position="bottomLeft" data-vertical="0" data-width="100%"
-                   data-show-transition="up">
-					<?php echo $the_excerpt; ?>
-                </p>
-			<?php endif; ?>
+            //if this is a unity3_slide and we are set to do advanced layers...
+            if ( 'unity3_slide' == get_post_type() && get_field( 'advanced' )) {
 
-			<?php
+	            $layers = get_field('layers');
+	            if($layers)
+	            {
+		            foreach($layers as $layer)
+		            {
+			            $data = '';
+			            foreach( $layer as $field_name => $value ) {
+				            if (0 === strpos($field_name, 'data-') && !empty($value)) {
+					            $data .= (' ' . $field_name . '="'. $value . '"' );
+				            }
+			            }
+
+			            ?>
+
+                        <div class="sp-layer" <?php echo $data ?>>
+				            <?php echo $layer['text']; ?>
+                        </div>
+			            <?php
+		            }
+	            }
+
+            } else {
+                //default back to a safe, post title and excerpt for our layers
+	            if ($settings['_sp_show_title']['value']) : ?>
+                    <h3 class="sp-layer"
+                        data-horizontal="40" data-vertical="40"
+                        data-show-transition="left">
+			            <?php the_title(); ?>
+                    </h3>
+	            <?php endif; ?>
+
+			    <?php if ($settings['_sp_show_excerpt']['value']) :
+		            $the_excerpt = get_the_excerpt();
+		            ?>
+                    <p class="sp-layer"
+                       data-position="bottomLeft" data-vertical="0" data-width="100%"
+                       data-show-transition="up">
+			            <?php echo $the_excerpt; ?>
+                    </p>
+	            <?php endif;
+            }
 		}
 	}
 

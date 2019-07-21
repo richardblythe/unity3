@@ -3,7 +3,7 @@
     Plugin Name: Unity 3 Software
     Plugin URI: http://www.unity3software.com/
     Description: Customized widgets and functions for client websites
-    Version: 2.0.3
+    Version: 2.0.5
     Author: Richard Blythe
     Author URI: http://unity3software.com/richardblythe
     GitHub Plugin URI: https://github.com/richardblythe/unity3
@@ -13,7 +13,7 @@ class Unity3 {
     private $widgets;
     function __construct() {
         //
-	    Unity3::$ver = '2.0.2';
+	    Unity3::$ver = '2.0.5';
         Unity3::$dir = plugin_dir_path( __FILE__ );
         Unity3::$url = plugin_dir_url( __FILE__ );
         Unity3::$vendor_url = plugin_dir_url( __FILE__ ) . '/vendor';
@@ -116,7 +116,7 @@ class Unity3 {
     function unity3_admin_bar_logo($wp_admin_bar) {      
         $wp_admin_bar->add_node(array(
             'id' => 'unity3-logo',
-            'title' => '<img title="Thank you for choosing Unity 3 Software" src="' . Unity3::$url . 'includes/images/unity3_logo_admin_bar.png" alt="' . esc_attr__( 'Unity3' ) . '" width="32" height="24" style="vertical-align: middle;" />',
+            'title' => '<img title="Thank you for choosing Unity 3 Software" src="' . Unity3::$url . 'assets/images/unity3_logo_admin_bar.png" alt="' . esc_attr__( 'Unity3' ) . '" width="32" height="24" style="vertical-align: middle;" />',
             'parent' => false
         ));
     }
