@@ -1,8 +1,8 @@
 <?php
 /**
- * Unity 3 SliderPro Post Widget Class
+ * Unity 3 SliderPro Widget Class
  */
-class Unity3_SliderPro_Post_Widget extends WP_Widget {
+class Unity3_SliderPro_Widget extends WP_Widget {
 
     const version = '1.0';
     const group_key = 'sliderpro-widget-fields';
@@ -10,9 +10,9 @@ class Unity3_SliderPro_Post_Widget extends WP_Widget {
     protected $fields;
 
     public function __construct() {
-        $widget_ops = array( 'classname' => 'unity3-sliderpro-post-widget', 'description' => __( 'Displays a collection of posts using SliderPro', 'unity3' ) );
-        $control_ops = array( 'width' => 200, 'height' => 250, 'id_base' => 'unity3-sliderpro-post-widget' );
-        parent::__construct( 'unity3-sliderpro-post-widget',
+        $widget_ops = array( 'classname' => 'unity3-sliderpro-widget', 'description' => __( 'Displays a collection of posts using SliderPro', 'unity3' ) );
+        $control_ops = array( 'width' => 200, 'height' => 250, 'id_base' => 'unity3-sliderpro-widget' );
+        parent::__construct( 'unity3-sliderpro-widget',
             __( 'Unity3 SliderPro', 'unity3' ),
             $widget_ops, 
             $control_ops 
@@ -707,7 +707,7 @@ class Unity3_SliderPro_Post_Widget extends WP_Widget {
             <?php
 
             //if this is a unity3_slide and we are set to do advanced layers...
-            if ( 'unity3_slide' == get_post_type() && get_field( 'advanced' )) {
+            if ('sliderpro' == get_field( 'custom' )) {
 
 	            $layers = get_field('layers');
 	            if($layers)
@@ -809,4 +809,8 @@ class Unity3_SliderPro_Post_Widget extends WP_Widget {
 	}
 }
 
-unity3()->AddWidget( 'Unity3_SliderPro_Post_Widget' );
+require_once ( plugin_dir_path( __FILE__) . '/class-post-fields-sliderpro.php' );
+new Unity3_Post_Fields_SliderPro();
+
+unity3()->AddWidget( 'Unity3_SliderPro_Widget' );
+
