@@ -809,11 +809,9 @@ class Unity3_SliderPro_Widget extends WP_Widget {
 	}
 }
 
-require_once ( plugin_dir_path( __FILE__) . '/class-post-fields-sliderpro.php' );
-new Unity3_Post_Fields_SliderPro();
-
 unity3()->AddWidget( 'Unity3_SliderPro_Widget' );
 
+//ACF Fields For SliderPro (see the filter defined below this method)
 function unity3_post_fields_sliderpro() {
 	return array (
 		array (

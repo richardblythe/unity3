@@ -128,17 +128,26 @@ class Unity3_Post_Types {
 		if (!isset( $args ))
 			return false;
 
-		if (!is_array($args) ) {
-			$args = array( $args ); //convert to an array
+		if (!is_array( $args ) ) {
+			$args = array( $args => null); //convert to an associative array
+		}
+		//check to see if the array is sequential. (we need an associative array)
+		if ( array_keys($args) === range(0, count($args) - 1) ) {
+			//convert to an associative array
+			$new_array = array();
+			foreach ($args as $key ) {
+				$new_array[$key] = null;
+			}
+			$args = $new_array; //assign the converted array;
 		}
 
 		$activated_any = false;
 		$type = null;
 		if (0 !== count($args)) {
-			foreach ($args as $post_type ) {
+			foreach ($args as $post_type => $settings ) {
 				$type = $this->GetType( $post_type );
 				if (isset($type) && !$type->IsActivated()) {
-					$type->Activate();
+					$type->Activate( $settings );
 					$activated_any = true;
 				}
 			}

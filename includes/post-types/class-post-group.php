@@ -22,8 +22,8 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 		return get_taxonomy($this->GetTaxonomy());
 	}
 
-	public function Activate() {
-		if (!parent::Activate()) {
+	public function Activate( $args ) {
+		if (!parent::Activate( $args )) {
 			return false;
 		}
 

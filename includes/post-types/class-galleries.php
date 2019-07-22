@@ -11,8 +11,8 @@ class Unity3_Galleries extends Unity3_Post_Group {
 		), $this->settings);
 	}
 
-    public function Activate() {
-	    if (!parent::Activate()) {
+    public function Activate( $args ) {
+	    if (!parent::Activate( $args )) {
 		    return false;
 	    }
 
