@@ -723,7 +723,7 @@ class Unity3_SliderPro_Widget extends WP_Widget {
 
 		                $data = '';
 			            foreach( $layer as $field_name => $value ) {
-				            if (0 === strpos($field_name, 'data-') && !empty($value)) {
+				            if (0 === strpos($field_name, 'data-') && (isset($value) && !empty($value) && 'null' != $value) ) {
 				                $data .= (' ' . $field_name . '="'. $value . '"' );
 				            }
 			            }
@@ -1067,6 +1067,7 @@ function unity3_post_fields_sliderpro() {
 						'id' => '',
 					),
 					'choices' => array(
+                        'null' => 'None',
 						'left' => 'Left',
 						'right' => 'Right',
 						'up' => 'Up',
@@ -1192,6 +1193,7 @@ function unity3_post_fields_sliderpro() {
 						'id' => '',
 					),
 					'choices' => array(
+						'null' => 'None',
 						'left' => 'Left',
 						'right' => 'Right',
 						'up' => 'Up',
