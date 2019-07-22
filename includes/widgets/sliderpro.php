@@ -706,18 +706,25 @@ class Unity3_SliderPro_Widget extends WP_Widget {
 
             <?php
 
-            //if this is a unity3_slide and we are set to do advanced layers...
-            if ('sliderpro' == get_field( 'custom' )) {
+            //if we are set to do advanced layers...
+            if (get_field( 'advanced' )) {
 
 	            $layers = get_field('layers');
 	            if($layers)
 	            {
 		            foreach($layers as $layer)
 		            {
-			            $data = '';
+			            if (!isset($layer['data-position']) && $layer['data-position'] == 'custom') {
+				            unset($layer['data-position']);
+                        } else {
+				            unset($layer['data-horizontal']);
+				            unset($layer['data-vertical']);
+                        }
+
+		                $data = '';
 			            foreach( $layer as $field_name => $value ) {
 				            if (0 === strpos($field_name, 'data-') && !empty($value)) {
-					            $data .= (' ' . $field_name . '="'. $value . '"' );
+				                $data .= (' ' . $field_name . '="'. $value . '"' );
 				            }
 			            }
 
