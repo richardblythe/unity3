@@ -6,9 +6,6 @@ if( ! class_exists('Unity3_Post_Types') ) :
 
 class Unity3_Post_Types {
 
-	/** @var string The plugin version number */
-	var $version = '1.0';
-
 	/** @var array The plugin settings array */
 	var $settings = array();
 
@@ -18,26 +15,10 @@ class Unity3_Post_Types {
 	/** @var array Storage for class instances */
 	private $types = array();
 
-	/*
-	*  __construct
-	*
-	*  A dummy constructor to ensure ACF is only initialized once
-	*
-	*  @type	function
-	*  @date	23/06/12
-	*  @since	5.0.0
-	*
-	*  @param	N/A
-	*  @return	N/A
-	*/
 
 	function initialize() {
 
-		//Todo: Remove For Production
-		$this->version = Unity3::$ver;
-
 		if (is_admin()) {
-			add_action( 'admin_enqueue_scripts', array($this, 'admin_enqueue') );
 			add_filter('unity3_dragsortposts',  array($this, 'register_dragsort_posts') );
 		}
 
@@ -76,18 +57,6 @@ class Unity3_Post_Types {
 		return $classes;
 	}
 
-	public function admin_enqueue() {
-//		wp_register_script('sweetalert', plugins_url( 'js/sweetalert.all.min.js', __FILE__ ), array('jquery'));
-//		wp_enqueue_script( 'unity3-media-admin-script', plugins_url( 'js/unity3-media.js', __FILE__ ), array('wp-element', 'sweetalert'), Unity3_Post_Types()->version );
-//
-//		wp_register_script('sweetalert-style', plugins_url( 'css/sweetalert2.min.css', __FILE__ ));
-//		wp_enqueue_style( 'unity3-media-admin-style', plugins_url( 'css/admin-style.css', __FILE__ ), array(), Unity3_Post_Types()->version );
-
-		//wp_enqueue_script( 'unity3-media-admin-script', plugins_url( 'assets/js/main.js', __FILE__ ), array('wp-element', 'wp-components'), Unity3_Post_Types()->version, true );
-		wp_enqueue_style( 'unity3-post-types-style-admin', plugins_url( 'assets/style.css', __FILE__ ), array(), Unity3_Post_Types()->version );
-
-
-	}
 
 	public function Register( $class ) {
 		// allow instance

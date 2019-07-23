@@ -642,6 +642,11 @@ class Unity3_SliderPro_Widget extends WP_Widget {
 		<?php
 
 		$sp_values = array();
+
+		if (defined('WP_DEBUG') && true === WP_DEBUG) {
+		    $sp_values['autoplay'] = false;
+        }
+
 		if (isset($settings) && is_array($settings)) {
 			foreach ($settings as $field_name => $field) {
 				if ("post_" === (substr( $field_name, 0, 5 ))) {
@@ -716,12 +721,12 @@ class Unity3_SliderPro_Widget extends WP_Widget {
 	            {
 		            foreach($layers as $layer)
 		            {
-			            if (!isset($layer['data-position']) && $layer['data-position'] == 'custom') {
-				            unset($layer['data-position']);
-                        } else {
-				            unset($layer['data-horizontal']);
-				            unset($layer['data-vertical']);
-                        }
+//			            if (isset($layer['data-position']) && $layer['data-position'] == 'custom') {
+//				            unset($layer['data-position']);
+//                        } else {
+//				            unset($layer['data-horizontal']);
+//				            unset($layer['data-vertical']);
+//                        }
 
 		                $data = '';
 			            foreach( $layer as $field_name => $value ) {
@@ -978,7 +983,7 @@ function unity3_post_fields_sliderpro() {
 						'centerLeft' => 'Center Left',
 						'centerRight' => 'Center Right',
 						'centerCenter' => 'Center Center',
-						'custom' => 'Custom',
+//						'custom' => 'Custom',
 					),
 					'default_value' => array(
 					),
@@ -996,15 +1001,15 @@ function unity3_post_fields_sliderpro() {
 					'type' => 'text',
 					'instructions' => 'Set the horizontal position of the layer',
 					'required' => 0,
-					'conditional_logic' => array(
-						array(
-							array(
-								'field' => 'data-position',
-								'operator' => '==',
-								'value' => 'custom',
-							),
-						),
-					),
+//					'conditional_logic' => array(
+//						array(
+//							array(
+//								'field' => 'data-position',
+//								'operator' => '==',
+//								'value' => 'custom',
+//							),
+//						),
+//					),
 					'wrapper' => array(
 						'width' => '50',
 						'class' => '',
@@ -1023,15 +1028,15 @@ function unity3_post_fields_sliderpro() {
 					'type' => 'text',
 					'instructions' => 'Sets the vertical position of the layer',
 					'required' => 0,
-					'conditional_logic' => array(
-						array(
-							array(
-								'field' => 'data-position',
-								'operator' => '==',
-								'value' => 'custom',
-							),
-						),
-					),
+//					'conditional_logic' => array(
+//						array(
+//							array(
+//								'field' => 'data-position',
+//								'operator' => '==',
+//								'value' => 'custom',
+//							),
+//						),
+//					),
 					'wrapper' => array(
 						'width' => '50',
 						'class' => '',
