@@ -148,7 +148,7 @@ body.unity3-post-group-hide-add-term #col-right {
 
 .sp-slide h1, .sp-slide h2, .sp-slide h3, .sp-slide h4, .sp-slide h5, .sp-slide h6, .sp-slide p, .sp-slide div, .sp-slide span, .sp-slide b, .sp-slide i, .sp-slide a, .sp-slide blockquote {
   color: #fff; }
-.sp-slide [data-role="centerCenter"] {
+.sp-slide [data-position="centerCenter"] {
   white-space: normal !important; }
 .sp-slide .sp-layer {
   padding: 40px; }
