@@ -1,5 +1,3 @@
-@import "utilities";
-
 //set the default slide text color
 .sp-slide {
 
@@ -7,6 +5,23 @@
     color: #fff;
   }
 
+  [data-role="centerCenter"] {
+    white-space: normal!important;
+  }
+
+  .sp-layer {
+    padding: 40px;
+  }
+}
+
+
+@media (max-width: 512px) {
+  .sp-slide {
+    .sp-layer {
+      padding: 0px!important;
+      width: 100%!important;
+    }
+  }
 }
 
 @each $name, $breakpoint in $breakpoints {
