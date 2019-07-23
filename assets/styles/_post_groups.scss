@@ -1,0 +1,24 @@
+body.unity3-post-group-hide-add-term {
+
+  #col-left {
+    display: none;
+  }
+
+  #col-right {
+    width: 100%;
+  }
+}
+
+.unity3-post-group-header {
+  background-color: #d6d6d6;
+  padding: 20px;
+  font-size: 30px;
+
+  .title {
+    margin-left: 140px;
+  }
+
+  &.dashicons-before::before {
+    font-size: 120px;
+  }
+}

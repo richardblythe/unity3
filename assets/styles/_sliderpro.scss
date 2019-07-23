@@ -1,0 +1,11 @@
+@import "utilities";
+
+@each $name, $breakpoint in $breakpoints {
+
+  @media (max-width: $breakpoint) {
+     .sp-layer.hide-on-#{$name} {
+       display: none;
+     }
+  }
+
+}

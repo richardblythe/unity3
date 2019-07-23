@@ -626,7 +626,7 @@ class Unity3_SliderPro_Widget extends WP_Widget {
             <div class="<?php echo $sp_slides_class; ?>">
 				<?php while ($query->have_posts()) : $query->the_post(); ?>
                     <!-- Slide -->
-                    <div class="<?php echo $sp_slide_class; ?>">
+                    <div id="slide-<?php the_ID(); ?>" class="<?php echo $sp_slide_class; ?>">
 						<?php $this->RenderSlide($acf_settings_id, $settings ); ?>
                     </div>
 				<?php endwhile; ?>
@@ -728,9 +728,16 @@ class Unity3_SliderPro_Widget extends WP_Widget {
 				            }
 			            }
 
+			            //todo:  Need css to complete this code
+
+			            $layer_classes = 'sp-layer';
+			            if (isset($layer['hide_layer'])) {
+			                $layer_classes .= ' ' . implode(' ', $layer['hide_layer']);
+                        }
+
 			            ?>
 
-                        <div class="sp-layer" <?php echo $data ?>>
+                        <div class="<?php echo $layer_classes; ?>" <?php echo $data ?>>
 				            <?php echo $layer['text']; ?>
                         </div>
 			            <?php
@@ -1036,6 +1043,36 @@ function unity3_post_fields_sliderpro() {
 					'append' => '',
 					'maxlength' => '',
 				),
+
+				array(
+					'key' => 'field_5d3628cfc4d8d',
+					'label' => 'Hide Layer',
+					'name' => 'hide_layer',
+					'type' => 'checkbox',
+					'instructions' => 'Hides the layer on the selected screen size(s)',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'choices' => array(
+						'hide-on-xxs' => 'Extra Small',
+                        'hide-on-sm' => 'Small',
+                        'hide-on-md' => 'Medium',
+						'hide-on-lg' => 'Large',
+                        'hide-on-xl' => 'Extra Large',
+					),
+					'allow_custom' => 0,
+					'default_value' => array(
+					),
+					'layout' => 'horizontal',
+					'toggle' => 0,
+					'return_format' => 'value',
+					'save_custom' => 0,
+				),
+
 				array(
 					'key' => 'field_5d336f0fdeb80',
 					'label' => 'Effect: On Show',

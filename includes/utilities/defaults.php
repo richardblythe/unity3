@@ -21,8 +21,6 @@ function Load_Unity3Defaults() {
 			//* Change the footer text
 			add_filter('genesis_footer_creds_text', array(&$this, 'genesis_footer_creds') );
 
-			add_action( 'admin_enqueue_scripts', array(&$this, 'enqueue_scripts') );
-
 			//this disables (among other things) the uploading of audio.
 			add_filter('upload_mimes', array( &$this, 'default_mime_types' ), 10, 1 );
 			/***************************************************************
@@ -43,10 +41,6 @@ function Load_Unity3Defaults() {
 			add_filter( 'as3cf_allowed_mime_types', array( &$this, 'aws_allowed_mime_types' ), 10, 1 );
 			//allows a caller to use this action to safely use the unity3_register_post_type() method
 			do_action('unity3_register_post_types');
-		}
-
-		public function enqueue_scripts() {
-			wp_enqueue_style('unity3-default-css', plugins_url('/css/index.min.css', __FILE__));
 		}
 
 		//forces the archive contents to show full content instead of excerpts

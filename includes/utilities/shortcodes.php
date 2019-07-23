@@ -1,7 +1,7 @@
 <?php
-add_action('init', 'unity3_register_url_shortcodes');
+add_action('init', 'unity3_register_shortcodes');
 
-function unity3_register_url_shortcodes() {
+function unity3_register_shortcodes() {
     add_shortcode('url_base', 'unity3_url_base_function');
     add_shortcode('url_uploads', 'unity3_url_uploads_function');
     add_shortcode('url_template', 'unity3_url_template_function');

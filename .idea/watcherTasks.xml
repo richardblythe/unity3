@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ProjectTasksOptions">
     <TaskOptions isEnabled="true">
-      <option name="arguments" value="--style compressed --no-cache --update  $ProjectFileDir$/includes/css/unity3.compiled.min.css" />
+      <option name="arguments" value="--style compressed --no-cache --update $FileName$:$FileNameWithoutExtension$.min.css" />
       <option name="checkSyntaxErrors" value="true" />
       <option name="description" />
-      <option name="exitCodeBehavior" value="ERROR" />
+      <option name="exitCodeBehavior" value="ALWAYS" />
       <option name="fileExtension" value="scss" />
       <option name="immediateSync" value="false" />
-      <option name="name" value="SCSS - MIN" />
-      <option name="output" value="$ProjectFileDir$/includes/css/unity3.compiled.min.css" />
+      <option name="name" value="SCSS - Assets" />
+      <option name="output" value="$FileNameWithoutExtension$.min.css:$FileNameWithoutExtension$.min.css.map" />
       <option name="outputFilters">
         <array />
       </option>
