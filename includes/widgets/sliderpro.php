@@ -736,7 +736,7 @@ class Unity3_SliderPro_Widget extends WP_Widget {
 			            }
 
 			            $layer_classes = 'sp-layer';
-			            if (isset($layer['hide_layer']) && count($layer['hide_layer'])) {
+			            if (isset($layer['hide_layer']) && is_array($layer['hide_layer']) && count($layer['hide_layer'])) {
 			                $layer_classes .= ' ' . implode(' ', $layer['hide_layer']);
                         }
 
