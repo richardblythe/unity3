@@ -418,66 +418,6 @@ function unity3_footer_info_shortcode( ) {
 }
 add_shortcode( 'unity3_footer_info', 'unity3_footer_info_shortcode' );
 
-function unity3_register_post_type($slug, $singular, $plural, $args = array(), $merge_distinct = true) {
-	$defaults = array(
-		'label' => $plural,
-		'labels' => array(
-			'name' => $plural,
-			'singular_name' => $singular,
-			'menu_name' => $plural,
-			'add_new' => "Add New $singular",
-            'add_new_item' => "Add New $singular",
-			'edit_item' => "Edit $singular",
-			'new_item' => "New $singular",
-			'view_item' => "View $singular",
-			'view_items' => "View $plural",
-			'search_items' => "Search $plural",
-			'not_found' => "No $plural found",
-			'not_found_in_trash' => "No $plural found in Trash",
-			'all_items' => "All $plural",
-			'archives' => "$singular Archives",
-			'attributes' => "$singular Attributes",
-			'insert_into_item' => "Insert into $singular"
-		),
-		'description' => '',
-		'public' => true,
-		'publicly_queryable' => true,
-		'show_ui' => true,
-		'show_in_rest' => false,
-		'has_archive' => true,
-		'show_in_menu' => true,
-		'exclude_from_search' => false,
-		'capability_type' => 'post',
-		'map_meta_cap' => true,
-		'hierarchical' => false,
-		'rewrite' => array( 'slug' => $slug, 'with_front' => true ),
-		'query_var' => true,
-		'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt' )
-	);
-	$args = $merge_distinct ? array_merge_recursive_distinct($defaults, $args) : array_merge($defaults, $args);
-
-	if (isset($args['menu_bubble'])) {
-		$post_status = $args['menu_bubble'];
-		global $unity3_ctp_bubbles;
-		if (!isset($unity3_ctp_bubbles))
-			$unity3_ctp_bubbles = array();
-
-		if ( false === ( $count = get_transient( "cpt_menu_bubble_{$slug}"  ) ) ) { //menu_bubble tells us the post_status to retrieve
-			global $wpdb;
-			$count = $wpdb->get_var( "SELECT COUNT(ID) as count FROM {$wpdb->post} WHERE `post_status`='{$post_status}' AND `post_type`='{$slug}'" );
-
-			set_transient( "cpt_menu_bubble_{$slug}", $count, 1 * YEAR_IN_SECONDS );
-		}
-
-		$unity3_ctp_bubbles["edit.php?post_type={$slug}"] = $count;
-	}
-
-	return register_post_type($slug, $args);
-}
-
-function unity3_register_taxonomy($slug, $singular, $plural, $args = array(), $merge_distinct = true) {
-
-}
 
 
 function array_merge_recursive_distinct(array &$array1, array &$array2)
