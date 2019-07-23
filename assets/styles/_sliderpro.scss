@@ -1,5 +1,14 @@
 @import "utilities";
 
+//set the default slide text color
+.sp-slide {
+
+  h1, h2, h3, h4, h5, h6, p, div, span, b, i, a, blockquote {
+    color: #fff;
+  }
+
+}
+
 @each $name, $breakpoint in $breakpoints {
 
   @media (max-width: $breakpoint) {
@@ -7,5 +16,4 @@
        display: none;
      }
   }
-
 }

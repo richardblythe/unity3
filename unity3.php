@@ -3,7 +3,7 @@
     Plugin Name: Unity 3 Software
     Plugin URI: http://www.unity3software.com/
     Description: Customized widgets and functions for client websites
-    Version: 2.0.10
+    Version: 2.0.11
     Author: Richard Blythe
     Author URI: http://unity3software.com/richardblythe
     GitHub Plugin URI: https://github.com/richardblythe/unity3
@@ -14,7 +14,7 @@ class Unity3 {
     private $min;
     function __construct() {
         //
-	    Unity3::$ver = '2.0.10';
+	    Unity3::$ver = '2.0.11';
         Unity3::$dir = plugin_dir_path( __FILE__ );
         Unity3::$url = plugin_dir_url( __FILE__ );
         Unity3::$vendor_url = plugin_dir_url( __FILE__ ) . '/vendor';
@@ -37,7 +37,7 @@ class Unity3 {
 		    add_action( 'admin_bar_menu', array(&$this, 'unity3_admin_bar_howdy'), 11 );
 		    //
 		    add_action( 'wp_before_admin_bar_render', array(&$this, 'modify_admin_bar'), 0);
-		    add_action('enqueue_scripts', array(&$this, 'enqueue'));
+		    add_action('wp_enqueue_scripts', array(&$this, 'enqueue'));
 		    add_action('admin_enqueue_scripts', array(&$this, 'enqueue'));
 		    add_action('login_enqueue_scripts', array(&$this, 'enqueue'));
 		    add_filter( 'login_message', array(&$this, 'custom_login_message') );

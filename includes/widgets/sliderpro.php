@@ -670,10 +670,12 @@ class Unity3_SliderPro_Widget extends WP_Widget {
 
         <script type="text/javascript">
             jQuery( document ).ready(function( $ ) {
-                $( '#<?php echo $slider_id; ?>' ).sliderPro(
-					<?php
+                var $slider = $( '#<?php echo $slider_id; ?>' );
+                $slider.sliderPro(
+                    <?php
 					echo acf_json_encode($sp_values);
 					?>
+
                 );
             });
         </script>
@@ -728,8 +730,6 @@ class Unity3_SliderPro_Widget extends WP_Widget {
 				            }
 			            }
 
-			            //todo:  Need css to complete this code
-
 			            $layer_classes = 'sp-layer';
 			            if (isset($layer['hide_layer'])) {
 			                $layer_classes .= ' ' . implode(' ', $layer['hide_layer']);
@@ -737,7 +737,7 @@ class Unity3_SliderPro_Widget extends WP_Widget {
 
 			            ?>
 
-                        <div class="<?php echo $layer_classes; ?>" <?php echo $data ?>>
+                        <div style="visibility: hidden" class="<?php echo $layer_classes; ?>" <?php echo $data ?>>
 				            <?php echo $layer['text']; ?>
                         </div>
 			            <?php
