@@ -602,7 +602,7 @@ class Unity3_SliderPro_Widget extends WP_Widget {
 	public function Render($acf_settings_id, $query ) {
 
 		$slider_id = $acf_settings_id;
-
+		$slider_loading_id = $slider_id . '-loading';
 
 		$settings = get_field_objects($acf_settings_id, true, true);
 
@@ -639,6 +639,11 @@ class Unity3_SliderPro_Widget extends WP_Widget {
                 </div>
 			<?php endif; ?>
         </div> <!-- end sliderpro-->
+
+        <div id="<?php echo $slider_loading_id; ?>" style="position: relative; width: 100%; height: 300px; background-color: #333333;">
+            <div class="lds-ripple"><div></div><div></div></div>
+        </div>
+
 		<?php
 
 		$sp_values = array();
@@ -670,19 +675,25 @@ class Unity3_SliderPro_Widget extends WP_Widget {
 			}
 		}
 
+		$json = acf_json_encode($sp_values);
 
 		?>
 
         <script type="text/javascript">
+            $start_time = new Date();
+
             jQuery( document ).ready(function( $ ) {
                 var $slider = $( '#<?php echo $slider_id; ?>' );
-                $slider.sliderPro(
+                $slider.sliderPro({
+                    "init": function () {
+                        $('#<?php echo $slider_loading_id; ?>').hide();
+                    },
                     <?php
-					echo acf_json_encode($sp_values);
-					?>
-
-                );
+                       echo substr( $json, 1, strlen($json) - 2 ); //remove outer brackets
+                    ?>
+                });
             });
+
         </script>
 
 		<?php
@@ -752,7 +763,7 @@ class Unity3_SliderPro_Widget extends WP_Widget {
             } else {
                 //default back to a safe, post title and excerpt for our layers
 	            if ($settings['_sp_show_title']['value']) : ?>
-                    <h3 class="sp-layer"
+                    <h3 class="sp-layer" style="visibility: hidden"
                         data-horizontal="40" data-vertical="40"
                         data-show-transition="left">
 			            <?php the_title(); ?>
@@ -762,7 +773,7 @@ class Unity3_SliderPro_Widget extends WP_Widget {
 			    <?php if ($settings['_sp_show_excerpt']['value']) :
 		            $the_excerpt = get_the_excerpt();
 		            ?>
-                    <p class="sp-layer"
+                    <p class="sp-layer" style="visibility: hidden"
                        data-position="bottomLeft" data-vertical="0" data-width="100%"
                        data-show-transition="up">
 			            <?php echo $the_excerpt; ?>
