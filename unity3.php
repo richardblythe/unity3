@@ -3,7 +3,7 @@
     Plugin Name: Unity 3 Software
     Plugin URI: http://www.unity3software.com/
     Description: Customized widgets and functions for client websites
-    Version: 2.0.21
+    Version: 2.1.0
     Author: Richard Blythe
     Author URI: http://unity3software.com/richardblythe
     GitHub Plugin URI: https://github.com/richardblythe/unity3
@@ -14,7 +14,7 @@ class Unity3 {
     private $min;
     function __construct() {
         //
-	    Unity3::$ver = '2.0.21';
+	    Unity3::$ver = '2.1.0';
         Unity3::$dir = plugin_dir_path( __FILE__ );
         Unity3::$url = plugin_dir_url( __FILE__ );
 	    Unity3::$assets_url = Unity3::$url . 'assets';
@@ -55,7 +55,7 @@ class Unity3 {
 			    add_filter('update_footer', array(&$this, 'modify_admin_version_footer'), 999);
 		    }
 	    } else {
-		    add_filter( 'ajax_query_attachments_args', array(&$this, 'filter_media' ));
+		    //add_filter( 'ajax_query_attachments_args', array(&$this, 'filter_media' ));
 	    }
     }
 
