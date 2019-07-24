@@ -160,16 +160,16 @@ body.unity3-post-group-hide-add-term #col-right {
 @media (max-width: 384px) {
   .sp-layer.hide-on-xxs {
     display: none; } }
-@media (min-width: xxs 384px) and (max-width: 512px) {
+@media (min-width: 384px) and (max-width: 512px) {
   .sp-layer.hide-on-xs {
     display: none; } }
-@media (min-width: xs 512px) and (max-width: 768px) {
+@media (min-width: 512px) and (max-width: 768px) {
   .sp-layer.hide-on-sm {
     display: none; } }
-@media (min-width: sm 768px) and (max-width: 896px) {
+@media (min-width: 768px) and (max-width: 896px) {
   .sp-layer.hide-on-md {
     display: none; } }
-@media (min-width: md 896px) and (max-width: 1152px) {
+@media (min-width: 896px) and (max-width: 1152px) {
   .sp-layer.hide-on-lg {
     display: none; } }
 @media (min-width: 1280px) {

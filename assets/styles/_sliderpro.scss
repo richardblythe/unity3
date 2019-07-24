@@ -39,7 +39,7 @@ $i: 0;
       }
     }
   } @else {
-    @media (min-width: nth($breakpoints, $i) ) and (max-width: $breakpoint) {
+    @media (min-width: nth(nth($breakpoints, $i), 2) ) and (max-width: $breakpoint) {
       .sp-layer.hide-on-#{$name} {
         display: none;
       }
