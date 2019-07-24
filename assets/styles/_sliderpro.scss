@@ -24,11 +24,26 @@
   }
 }
 
+$i: 0;
 @each $name, $breakpoint in $breakpoints {
-
-  @media (max-width: $breakpoint) {
-     .sp-layer.hide-on-#{$name} {
-       display: none;
-     }
+  @if (0 == $i) {
+    @media (max-width: $breakpoint) {
+      .sp-layer.hide-on-#{$name} {
+        display: none;
+      }
+    }
+  } @else if (length($breakpoints) - 1 == $i) {
+    @media (min-width: $breakpoint) {
+      .sp-layer.hide-on-#{$name} {
+        display: none;
+      }
+    }
+  } @else {
+    @media (min-width: nth($breakpoints, $i) ) and (max-width: $breakpoint) {
+      .sp-layer.hide-on-#{$name} {
+        display: none;
+      }
+    }
   }
+  $i: ($i + 1);
 }
