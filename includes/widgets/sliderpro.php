@@ -622,7 +622,7 @@ class Unity3_SliderPro_Widget extends WP_Widget {
 		}
 
 		?>
-        <div id="<?php echo $slider_id; ?>" class="<?php echo $sp_class; ?>">
+        <div id="<?php echo $slider_id; ?>" style="visibility: hidden;" class="<?php echo $sp_class; ?>">
             <div class="<?php echo $sp_slides_class; ?>">
 				<?php while ($query->have_posts()) : $query->the_post(); ?>
                     <!-- Slide -->
@@ -686,6 +686,7 @@ class Unity3_SliderPro_Widget extends WP_Widget {
                 var $slider = $( '#<?php echo $slider_id; ?>' );
                 $slider.sliderPro({
                     "init": function () {
+                        $('#<?php echo $slider_id; ?>').css('visibility', 'visible');
                         $('#<?php echo $slider_loading_id; ?>').hide();
                     },
                     <?php
@@ -842,7 +843,7 @@ class Unity3_SliderPro_Widget extends WP_Widget {
 unity3()->AddWidget( 'Unity3_SliderPro_Widget' );
 
 //ACF Fields For SliderPro (see the filter defined below this method)
-function unity3_post_fields_sliderpro() {
+function unity3_post_fieldset_sliderpro() {
 	return array (
 		array (
 			'key'           => 'image',
@@ -1345,4 +1346,4 @@ function unity3_post_fields_sliderpro() {
 		)
 	);
 }
-add_filter("unity3/post/fields/sliderpro", 'unity3_post_fields_sliderpro');
+add_filter("unity3/post/fieldset/sliderpro", 'unity3_post_fieldset_sliderpro');

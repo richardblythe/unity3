@@ -41,6 +41,11 @@ class Unity3_Post_Type {
 		if ($this->activated)
 			return false; //did not activate because it's already been activated
 
+		//allow runtime args to override the post type settings
+		if (isset($args['post_type_settings'])) {
+			$this->settings = array_merge_recursive_distinct($this->settings, $args['post_type_settings']);
+		}
+
 		unity3_register_post_type(
 			$this->GetPostType(),
 			$this->singular,
@@ -48,22 +53,12 @@ class Unity3_Post_Type {
 			$this->settings
 		);
 
-		apply_filters('unity3_dragsortposts', array());
+		if( function_exists('acf_add_local_field_group') ):
 
-		//allow the adding of Advanced Custom Fields
-		$fields = apply_filters( 'unity3/post/fields', $this->GetFields(), $this->GetPostType() );
-
-		//allow the fields to be overridden by a custom set of fields
-		if (isset($args['fields'])) {
-			$fields = apply_filters( "unity3/post/fields/{$args['fields']}", $fields, $this->GetPostType() );
-		}
-
-		if( isset($fields) && is_array($fields) && function_exists('acf_add_local_field_group') ):
-
-			acf_add_local_field_group(array(
+			acf_add_local_field_group( apply_filters('unity3/post/field_group', array(
 				'key' => "{$this->GetPostType()}_acf_group",
 				'title' => 'Fields',
-				'fields' => $fields,
+				'fields' => $this->_getFields( $args ),
 				'location' => array (
 					array (
 						array (
@@ -91,11 +86,9 @@ class Unity3_Post_Type {
 					'tags',
 					'send-trackbacks'
 				)
-			));
+			)), $this->GetPostType() );
 
 		endif;
-
-
 
 		return $this->activated = true;
 	}
@@ -104,7 +97,22 @@ class Unity3_Post_Type {
 		return $this->activated;
 	}
 
+	private function _getFields( $args ) {
+
+		//allow the fields to be overridden by a custom set of fields
+		if (isset($args['fieldset'])) {
+			return apply_filters( "unity3/post/fieldset/{$args['fieldset']}", null, $this->GetPostType() );
+		} else {
+			//allow the adding of Advanced Custom Fields
+			return apply_filters( 'unity3/post/fields', $this->GetFields(), $this->GetPostType() );
+		}
+	}
+
 	public function GetFields() {
+		return null;//should be overridden by inherited class
+	}
+
+	public function GetHideOnScreen() {
 		return null;//should be overridden by inherited class
 	}
 
