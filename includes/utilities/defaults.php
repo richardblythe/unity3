@@ -25,7 +25,8 @@ function Load_Unity3Defaults() {
 			add_filter('upload_mimes', array( &$this, 'default_mime_types' ), 10, 1 );
 			/***************************************************************
 			If the client is paying for Amazon S3 storage, the commented out code
-			below needs to added to the theme's unity3-functions file:
+			below needs to added to the theme's unity3-functions file.
+            NOTE: IF USING THE POST TYPE: unity3_audio, THIS CODE IS ADDED AUTOMATICALLY
 			//***************************************************************/
 			// function unity3_aws_storage_mime( $types ) {
 			//   return array_merge($types, array(

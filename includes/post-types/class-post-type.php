@@ -4,7 +4,7 @@
 class Unity3_Post_Type {
 
 	private $post_type, $singular, $plural, $activated;
-	protected $settings;
+	protected $settings, $args;
 	protected $custom_fields_id;
 
 
@@ -40,6 +40,9 @@ class Unity3_Post_Type {
 
 		if ($this->activated)
 			return false; //did not activate because it's already been activated
+
+		//store the runtime args
+		$this->args = $args;
 
 		//allow runtime args to override the post type settings
 		if (isset($args['post_type_settings'])) {

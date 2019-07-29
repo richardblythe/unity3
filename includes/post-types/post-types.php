@@ -34,6 +34,7 @@ class Unity3_Post_Types {
 		require_once (Unity3::$dir . 'includes/post-types/class-galleries.php');
 		require_once (Unity3::$dir . 'includes/post-types/class-slides.php');
 		require_once (Unity3::$dir . 'includes/post-types/class-services.php');
+		require_once (Unity3::$dir . 'includes/post-types/class-audio.php');
 
 		do_action('unity3/post_types/init' );
 

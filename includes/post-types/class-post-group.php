@@ -252,8 +252,30 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 		global $submenu;
 		//unset($submenu['edit.php?post_type=' . $this->GetPostType()][10]);
 
-		$top_level_menu_slug = "edit-tags.php?taxonomy={$this->GetTaxonomy()}&post_type={$this->GetPostType()}";
+		$top_level_menu_slug = '';
+		//Now add our taxonomies/groups to the admin menu...
+		$terms = get_terms( array(
+			'taxonomy' => $this->GetTaxonomy(),
+			'hide_empty' => false,
+		) );
 
+		$force_single_term = null;
+		if ( isset($this->args['force_single']) && !$terms instanceof WP_Error ) {
+			foreach ($terms as $t) {
+				if ($t->slug == $this->args['force_single']) {
+					$force_single_term = $t;
+					break;
+				}
+			}
+		}
+
+		if ( isset($force_single_term) ) {
+			$top_level_menu_slug = 'edit.php?post_type=' . $this->GetPostType() . "&{$this->GetTaxonomy()}=" . $force_single_term->slug;
+		} else {
+			$top_level_menu_slug = "edit-tags.php?taxonomy={$this->GetTaxonomy()}&post_type={$this->GetPostType()}";
+		}
+
+		//Add the main menu
 		$hook = add_menu_page(
 			$this->settings['menu_title'],
 			$this->settings['menu_title'],
@@ -264,36 +286,55 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 			$this->settings['menu_position']
 		);
 
-		$tax = $this->GetTaxonomyObject();
 
-		add_submenu_page(
-			$top_level_menu_slug,
-			$tax->labels->menu_name,
-			$tax->labels->menu_name,
-			'edit_others_posts',
-			$top_level_menu_slug,
-			''
-		);
+		if ( isset($force_single_term) ) {
 
-		//Now add our taxonomies/groups to the admin menu...
-		$terms = get_terms( array(
-			'taxonomy' => $this->GetTaxonomy(),
-			'hide_empty' => false,
-		) );
+			//Add the all items menu
+			$post_obj = $this->GetPostTypeObject();
+			add_submenu_page(
+				$top_level_menu_slug,
+				$post_obj->labels->all_items,
+				$post_obj->labels->all_items,
+				'edit_others_posts',
+				'edit.php?post_type=' . $this->GetPostType() . "&{$this->GetTaxonomy()}=" . $force_single_term->slug,
+				''
+			);
 
-		if (!$terms instanceof WP_Error) {
-			foreach ($terms as $term) {
-				add_submenu_page(
-					$top_level_menu_slug,
-					$term->name,
-					$term->name,
-					'edit_others_posts',
-					'edit.php?post_type=' . $this->GetPostType() . "&{$this->GetTaxonomy()}=" . $term->slug,
-					''
-				);
+			//create the Add New menu
+			add_submenu_page(
+				$top_level_menu_slug,
+				$post_obj->labels->add_new_item,
+				$post_obj->labels->add_new_item,
+				'edit_others_posts',
+				'post-new.php?post_type=' . $this->GetPostType() . "&{$this->GetTaxonomy()}=" . $force_single_term->slug,
+				''
+			);
+
+		} else {
+			$tax = $this->GetTaxonomyObject();
+
+			add_submenu_page(
+				$top_level_menu_slug,
+				$tax->labels->menu_name,
+				$tax->labels->menu_name,
+				'edit_others_posts',
+				$top_level_menu_slug,
+				''
+			);
+
+			if ( ! $terms instanceof WP_Error ) {
+				foreach ( $terms as $term ) {
+					add_submenu_page(
+						$top_level_menu_slug,
+						$term->name,
+						$term->name,
+						'edit_others_posts',
+						'edit.php?post_type=' . $this->GetPostType() . "&{$this->GetTaxonomy()}=" . $term->slug,
+						''
+					);
+				}
 			}
 		}
-
 		//remove tax metabox
 		remove_meta_box( $this->GetTaxonomy() . 'div', $this->GetPostType(), 'side' );
 

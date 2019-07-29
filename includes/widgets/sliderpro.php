@@ -726,12 +726,12 @@ class Unity3_SliderPro_Widget extends WP_Widget {
             <?php
 
             //if we are set to do advanced layers...
-            if (get_field( 'advanced' )) {
+            if ( get_field( 'advanced' ) ) {
 
 	            $layers = get_field('layers');
-	            if($layers)
+	            if( isset($layers) && is_array($layers) )
 	            {
-		            foreach($layers as $layer)
+		            foreach( $layers as $layer )
 		            {
 //			            if (isset($layer['data-position']) && $layer['data-position'] == 'custom') {
 //				            unset($layer['data-position']);
