@@ -1075,6 +1075,7 @@ function unity3_post_fieldset_sliderpro() {
 						'id' => '',
 					),
 					'choices' => array(
+						'hide-on-xxs' => 'Super Small',
 						'hide-on-xxs' => 'Extra Small',
                         'hide-on-sm' => 'Small',
                         'hide-on-md' => 'Medium',

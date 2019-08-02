@@ -70,7 +70,8 @@ class Unity3_Audio extends Unity3_Post_Group {
 				'src'      => $field['url'],
 				'loop'     => '',
 				'autoplay' => '',
-				'preload' => 'none'
+				'preload'  => 'none',
+				'style'    => 'light'
 			);
 
 			$title = '';
