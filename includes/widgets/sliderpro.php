@@ -1076,7 +1076,7 @@ function unity3_post_fieldset_sliderpro() {
 					),
 					'choices' => array(
 						'hide-on-xxs' => 'Super Small',
-						'hide-on-xxs' => 'Extra Small',
+						'hide-on-xs' => 'Extra Small',
                         'hide-on-sm' => 'Small',
                         'hide-on-md' => 'Medium',
 						'hide-on-lg' => 'Large',
