@@ -30,7 +30,7 @@ class Unity3_Audio extends Unity3_Post_Group {
 		$atts = shortcode_atts( array(
 			'post' => '',
 			'group' => '',
-			'show_title' => true
+			'show_title' => 'true'
 		), $atts );
 
 
@@ -75,7 +75,7 @@ class Unity3_Audio extends Unity3_Post_Group {
 			);
 
 			$title = '';
-			if ( isset($atts['show_title']) && true == $atts['show_title'] ) {
+			if ( isset($atts['show_title']) && 'true' == $atts['show_title'] ) {
 				$title = '<h2>' . get_the_title( $post_id ) . '</h2>';
 			}
 
