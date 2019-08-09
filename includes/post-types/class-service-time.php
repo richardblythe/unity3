@@ -1,10 +1,10 @@
 <?php
 //
-class Unity3_Services extends Unity3_Post_Type {
+class Unity3_Service_Time extends Unity3_Post_Type {
 
 
 	public function __construct( ) {
-		parent::__construct('unity3_service', 'Service', 'Services');
+		parent::__construct('unity3_service_time', 'Service Time', 'Service Times');
 
 		$this->settings = wp_parse_args( array(
 			'menu_position' => 9,
@@ -117,7 +117,7 @@ class Unity3_Services extends Unity3_Post_Type {
 ////*************************
 ////       Register
 ////*************************
-unity3_post_types()->Register(new Unity3_Services());
+unity3_post_types()->Register(new Unity3_Service_Time());
 
 
 
