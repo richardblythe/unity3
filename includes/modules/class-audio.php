@@ -124,7 +124,7 @@ class Unity3_Audio extends Unity3_Post_Group {
 ////*************************
 ////       Register
 ////*************************
-unity3_post_types()->Register(new Unity3_Audio());
+unity3_modules()->Register(new Unity3_Audio());
 
 
 

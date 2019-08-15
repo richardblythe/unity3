@@ -117,7 +117,7 @@ class Unity3_Service_Time extends Unity3_Post_Type {
 ////*************************
 ////       Register
 ////*************************
-unity3_post_types()->Register(new Unity3_Service_Time());
+unity3_modules()->Register(new Unity3_Service_Time());
 
 
 

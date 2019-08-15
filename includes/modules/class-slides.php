@@ -114,7 +114,7 @@ class Unity3_Slides extends Unity3_Post_Group {
 ////*************************
 ////       Register
 ////*************************
-unity3_post_types()->Register(new Unity3_Slides());
+unity3_modules()->Register(new Unity3_Slides());
 
 
 

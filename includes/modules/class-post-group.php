@@ -3,6 +3,8 @@
 
 class Unity3_Post_Group extends Unity3_Post_Type {
 
+	protected $show_custom_group_menu;
+
 	public function __construct( $post_type, $singular, $plural ) {
 		parent::__construct( $post_type, $singular, $plural );
 
@@ -23,6 +25,15 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 	}
 
 	public function Activate( $args ) {
+		//the $settings disables the default post type menu, but we also allow the user to turn off the custom
+		//generated menu by this class.  So, we will show the menu if a setting has not been specified or if a
+		//a settings is specified and the value is: true
+		$this->show_custom_group_menu = true;
+		if (isset($args['post_type_settings']['show_in_menu'])) {
+			$this->show_custom_group_menu = $args['post_type_settings']['show_in_menu'];
+			$args['post_type_settings']['show_in_menu'] = false; //prevent unwanted menus when the post type is registered
+		}
+
 		if (!parent::Activate( $args )) {
 			return false;
 		}
@@ -248,9 +259,14 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 	}
 
 	function admin_menu() {
-		// Hide sidebar link
-		global $submenu;
-		//unset($submenu['edit.php?post_type=' . $this->GetPostType()][10]);
+
+		//remove tax metabox
+		remove_meta_box( $this->GetTaxonomy() . 'div', $this->GetPostType(), 'side' );
+
+		//if a runtime arg has been specified to hide the custom menu
+		if ( !$this->show_custom_group_menu )
+			return;
+
 
 		$top_level_menu_slug = '';
 		//Now add our taxonomies/groups to the admin menu...
@@ -335,9 +351,6 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 				}
 			}
 		}
-		//remove tax metabox
-		remove_meta_box( $this->GetTaxonomy() . 'div', $this->GetPostType(), 'side' );
-
 	}
 
 	public function admin_columns( $columns ) {

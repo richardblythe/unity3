@@ -92,7 +92,7 @@ class Unity3_Galleries extends Unity3_Post_Group {
 ////*************************
 ////       Register
 ////*************************
-unity3_post_types()->Register(new Unity3_Galleries());
+unity3_modules()->Register(new Unity3_Galleries());
 
 function unity3_media_get_galleries( $slug ) {
 
