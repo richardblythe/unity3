@@ -5,26 +5,26 @@ class Unity3_Audio extends Unity3_Post_Group {
 	public function __construct( ) {
 		parent::__construct('unity3_audio', 'Audio File', 'Audio Files');
 
-		$this->settings = wp_parse_args( array(
-			'menu_position' => 12,
-			'menu_icon'     => 'dashicons-controls-volumeon',
-			'menu_title'    => 'Audio'
-		), $this->settings );
+		$this->mergeSettings( array(
+			'post' => array(
+				'menu_icon'     => 'dashicons-controls-volumeon',
+				'menu_title'    => 'Audio',
+			),
+			'group_rewrite' => array(
+				'base' => 'audio'
+			)
+		));
 	}
 
-	public function Activate( $args ) {
-		if (!parent::Activate( $args )) {
-			return false;
-		}
+	public function doActivate() {
+		parent::doActivate();
 
 		//The client should be a be paying for the audio add-on package
 		add_filter( 'upload_mimes',  array( &$this, 'unity3_aws_storage_mime'), 12, 1 );
-
 		add_shortcode('unity3_audio', array(&$this, 'shortcode') );
-
-
 		return true;
 	}
+
 
 	public function shortcode( $atts ) {
 		$atts = shortcode_atts( array(

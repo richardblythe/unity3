@@ -5,16 +5,17 @@ class Unity3_Galleries extends Unity3_Post_Group {
 	public function __construct() {
 		parent::__construct( 'unity3_gallery', 'Gallery', 'Galleries' );
 
-		$this->settings = wp_parse_args( array(
-			'menu_position' => 9,
-			'menu_icon'     => 'dashicons-format-gallery'
-		), $this->settings);
+		$this->mergeSettings( array(
+			'post' => array(
+				'menu_position' => 9,
+				'menu_icon'     => 'dashicons-format-gallery'
+			),
+			'group_rewrite' => array( 'base' => 'galleries' )
+		));
 	}
 
-    public function Activate( $args ) {
-	    if (!parent::Activate( $args )) {
-		    return false;
-	    }
+    public function doActivate( ) {
+	    parent::doActivate();
 
 		if( function_exists('acf_add_local_field_group') ):
 

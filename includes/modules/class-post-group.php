@@ -3,16 +3,24 @@
 
 class Unity3_Post_Group extends Unity3_Post_Type {
 
-	protected $show_custom_group_menu;
-
 	public function __construct( $post_type, $singular, $plural ) {
 		parent::__construct( $post_type, $singular, $plural );
 
-		$this->settings = wp_parse_args( array(
-			'menu_position' => 12,
-			'menu_icon'     => 'dashicons-admin-media',
-			'show_in_menu' => false,
-		), $this->settings );
+		$this->mergeSettings( array(
+			'show_custom_group_menu' => true,
+			'post' => array(
+				'show_in_menu' => false,
+			),
+			'taxonomy' => array(
+				'labels' => array(
+					'name' => 'Groups',
+					'singular_name' => 'Group',
+				),
+			),
+			'group_rewrite' => array(
+				'base' => $post_type
+			)
+		));
 
 	}
 
@@ -24,52 +32,46 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 		return get_taxonomy($this->GetTaxonomy());
 	}
 
-	public function Activate( $args ) {
+	public function doActivate( ) {
 		//the $settings disables the default post type menu, but we also allow the user to turn off the custom
 		//generated menu by this class.  So, we will show the menu if a setting has not been specified or if a
 		//a settings is specified and the value is: true
-		$this->show_custom_group_menu = true;
-		if (isset($args['post_type_settings']['show_in_menu'])) {
-			$this->show_custom_group_menu = $args['post_type_settings']['show_in_menu'];
-			$args['post_type_settings']['show_in_menu'] = false; //prevent unwanted menus when the post type is registered
+//		$this->settings['show_custom_group_menu'] = true;
+//		if (isset($this->args['post']['show_in_menu'])) {
+//			$this->settings['show_custom_group_menu'] = $this->args['post']['show_in_menu'];
+//			$this->settings['post']['show_in_menu'] = false; //prevent unwanted menus when the post type is registered
+//		}
+
+
+		if (isset($this->settings['group_rewrite'])) {
+			$base = $this->settings['group_rewrite']['base'];
+			//POST
+			$this->settings['post']['rewrite'] = array(
+				'slug' => $base . '/%taxonomy_term_slug%',
+				'with_front' => false
+			);
+			$this->settings['post']['has_archive'] = $base;
+
+			//TAXONOMY
+			$this->settings['taxonomy']['rewrite'] = array(
+				'slug' => $base,
+				'with_front' => false
+			);
 		}
 
-		if (!parent::Activate( $args )) {
-			return false;
-		}
 
-		// Add new taxonomy
-		$labels = array(
-			'name'                       => _x( 'Groups', 'taxonomy general name', 'textdomain' ),
-			'singular_name'              => _x( 'Group', 'taxonomy singular name', 'textdomain' ),
-			'search_items'               => __( 'Search Groups', 'textdomain' ),
-			'popular_items'              => __( 'Popular Groups', 'textdomain' ),
-			'all_items'                  => __( 'All Groups', 'textdomain' ),
-			'parent_item'                => null,
-			'parent_item_colon'          => null,
-			'edit_item'                  => __( 'Edit Group', 'textdomain' ),
-			'update_item'                => __( 'Update Group', 'textdomain' ),
-			'add_new_item'               => __( 'Add New Group', 'textdomain' ),
-			'new_item_name'              => __( 'New Group Type', 'textdomain' ),
-			'separate_items_with_commas' => __( 'Separate Groups with commas', 'textdomain' ),
-			'add_or_remove_items'        => __( 'Add or remove Groups', 'textdomain' ),
-			'choose_from_most_used'      => __( 'Choose from the most used Groups', 'textdomain' ),
-			'not_found'                  => __( 'No Groups found.', 'textdomain' ),
-			'menu_name'                  => __( 'All Groups', 'textdomain' ),
+
+		unity3_register_taxonomy(
+			$this->GetTaxonomy(),
+			$this->GetPostType(),
+			isset($this->settings['taxonomy']['labels']['singular_name']) ? $this->settings['taxonomy']['labels']['singular_name'] : 'Group',
+			isset($this->settings['taxonomy']['labels']['name']) ? $this->settings['taxonomy']['labels']['name'] : 'Groups',
+			$this->settings['taxonomy']
 		);
 
-		$args = array(
-			'hierarchical'          => true,
-			'labels'                => $labels,
-			'show_ui'               => true,
-			'show_admin_column'     => false,
-//		    'update_count_callback' => '_update_post_term_count',
-			'query_var'             => true,
-//			'rewrite'               => array( 'slug' => 'Group' ),
-		);
 
-		register_taxonomy( $this->GetTaxonomy(), $this->GetPostType(), $args );
-
+		//parent doActivate takes care of registering the post type
+		parent::doActivate();
 
 		//wire up admin functions
 		if (is_admin()) {
@@ -85,14 +87,25 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 			add_filter( 'admin_url', array($this, 'add_new_post_url'), 10, 3 );
 			add_action( 'save_post', array($this, 'auto_set_group'), 100, 2 );
 
-
-
-
 			//add_action( 'admin_enqueue_scripts', array($this, 'admin_enqueue') );
 			//add_filter( 'unity3_dragsortposts',  array($this, 'register_drag_sort') );
 		}
 
+		if ($this->settings['group_rewrite']) {
+			add_filter( 'post_type_link', array(&$this, 'rewrite_permalink_with_tax'), 10, 2 );
+		}
+
 		return $this->IsActivated();
+	}
+
+	function rewrite_permalink_with_tax( $post_link, $post ){
+		if ( is_object( $post ) && $post->post_type == $this->GetPostType() ){
+			$terms = wp_get_object_terms( $post->ID, $this->GetTaxonomy() );
+			if( $terms ){
+				return str_replace( '%taxonomy_term_slug%' , $terms[0]->slug , $post_link );
+			}
+		}
+		return $post_link;
 	}
 
 	function add_new_post_url( $url, $path, $blog_id ) {
@@ -146,7 +159,7 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 				$title = $post_obj->labels->singular_name . ' ' . $tax_obj->labels->name;
 			}
 
-			$class = sanitize_html_class($this->settings['menu_icon']);
+			$class = sanitize_html_class($this->settings['post']['menu_icon']);
 			if (false !== strpos($class, 'dashicons')) {
 				$class .= ' dashicons-before';
 			}
@@ -263,8 +276,8 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 		//remove tax metabox
 		remove_meta_box( $this->GetTaxonomy() . 'div', $this->GetPostType(), 'side' );
 
-		//if a runtime arg has been specified to hide the custom menu
-		if ( !$this->show_custom_group_menu )
+		//see if we need to proceed with creating the custom group menu
+		if ( !$this->settings['show_custom_group_menu'] )
 			return;
 
 
@@ -293,13 +306,13 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 
 		//Add the main menu
 		$hook = add_menu_page(
-			$this->settings['menu_title'],
-			$this->settings['menu_title'],
+			$this->settings['post']['menu_title'],
+			$this->settings['post']['menu_title'],
 			'edit_others_posts',
 			$top_level_menu_slug,
 			'',
-			$this->settings['menu_icon'],
-			$this->settings['menu_position']
+			$this->settings['post']['menu_icon'],
+			$this->settings['post']['menu_position']
 		);
 
 

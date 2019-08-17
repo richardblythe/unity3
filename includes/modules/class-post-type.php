@@ -3,26 +3,25 @@
 
 class Unity3_Post_Type extends Unity3_Module {
 
-	private $singular, $plural;
-
-
 	public function __construct( $post_type, $singular, $plural ) {
 		parent::__construct( $post_type );
 
 
-		if (!isset( $post_type ) || !isset( $singular ) || !isset( $plural )) {
+		if (!isset( $singular ) || !isset( $plural )) {
 			die('Required initialization data for the post type was not specified!');
 		}
 
-		$this->post_type = $post_type;
-		$this->singular = $singular;
-		$this->plural = $plural;
-
-		$this->settings = wp_parse_args( $this->settings, array(
-			'page_title'    => $this->plural,
-			'menu_title'    => $this->plural,
-			'menu_position' => 12,
-			'menu_icon'     => 'dashicons-admin-media',
+		$this->mergeSettings( array(
+			'post' => array(
+				'labels' => array(
+					'name' => $plural,
+					'singular_name' => $singular,
+				),
+				'page_title'    => $plural,
+				'menu_title'    => $plural,
+				'menu_position' => 12,
+				'menu_icon'     => 'dashicons-admin-media',
+			)
 		) );
 	}
 
@@ -34,26 +33,16 @@ class Unity3_Post_Type extends Unity3_Module {
 		return get_post_type_object($this->GetPostType());
 	}
 
-	protected function beforeActivate() { }
-
-	public function Activate( $args ) {
-		if (!parent::Activate( $args )) {
-			return false;
-		}
+	public function doActivate( ) {
+		parent::doActivate();
 
 		add_filter( 'post_updated_messages', array($this, 'post_updated_messages') );
 
-
-		//allow runtime args to override the post type settings
-		if (isset($args['post_type_settings'])) {
-			$this->settings = array_merge_recursive_distinct($this->settings, $args['post_type_settings']);
-		}
-
 		unity3_register_post_type(
 			$this->GetPostType(),
-			$this->singular,
-			$this->plural,
-			$this->settings
+			$this->settings['post']['labels']['singular_name'],
+			$this->settings['post']['labels']['name'],
+			$this->settings['post']
 		);
 
 		if( function_exists('acf_add_local_field_group') ):
@@ -61,7 +50,7 @@ class Unity3_Post_Type extends Unity3_Module {
 			acf_add_local_field_group( apply_filters('unity3/post/field_group', array(
 				'key' => "{$this->GetPostType()}_acf_group",
 				'title' => 'Fields',
-				'fields' => $this->_getFields( $args ),
+				'fields' => $this->_getFields(),
 				'location' => array (
 					array (
 						array (
@@ -117,11 +106,11 @@ class Unity3_Post_Type extends Unity3_Module {
 		return $messages;
 	}
 
-	private function _getFields( $args ) {
+	private function _getFields( ) {
 
 		//allow the fields to be overridden by a custom set of fields
-		if (isset($args['fieldset'])) {
-			return apply_filters( "unity3/post/fieldset/{$args['fieldset']}", null, $this->GetPostType() );
+		if (isset($this->settings['fieldset'])) {
+			return apply_filters( "unity3/post/fieldset/{$this->settings['fieldset']}", null, $this->GetPostType() );
 		} else {
 			//allow the adding of Advanced Custom Fields
 			return apply_filters( 'unity3/post/fields', $this->GetFields(), $this->GetPostType() );
@@ -199,7 +188,34 @@ function unity3_register_post_type($slug, $singular, $plural, $args = array(), $
 	return register_post_type($slug, $args);
 }
 
-function unity3_register_taxonomy($slug, $singular, $plural, $args = array(), $merge_distinct = true) {
+function unity3_register_taxonomy($taxonomy, $object_type, $singular, $plural, $args = array(), $merge_distinct = true) {
+	$defaults = array(
+		'labels' => array(
+			'name'                       => _x( $plural, 'taxonomy general name', 'textdomain' ),
+			'singular_name'              => _x( $singular, 'taxonomy singular name', 'textdomain' ),
+			'search_items'               => sprintf( __( 'Search %s', 'unity3' ), $plural ),
+			'popular_items'              => sprintf( __( 'Popular %s', 'unity3' ), $plural ),//__( 'Popular Groups', 'textdomain' ),
+			'all_items'                  => sprintf( __( 'All %s', 'unity3' ), $plural ),
+			'parent_item'                => null,
+			'parent_item_colon'          => null,
+			'edit_item'                  => sprintf( __( 'Edit %s', 'unity3' ), $singular ),
+			'update_item'                => sprintf( __( 'Update %s', 'unity3' ), $singular ),
+			'add_new_item'               => sprintf( __( 'Add New %s', 'unity3' ), $singular ),
+			'new_item_name'              => sprintf( __( 'New %s Type', 'unity3' ), $singular ),
+			'separate_items_with_commas' => sprintf( __( 'Separate %s with commas', 'unity3' ), $plural ),
+			'add_or_remove_items'        => sprintf( __( 'Add or remove %s', 'unity3' ), $plural ),
+			'choose_from_most_used'      => sprintf( __( 'Choose from the most used %s', 'unity3' ), $plural ),
+			'not_found'                  => sprintf( __( 'No %s found', 'unity3' ), $plural ),
+			'menu_name'                  => sprintf( __( 'All %s', 'unity3' ), $plural ),
+		),
+		'hierarchical'          => true,
+		'show_ui'               => true,
+		'show_admin_column'     => false,
+		'query_var'             => true,
+	);
 
+	$args = $merge_distinct ? array_merge_recursive_distinct($defaults, $args) : array_merge($defaults, $args);
+
+    return register_taxonomy( $taxonomy, $object_type, $args );
 }
 

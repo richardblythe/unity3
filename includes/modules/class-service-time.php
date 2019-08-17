@@ -6,17 +6,17 @@ class Unity3_Service_Time extends Unity3_Post_Type {
 	public function __construct( ) {
 		parent::__construct('unity3_service_time', 'Service Time', 'Service Times');
 
-		$this->settings = wp_parse_args( array(
-			'menu_position' => 9,
-			'menu_icon'     => 'dashicons-clock',
-		), $this->settings );
+		$this->mergeSettings( array(
+			'post' => array(
+				'menu_position' => 9,
+				'menu_icon'     => 'dashicons-clock',
+				'rewrite' => array( 'slug' => 'service-times' )
+			)
+		));
 	}
 
-	public function Activate( $args ) {
-		if (!parent::Activate( $args )) {
-			return false;
-		}
-
+	public function doActivate() {
+		parent::doActivate();
 
 		add_filter( "manage_{$this->GetPostType()}_posts_custom_column", array(&$this, "post_columns_content" ) );
 		add_filter( 'unity3_dragsortposts', array(&$this, 'dragsort') );

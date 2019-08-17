@@ -5,16 +5,17 @@ class Unity3_Slides extends Unity3_Post_Group {
 	public function __construct( ) {
 		parent::__construct('unity3_slide', 'Slide', 'Slides');
 
-		$this->settings = wp_parse_args( array(
-			'menu_position' => 9,
-			'menu_icon'     => 'dashicons-images-alt2'
-		), $this->settings );
+		$this->mergeSettings( array(
+			'post' => array(
+				'menu_position' => 9,
+				'menu_icon'     => 'dashicons-images-alt2'
+			),
+			'group_rewrite' => array( 'base' => 'slides')
+		));
 	}
 
-	public function Activate( $args ) {
-		if (!parent::Activate( $args )) {
-			return false;
-		}
+	public function doActivate( ) {
+		parent::doActivate();
 
 		add_image_size('unity3_slide', 1140,460, true);
 
