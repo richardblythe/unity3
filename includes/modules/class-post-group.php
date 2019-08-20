@@ -48,7 +48,7 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 			//POST
 			$this->settings['post']['rewrite'] = array(
 				'slug' => $base . '/%taxonomy_term_slug%',
-				'with_front' => false
+				'with_front' => false,
 			);
 			$this->settings['post']['has_archive'] = $base;
 
@@ -92,11 +92,22 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 		}
 
 		if ($this->settings['group_rewrite']) {
+			add_filter( 'rewrite_rules_array', array(&$this, 'rewrite_rules') );
 			add_filter( 'post_type_link', array(&$this, 'rewrite_permalink_with_tax'), 10, 2 );
 		}
 
 		return $this->IsActivated();
 	}
+
+	function rewrite_rules($rules) {
+		$base = $this->settings['group_rewrite']['base'];
+		$newRules  = array();
+		$newRules[$base . '/(.+)/(.+)/?$'] = 'index.php?' . $this->GetPostType() . '=$matches[2]'; // my custom structure will always have the post name as the 5th uri segment
+		$newRules[$base . '/(.+)/?$']                = 'index.php?' . $this->GetTaxonomy() . '=$matches[1]';
+
+		return array_merge($newRules, $rules);
+	}
+
 
 	function rewrite_permalink_with_tax( $post_link, $post ){
 		if ( is_object( $post ) && $post->post_type == $this->GetPostType() ){
@@ -107,6 +118,7 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 		}
 		return $post_link;
 	}
+
 
 	function add_new_post_url( $url, $path, $blog_id ) {
 
