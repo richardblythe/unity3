@@ -13,7 +13,7 @@ class Unity3_Slides extends Unity3_Post_Group {
 			'group_rewrite' => array( 'base' => 'slides'),
 			'admin_columns' => array(
 				'cb'    => array('header' => '<input type="checkbox" />'),
-				'slide-image' => array('header' => '', 'acf' => 'image', 'image_size' => 'unity3_slide_col'),
+				'slide-image' => array('header' => '', 'acf' => 'image', 'image_size' => 'unity3_slide_xsmall'),
 				'title' => array('header' => 'Title'),
 				'date'  => array('header' => 'Date'),
 			),
@@ -25,7 +25,9 @@ class Unity3_Slides extends Unity3_Post_Group {
 		parent::doActivate();
 
 		add_image_size('unity3_slide', 1140,460, true);
-		add_image_size('unity3_slide_col', 200,100, true);
+		add_image_size('unity3_slide_med', 768,310, true);
+		add_image_size('unity3_slide_small', 512,206, true);
+		add_image_size('unity3_slide_xsmall', 200,80, true);
 
 		add_filter( "get_post_metadata", array($this, 'override_default_image'), 12, 4);
 
