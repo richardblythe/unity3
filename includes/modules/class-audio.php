@@ -113,7 +113,7 @@ class Unity3_Audio extends Unity3_Post_Group {
 		$post = get_post( $post );
 		$post_id = $post->ID;
 		//$field = get_field('audio', $post_id);
-		$attachment_id = get_post_meta($post_id, 'audio');
+		$attachment_id = get_post_meta($post_id, 'audio', true);
 
 		$attr = array(
 			'src'      => wp_get_attachment_url( $attachment_id ),
