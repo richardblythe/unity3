@@ -17,7 +17,7 @@ class Unity3_Services extends Unity3_Module {
 	public function doActivate( ) {
 		parent::doActivate();
 
-		require_once (Unity3::$dir . 'includes\modules\class-service-time.php');
+		require_once (Unity3::$dir . 'includes/modules/class-service-time.php');
 		unity3_modules()->Activate( array(
 			'unity3_service_time' => array(
 				'post' => array( 'show_in_menu' => false)
