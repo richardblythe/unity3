@@ -14,7 +14,8 @@ class Unity3_Audio extends Unity3_Post_Group {
 			),
 			'group_rewrite' => array(
 				'base' => 'audio'
-			)
+			),
+			'audio' => array( 'sync_meta' => true )
 		));
 	}
 
@@ -24,43 +25,36 @@ class Unity3_Audio extends Unity3_Post_Group {
 		//The client should be a be paying for the audio add-on package
 		add_filter( 'upload_mimes',  array( &$this, 'unity3_aws_storage_mime'), 12, 1 );
 		add_shortcode('unity3_audio', array(&$this, 'shortcode') );
-		add_filter( 'wp_insert_post_data' , array(&$this, 'modify_audio_field') , '99', 2 ); // Grabs the inserted post data so you can modify it.
+
+		if ( $this->settings['audio']['sync_meta'] )
+			add_filter( 'acf/update_value/key=field_5d3b597197c47', array(&$this, 'sync_acf_audio_field'), 10, 3 );
+
 		//Genesis integration
 		add_action( 'genesis_entry_content',  'unity3_audio_do_genesis_attachment' );
 	}
 
-	function modify_audio_field( $data, $postarr )
-	{
-		if(isset($postarr['ID']) && $data['post_type'] == $this->GetPostType()) {
+	function sync_acf_audio_field($value, $post_id, $field) {
+		//update the attachment with the details from it's parent post
+		if ($attachment = get_post( $value )) {
+			$post = get_post($post_id);
+			wp_update_post(array(
+				'ID'         => $attachment->ID,
+				'post_title' => $post->post_title,
+				'post_excerpt' => $post->post_excerpt,
+				'post_content' => $post->post_content
+			));
 
-			//prevent recursive loop
-			global $unity3_audio_syncing;
-			if ($unity3_audio_syncing) { return; }
-			$unity3_audio_syncing = true;
+			$meta = wp_get_attachment_metadata( $attachment->ID );
 
-			//update the attachment with the details from this parent post
-			if ($attachment_id = get_post_meta($postarr['ID'], $this->field_audio, true)) {
-				wp_update_post(array(
-					'ID'         => $attachment_id,
-					'post_title' => $data['post_title'],
-					'post_excerpt' => $data['post_excerpt'],
-					'post_content' => $data['post_content']
-				));
+			if ( empty($meta['artist']) && isset($this->settings['audio']['artist']) )
+				$meta['artist'] = $this->settings['audio']['artist'];
+			if ( empty($meta['album']) && isset($this->settings['audio']['album']) )
+				$meta['album'] = $this->settings['audio']['album'];
 
-				$meta = wp_get_attachment_metadata( $attachment_id );
-
-				if (empty($meta['artist']) && isset($this->settings['audio']['artist']))
-					$meta['artist'] = $this->settings['audio']['artist'];
-				if (empty($meta['album']) && isset($this->settings['audio']['album']))
-					$meta['album'] = $this->settings['audio']['album'];
-
-				wp_update_attachment_metadata( $attachment_id, $meta );
-			}
-
-			$unity3_audio_syncing = false;
+			wp_update_attachment_metadata( $attachment->ID, $meta );
 		}
 
-		return $data; // Returns the modified data.
+		return $value;
 	}
 
 	public function shortcode( $atts ) {
