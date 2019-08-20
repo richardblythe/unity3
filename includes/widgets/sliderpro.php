@@ -680,15 +680,30 @@ class Unity3_SliderPro_Widget extends WP_Widget {
 		?>
 
         <script type="text/javascript">
-            $start_time = new Date();
-
             jQuery( document ).ready(function( $ ) {
                 var $slider = $( '#<?php echo $slider_id; ?>' );
                 $slider.sliderPro({
                     "init": function () {
-                        $('#<?php echo $slider_id; ?>').css('visibility', 'visible');
+                        $this = $(this);
+                        $this.css('visibility', 'visible');
                         $('#<?php echo $slider_loading_id; ?>').hide();
+                        //hack to fix weird layers bug
+                        setTimeout(function(){
+                            $slider.trigger('mouseover');
+                        },800);
+                        setTimeout(function(){
+                            $slider.trigger('mouseout');
+                        },802);
                     },
+                    "gotoSlide" : function () {
+                        //hack to fix weird layers bug
+                        setTimeout(function(){
+                            $slider.trigger('mouseover');
+                        },800);
+                        setTimeout(function(){
+                            $slider.trigger('mouseout');
+                        },802);
+                    }
                     <?php
                        echo substr( $json, 1, strlen($json) - 2 ); //remove outer brackets
                     ?>
@@ -733,12 +748,11 @@ class Unity3_SliderPro_Widget extends WP_Widget {
 	            {
 		            foreach( $layers as $layer )
 		            {
-//			            if (isset($layer['data-position']) && $layer['data-position'] == 'custom') {
-//				            unset($layer['data-position']);
-//                        } else {
-//				            unset($layer['data-horizontal']);
-//				            unset($layer['data-vertical']);
-//                        }
+                        //if global waitForLayers settings is true and no hide delay has been specified on the layer...
+                        if ( $settings['waitForLayers']['value'] && empty($layer['data-hide-delay']) ) {
+	                        $layer['data-hide-delay'] = $settings['slideAnimationDuration']['value'];
+                        }
+
 
 		                $data = '';
 			            foreach( $layer as $field_name => $value ) {
