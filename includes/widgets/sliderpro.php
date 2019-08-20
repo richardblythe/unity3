@@ -684,8 +684,7 @@ class Unity3_SliderPro_Widget extends WP_Widget {
                 var $slider = $( '#<?php echo $slider_id; ?>' );
                 $slider.sliderPro({
                     "init": function () {
-                        $this = $(this);
-                        $this.css('visibility', 'visible');
+                        $slider.css('visibility', 'visible');
                         $('#<?php echo $slider_loading_id; ?>').hide();
                         //hack to fix weird layers bug
                         setTimeout(function(){
@@ -703,7 +702,7 @@ class Unity3_SliderPro_Widget extends WP_Widget {
                         setTimeout(function(){
                             $slider.trigger('mouseout');
                         },802);
-                    }
+                    },
                     <?php
                        echo substr( $json, 1, strlen($json) - 2 ); //remove outer brackets
                     ?>
