@@ -18,54 +18,48 @@ class Unity3_Service_Time extends Unity3_Post_Type {
 	public function doActivate() {
 		parent::doActivate();
 
-		add_filter( "manage_{$this->GetPostType()}_posts_custom_column", array(&$this, "post_columns_content" ) );
-		add_filter( 'unity3_dragsortposts', array(&$this, 'dragsort') );
-		add_filter( "manage_{$this->GetPostType()}_posts_columns", array(&$this, "post_columns") );
+		unity3_dragsort( $this->GetPostType() );
 
+//		add_filter( "manage_{$this->GetPostType()}_posts_custom_column", array(&$this, "post_columns_content" ) );
+//		add_filter( "manage_{$this->GetPostType()}_posts_columns", array(&$this, "post_columns") );
 		add_shortcode('unity3_service_times', array(&$this, 'shortcode') );
 
 		return true;
 	}
 
-	function dragsort( $post_types ) {
-		$post_types[] = $this->GetPostType();
-		return $post_types;
-	}
 
-
-
-	function post_columns( $columns ) {
-		$columns = array(
-			//Define the columns in order from left to right
-			'cb'    => '<input type="checkbox" />',
-			'title' => ( 'Service Name' ),
-			'time'  => ( 'Service Time' )
-		);
-
-		return $columns;
-	}
-
-
-	function post_columns_content( $columns ) {
-		//Get access to the current post being listed
-		global $post;
-		//Get the ID of that post
-		$post_id = $post->ID;
-
-		/* If the column being listed is equal to the slug of the custom post type
-			My custom post type's slug is "filed" */
-		if ( $columns == 'time' ) {
-			//The category is the custom field for this specific post being listed
-			$service_time = get_field( 'service_time', $post->ID );
-			//If the category exists
-			if ( $service_time ) {
-				//Display it.
-				echo $service_time;
-			}
-		}
-
-		return;
-	}
+//	function post_columns( $columns ) {
+//		$columns = array(
+//			//Define the columns in order from left to right
+//			'cb'    => '<input type="checkbox" />',
+//			'title' => ( 'Service Name' ),
+//			'time'  => ( 'Service Time' )
+//		);
+//
+//		return $columns;
+//	}
+//
+//
+//	function post_columns_content( $columns ) {
+//		//Get access to the current post being listed
+//		global $post;
+//		//Get the ID of that post
+//		$post_id = $post->ID;
+//
+//		/* If the column being listed is equal to the slug of the custom post type
+//			My custom post type's slug is "filed" */
+//		if ( $columns == 'time' ) {
+//			//The category is the custom field for this specific post being listed
+//			$service_time = get_field( 'service_time', $post->ID );
+//			//If the category exists
+//			if ( $service_time ) {
+//				//Display it.
+//				echo $service_time;
+//			}
+//		}
+//
+//		return;
+//	}
 
 
 	function shortcode() {

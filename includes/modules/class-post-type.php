@@ -21,7 +21,9 @@ class Unity3_Post_Type extends Unity3_Module {
 				'menu_title'    => $plural,
 				'menu_position' => 12,
 				'menu_icon'     => 'dashicons-admin-media',
-			)
+			),
+			'admin_columns' => false, //array('key' => array('title' => '', 'image_size' => 'thumbnail');
+			'admin_inline_styles' => array(),
 		) );
 	}
 
@@ -36,6 +38,11 @@ class Unity3_Post_Type extends Unity3_Module {
 	public function doActivate( ) {
 		parent::doActivate();
 
+		if ( $this->settings['admin_columns'] ) {
+			add_filter( "manage_{$this->GetPostType()}_posts_custom_column", array(&$this, "admin_post_columns_content" ) );
+			add_filter( "manage_{$this->GetPostType()}_posts_columns", array(&$this, "admin_post_columns") );
+			add_action( 'admin_footer', array(&$this, 'admin_inline_scripts_styles') );
+		}
 		add_filter( 'post_updated_messages', array($this, 'post_updated_messages') );
 
 		unity3_register_post_type(
@@ -83,6 +90,79 @@ class Unity3_Post_Type extends Unity3_Module {
 		endif;
 
 		return $this->activated = true;
+	}
+
+	function admin_inline_scripts_styles() {
+
+		$styles = isset($this->settings['admin_inline_styles']) ? $this->settings['admin_inline_styles'] : false;
+
+		if ( is_array($styles) && count($styles) ) {
+
+			$css = '';
+
+			foreach ($styles as $selector => $value) {
+				$css .= ($selector . ' {' . $value . ' }');
+			}
+
+			echo "<style>$css</style>";
+		}
+
+	}
+
+	function admin_post_columns( $columns ) {
+		//Get access to the current post being listed
+		global $post;
+		//Get the ID of that post
+		$post_id = $post->ID;
+		$new_cols = array();
+
+		foreach ($this->settings['admin_columns'] as $key => $column) {
+			$field = isset($column['acf']) ? get_field_object($column['acf'], $post_id, false) : null;
+
+			if (isset($column['header']))
+				$new_cols[$key] = $column['header'];
+			else if (isset($field['name']))
+				$new_cols[$key] = $field['name'];
+		}
+
+		return count($new_cols) ? $new_cols : $columns;
+	}
+
+
+	function admin_post_columns_content( $column_key ) {
+		//Get access to the current post being listed
+		global $post;
+		//Get the ID of that post
+		$post_id = $post->ID;
+
+
+		foreach ($this->settings['admin_columns'] as $key => $col) {
+			if ($column_key != $key)
+				continue;
+
+			$field = isset($col['acf']) ? get_field_object($col['acf'], $post_id, false) : null;
+			$html = '';
+			if (isset($field)) {
+				switch ($field['type']) {
+					case 'image':
+
+						$image_size = isset($col['image_size']) ? $col['image_size'] : 'thumbnail';
+						$html = wp_get_attachment_image(
+							$field['value'],
+							$image_size
+						);
+
+						if (!isset($this->settings['admin_inline_styles'][".column-{$key}"]) && $width = get_image_width($image_size) ) {
+							$this->settings['admin_inline_styles'][".column-{$key}"] = "width: {$width}px;";
+						}
+						break;
+					default:
+						$html = get_field($col['acf'], $post_id);
+				}
+			}
+
+			echo apply_filters('unity3/post/column/content', $html, $column_key, $post_id);
+		}
 	}
 
 	public function post_updated_messages( $messages ) {

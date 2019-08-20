@@ -10,20 +10,28 @@ class Unity3_Slides extends Unity3_Post_Group {
 				'menu_position' => 9,
 				'menu_icon'     => 'dashicons-images-alt2'
 			),
-			'group_rewrite' => array( 'base' => 'slides')
+			'group_rewrite' => array( 'base' => 'slides'),
+			'admin_columns' => array(
+				'cb'    => array('header' => '<input type="checkbox" />'),
+				'slide-image' => array('header' => '', 'acf' => 'image', 'image_size' => 'unity3_slide_col'),
+				'title' => array('header' => 'Title'),
+				'date'  => array('header' => 'Date'),
+			),
 		));
+
 	}
 
 	public function doActivate( ) {
 		parent::doActivate();
 
 		add_image_size('unity3_slide', 1140,460, true);
+		add_image_size('unity3_slide_col', 200,100, true);
 
 		add_filter( "get_post_metadata", array($this, 'override_default_image'), 12, 4);
 
 		add_filter( 'get_the_excerpt', array($this, 'override_excerpt'), 12, 2 );
 
-//		add_filter( 'acf/fields/wysiwyg/toolbars' , array($this, 'my_toolbars'), 12);
+		unity3_dragsort( $this->GetPostType() );
 
 		return true;
 	}
