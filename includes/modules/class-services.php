@@ -10,7 +10,7 @@ class Unity3_Services extends Unity3_Module {
 				'menu_title'    => 'Services',
 				'menu_position' => 9,
 				'menu_icon'     => 'dashicons-clock',
-			)
+			),
 		));
 	}
 

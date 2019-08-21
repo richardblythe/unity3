@@ -30,12 +30,17 @@ class Unity3_Slides extends Unity3_Post_Group {
 		add_image_size('unity3_slide_xsmall', 200,80, true);
 
 		add_filter( "get_post_metadata", array($this, 'override_default_image'), 12, 4);
-
 		add_filter( 'get_the_excerpt', array($this, 'override_excerpt'), 12, 2 );
 
-		unity3_dragsort( $this->GetPostType() );
 
-		return true;
+		if ( is_admin() ) {
+			//set the width of the admin slide image column
+			if (!isset($this->settings['admin_inline_styles']['.column-slide-image']) ) {
+				$this->settings['admin_inline_styles']['.column-slide-image'] = "width: 200px;";
+			}
+
+			unity3_dragsort( $this->GetPostType() );
+		}
 	}
 
 	public function GetFields() {

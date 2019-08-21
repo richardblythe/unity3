@@ -41,7 +41,7 @@ class Unity3_Post_Type extends Unity3_Module {
 		if ( $this->settings['admin_columns'] ) {
 			add_filter( "manage_{$this->GetPostType()}_posts_custom_column", array(&$this, "admin_post_columns_content" ) );
 			add_filter( "manage_{$this->GetPostType()}_posts_columns", array(&$this, "admin_post_columns") );
-			add_action( 'admin_footer', array(&$this, 'admin_inline_scripts_styles') );
+			add_action( 'admin_footer', array(&$this, '_admin_inline_scripts_styles') );
 		}
 		add_filter( 'post_updated_messages', array($this, 'post_updated_messages') );
 
@@ -92,7 +92,7 @@ class Unity3_Post_Type extends Unity3_Module {
 		return $this->activated = true;
 	}
 
-	function admin_inline_scripts_styles() {
+	function _admin_inline_scripts_styles() {
 
 		$styles = isset($this->settings['admin_inline_styles']) ? $this->settings['admin_inline_styles'] : false;
 
@@ -151,10 +151,6 @@ class Unity3_Post_Type extends Unity3_Module {
 							$field['value'],
 							$image_size
 						);
-
-						if (!isset($this->settings['admin_inline_styles'][".column-{$key}"]) && $width = get_image_width($image_size) ) {
-							$this->settings['admin_inline_styles'][".column-{$key}"] = "width: {$width}px;";
-						}
 						break;
 					default:
 						$html = get_field($col['acf'], $post_id);
