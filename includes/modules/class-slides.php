@@ -32,7 +32,6 @@ class Unity3_Slides extends Unity3_Post_Group {
 		add_filter( "get_post_metadata", array($this, 'override_default_image'), 12, 4);
 		add_filter( 'get_the_excerpt', array($this, 'override_excerpt'), 12, 2 );
 
-
 		if ( is_admin() ) {
 			//set the width of the admin slide image column
 			if (!isset($this->settings['admin_inline_styles']['.column-slide-image']) ) {
@@ -41,6 +40,114 @@ class Unity3_Slides extends Unity3_Post_Group {
 
 			unity3_dragsort( $this->GetPostType() );
 		}
+
+		$this->register_blocks();
+	}
+
+	function register_blocks() {
+
+		// register a testimonial block.
+		if (is_admin()) {
+
+			acf_add_local_field_group(array(
+				'key' => 'group_5d5ed74607345',
+				'title' => 'Slider Block',
+				'fields' => array(
+					array(
+						'key' => 'field_5d5ed754e7bd8',
+						'label' => 'Group',
+						'name' => 'slide_group',
+						'type' => 'taxonomy',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'taxonomy' => $this->GetTaxonomy(),
+						'field_type' => 'select',
+						'allow_null' => 0,
+						'add_term' => 0,
+						'save_terms' => 0,
+						'load_terms' => 0,
+						'return_format' => 'id',
+						'multiple' => 0,
+					),
+				),
+				'location' => array(
+					array(
+						array(
+							'param' => 'block',
+							'operator' => '==',
+							'value' => 'acf/unity3-slides',
+						),
+					),
+				),
+			));
+
+			acf_register_block_type(array(
+				'name'              => 'unity3-slides',
+				'title'             => __('Slides'),
+				'description'       => __('A Unity3 Slides block.'),
+				'render_callback'   => array(&$this, 'render_acf_block_admin'),
+				'category'          => 'formatting',
+				'icon'              => 'admin-comments',
+				'keywords'          => array( 'slide', 'slides' ),
+			));
+
+		} else {
+		    //bypass ACF on the front end to speed things up
+			register_block_type('acf/unity3-slides', array(
+				'attributes'		=> array(),
+				'render_callback'	=> array(&$this, 'render_block_frontend'),
+			));
+        }
+	}
+
+    public function render_block_frontend($args) {
+	    $this->render_block($args, is_admin());
+    }
+
+	protected function render_block($args, $is_admin) {
+
+	    $term = get_term($args['data']['slide_group'], $this->GetTaxonomy());
+	    $title = 'Slides: Group Not Selected';
+	    if ( $term instanceof WP_Term ) {
+	        $title = 'Slides: ' . $term->name;
+        }
+
+		?>
+        <div id="<?php echo esc_attr($args['id']); ?>" class="<?php echo esc_attr($args['class']); ?>">
+            <h2><?php echo $title; ?></h2>
+            <a href="<?php echo 'edit.php?post_type=' . $this->GetPostType() . "&{$this->GetTaxonomy()}=" . $term->slug; ?>">Click here to edit the slides</a>
+        </div>
+		<?php
+    }
+
+	public function render_acf_block_admin( $block, $content, $is_preview, $post_id ) {
+		// Create id attribute allowing for custom "anchor" value.
+		$id = 'unity3-slides-' . $block['id'];
+		if( !empty($block['anchor']) ) {
+			$id = $block['anchor'];
+		}
+
+		// Create class attribute allowing for custom "className" and "align" values.
+		$className = 'unity3-slides';
+		if( !empty($block['className']) ) {
+			$className .= ' ' . $block['className'];
+		}
+		if( !empty($block['align']) ) {
+			$className .= ' align' . $block['align'];
+		}
+
+        $this->render_block(array(
+            'id' => $block['id'],
+            'class' => $className,
+            'data' => $block['data']
+        ), is_admin());
+
 	}
 
 	public function GetFields() {

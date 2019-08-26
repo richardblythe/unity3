@@ -3,7 +3,7 @@
     Plugin Name: Unity 3 Software
     Plugin URI: http://www.unity3software.com/
     Description: Customized widgets and functions for client websites
-    Version: 2.2.10
+    Version: 2.2.12
     Author: Richard Blythe
     Author URI: http://unity3software.com/richardblythe
     GitHub Plugin URI: https://github.com/richardblythe/unity3
@@ -17,7 +17,7 @@ class Unity3 {
     	$debug = (defined('WP_DEBUG') && true === WP_DEBUG);
 
         //
-	    Unity3::$ver = '2.2.10';
+	    Unity3::$ver = '2.2.12';
         Unity3::$dir = plugin_dir_path( __FILE__ );
         Unity3::$url = plugin_dir_url( __FILE__ );
 	    Unity3::$assets_url = Unity3::$url . 'assets';
@@ -44,6 +44,10 @@ class Unity3 {
 		    add_action('wp_enqueue_scripts', array(&$this, 'enqueue'));
 		    add_action('admin_enqueue_scripts', array(&$this, 'enqueue'));
 		    add_action('login_enqueue_scripts', array(&$this, 'enqueue'));
+		    // Hook the enqueue functions into the editor
+		    add_action( 'enqueue_block_editor_assets', array(&$this, 'enqueue_editor') );
+
+
 		    add_filter( 'login_message', array(&$this, 'custom_login_message') );
 //		    add_filter( 'request', array(&$this, 'filter_media' ));
 		    //strips <p> tags from images
@@ -116,6 +120,16 @@ class Unity3 {
     function enqueue() {
 	    wp_enqueue_script('unity3',       plugins_url( "assets/js/unity3{$this->min}js", __FILE__ ), array('jquery'), Unity3::$ver);
 	    wp_enqueue_style( 'unity3-style', plugins_url( "assets/styles/unity3{$this->min}css", __FILE__ ), false, Unity3::$ver);
+    }
+
+    function enqueue_editor() {
+		// Enqueue block editor styles
+	    wp_enqueue_style(
+		    'unity3-editor-css',
+		    Unity3::$assets_url . "/styles/editor/unity3-editor{$this->min}css",
+		    false,
+		    Unity3::$ver
+	    );
     }
 
     function unity3_admin_bar_logo($wp_admin_bar) {      

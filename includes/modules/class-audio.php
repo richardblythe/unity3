@@ -196,7 +196,7 @@ class Unity3_Audio extends Unity3_Post_Group {
 				'library' => 'all',
 				'min_size' => '',
 				'max_size' => '',
-				'mime_types' => '',
+				'mime_types' => 'mp3,ogg',
 			),
 		);
 	}

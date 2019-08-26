@@ -67,8 +67,6 @@ function Load_Unity3Defaults() {
 			add_action( 'pre_get_posts', array(&$this,'admin_hide_pages') );
 			add_filter( 'mce_buttons_2', array(&$this, 'mce_buttons_2') );
 			add_filter( 'tiny_mce_before_init', array(&$this, 'mce_before_init'), 10, 2 );
-
-			add_editor_style( plugins_url('/css/genesis-editor-columns.css', __FILE__) );
 		}
 
 		/**
