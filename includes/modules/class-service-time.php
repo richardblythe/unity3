@@ -55,7 +55,7 @@ class Unity3_Service_Time extends Unity3_Post_Type {
 	}
 
 	public function render_block( $args ) {
-		echo $this->shortcode();
+		return $this->shortcode();
 	}
 
 	public function render_block_admin($block, $content, $is_preview, $post_id ) {
