@@ -41,7 +41,7 @@ class Unity3_Slides extends Unity3_Post_Group {
 			unity3_dragsort( $this->GetPostType() );
 		}
 
-		$this->register_blocks();
+//		$this->register_blocks();
 	}
 
 	function register_blocks() {
