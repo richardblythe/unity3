@@ -205,6 +205,9 @@ body.unity3-post-group-hide-add-term #col-right {
 @media (min-width: 1280px) {
   .sp-layer.hide-on-xl {
     display: none; } }
+.archive.post-type-archive-tribe_events .content .entry {
+  width: 100%; }
+
 .widget.tribe-events-list-widget .widget-wrap p:only-of-type:before {
   content: " ";
   float: left;

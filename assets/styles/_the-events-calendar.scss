@@ -1,7 +1,8 @@
+.archive.post-type-archive-tribe_events .content .entry {
+  width: 100%;
+}
+
 .widget.tribe-events-list-widget .widget-wrap {
-
-  //position: relative;
-
   p:only-of-type {
     &:before {
       content: " ";
