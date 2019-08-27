@@ -66,7 +66,8 @@ class Unity3_Audio extends Unity3_Post_Group {
 		return $this->shortcode( array(
 			'group' => $block['data']['group'],
 			'group_field' => 'term_id',
-			'max' => $block['data']['max']
+			'max' => $block['data']['max'],
+			'is_admin_block' => false,
 		));
 	}
 
@@ -80,6 +81,7 @@ class Unity3_Audio extends Unity3_Post_Group {
 				'group_field' => 'slug',
 				'max' => get_field('max'),
 				'is_admin_block' => true,
+				'artists' => false
 			));
 		}
 	}
@@ -93,7 +95,7 @@ class Unity3_Audio extends Unity3_Post_Group {
 			'show_title' => 'true',
 			'more_link' => 'true',
 			'playlist' => '',
-			'artists' => true,
+			'artists' => false,
 			'images' => false,
 			'is_admin_block' => true,
 		), $atts );
@@ -130,7 +132,7 @@ class Unity3_Audio extends Unity3_Post_Group {
 
 			if (1 == $atts['max']) {
 				return $this->do_single_audio($posts[0], $atts);
-			} else if ( isset($atts['is_admin_block']) ) {
+			} else if ( isset($atts['is_admin_block']) && true == $atts['is_admin_block'] ) {
 				return $this->do_playlist_block_admin( $posts, $atts );
 			} else {
 				return $this->do_playlist_audio( $posts, $atts );

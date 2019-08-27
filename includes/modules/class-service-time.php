@@ -99,7 +99,8 @@ class Unity3_Service_Time extends Unity3_Post_Type {
 				echo '<span class="service-time">' . get_field('service_time', get_the_ID() ) . '</span>';
 			}
 			echo '</div>';
-			$this->renderAdminBlockOverlay( $this->EditLink() );
+			if ( $admin )
+				$this->renderAdminBlockOverlay( $this->EditLink() );
 			/* Restore original Post Data */
 			wp_reset_postdata();
 		} else {
