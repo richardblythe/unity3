@@ -208,9 +208,9 @@ body.unity3-post-group-hide-add-term #col-right {
 .archive.post-type-archive-tribe_events .content .entry {
   width: 100%; }
 
-.widget.tribe-events-list-widget .widget-wrap {
+.widget.tribe-events-list-widget {
   text-align: left; }
-  .widget.tribe-events-list-widget .widget-wrap:before {
+  .widget.tribe-events-list-widget:before {
     content: " ";
     float: left;
     padding: 5px;
@@ -219,11 +219,11 @@ body.unity3-post-group-hide-add-term #col-right {
     margin: 10px;
     background: url(../images/events-calendar-bg.jpg) no-repeat;
     background-size: cover; }
-  .widget.tribe-events-list-widget .widget-wrap ol.tribe-list-widget {
+  .widget.tribe-events-list-widget ol.tribe-list-widget {
     float: left; }
-    .widget.tribe-events-list-widget .widget-wrap ol.tribe-list-widget li {
+    .widget.tribe-events-list-widget ol.tribe-list-widget li {
       padding-left: 0; }
-  .widget.tribe-events-list-widget .widget-wrap p {
+  .widget.tribe-events-list-widget p {
     float: left;
     margin-left: 10px;
     text-align: center;
