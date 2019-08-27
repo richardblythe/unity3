@@ -205,5 +205,12 @@ body.unity3-post-group-hide-add-term #col-right {
 @media (min-width: 1280px) {
   .sp-layer.hide-on-xl {
     display: none; } }
+.widget.tribe-events-list-widget .widget-wrap p:only-of-type:before {
+  content: " ";
+  float: left;
+  padding: 20%;
+  margin: 10px;
+  background: url(../images/events-calendar-bg.jpg) no-repeat;
+  background-size: cover; }
 
 /*# sourceMappingURL=unity3.css.map */

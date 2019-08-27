@@ -18,6 +18,11 @@ class Unity3_Service_Time extends Unity3_Post_Type {
 				'service_time' => array('header' => 'Service Time', 'acf' => 'service_time'),
 				'date'         => array('header' => 'Date'),
 			),
+			'block' => array(
+				'description'       => __('Displays the current list of services times'),
+				'icon'              => 'clock',
+				'keywords'          => array( 'services', 'service times' ),
+			)
 		));
 	}
 
@@ -27,40 +32,51 @@ class Unity3_Service_Time extends Unity3_Post_Type {
 		unity3_dragsort( $this->GetPostType() );
 		add_shortcode('unity3_service_times', array(&$this, 'shortcode') );
 
-		$this->register_blocks();
+//		$this->register_blocks();
 	}
 
-	function register_blocks() {
+//	function register_blocks() {
+//
+//		// register a testimonial block.
+//		if (is_admin() || wp_doing_ajax() || wp_is_json_request() ) {
+//
+//			acf_register_block_type(array(
+//				'name'              => 'unity3-service-times',
+//				'title'             => __('Service Times'),
+//				'description'       => __('Displays the current list of services times'),
+//				'render_callback'   => array(&$this, 'render_block_admin'),
+//				'category'          => 'formatting',
+//				'icon'              => 'clock',
+//				'keywords'          => array( 'services', 'service times' ),
+//			));
+//
+//		} else {
+//			//bypass ACF on the front end to speed things up
+//			register_block_type('acf/unity3-service-times', array(
+//				'attributes'		=> array(),
+//				'render_callback'	=> array(&$this, 'render_block'),
+//			));
+//		}
+//	}
 
-		// register a testimonial block.
-		if (is_admin() || wp_doing_ajax() || wp_is_json_request() ) {
+//	public function render_block( $args ) {
+//		return $this->shortcode();
+//	}
+//
+//	public function render_block_admin($block, $content, $is_preview, $post_id ) {
+//		echo $this->shortcode( true );
+//	}
 
-			acf_register_block_type(array(
-				'name'              => 'unity3-service-times',
-				'title'             => __('Service Times'),
-				'description'       => __('Displays the current list of services times'),
-				'render_callback'   => array(&$this, 'render_block_admin'),
-				'category'          => 'formatting',
-				'icon'              => 'clock',
-				'keywords'          => array( 'services', 'service times' ),
-			));
 
-		} else {
-			//bypass ACF on the front end to speed things up
-			register_block_type('acf/unity3-service-times', array(
-				'attributes'		=> array(),
-				'render_callback'	=> array(&$this, 'render_block'),
-			));
-		}
-	}
-
-	public function render_block( $args ) {
+	function renderBlock( $data ) {
 		return $this->shortcode();
 	}
 
-	public function render_block_admin($block, $content, $is_preview, $post_id ) {
+	function renderAdminBlock( $block, $content, $is_preview, $post_id ) {
 		echo $this->shortcode( true );
 	}
+
+
 
 	function shortcode( $admin = false ) {
 //		if (is_admin()) //fixes a bug in Gutenberg
@@ -82,9 +98,8 @@ class Unity3_Service_Time extends Unity3_Post_Type {
 				echo '<h2>' . get_the_title() . '</h2>';
 				echo '<span class="service-time">' . get_field('service_time', get_the_ID() ) . '</span>';
 			}
-			$edit_link = '<a href="' . esc_url(
-					'edit.php?post_type=' . $this->GetPostType()) . '" class="edit-link">Edit</a>';
-			echo '<div class="hover">'. $edit_link .'</div></div>';
+			echo '</div>';
+			$this->renderAdminBlockOverlay( $this->EditLink() );
 			/* Restore original Post Data */
 			wp_reset_postdata();
 		} else {

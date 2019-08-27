@@ -1,2 +1,34 @@
 @import "../unity3_utilities";
-@import "service_times";
+@import "unity3-audio";
+
+.wp-block[data-type^="acf/"] .unity3-edit-overlay  {
+  @include flexbox();
+  @include align-items(center);
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: 0.8s;
+
+  &:hover {
+    opacity: 1!important;
+  }
+
+  a {
+    padding: 10px;
+    margin: auto;
+    font-size: 1.5rem;
+    color: white;
+    opacity: 1;
+
+    &:hover {
+      font-size: 2rem;
+      opacity: 0.8;
+    }
+  }
+
+}
+

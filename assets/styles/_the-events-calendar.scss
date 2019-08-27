@@ -1,0 +1,15 @@
+.widget.tribe-events-list-widget .widget-wrap {
+
+  //position: relative;
+
+  p:only-of-type {
+    &:before {
+      content: " ";
+      float: left;
+      padding: 20%;
+      margin: 10px;
+      background: url(../images/events-calendar-bg.jpg) no-repeat;
+      background-size: cover;
+    }
+  }
+}

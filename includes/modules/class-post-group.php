@@ -311,9 +311,9 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 		}
 
 		if ( isset($force_single_term) ) {
-			$top_level_menu_slug = 'edit.php?post_type=' . $this->GetPostType() . "&{$this->GetTaxonomy()}=" . $force_single_term->slug;
+			$top_level_menu_slug = $this->EditLink( array('slug' => $force_single_term->slug) );
 		} else {
-			$top_level_menu_slug = "edit-tags.php?taxonomy={$this->GetTaxonomy()}&post_type={$this->GetPostType()}";
+			$top_level_menu_slug = $this->EditLink();
 		}
 
 		//Add the main menu
@@ -337,7 +337,7 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 				$post_obj->labels->all_items,
 				$post_obj->labels->all_items,
 				'edit_others_posts',
-				'edit.php?post_type=' . $this->GetPostType() . "&{$this->GetTaxonomy()}=" . $force_single_term->slug,
+				$this->EditLink( array('slug' => $force_single_term->slug) ),
 				''
 			);
 
@@ -370,7 +370,7 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 						$term->name,
 						$term->name,
 						'edit_others_posts',
-						'edit.php?post_type=' . $this->GetPostType() . "&{$this->GetTaxonomy()}=" . $term->slug,
+						$this->EditLink( array('slug' => $term->slug) ),
 						''
 					);
 				}
@@ -413,5 +413,13 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 		}
 
 		echo "&nbsp;"; // This helps prevent issues with empty cells
+	}
+
+	function EditLink( $data = '' ) {
+		if ( !empty($data['slug']) ) {
+			return 'edit.php?post_type=' . $this->GetPostType() . "&{$this->GetTaxonomy()}=" . $data['slug'];
+		} else {
+			return "edit-tags.php?taxonomy={$this->GetTaxonomy()}&post_type={$this->GetPostType()}";
+		}
 	}
 }

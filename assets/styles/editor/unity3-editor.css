@@ -1,7 +1,11 @@
-.acf-block-preview .service-times {
-  position: relative; }
+/*unity3-audio */
+.wp-block[data-type="acf/unity3-audio"] .playlist-preview {
+  padding: 10px;
+  border: solid 2px gray;
+  list-style: none;
+  padding: 10px; }
 
-.acf-block-preview .service-times .hover {
+.wp-block[data-type^="acf/"] .unity3-edit-overlay {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -20,19 +24,16 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.6);
   transition: 0.8s; }
-
-.acf-block-preview .service-times .hover a.edit-link {
-  padding: 10px;
-  margin: auto;
-  font-size: 1.5rem;
-  color: white;
-  opacity: 1; }
-
-.acf-block-preview .service-times .hover a.edit-link:hover {
-  font-size: 2rem;
-  opacity: 0.8; }
-
-.acf-block-preview .service-times:hover .hover {
-  opacity: 1 !important; }
+  .wp-block[data-type^="acf/"] .unity3-edit-overlay:hover {
+    opacity: 1 !important; }
+  .wp-block[data-type^="acf/"] .unity3-edit-overlay a {
+    padding: 10px;
+    margin: auto;
+    font-size: 1.5rem;
+    color: white;
+    opacity: 1; }
+    .wp-block[data-type^="acf/"] .unity3-edit-overlay a:hover {
+      font-size: 2rem;
+      opacity: 0.8; }
 
 /*# sourceMappingURL=unity3-editor.css.map */

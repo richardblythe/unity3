@@ -2,7 +2,7 @@
 
 
 class Unity3_Post_Type extends Unity3_Module {
-
+	protected $acf_block_id;
 	public function __construct( $post_type, $singular, $plural ) {
 		parent::__construct( $post_type );
 
@@ -10,6 +10,10 @@ class Unity3_Post_Type extends Unity3_Module {
 		if (!isset( $singular ) || !isset( $plural )) {
 			die('Required initialization data for the post type was not specified!');
 		}
+
+		$slugified = acf_slugify( $this->ID() );
+		$this->acf_block_id = 'acf/' . $slugified;
+
 
 		$this->mergeSettings( array(
 			'post' => array(
@@ -21,6 +25,14 @@ class Unity3_Post_Type extends Unity3_Module {
 				'menu_title'    => $plural,
 				'menu_position' => 12,
 				'menu_icon'     => 'dashicons-admin-media',
+			),
+			'block' => array(
+				'name'              => $slugified, //acf appends it's prefix later
+				'title'             => $plural,
+				'description'       => '',
+				'category'          => 'formatting',
+				'icon'              => '',
+				'keywords'          => array(),
 			),
 			'admin_columns' => false, //array('key' => array('title' => '', 'image_size' => 'thumbnail');
 			'admin_inline_styles' => array(),
@@ -87,9 +99,75 @@ class Unity3_Post_Type extends Unity3_Module {
 				)
 			)), $this->GetPostType() );
 
+
+		//Register the Gutenberg Block
+		if ( !empty($this->settings['block']['description'])) {
+			// register for the backend
+			if (is_admin() || wp_doing_ajax() || wp_is_json_request() ) {
+
+				acf_register_block_type(array(
+					'name'              => $this->settings['block']['name'],
+					'title'             => $this->settings['block']['title'],
+					'description'       => $this->settings['block']['description'],
+					'render_callback'   => array(&$this, 'renderAdminBlock'),
+					'category'          => $this->settings['block']['category'],
+					'icon'              => $this->settings['block']['icon'],
+					'keywords'          => $this->settings['block']['keywords'],
+				));
+
+				$block_fields = $this->GetBlockFields();
+				if ( isset($block_fields) && count($block_fields) ) {
+					acf_add_local_field_group(array(
+						'key' => $this->id . '_acf_block_group',
+						'title' => $this->settings['block']['title'],
+						'fields' => $block_fields,
+						'location' => array(
+							array(
+								array(
+									'param' => 'block',
+									'operator' => '==',
+									'value' => $this->acf_block_id,
+								),
+							),
+						),
+					));
+				}
+
+
+			} else {
+				//bypass ACF on the front end to speed things up
+				register_block_type( $this->acf_block_id, array(
+					'attributes'		=> array(),
+					'render_callback'	=> array(&$this, 'renderBlock'),
+				));
+			}
+
+
+		}
+
 		endif;
 
 		return $this->activated = true;
+	}
+
+	function renderAdminBlock( $block, $content, $is_preview, $post_id ) {
+		//should be overriden by child.  Content is to be echoed
+	}
+
+	protected function renderAdminBlockOverlay( $edit_link, $text = 'Edit' ) {
+		if ( !empty($edit_link) ) {
+			?>
+			<div class="unity3-edit-overlay">
+				<a href="<?php echo $edit_link; ?>">Edit</a>
+			</div>
+			<?php
+		}
+	}
+
+	function renderBlock( $data ) {}
+
+ 	function EditLink( $data = '' ) {
+		return esc_url('edit.php?post_type=' . $this->GetPostType() );
 	}
 
 	function _admin_inline_scripts_styles() {
@@ -195,6 +273,10 @@ class Unity3_Post_Type extends Unity3_Module {
 
 	public function GetFields() {
 		return null;//should be overridden by inherited class
+	}
+
+	public function GetBlockFields() {
+		return null;//inherited class does not have to override this
 	}
 
 	public function GetHideOnScreen() {

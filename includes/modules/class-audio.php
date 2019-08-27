@@ -15,7 +15,12 @@ class Unity3_Audio extends Unity3_Post_Group {
 			'group_rewrite' => array(
 				'base' => 'audio'
 			),
-			'audio' => array( 'sync_meta' => true )
+			'audio' => array( 'sync_meta' => true ),
+			'block' => array(
+				'description' => 'Displays audio from a particular group',
+				'icon'        => 'controls-volumeon',
+				'keywords'    => array('audio', 'audio group')
+			)
 		));
 	}
 
@@ -57,16 +62,40 @@ class Unity3_Audio extends Unity3_Post_Group {
 		return $value;
 	}
 
+	function renderBlock( $block ) {
+		return $this->shortcode( array(
+			'group' => $block['data']['group'],
+			'group_field' => 'term_id',
+			'max' => $block['data']['max']
+		));
+	}
+
+	function renderAdminBlock( $block, $content, $is_preview, $post_id ) {
+
+		$term = get_term( get_field( 'group' ), $this->GetTaxonomy());
+
+		if ($term instanceof WP_Term) {
+			echo $this->shortcode( array(
+				'group' => $term->slug,
+				'group_field' => 'slug',
+				'max' => get_field('max'),
+				'is_admin_block' => true,
+			));
+		}
+	}
+
 	public function shortcode( $atts ) {
 		$atts = shortcode_atts( array(
 			'post' => '',
 			'max'  => '1',
 			'group' => '',
+			'group_field' => 'slug',
 			'show_title' => 'true',
 			'more_link' => 'true',
 			'playlist' => '',
 			'artists' => true,
-			'images' => false
+			'images' => false,
+			'is_admin_block' => true,
 		), $atts );
 
 
@@ -84,7 +113,7 @@ class Unity3_Audio extends Unity3_Post_Group {
 			$args['tax_query'] = array(
 				array(
 					'taxonomy' => $this->GetTaxonomy(),
-					'field' => 'slug',
+					'field' => $atts['group_field'],
 					'terms' => $atts['group']
 				)
 			);
@@ -101,6 +130,8 @@ class Unity3_Audio extends Unity3_Post_Group {
 
 			if (1 == $atts['max']) {
 				return $this->do_single_audio($posts[0], $atts);
+			} else if ( isset($atts['is_admin_block']) ) {
+				return $this->do_playlist_block_admin( $posts, $atts );
 			} else {
 				return $this->do_playlist_audio( $posts, $atts );
 			}
@@ -162,6 +193,18 @@ class Unity3_Audio extends Unity3_Post_Group {
 		return $output;
 	}
 
+	private function do_playlist_block_admin( $posts,  $atts ) {
+		echo '<ul class="playlist-preview">';
+		foreach ( $posts as $post ) {
+			echo ( '<li><span class="dashicons dashicons-controls-play"></span>' . $post->post_title . '</li>' );
+		}
+		echo '</ul>';
+
+		echo $this->renderAdminBlockOverlay(
+			$this->EditLink( array( 'slug' => $atts['group'] ) )
+		);
+	}
+
 	public function do_genesis_attachment() {
 		if (is_singular($this->GetPostType())) {
 			echo $this->do_single_audio(get_the_ID(), array('show_title' => 'false') );
@@ -200,6 +243,55 @@ class Unity3_Audio extends Unity3_Post_Group {
 			),
 		);
 	}
+
+	public function GetBlockFields() {
+		return array(
+			array(
+				'key' => $this->id . '_field_audio_group',
+				'label' => 'Group',
+				'name' => 'group',
+				'type' => 'taxonomy',
+				'instructions' => 'Selects the audio group',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'taxonomy' => $this->GetTaxonomy(),
+				'field_type' => 'select',
+				'allow_null' => 0,
+				'add_term' => 0,
+				'save_terms' => 0,
+				'load_terms' => 0,
+				'return_format' => 'id',
+				'multiple' => 0,
+			),
+			array(
+				'key' => 'field_5d6405832a21b',
+				'label' => 'Max',
+				'name' => 'max',
+				'type' => 'number',
+				'instructions' => 'The maximum amount of audio files that will be retrieved',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => 5,
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'min' => 1,
+				'max' => '',
+				'step' => '',
+			),
+		);
+	}
+
 }
 
 function unity3_audio_do_genesis_attachment() {
