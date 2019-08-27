@@ -2,8 +2,10 @@
 function Load_Unity3Defaults() {
 	class Unity3Defaults {
 		public function __construct() {
-			add_action( 'admin_init', array(&$this, 'admin_init') );
-			add_action( 'admin_head', array(&$this, 'admin_hide_meta_boxes'));
+			add_action( 'admin_init', array( &$this, 'admin_init') );
+			add_action( 'admin_head', array( &$this, 'admin_hide_meta_boxes') );
+			add_action( 'get_header', array( &$this,'tribe_genesis_bypass_genesis_do_post_content') );
+
 
 			add_filter('comment_moderation_recipients', array(&$this, 'comment_moderation_recipients'), 11, 2);
 			//Remove the URL section on comments
@@ -61,6 +63,8 @@ function Load_Unity3Defaults() {
 				add_action( 'genesis_entry_content', 'the_content' );
 				add_action( 'genesis_post_content', 'the_content' );
 			}
+
+
 		}
 
 		public function admin_init() {
@@ -124,6 +128,25 @@ function Load_Unity3Defaults() {
 				<?php
 			}
 		}
+
+		function tribe_genesis_bypass_genesis_do_post_content() {
+
+			if ( class_exists( 'Tribe__Events__Main' ) && class_exists( 'Tribe__Events__Pro__Main' ) ) {
+				if ( tribe_is_month() || tribe_is_upcoming() || tribe_is_past() || tribe_is_day() || tribe_is_map() || tribe_is_photo() || tribe_is_week() || ( tribe_is_recurring_event() && ! is_singular( 'tribe_events' ) ) ) {
+					remove_action( 'genesis_entry_content', 'genesis_do_post_image', 8 );
+					remove_action( 'genesis_entry_content', 'genesis_do_post_content' );
+					add_action( 'genesis_entry_content', 'the_content', 15 );
+				}
+			} elseif ( class_exists( 'Tribe__Events__Main' ) && ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
+				if ( tribe_is_month() || tribe_is_upcoming() || tribe_is_past() || tribe_is_day() ) {
+					remove_action( 'genesis_entry_content', 'genesis_do_post_image', 8 );
+					remove_action( 'genesis_entry_content', 'genesis_do_post_content' );
+					add_action( 'genesis_entry_content', 'the_content', 15 );
+				}
+			}
+
+		}
+
 
 
 
