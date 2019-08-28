@@ -74,7 +74,7 @@ class Unity3_Audio extends Unity3_Post_Group {
 	function renderAdminBlock( $block, $content, $is_preview, $post_id ) {
 
 		$term = get_term( get_field( 'group' ), $this->GetTaxonomy());
-
+		
 		if ($term instanceof WP_Term) {
 			echo $this->shortcode( array(
 				'group' => $term->slug,
