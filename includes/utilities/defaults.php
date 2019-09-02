@@ -139,16 +139,7 @@ function Load_Unity3Defaults() {
 					//remove_action( 'genesis_entry_content', 'genesis_do_post_content' );
 					add_action( 'genesis_entry_content', 'the_content', 15 );
 				}
-			} elseif ( tribe_is_event_query() ) { // class_exists( 'Tribe__Events__Main' ) || ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
-				if ( tribe_is_month() || tribe_is_upcoming() || tribe_is_past() || tribe_is_day() ) {
-					remove_all_actions('genesis_entry_header');
-					remove_all_actions('genesis_entry_content');
-//				    remove_action( 'genesis_entry_content', 'genesis_do_post_image', 8 );
-//					remove_action( 'genesis_entry_content', 'genesis_do_post_content' );
-					add_action( 'genesis_entry_content', 'the_content', 15 );
-				}
 			}
-
 		}
 
 
