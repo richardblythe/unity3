@@ -1,7 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c6536bc-9ea3-4153-8052-c8d31fa098c7" name="Default" comment="" />
+    <list default="true" id="5c6536bc-9ea3-4153-8052-c8d31fa098c7" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/sass/_image-effects.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/includes/widgets/recent-gallery-images.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/styles/_avatar.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/styles/_jetpack.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/styles/_login.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/styles/_post_groups.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/styles/_sliderpro.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/styles/_the-events-calendar.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/styles/_unity3_utilities.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/styles/_utilities.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/styles/_wpgmaps.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/styles/editor/_unity3-audio.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/styles/editor/unity3-editor.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/styles/editor/unity3-editor.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/styles/editor/unity3-editor.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/styles/editor/unity3-editor.min.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/styles/editor/unity3-editor.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/styles/unity3.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/styles/unity3.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/styles/unity3.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/styles/unity3.min.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/styles/unity3.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vscode/default.code-workspace" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/loader.php" afterPath="$PROJECT_DIR$/includes/loader.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/modules/class-audio.php" afterPath="$PROJECT_DIR$/includes/modules/class-audio.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/modules/class-galleries.php" afterPath="$PROJECT_DIR$/includes/modules/class-galleries.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/modules/class-module.php" afterPath="$PROJECT_DIR$/includes/modules/class-module.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/modules/class-post-group.php" afterPath="$PROJECT_DIR$/includes/modules/class-post-group.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/modules/class-post-type.php" afterPath="$PROJECT_DIR$/includes/modules/class-post-type.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/modules/class-service-time.php" afterPath="$PROJECT_DIR$/includes/modules/class-service-time.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/modules/class-services.php" afterPath="$PROJECT_DIR$/includes/modules/class-services.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/modules/class-slides.php" afterPath="$PROJECT_DIR$/includes/modules/class-slides.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/modules/modules.php" afterPath="$PROJECT_DIR$/includes/modules/modules.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/utilities/defaults.php" afterPath="$PROJECT_DIR$/includes/utilities/defaults.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/utilities/shortcodes.php" afterPath="$PROJECT_DIR$/includes/utilities/shortcodes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unity3.php" afterPath="$PROJECT_DIR$/unity3.php" />
+    </list>
     <ignored path="unity3.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -21,103 +60,176 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="unity3.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="unity3.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/unity3.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="13" column="17" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="303" selection-end-column="0" />
+            <state relative-caret-position="125">
+              <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="recent-gallery-images.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/widgets/recent-gallery-images.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="295">
+              <caret line="189" column="28" lean-forward="true" selection-start-line="189" selection-start-column="28" selection-end-line="189" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="media.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../wp-includes/media.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="245">
+              <caret line="919" column="69" lean-forward="true" selection-start-line="919" selection-start-column="69" selection-end-line="919" selection-end-column="94" />
               <folding>
-                <marker date="1566940461101" expanded="true" signature="2081:2116" ph="..." />
+                <marker date="1563674811650" expanded="true" signature="66178:66536" ph="..." />
+                <marker date="1563674811650" expanded="true" signature="66196:66220" ph="{...}" />
+                <marker date="1563674811650" expanded="true" signature="66251:66350" ph="{...}" />
+                <marker date="1563674811650" expanded="true" signature="66371:66408" ph="{...}" />
+                <marker date="1563674811650" expanded="true" signature="66442:66468" ph="{...}" />
+                <marker date="1563674811650" expanded="true" signature="68365:68376" ph="..." />
+                <marker date="1563674811650" expanded="false" signature="68478:68489" ph="..." />
+                <marker date="1563674811650" expanded="true" signature="120813:120924" ph="SELECT ID FR... wp_posts" />
+                <marker date="1563674811650" expanded="true" signature="121857:121968" ph="SELECT ID FR... wp_posts" />
+                <marker date="1563674811650" expanded="true" signature="122752:122894" ph="SELECT DISTI... " />
+                <marker date="1563674811650" expanded="true" signature="141152:141244" ph="SELECT post_... wp_postmeta" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="date.php" pinned="false" current-in-tab="false">
-        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/date/date.php">
+      <file leaf-file-name="class-galleries.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/modules/class-galleries.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="794" column="9" lean-forward="false" selection-start-line="794" selection-start-column="9" selection-end-line="794" selection-end-column="9" />
+            <state relative-caret-position="1645">
+              <caret line="249" column="17" lean-forward="true" selection-start-line="249" selection-start-column="17" selection-end-line="249" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="unity3.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/styles/unity3.scss">
+      <file leaf-file-name="_gallery.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/sass/_gallery.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="7" column="24" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+            <state relative-caret-position="200">
+              <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="14" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="class-audio.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/modules/class-audio.php">
+      <file leaf-file-name="_utilities.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/sass/_utilities.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="93" column="36" lean-forward="true" selection-start-line="93" selection-start-column="36" selection-end-line="93" selection-end-column="36" />
+            <state relative-caret-position="-2625">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="class-service-time.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/modules/class-service-time.php">
+      <file leaf-file-name="_image-effects.scss" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/assets/sass/_image-effects.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="614">
-              <caret line="97" column="42" lean-forward="true" selection-start-line="97" selection-start-column="42" selection-end-line="97" selection-end-column="42" />
+            <state relative-caret-position="50">
+              <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="unity3.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/styles/unity3.css">
+        <entry file="file://$PROJECT_DIR$/assets/css/unity3.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="556">
-              <caret line="213" column="15" lean-forward="true" selection-start-line="213" selection-start-column="15" selection-end-line="213" selection-end-column="15" />
+            <state relative-caret-position="184">
+              <caret line="33" column="14" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="14" />
+              <folding>
+                <marker date="1570136616374" expanded="true" signature="850:1041" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="1068:1212" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="1253:1360" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="1397:1417" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="1449:1469" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="1495:1526" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="1566:1586" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="1604:1635" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="1843:1924" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="1956:2029" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="2064:2106" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="2144:2199" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="2237:2256" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="2291:2310" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="2351:2374" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="2469:2497" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="2534:2555" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="2604:2624" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="2673:2691" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="2719:2787" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="2823:2850" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="2904:2929" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="3119:3137" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="3179:3216" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="3237:3257" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="3285:3371" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="3309:3369" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="3398:3448" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="3424:3446" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="3498:3547" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="3523:3545" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="3597:3646" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="3622:3644" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="3696:3745" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="3721:3743" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="3796:3845" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="3821:3843" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="3873:3922" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="3898:3920" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="3979:3997" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="4032:4055" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="4098:4303" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="4360:4380" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="4442:4468" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="4506:4632" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="4665:4685" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="4732:4758" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="4811:4852" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="4913:4947" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="4975:5016" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="5051:5098" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="5135:5160" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="5204:5439" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="5482:5718" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="5761:5983" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="5817:5836" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="5889:5908" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="5961:5981" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="6026:6251" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="6083:6102" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="6156:6175" ph="{...}" />
+                <marker date="1570136616374" expanded="true" signature="6229:6249" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="unity3.min.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/css/unity3.min.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="465" lean-forward="false" selection-start-line="0" selection-start-column="463" selection-end-line="0" selection-end-column="465" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_the-events-calendar.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/styles/_the-events-calendar.scss">
+      <file leaf-file-name="unity3.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/sass/unity3.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="4" column="32" lean-forward="false" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="defaults.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/utilities/defaults.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="134" column="220" lean-forward="true" selection-start-line="134" selection-start-column="220" selection-end-line="134" selection-end-column="251" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="plugin.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../wp-includes/plugin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="582" column="9" lean-forward="false" selection-start-line="582" selection-start-column="9" selection-end-line="582" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_login.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/styles/_login.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="37" />
+            <state relative-caret-position="25">
+              <caret line="1" column="23" lean-forward="false" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -135,12 +247,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>includes/post-types/</find>
-      <find>cust</find>
-      <find>Groups'</find>
-      <find>settings['menu</find>
-      <find>playlist</find>
-      <find>wait</find>
       <find>mouse</find>
       <find>auto</find>
       <find>unity3_dragsortposts</find>
@@ -165,6 +271,12 @@
       <find>m</find>
       <find>mime</find>
       <find>default_mime_types</find>
+      <find>tax_</find>
+      <find>scope</find>
+      <find>from</find>
+      <find>form</find>
+      <find>cap</find>
+      <find>fx</find>
     </findStrings>
     <replaceStrings>
       <replace>SiteUpdatedNotice</replace>
@@ -206,9 +318,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/includes/sliderpro/sliderpro-widget.php" />
-        <option value="$PROJECT_DIR$/includes/post-types/class-post-fields.php" />
-        <option value="$PROJECT_DIR$/includes/sliderpro/class-post-fields-sliderpro.php" />
         <option value="$PROJECT_DIR$/includes/widgets/sliderpro-widget.php" />
         <option value="$PROJECT_DIR$/assets/styles/_post_types.scss" />
         <option value="$PROJECT_DIR$/assets/styles/_avatar.scss" />
@@ -231,11 +340,8 @@
         <option value="$PROJECT_DIR$/includes/post-types/post-types.php" />
         <option value="$PROJECT_DIR$/includes/post-types/class-services.php" />
         <option value="$PROJECT_DIR$/includes/post-types/class-block.php" />
-        <option value="$PROJECT_DIR$/includes/loader.php" />
         <option value="$PROJECT_DIR$/includes/modules/modules.php" />
         <option value="$PROJECT_DIR$/includes/modules/class-service-audio.php" />
-        <option value="$PROJECT_DIR$/includes/modules/class-module.php" />
-        <option value="$PROJECT_DIR$/includes/modules/class-galleries.php" />
         <option value="$PROJECT_DIR$/includes/drag-sort-posts/drag-sort-posts.php" />
         <option value="$PROJECT_DIR$/includes/widgets/sliderpro.php" />
         <option value="$PROJECT_DIR$/includes/utilities/core-utility.php" />
@@ -256,7 +362,13 @@
         <option value="$PROJECT_DIR$/assets/styles/_the-events-calendar.scss" />
         <option value="$PROJECT_DIR$/includes/modules/class-service-time.php" />
         <option value="$PROJECT_DIR$/includes/modules/class-audio.php" />
+        <option value="$PROJECT_DIR$/includes/modules/class-module.php" />
+        <option value="$PROJECT_DIR$/includes/loader.php" />
+        <option value="$PROJECT_DIR$/includes/modules/class-galleries.php" />
+        <option value="$PROJECT_DIR$/includes/widgets/recent-gallery-images.php" />
+        <option value="$PROJECT_DIR$/assets/sass/unity3.scss" />
         <option value="$PROJECT_DIR$/unity3.php" />
+        <option value="$PROJECT_DIR$/assets/sass/_image-effects.scss" />
       </list>
     </option>
   </component>
@@ -271,6 +383,9 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="PhpDebugGeneral" xdebug_force_break_when_no_path_mapping="false" xdebug_force_break_when_outside_project="false" />
   <component name="PhpServers">
@@ -314,7 +429,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -323,6 +437,30 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.jetbrains.php.config.library.PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="unity3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.jetbrains.php.config.library.PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PHP" />
+              <option name="myItemType" value="com.jetbrains.php.config.library.PhpExternalLibrariesNodePatcher$PatchedLibraryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="unity3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="unity3" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -355,7 +493,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="utilities" />
+              <option name="myItemId" value="widgets" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -369,11 +507,11 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="includes" />
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
+              <option name="myItemId" value="sass" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -391,18 +529,61 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="unity3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="unity3" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="unity3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="unity3" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="unity3.css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NestingTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../FileWatcherTemplate.xml" />
+    <property name="last_opened_file_path" value="E:/TEMP/unity3-v1.10.0/unity3-v1.10.0/bundled/defaults/defaults.php" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files (x86)\nodejs\node.exe" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;jar://C:/Program Files/JetBrains/PhpStorm 2017.1.3/plugins/php/lib/php.jar!/stubs/standard/standard_2.php" />
+    <property name="two.files.diff.last.used.folder" value="E:/TEMP/unity3-v1.10.0/unity3-v1.10.0" />
+    <property name="two.files.diff.last.used.file" value="E:/TEMP/unity3-v1.10.0/unity3-v1.10.0/bundled/defaults/defaults.php" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -413,11 +594,11 @@
       <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\includes\utilities" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\assets\sass" />
       <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\assets\styles" />
       <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\assets\styles\editor" />
       <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\includes\modules" />
       <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\includes\post-types" />
-      <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\assets\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -586,6 +767,10 @@
       <workItem from="1566493955931" duration="15553000" />
       <workItem from="1566831143969" duration="16303000" />
       <workItem from="1566915095194" duration="10601000" />
+      <workItem from="1567609318036" duration="12000" />
+      <workItem from="1568649935446" duration="891000" />
+      <workItem from="1569013354827" duration="502000" />
+      <workItem from="1570111811291" duration="19542000" />
     </task>
     <task id="LOCAL-00046" summary="Additions to the SliderPro.  It's getting more awesome!!">
       <created>1563826359186</created>
@@ -934,7 +1119,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="282471000" />
+    <option name="totallyTimeSpent" value="303418000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -947,16 +1132,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23854166" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23854166" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875264" sideWeight="0.49791667" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.397463" sideWeight="0.50208336" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32769555" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3245243" sideWeight="0.49791667" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28463203" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.397463" sideWeight="0.49791667" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39852008" sideWeight="0.49791667" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -964,7 +1151,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32769555" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1047,209 +1233,21 @@
           <option name="timeStamp" value="114" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/includes/utilities/defaults.php</url>
-          <line>285</line>
-          <option name="timeStamp" value="173" />
+          <url>file://$PROJECT_DIR$/includes/widgets/recent-gallery-images.php</url>
+          <line>197</line>
+          <option name="timeStamp" value="226" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/includes/widgets/recent-gallery-images.php</url>
+          <line>201</line>
+          <option name="timeStamp" value="227" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="194" />
+      <option name="time" value="228" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../../wp-includes/class-wp-fatal-error-handler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/utilities/core-utility.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="318" column="0" lean-forward="false" selection-start-line="318" selection-start-column="0" selection-end-line="318" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/loader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="11" column="66" lean-forward="false" selection-start-line="11" selection-start-column="66" selection-end-line="11" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../wp-admin/includes/class-wp-list-table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="1336" column="0" lean-forward="false" selection-start-line="1336" selection-start-column="0" selection-end-line="1336" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../wp-admin/includes/class-wp-posts-list-table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="735" column="0" lean-forward="false" selection-start-line="735" selection-start-column="0" selection-end-line="735" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../wp-includes/l10n.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="249" column="0" lean-forward="false" selection-start-line="249" selection-start-column="0" selection-end-line="249" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/modules/class-module.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../wp-includes/class-wp-block-type-registry.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1080">
-          <caret line="75" column="35" lean-forward="false" selection-start-line="75" selection-start-column="35" selection-end-line="75" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../themes/outreach-pro/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/modules/modules.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="202" column="0" lean-forward="false" selection-start-line="202" selection-start-column="0" selection-end-line="202" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../wp-config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../wp-settings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="524" column="0" lean-forward="false" selection-start-line="524" selection-start-column="0" selection-end-line="524" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../wp-load.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../wp-includes/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-130">
-          <caret line="1102" column="9" lean-forward="false" selection-start-line="1102" selection-start-column="9" selection-end-line="1102" selection-end-column="9" />
-          <folding>
-            <marker date="1563674811258" expanded="true" signature="21379:21483" ph="SELECT meta_... wp_postmeta" />
-            <marker date="1563674811258" expanded="true" signature="22572:22676" ph="SELECT post_... wp_postmeta" />
-            <marker date="1563674811258" expanded="true" signature="43494:43563" ph="SELECT optio... wp_options" />
-            <marker date="1563674811258" expanded="true" signature="105499:105689" ph="..." />
-            <marker date="1563674811258" expanded="true" signature="105626:105680" ph="..." />
-            <marker date="1563674811258" expanded="true" signature="168605:168699" ph="SELECT post_... wp_postmeta" />
-            <marker date="1563674811258" expanded="true" signature="169182:169282" ph="SELECT comme... wp_commentmeta" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../wp-admin/includes/noop.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="67" column="9" lean-forward="false" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../wp-includes/load.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="1493" column="5" lean-forward="true" selection-start-line="1493" selection-start-column="5" selection-end-line="1493" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/styles/_post_groups.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../wp-includes/theme.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="1927" column="13" lean-forward="false" selection-start-line="1927" selection-start-column="13" selection-end-line="1927" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../wp-blog-header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../wp-includes/functions.wp-styles.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
-          <folding>
-            <marker date="1563674811260" expanded="true" signature="2396:2400" ph="&lt;" />
-            <marker date="1563674811260" expanded="true" signature="2405:2409" ph="&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/acf-blocks/slides.php" />
-    <entry file="file://$PROJECT_DIR$/assets/styles/_unity3_utilities.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-223">
-          <caret line="3" column="45" lean-forward="false" selection-start-line="3" selection-start-column="45" selection-end-line="3" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/widgets/sliderpro.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="867" column="13" lean-forward="false" selection-start-line="867" selection-start-column="13" selection-end-line="867" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/modules/class-services.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1350">
-          <caret line="12" column="14" lean-forward="false" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/modules/class-slides.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-275">
@@ -1262,27 +1260,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
           <caret line="278" column="0" lean-forward="false" selection-start-line="278" selection-start-column="0" selection-end-line="278" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../wp-includes/media.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="2169" column="30" lean-forward="true" selection-start-line="2169" selection-start-column="30" selection-end-line="2169" selection-end-column="30" />
-          <folding>
-            <marker date="1563674811650" expanded="true" signature="66178:66536" ph="..." />
-            <marker date="1563674811650" expanded="true" signature="66196:66220" ph="{...}" />
-            <marker date="1563674811650" expanded="true" signature="66251:66350" ph="{...}" />
-            <marker date="1563674811650" expanded="true" signature="66371:66408" ph="{...}" />
-            <marker date="1563674811650" expanded="true" signature="66442:66468" ph="{...}" />
-            <marker date="1563674811650" expanded="true" signature="68365:68376" ph="..." />
-            <marker date="1563674811650" expanded="true" signature="68478:68489" ph="..." />
-            <marker date="1563674811650" expanded="true" signature="120813:120924" ph="SELECT ID FR... wp_posts" />
-            <marker date="1563674811650" expanded="true" signature="121857:121968" ph="SELECT ID FR... wp_posts" />
-            <marker date="1563674811650" expanded="true" signature="122752:122894" ph="SELECT DISTI... " />
-            <marker date="1563674811650" expanded="true" signature="141152:141244" ph="SELECT post_... wp_postmeta" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1290,7 +1267,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="302" column="0" lean-forward="false" selection-start-line="302" selection-start-column="0" selection-end-line="302" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1298,14 +1274,57 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="263" column="0" lean-forward="true" selection-start-line="263" selection-start-column="0" selection-end-line="263" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/styles/editor/unity3-editor.css.map" />
+    <entry file="file://$PROJECT_DIR$/assets/styles/editor/unity3-editor.css" />
+    <entry file="file://$PROJECT_DIR$/assets/styles/editor/_unity3-audio.scss" />
+    <entry file="file://$PROJECT_DIR$/assets/styles/editor/unity3-editor.min.css" />
+    <entry file="file://$PROJECT_DIR$/assets/styles/editor/_service-times.scss" />
+    <entry file="file://$PROJECT_DIR$/assets/styles/editor/unity3-editor.scss" />
+    <entry file="file://$PROJECT_DIR$/includes/modules/class-post-type.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4275">
+          <caret line="171" column="0" lean-forward="false" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/styles/_utilities.scss" />
+    <entry file="file://$PROJECT_DIR$/assets/styles/_sliderpro.scss" />
+    <entry file="file://$PROJECT_DIR$/assets/styles/_login.scss" />
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/date/date.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19850">
+          <caret line="794" column="9" lean-forward="false" selection-start-line="794" selection-start-column="9" selection-end-line="794" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../wp-includes/plugin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14050">
+          <caret line="582" column="9" lean-forward="false" selection-start-line="582" selection-start-column="9" selection-end-line="582" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/styles/unity3.scss" />
+    <entry file="file://$PROJECT_DIR$/assets/styles/unity3.css" />
+    <entry file="file://$PROJECT_DIR$/assets/styles/_the-events-calendar.scss" />
+    <entry file="file://$PROJECT_DIR$/includes/modules/class-service-time.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2425">
+          <caret line="97" column="13" lean-forward="true" selection-start-line="97" selection-start-column="13" selection-end-line="97" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../wp-includes/taxonomy.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22950">
-          <caret line="923" column="9" lean-forward="false" selection-start-line="923" selection-start-column="9" selection-end-line="923" selection-end-column="9" />
+        <state relative-caret-position="181">
+          <caret line="192" column="9" lean-forward="false" selection-start-line="192" selection-start-column="9" selection-end-line="192" selection-end-column="9" />
           <folding>
             <marker date="1563674811903" expanded="true" signature="29911:30138" ph="SELECT tr.ob... wp_term_relationships" />
             <marker date="1563674811903" expanded="true" signature="50312:50423" ph="SELECT meta_... wp_termmeta" />
@@ -1353,164 +1372,388 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/styles/editor/unity3-editor.css.map">
-      <provider editor-type-id="sourcemapFileViewerProvider">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/includes/modules/class-audio.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="461">
+          <caret line="93" column="36" lean-forward="false" selection-start-line="93" selection-start-column="36" selection-end-line="93" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../wp-includes/class-wp-query.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="2901" column="0" lean-forward="false" selection-start-line="2901" selection-start-column="0" selection-end-line="2901" selection-end-column="0" />
+          <folding>
+            <marker date="1563674811059" expanded="true" signature="82185:82280" ph="SELECT ${$di... " />
+            <marker date="1563674811059" expanded="true" signature="90561:90659" ph="SELECT ${$fo... $" />
+            <marker date="1563674811059" expanded="true" signature="93494:93602" ph="SELECT ${$fo... " />
+            <marker date="1563674811059" expanded="true" signature="95916:96001" ph="SELECT ${{$w... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../wp-includes/post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="1926" column="0" lean-forward="false" selection-start-line="1926" selection-start-column="0" selection-end-line="1926" selection-end-column="0" />
+          <folding>
+            <marker date="1563674811680" expanded="true" signature="66289:66305" ph="Insert into post... " />
+            <marker date="1563674811680" expanded="true" signature="66315:66331" ph="Insert into page... " />
+            <marker date="1563674811680" expanded="true" signature="94941:95025" ph="SELECT post_... $" />
+            <marker date="1563674811680" expanded="true" signature="96970:97121" ph="SELECT post_... wp_posts" />
+            <marker date="1563674811680" expanded="true" signature="97291:97384" ph="SELECT COUNT... wp_posts" />
+            <marker date="1563674811680" expanded="true" signature="103291:103331" ph="SELECT * FRO... wp_posts" />
+            <marker date="1563674811680" expanded="true" signature="104817:104885" ph="SELECT * FRO... wp_posts" />
+            <marker date="1563674811680" expanded="true" signature="105216:105293" ph="SELECT ID FR... wp_posts" />
+            <marker date="1563674811680" expanded="true" signature="105750:105815" ph="SELECT comme... wp_comments" />
+            <marker date="1563674811680" expanded="true" signature="106009:106063" ph="SELECT meta_... wp_postmeta" />
+            <marker date="1563674811680" expanded="true" signature="111393:111476" ph="SELECT comme... wp_comments" />
+            <marker date="1563674811680" expanded="true" signature="113448:113531" ph="UPDATE wp_co... " />
+            <marker date="1563674811680" expanded="true" signature="134813:134854" ph="SELECT ID FR... wp_posts" />
+            <marker date="1563674811680" expanded="true" signature="147731:147807" ph="SELECT post_... wp_posts" />
+            <marker date="1563674811680" expanded="true" signature="148894:149029" ph="SELECT post_... wp_posts" />
+            <marker date="1563674811680" expanded="true" signature="150154:150249" ph="SELECT post_... wp_posts" />
+            <marker date="1563674811680" expanded="true" signature="164830:164882" ph="SELECT ID FR... wp_posts" />
+            <marker date="1563674811680" expanded="true" signature="167555:167695" ph="SELECT ID, p... wp_posts" />
+            <marker date="1563674811680" expanded="true" signature="169563:169661" ph="SELECT ID FR... wp_posts" />
+            <marker date="1563674811680" expanded="true" signature="169730:169807" ph="SELECT ID FR... wp_posts" />
+            <marker date="1563674811680" expanded="true" signature="182101:182159" ph="SELECT * FRO... wp_posts" />
+            <marker date="1563674811680" expanded="true" signature="186902:186942" ph="SELECT * FRO... wp_posts" />
+            <marker date="1563674811680" expanded="true" signature="188157:188222" ph="SELECT comme... wp_comments" />
+            <marker date="1563674811680" expanded="true" signature="188417:188471" ph="SELECT meta_... wp_postmeta" />
+            <marker date="1563674811680" expanded="true" signature="189681:189800" ph="SELECT meta_... wp_postmeta" />
+            <marker date="1563674811680" expanded="true" signature="214718:214863" ph="SELECT post_... " />
+            <marker date="1563674811680" expanded="true" signature="214921:215062" ph="SELECT post_... " />
+            <marker date="1563674811680" expanded="true" signature="215174:215368" ph="SELECT DATE_... " />
+            <marker date="1563674811680" expanded="true" signature="226526:226636" ph="SELECT ID FR... wp_posts" />
+            <marker date="1563674811680" expanded="true" signature="229158:229214" ph="SELECT wp_po... wp_posts" />
+            <marker date="1563674811680" expanded="true" signature="232418:232487" ph="SELECT DISTI... wp_posts" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../wp-includes/load.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="953" column="0" lean-forward="false" selection-start-line="953" selection-start-column="0" selection-end-line="953" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../wp-includes/cache.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="755" column="0" lean-forward="false" selection-start-line="755" selection-start-column="0" selection-end-line="755" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../wp-includes/wp-db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="2563" column="46" lean-forward="false" selection-start-line="2563" selection-start-column="46" selection-end-line="2563" selection-end-column="53" />
+          <folding>
+            <marker date="1563674811951" expanded="true" signature="24450:24457" ph="..." />
+            <marker date="1563674811951" expanded="true" signature="41993:42000" ph="..." />
+            <marker date="1563674811951" expanded="true" signature="46793:46800" ph="..." />
+            <marker date="1563674811951" expanded="true" signature="62017:62051" ph="UPDATE `${$t... " />
+            <marker date="1563674811951" expanded="true" signature="64010:64037" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../wp-includes/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="443" column="9" lean-forward="false" selection-start-line="443" selection-start-column="9" selection-end-line="443" selection-end-column="9" />
+          <folding>
+            <marker date="1563674811258" expanded="true" signature="21379:21483" ph="SELECT meta_... wp_postmeta" />
+            <marker date="1563674811258" expanded="true" signature="22572:22676" ph="SELECT post_... wp_postmeta" />
+            <marker date="1563674811258" expanded="true" signature="43494:43563" ph="SELECT optio... wp_options" />
+            <marker date="1563674811258" expanded="true" signature="105499:105689" ph="..." />
+            <marker date="1563674811258" expanded="true" signature="105626:105680" ph="..." />
+            <marker date="1563674811258" expanded="true" signature="168605:168699" ph="SELECT post_... wp_postmeta" />
+            <marker date="1563674811258" expanded="true" signature="169182:169282" ph="SELECT comme... wp_commentmeta" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../wp-includes/class-wp-fatal-error-handler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_8.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="1138" column="9" lean-forward="false" selection-start-line="1138" selection-start-column="9" selection-end-line="1138" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/modules/class-post-group.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10425">
-          <caret line="417" column="13" lean-forward="false" selection-start-line="417" selection-start-column="13" selection-end-line="417" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/styles/editor/unity3-editor.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="33" column="17" lean-forward="false" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/styles/editor/_unity3-audio.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="18" lean-forward="false" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/styles/editor/unity3-editor.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="763" lean-forward="false" selection-start-line="0" selection-start-column="763" selection-end-line="0" selection-end-column="763" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/styles/editor/_service-times.scss" />
-    <entry file="file://$PROJECT_DIR$/assets/styles/editor/unity3-editor.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="30" lean-forward="false" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/modules/class-post-type.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4275">
-          <caret line="171" column="0" lean-forward="false" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
-          <folding>
-            <marker date="1566854999572" expanded="true" signature="8804:8816" ph="Insert into ${$singular}... " />
-            <marker date="1566854999572" expanded="true" signature="9741:9848" ph="SELECT COUNT... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/styles/_utilities.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1713">
-          <caret line="29" column="3" lean-forward="false" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/styles/_sliderpro.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-773">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/styles/_login.scss">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
-          <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/date/date.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="794" column="9" lean-forward="false" selection-start-line="794" selection-start-column="9" selection-end-line="794" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../wp-includes/plugin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="582" column="9" lean-forward="false" selection-start-line="582" selection-start-column="9" selection-end-line="582" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/styles/unity3.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="24" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/styles/unity3.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="213" column="15" lean-forward="true" selection-start-line="213" selection-start-column="15" selection-end-line="213" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/styles/_the-events-calendar.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="32" lean-forward="false" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+          <caret line="98" column="30" lean-forward="false" selection-start-line="98" selection-start-column="30" selection-end-line="118" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/utilities/defaults.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="134" column="220" lean-forward="true" selection-start-line="134" selection-start-column="220" selection-end-line="134" selection-end-column="251" />
+        <state relative-caret-position="181">
+          <caret line="285" column="0" lean-forward="false" selection-start-line="285" selection-start-column="0" selection-end-line="285" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/modules/class-service-time.php">
+    <entry file="file://$PROJECT_DIR$/includes/modules/class-module.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="614">
-          <caret line="97" column="42" lean-forward="true" selection-start-line="97" selection-start-column="42" selection-end-line="97" selection-end-column="42" />
+        <state relative-caret-position="-355">
+          <caret line="56" column="44" lean-forward="false" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/modules/class-audio.php">
+    <entry file="file://$PROJECT_DIR$/includes/loader.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="93" column="36" lean-forward="true" selection-start-line="93" selection-start-column="36" selection-end-line="93" selection-end-column="36" />
+        <state relative-caret-position="150">
+          <caret line="6" column="19" lean-forward="true" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../wp-includes/link-template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="456" column="11" lean-forward="true" selection-start-line="456" selection-start-column="11" selection-end-line="456" selection-end-column="64" />
+          <folding>
+            <marker date="1563674811646" expanded="true" signature="54947:54995" ph="SELECT p.ID wp_posts" />
+            <marker date="1563674811646" expanded="true" signature="84361:84448" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/widgets/credits.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="146" column="0" lean-forward="false" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="46" />
+          <folding>
+            <marker date="1567453866794" expanded="true" signature="1623:1629" ph="..." />
+            <marker date="1567453866794" expanded="true" signature="1722:2001" ph="..." />
+            <marker date="1567453866794" expanded="true" signature="2048:2409" ph="..." />
+            <marker date="1567453866794" expanded="true" signature="2130:2385" ph="..." />
+            <marker date="1567453866794" expanded="false" signature="2268:2288" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/widgets/sliderpro.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9439">
+          <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="144" selection-end-column="5" />
+          <folding>
+            <element signature="e#5274#16522#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../advanced-custom-fields-pro/includes/api/api-template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="317" column="28" lean-forward="true" selection-start-line="317" selection-start-column="28" selection-end-line="317" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/modules/modules.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="143" column="0" lean-forward="false" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../wp-includes/post-template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="1599" column="41" lean-forward="true" selection-start-line="1599" selection-start-column="41" selection-end-line="1599" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/utilities/shortcodes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="313" column="84" lean-forward="true" selection-start-line="313" selection-start-column="84" selection-end-line="313" selection-end-column="109" />
+          <folding>
+            <marker date="1568835066679" expanded="true" signature="8053:8411" ph="..." />
+            <marker date="1568835066679" expanded="true" signature="8071:8095" ph="{...}" />
+            <marker date="1568835066679" expanded="true" signature="8126:8225" ph="{...}" />
+            <marker date="1568835066679" expanded="true" signature="8246:8283" ph="{...}" />
+            <marker date="1568835066679" expanded="true" signature="8317:8343" ph="{...}" />
+            <marker date="1568835066679" expanded="true" signature="10411:10422" ph="..." />
+            <marker date="1568835066679" expanded="false" signature="10524:10535" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../wp-includes/media.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="919" column="69" lean-forward="true" selection-start-line="919" selection-start-column="69" selection-end-line="919" selection-end-column="94" />
+          <folding>
+            <marker date="1563674811650" expanded="true" signature="66178:66536" ph="..." />
+            <marker date="1563674811650" expanded="true" signature="66196:66220" ph="{...}" />
+            <marker date="1563674811650" expanded="true" signature="66251:66350" ph="{...}" />
+            <marker date="1563674811650" expanded="true" signature="66371:66408" ph="{...}" />
+            <marker date="1563674811650" expanded="true" signature="66442:66468" ph="{...}" />
+            <marker date="1563674811650" expanded="true" signature="68365:68376" ph="..." />
+            <marker date="1563674811650" expanded="false" signature="68478:68489" ph="..." />
+            <marker date="1563674811650" expanded="true" signature="120813:120924" ph="SELECT ID FR... wp_posts" />
+            <marker date="1563674811650" expanded="true" signature="121857:121968" ph="SELECT ID FR... wp_posts" />
+            <marker date="1563674811650" expanded="true" signature="122752:122894" ph="SELECT DISTI... " />
+            <marker date="1563674811650" expanded="true" signature="141152:141244" ph="SELECT post_... wp_postmeta" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/modules/class-galleries.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1645">
+          <caret line="249" column="17" lean-forward="true" selection-start-line="249" selection-start-column="17" selection-end-line="249" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sass/_gallery.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="14" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/widgets/recent-gallery-images.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="189" column="28" lean-forward="true" selection-start-line="189" selection-start-column="28" selection-end-line="189" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sass/unity3.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="1" column="23" lean-forward="false" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/unity3.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="33" column="14" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="14" />
+          <folding>
+            <marker date="1570136616374" expanded="true" signature="850:1041" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="1068:1212" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="1253:1360" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="1397:1417" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="1449:1469" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="1495:1526" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="1566:1586" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="1604:1635" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="1843:1924" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="1956:2029" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="2064:2106" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="2144:2199" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="2237:2256" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="2291:2310" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="2351:2374" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="2469:2497" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="2534:2555" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="2604:2624" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="2673:2691" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="2719:2787" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="2823:2850" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="2904:2929" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="3119:3137" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="3179:3216" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="3237:3257" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="3285:3371" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="3309:3369" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="3398:3448" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="3424:3446" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="3498:3547" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="3523:3545" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="3597:3646" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="3622:3644" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="3696:3745" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="3721:3743" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="3796:3845" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="3821:3843" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="3873:3922" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="3898:3920" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="3979:3997" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="4032:4055" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="4098:4303" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="4360:4380" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="4442:4468" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="4506:4632" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="4665:4685" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="4732:4758" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="4811:4852" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="4913:4947" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="4975:5016" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="5051:5098" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="5135:5160" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="5204:5439" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="5482:5718" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="5761:5983" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="5817:5836" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="5889:5908" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="5961:5981" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="6026:6251" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="6083:6102" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="6156:6175" ph="{...}" />
+            <marker date="1570136616374" expanded="true" signature="6229:6249" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/unity3.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="465" lean-forward="false" selection-start-line="0" selection-start-column="463" selection-end-line="0" selection-end-column="465" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/unity3.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="13" column="17" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="303" selection-end-column="0" />
-          <folding>
-            <marker date="1566940461101" expanded="true" signature="2081:2116" ph="..." />
-          </folding>
+        <state relative-caret-position="125">
+          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sass/_utilities.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2625">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sass/_image-effects.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>

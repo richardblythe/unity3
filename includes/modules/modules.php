@@ -1,5 +1,7 @@
 <?php
 
+use Unity3\IModuleRender;
+
 if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 if( ! class_exists('Unity3_Modules') ) :
@@ -8,7 +10,7 @@ class Unity3_Modules {
 
 	/** @var array Storage for class instances */
 	private $modules = array();
-
+	private $controllers = array();
 
 	function initialize() {
 
@@ -16,24 +18,71 @@ class Unity3_Modules {
 //			add_filter('unity3_dragsortposts',  array($this, 'register_dragsort_posts') );
 //		}
 
-		//load classes immediately before the widgets! Note the priority of zero
-		add_action( 'init', array($this, 'load_classes'), 0 );
+		//load modules immediately before the widgets! Note the priority of zero
+		add_action( 'init', array($this, 'load_modules'), 0 );
 	}
 
 	//this is the place to fire the activation notice to theme listeners...
-	public function load_classes() {
-		//load classes...
+	public function load_modules() {
+		//load base modules...
 		require_once (Unity3::$dir . 'includes/modules/class-module.php');
 		require_once (Unity3::$dir . 'includes/modules/class-post-type.php');
 		require_once (Unity3::$dir . 'includes/modules/class-post-group.php');
-		require_once (Unity3::$dir . 'includes/modules/class-galleries.php');
-		require_once (Unity3::$dir . 'includes/modules/class-slides.php');
-		require_once (Unity3::$dir . 'includes/modules/class-services.php');
-		require_once (Unity3::$dir . 'includes/modules/class-audio.php');
 
+
+		$files = array_diff(scandir(Unity3::$dir . 'includes/modules'), array('.', '..', 'modules.php', 'class-module.php', 'class-post-type.php', 'class-post-group.php'));
+		foreach ($files as $file) {
+			require_once (Unity3::$dir . 'includes/modules/' . $file);
+		}
+
+		do_action('unity3/modules/load' );
+		do_action('unity3/modules/controllers/load');
+
+		
+		//load the modules that are set to activate
+		if ( $module_ids = get_option( 'options_unity3_modules_active', false )) {
+			//now that controllers have been loaded, initialize the modules
+			foreach ($module_ids as $m) {
+				if ( $module = $this->Get($m) ) {
+					$module->Init();
+				}
+			}
+		}
 		do_action('unity3/modules/init' );
 
-		do_action('unity3/modules/activate');
+		//Add modules list to the Unity 3 Software general settings page
+		if(is_admin() && function_exists('acf_add_local_field_group') ) {
+
+			acf_add_local_field_group(array(
+				'key'	=> 'unity3_modules',
+				'title' => 'Modules',
+				'fields' => array(
+					array(
+						'label' => '',
+						'key' => 'unity3_modules_active',
+						'name' => 'unity3_modules_active',
+						'type' => 'checkbox',
+						'instructions' => '',
+						'choices' => $this->GetAll(),
+						'allow_custom' => 0,
+						'layout' => 'vertical',
+						'toggle' => 1,
+						'return_format' => 'value',
+						'save_custom' => 0,
+					),
+				),
+				'location' => array(
+					array(
+						array(
+							'param' => 'options_page',
+							'operator' => '==',
+							'value' => Unity3::$menu_slug,
+						),
+					),
+				),
+			));
+		}
+
 	}
 
 //	public function register_dragsort_posts( $post_types ) {
@@ -68,32 +117,64 @@ class Unity3_Modules {
 				$this->modules[ $instance->ID() ] = $instance;
 				$result = true;
 			}
+
 		} catch (Exception $e) { };
 
 		return $result;
 	}
 
-//	public function HasPostType( $post_type ) {
-//		foreach ($this->modules as $type ) {
-//			if ($post_type == $type->GetPostType()) {
-//				return true;
-//			}
-//		}
-//		return false;
-//	}
-//
-//	public function GetTaxonomy( $post_type ) {
-//		foreach ($this->modules as $type ) {
-//			if ($post_type == $type->GetPostType()) {
-//				return $type->GetGroupType();
-//			}
-//		}
-//		return null;
-//	}
+	public function RegisterController( $class ) {
+		$result = false;
+		try {
+			$instance = $class;
+			if ( is_string( $class ) ) {
+				$instance = new $class();
+			}
 
-	public function Get( $id ) {
-		return isset($this->modules[ $id ]) ? $this->modules[ $id ] : null;
+			if(is_object($instance) && is_subclass_of( $instance, 'Unity3ModuleController') ) {
+				$this->controllers[ $instance->ID() ] = $instance;
+				$result = true;
+			}
+		} catch (Exception $e) { };
+
+		return $result;
 	}
+
+	public function Get( $module_id ) {
+		return isset($this->modules[ $module_id]) ? $this->modules[ $module_id] : null;
+	}
+
+	public function GetAll( $display = true ) {
+
+		if ( $display ) {
+			$arr = array();
+			foreach ( $this->modules as $m ) {
+				$arr[$m->ID()] = $m->Name();
+			}
+			return $arr;
+		}
+		return $this->modules;
+	}
+
+	public function GetControllers( $module_id = null, $display = true ) {
+		if (empty($module_id)) {
+			return $this->controllers;
+		} else {
+			$results = array();
+			foreach ($this->controllers as $c) {
+				if  ($c->Supports( $module_id) ) {
+					$results[$c->ID()] = $display ? $c->Name() : $c;
+				}
+			}
+
+			return $results;
+		}
+	}
+
+	public function GetController( $controller_id ) {
+		return empty($controller_id) ? null : $this->controllers[$controller_id];		
+	}
+
 
 	public function Activate( $args ) {
 
@@ -129,7 +210,7 @@ class Unity3_Modules {
 	}
 
     public function GetImageSizes( $format = 'raw' ) {
-
+		
 		$builtin_sizes = array(
 			'large'   => array(
 				'width'  => get_option( 'large_size_w' ),
@@ -200,7 +281,8 @@ class Unity3_Modules {
 	}
 
 	function unity3_activate( $args ) {
-		unity3_modules()->Activate( $args );
+		//deprecated...
+		//unity3_modules()->Activate( $args );
 	}
 
 	// initialize

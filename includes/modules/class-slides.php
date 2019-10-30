@@ -21,8 +21,8 @@ class Unity3_Slides extends Unity3_Post_Group {
 
 	}
 
-	public function doActivate( ) {
-		parent::doActivate();
+	public function Init( ) {
+		parent::Init();
 
 		add_image_size('unity3_slide', 1140,460, true);
 		add_image_size('unity3_slide_med', 768,310, true);
@@ -150,10 +150,10 @@ class Unity3_Slides extends Unity3_Post_Group {
 
 	}
 
-	public function GetFields() {
+	protected function getFields() {
 		return array (
 			array (
-				'key'           => 'image',
+				'key'           => $this->GetPostType() . '_field_image',
 				'label'         => '',
 				'name'          => 'image',
 				'type'          => 'image',
@@ -167,7 +167,7 @@ class Unity3_Slides extends Unity3_Post_Group {
 				),
 			),
 			array(
-				'key' => 'caption',
+				'key' => $this->GetPostType() . '_field_caption',
 				'label' => 'Caption',
 				'name' => 'caption',
 				'type' => 'text',

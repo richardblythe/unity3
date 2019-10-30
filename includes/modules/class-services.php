@@ -3,7 +3,7 @@
 class Unity3_Services extends Unity3_Module {
 
 	public function __construct( ) {
-		parent::__construct('unity3_services');
+		parent::__construct('unity3_services', 'Church Services');
 
 		$this->mergeSettings( array(
 			'post' => array(
@@ -14,8 +14,8 @@ class Unity3_Services extends Unity3_Module {
 		));
 	}
 
-	public function doActivate( ) {
-		parent::doActivate();
+	public function Init( ) {
+		parent::Init();
 
 		require_once (Unity3::$dir . 'includes/modules/class-service-time.php');
 		unity3_modules()->Activate( array(
@@ -38,8 +38,6 @@ class Unity3_Services extends Unity3_Module {
 		if (is_admin()) {
 			add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		}
-
-		return true;
 	}
 
 	function admin_menu() {

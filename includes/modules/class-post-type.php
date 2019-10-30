@@ -4,7 +4,7 @@
 class Unity3_Post_Type extends Unity3_Module {
 	protected $acf_block_id;
 	public function __construct( $post_type, $singular, $plural ) {
-		parent::__construct( $post_type );
+		parent::__construct( $post_type, $plural );
 
 
 		if (!isset( $singular ) || !isset( $plural )) {
@@ -39,16 +39,8 @@ class Unity3_Post_Type extends Unity3_Module {
 		) );
 	}
 
-	public function GetPostType() {
-		return $this->id;
-	}
-
-	public function GetPostTypeObject() {
-		return get_post_type_object($this->GetPostType());
-	}
-
-	public function doActivate( ) {
-		parent::doActivate();
+	public function Init() {
+		parent::Init();
 
 		if ( $this->settings['admin_columns'] ) {
 			add_filter( "manage_{$this->GetPostType()}_posts_custom_column", array(&$this, "admin_post_columns_content" ) );
@@ -64,41 +56,8 @@ class Unity3_Post_Type extends Unity3_Module {
 			$this->settings['post']
 		);
 
-		if( function_exists('acf_add_local_field_group') ):
-
-			acf_add_local_field_group( apply_filters('unity3/post/field_group', array(
-				'key' => "{$this->GetPostType()}_acf_group",
-				'title' => 'Fields',
-				'fields' => $this->_getFields(),
-				'location' => array (
-					array (
-						array (
-							'param' => 'post_type',
-							'operator' => '==',
-							'value' => $this->GetPostType(),
-						),
-					),
-				),
-				'style' => 'seamless',
-				'hide_on_screen' => array(
-					'permalink',
-					'the_content',
-					'excerpt',
-					'custom_fields',
-					'discussion',
-					'comments',
-					'slug',
-					'author',
-					'format',
-					'page_attributes',
-					'featured_image',
-					'revisions',
-					'Groups',
-					'tags',
-					'send-trackbacks'
-				)
-			)), $this->GetPostType() );
-
+		global $pagenow;
+		if(function_exists('acf_add_local_field_group') ):
 
 		//Register the Gutenberg Block
 		if ( !empty($this->settings['block']['description'])) {
@@ -147,7 +106,81 @@ class Unity3_Post_Type extends Unity3_Module {
 
 		endif;
 
-		return $this->activated = true;
+		
+
+		if ( !is_admin() ) {
+			add_action( 'the_content', array( &$this, '_the_content' ), 100 );
+		} 
+	}
+
+	public function GetPostType() {
+		return $this->id;
+	}
+
+	public function GetPostTypeObject() {
+		return get_post_type_object($this->GetPostType());
+	}
+
+	protected function getControllerScopes( ) {
+		$scopes = parent::GetControllerScopes();
+		$scopes['post'] = array(
+			'priority' => 1000,
+			'acf'	   => array(
+				'label' => 'Post',
+				'type' => 'post_object',
+				'instructions' => 'Controls the specified post',
+				'required' => 0,
+				'wrapper' => array(
+					'width' => '50',
+					'class' => '',
+					'id' => '',
+				),
+				'post_type' => array(
+					0 => $this->GetPostType(),
+				),
+				'taxonomy' => '',
+				'allow_null' => 0,
+				'multiple' => 0,
+				'return_format' => 'id',
+				'ui' => 1,
+			),
+			'validation_callback' => function( $scope ) {
+				global $post;
+				//returns true if we are looking at a 'post' scope and the current post id matches the id stored in post_scope_field
+				return 'post' == $scope['scope_id'] && isset($post) && $post->ID == $scope['scope_field_post'];
+			}
+		);
+		return $scopes;
+	}
+
+	public function _the_content( $content ) {
+		global $post;
+
+		if ( $post && $post->post_type == $this->GetPostType() ) {
+
+			if ( $result = $this->doController( $content ) )
+				return $result;
+			else 
+				return $this->Render( $content );
+		}
+
+		return $content;
+	}
+
+
+	public function Render( $content ) {
+		return $content; //needs to be overriden be child class
+	}
+
+
+
+	protected function getSettingsMenu() { 
+		return array(
+			'page_title' 	=> $this->settings['post']['labels']['name'] . ' - Settings',
+			'menu_title'	=> $this->settings['post']['labels']['name'],
+			'menu_slug'		=> 'unity3-settings-' . $this->sanitized_id,
+			'parent_slug'	=> 'unity3-settings-general',
+		);
 	}
 
 	function renderAdminBlock( $block, $content, $is_preview, $post_id ) {
@@ -223,7 +256,6 @@ class Unity3_Post_Type extends Unity3_Module {
 			if (isset($field)) {
 				switch ($field['type']) {
 					case 'image':
-
 						$image_size = isset($col['image_size']) ? $col['image_size'] : 'thumbnail';
 						$html = wp_get_attachment_image(
 							$field['value'],
@@ -260,32 +292,102 @@ class Unity3_Post_Type extends Unity3_Module {
 		return $messages;
 	}
 
-	private function _getFields( ) {
+	// private function _getFields() {
 
-		//allow the fields to be overridden by a custom set of fields
-		if (isset($this->settings['fieldset'])) {
-			return apply_filters( "unity3/post/fieldset/{$this->settings['fieldset']}", null, $this->GetPostType() );
-		} else {
-			//allow the adding of Advanced Custom Fields
-			return apply_filters( 'unity3/post/fields', $this->GetFields(), $this->GetPostType() );
+	// 	//allow the fields to be overridden by a custom set of fields
+	// 	if ( isset( $this->settings['fieldset'] ) ) {
+	// 		return apply_filters( "unity3/post/fieldset/{$this->settings['fieldset']}", null, $this->GetPostType() );
+	// 	} else {
+	// 		//allow the adding of Advanced Custom Fields
+	// 		return apply_filters( 'unity3/post/fields', $this->GetFields(), $this->GetPostType() );
+	// 	}
+	// }
+
+	protected function acfGroups( $groups ) {
+		$groups = parent::acfGroups( $groups );
+
+		$fields = $this->getFields();
+		if ( isset($fields) && is_array($fields) && count($fields) ) {
+			$groups[$this->GetPostType()] = array(
+				'title' => 'Fields',
+				'fields' => $fields,
+				'location' => array (
+					array (
+						array (
+							'param' => 'post_type',
+							'operator' => '==',
+							'value' => $this->GetPostType(),
+						),
+					),
+				),
+				'style' => 'seamless',
+				'hide_on_screen' => array(
+					'permalink',
+					'the_content',
+					'excerpt',
+					'custom_fields',
+					'discussion',
+					'comments',
+					'slug',
+					'author',
+					'format',
+					'page_attributes',
+					'featured_image',
+					'revisions',
+					'Groups',
+					'tags',
+					'send-trackbacks'
+				)
+			);
 		}
+		
+		return $groups;
 	}
 
-	public function GetFields() {
-		return null;//should be overridden by inherited class
-	}
+	protected function getSettingsFields() {
+		$fields = parent::getSettingsFields();
+		$fields[] =	array(
+			'key' => $this->GetPostType() . '_menu_position',
+			'label' => 'Menu Position',
+			'name' => $this->GetPostType() . '_menu_position',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		);
+			
+		$fields[] =	array (
+			'key'           => $this->GetPostType() . '_default_image',
+			'label'         => 'Default Image',
+			'name'          => $this->GetPostType() . '_default_image',
+			'type'          => 'image',
+			'return_format' => 'id',
+			'required'      => 0,
+			'mime_types'    => 'jpg,jpeg,jpe,gif,png',
+			'preview_size'  => 'thumbnail',
+		);
 
-	public function GetBlockFields() {
+		return $fields;
+	} 
+
+	protected function getFields() {
 		return null;//inherited class does not have to override this
 	}
 
-	public function GetHideOnScreen() {
-		return null;//should be overridden by inherited class
+	protected function getBlockFields() {
+		return null;//inherited class does not have to override this
 	}
 
 }
-
-
 
 
 //quick functions

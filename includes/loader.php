@@ -14,7 +14,7 @@ require_once (Unity3::$dir . 'includes/drag-sort-posts/drag-sort-posts.php');
 
 //custom post type functionality
 require_once (Unity3::$dir . 'includes/modules/modules.php');
-
+require_once (Unity3::$dir . 'includes/smart-slider/smart-slider.php');
 
 
 require_once (Unity3::$dir . 'includes/flexible-widget-area/plugin.php');
@@ -27,9 +27,13 @@ require_once (Unity3::$dir . 'includes/taxonomy-metabox/plugin.php');
 
 
 //widgets:
-require_once (Unity3::$dir . 'includes/widgets/dashboard-welcome.php');
-require_once (Unity3::$dir . 'includes/widgets/sliderpro.php');
-require_once (Unity3::$dir . 'includes/widgets/textpro.php');
-require_once (Unity3::$dir . 'includes/widgets/featured-url.php');
-require_once (Unity3::$dir . 'includes/widgets/credits.php');
-require_once (Unity3::$dir . 'includes/flexslider-widget/flexslider-widget.php');
+$files = array_diff(scandir(Unity3::$dir . 'includes/widgets'), array('.', '..') );
+foreach ($files as $file) {
+	require_once (Unity3::$dir . 'includes/widgets/' . $file);
+}
+//require_once (Unity3::$dir . 'includes/widgets/dashboard-welcome.php');
+//require_once (Unity3::$dir . 'includes/widgets/sliderpro.php');
+//require_once (Unity3::$dir . 'includes/widgets/textpro.php');
+//require_once (Unity3::$dir . 'includes/widgets/featured-url.php');
+//require_once (Unity3::$dir . 'includes/widgets/credits.php');
+//require_once (Unity3::$dir . 'includes/flexslider-widget/flexslider-widget.php');

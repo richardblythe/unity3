@@ -26,13 +26,11 @@ class Unity3_Service_Time extends Unity3_Post_Type {
 		));
 	}
 
-	public function doActivate() {
-		parent::doActivate();
+	public function Init() {
+		parent::Init();
 
 		unity3_dragsort( $this->GetPostType() );
 		add_shortcode('unity3_service_times', array(&$this, 'shortcode') );
-
-//		$this->register_blocks();
 	}
 
 //	function register_blocks() {
@@ -111,7 +109,7 @@ class Unity3_Service_Time extends Unity3_Post_Type {
 		return ob_get_clean();
 	}
 
-	public function GetFields() {
+	protected function getFields() {
 		return array(
 			array(
 				'key' => 'field_5cfe9a375c8b6',

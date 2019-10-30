@@ -3,9 +3,8 @@ function Load_Unity3Defaults() {
 	class Unity3Defaults {
 		public function __construct() {
 			add_action( 'admin_init', array( &$this, 'admin_init') );
-			add_action( 'admin_head', array( &$this, 'admin_hide_meta_boxes') );
+			add_action( 'admin_head', array( &$this, 'admin_head') );
 			add_action( 'get_header', array( &$this,'tribe_genesis_bypass_genesis_do_post_content') );
-
 
 			add_filter('comment_moderation_recipients', array(&$this, 'comment_moderation_recipients'), 11, 2);
 			//Remove the URL section on comments
@@ -95,13 +94,15 @@ function Load_Unity3Defaults() {
 
 			return $emails;
 		}
-		public function admin_hide_meta_boxes() {
+		public function admin_head() {
 			global $pagenow;
-			if (!in_array( $pagenow, array( 'edit.php', 'post.php', 'post-new.php' ), FALSE ) )
-				return;
 
+			$selectors = array();
 			$current_user = wp_get_current_user();
-			if ('unity3software' != $current_user->user_login) {
+			$is_admin_role = in_array( 'administrator', (array) $current_user->roles );
+			$screen = get_current_screen();
+			
+			if (!$is_admin_role && in_array( $pagenow, array( 'edit.php', 'post.php', 'post-new.php' ))) {
 				//Get a list of all the metaboxes to be hidden
 				$selectors = apply_filters('unity3_hide_meta_boxes', array('#pageparentdiv', '#trackbacksdiv', '#slugdiv',
 						'#postcustom', '#genesis_inpost_seo_box', '#genesis_inpost_layout_box', '#genesis_inpost_scripts_box',
@@ -115,18 +116,24 @@ function Load_Unity3Defaults() {
 					if (0 === strpos($selector, '#'))
 						$screen_option_boxes[] = 'label[for="'. substr($selector, 1) .'-hide"]';
 				}
-				$selectors = array_merge($selectors, $screen_option_boxes);
+				$selectors = $selectors + $screen_option_boxes;
 				//
-				$misc_elements = apply_filters('unity3_hide_misc', array('#wp-content-media-buttons .nf-insert-form', '#add_pod_button'));
-				//
-				$selectors = array_merge($selectors, $misc_elements);
-				?>
-                <!-- Unity3 Hide Elements  -->
-                <style type="text/css">
-                    <?php echo implode(',', $selectors); ?>{display:none !important;}
-                </style>
-				<?php
+				$selectors = array_merge($selectors, apply_filters('unity3_hide_misc', array(
+					'#wp-content-media-buttons .nf-insert-form', 
+					'#add_pod_button'))
+				);
 			}
+
+			//Allow the selection list to be filtered
+			$selectors = apply_filters('unity3/admin/css/hide/', $selectors);
+
+			?>
+			<!-- Unity3 Hide Elements  -->
+			<style type="text/css">
+				<?php echo implode(',', $selectors); ?>{display:none!important;}
+			</style>
+			<?php
+
 		}
 
 		function tribe_genesis_bypass_genesis_do_post_content() {
@@ -481,6 +488,41 @@ add_action( 'transition_post_status', 'unity3_post_status_changed', 10, 3 );
 
 add_action('init', 'Load_Unity3Defaults');
 
+
+
+function unity3_get_image_sizes( $format = 'display' ) {
+
+	$builtin_sizes = array(
+		'large'   => array(
+			'width'  => get_option( 'large_size_w' ),
+			'height' => get_option( 'large_size_h' ),
+		),
+		'medium'  => array(
+			'width'  => get_option( 'medium_size_w' ),
+			'height' => get_option( 'medium_size_h' ),
+		),
+		'thumbnail' => array(
+			'width'  => get_option( 'thumbnail_size_w' ),
+			'height' => get_option( 'thumbnail_size_h' ),
+			'crop'   => get_option( 'thumbnail_crop' ),
+		),
+	);
+
+	global $_wp_additional_image_sizes;
+	$additional_sizes = $_wp_additional_image_sizes ? $_wp_additional_image_sizes : array();
+
+	$sizes = array_merge( $builtin_sizes, $additional_sizes );
+
+	if ('display' == $format) {
+		$formatted = array();
+		foreach ($sizes as $name => $size) {
+			$formatted[$name] = (esc_html( $name ) . ' (' . absint( $size['width'] ) . 'x' . absint( $size['height'] ) . ')');
+		}
+		$sizes = $formatted;
+	}
+
+	return $sizes;
+}
 
 /**
  * Get size information for all currently-registered image sizes.

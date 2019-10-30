@@ -24,8 +24,12 @@ class Unity3_Audio extends Unity3_Post_Group {
 		));
 	}
 
-	public function doActivate() {
-		parent::doActivate();
+	public function Name() {
+		return 'Audio';
+	}
+
+	public function Init() {
+		parent::Init();
 
 		//The client should be a be paying for the audio add-on package
 		add_filter( 'upload_mimes',  array( &$this, 'unity3_aws_storage_mime'), 12, 1 );
@@ -222,7 +226,7 @@ class Unity3_Audio extends Unity3_Post_Group {
 	   ));
 	 }
 
-	public function GetFields() {
+	protected function fetFields() {
 		return array (
 			array(
 				'key' => 'field_5d3b597197c47',
@@ -246,7 +250,7 @@ class Unity3_Audio extends Unity3_Post_Group {
 		);
 	}
 
-	public function GetBlockFields() {
+	protected function getBlockFields() {
 		return array(
 			array(
 				'key' => $this->id . '_field_audio_group',

@@ -21,27 +21,9 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 				'base' => $post_type
 			)
 		));
-
 	}
 
-	public function GetTaxonomy() {
-		return $this->GetPostType() . '_group';
-	}
-
-	public function GetTaxonomyObject() {
-		return get_taxonomy($this->GetTaxonomy());
-	}
-
-	public function doActivate( ) {
-		//the $settings disables the default post type menu, but we also allow the user to turn off the custom
-		//generated menu by this class.  So, we will show the menu if a setting has not been specified or if a
-		//a settings is specified and the value is: true
-//		$this->settings['show_custom_group_menu'] = true;
-//		if (isset($this->args['post']['show_in_menu'])) {
-//			$this->settings['show_custom_group_menu'] = $this->args['post']['show_in_menu'];
-//			$this->settings['post']['show_in_menu'] = false; //prevent unwanted menus when the post type is registered
-//		}
-
+	public function Init() {
 
 		if (isset($this->settings['group_rewrite'])) {
 			$base = $this->settings['group_rewrite']['base'];
@@ -59,8 +41,6 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 			);
 		}
 
-
-
 		unity3_register_taxonomy(
 			$this->GetTaxonomy(),
 			$this->GetPostType(),
@@ -71,7 +51,7 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 
 
 		//parent doActivate takes care of registering the post type
-		parent::doActivate();
+		parent::Init();
 
 		//wire up admin functions
 		if (is_admin()) {
@@ -89,14 +69,60 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 
 			//add_action( 'admin_enqueue_scripts', array($this, 'admin_enqueue') );
 			//add_filter( 'unity3_dragsortposts',  array($this, 'register_drag_sort') );
-		}
+		} 
 
 		if ($this->settings['group_rewrite']) {
 			add_filter( 'rewrite_rules_array', array(&$this, 'rewrite_rules') );
 			add_filter( 'post_type_link', array(&$this, 'rewrite_permalink_with_tax'), 10, 2 );
 		}
+	}
 
-		return $this->IsActivated();
+
+	public function GetTaxonomy() {
+		return $this->GetPostType() . '_group';
+	}
+
+	public function GetTaxonomyObject() {
+		return get_taxonomy($this->GetTaxonomy());
+	}
+
+
+	public function GetGroups( $hide_empty = false) {
+		return get_terms( array(
+			'taxonomy' => $this->GetTaxonomy(),
+			'hide_empty' => $hide_empty,
+		) );
+	}
+
+	protected function getControllerScopes() {
+		$scopes = parent::getControllerScopes();
+		$scopes['taxonomy'] = array(
+			'priority' => 500,
+			'acf'	   => array(
+				'label' => 'Taxonomy',
+				'type' => 'taxonomy',
+				'instructions' => 'Controls all modules that are grouped by the selected taxonomy terms (unless overridden by a post type scope)',
+				'required' => 0,
+				'wrapper' => array(
+					'width' => '50',
+					'class' => '',
+					'id' => '',
+				),
+				'taxonomy' => $this->GetTaxonomy(),
+				'field_type' => 'checkbox',
+				'add_term' => 0,
+				'save_terms' => 1,
+				'load_terms' => 1,
+				'return_format' => 'id',
+				'multiple' => 0,
+				'allow_null' => 0,
+			),
+			'validation_callback' => function( $scope ) {
+				//returns true if the current post has one of the terms selected by the scope_field_taxonomy
+				return 'taxonomy' == $scope['scope_id'] && has_term( $scope['scope_field_taxonomy'], $this->GetTaxonomy() );
+			}
+		);
+		return $scopes;
 	}
 
 	function rewrite_rules($rules) {
@@ -107,7 +133,6 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 
 		return array_merge($newRules, $rules);
 	}
-
 
 	function rewrite_permalink_with_tax( $post_link, $post ){
 		if ( is_object( $post ) && $post->post_type == $this->GetPostType() ){
