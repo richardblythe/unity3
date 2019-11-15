@@ -6,6 +6,8 @@ function Load_Unity3Defaults() {
 			add_action( 'admin_head', array( &$this, 'admin_head') );
 			add_action( 'get_header', array( &$this,'tribe_genesis_bypass_genesis_do_post_content') );
 
+			add_filter( 'single_template', 'single_cat_template' );
+
 			add_filter('comment_moderation_recipients', array(&$this, 'comment_moderation_recipients'), 11, 2);
 			//Remove the URL section on comments
 			if (apply_filters('unity3_remove_genesis_comment_url', true)) {
@@ -64,6 +66,31 @@ function Load_Unity3Defaults() {
 			}
 
 
+		}
+
+		/**
+		 * Single template function which will choose our template
+		 *
+		 * @param string $single The current single template path
+		 *
+		 * @return string The possible filtered template path
+		 */
+		function single_cat_template( $single ) {
+			global $wp_query, $post;
+
+			/**
+			 * Checks for single template by category
+			 * Check by category slug and ID
+			 */
+			foreach ( (array) get_the_category() as $cat ) {
+				if ( file_exists( STYLESHEETPATH . '/single-cat-' . $cat->slug . '.php' ) ) {
+					return STYLESHEETPATH . '/single-cat-' . $cat->slug . '.php';
+				} elseif ( file_exists( STYLESHEETPATH . '/single-cat-' . $cat->term_id . '.php' ) ) {
+					return STYLESHEETPATH . '/single-cat-' . $cat->term_id . '.php';
+				}
+			}
+
+			return $single;
 		}
 
 		public function admin_init() {

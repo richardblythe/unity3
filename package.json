@@ -1,42 +1,65 @@
 {
   "name": "unity3",
-  "version": "2.3.5",
-  "description": "A plugin that makes websites more user friendly",
+  "version": "3.1.0",
+  "description": "Customized widgets and functions for client websites",
   "main": "gulpfile.js",
-  "dependencies": {},
+  "dependencies": {
+    "gulp-prompt": "^1.2.0"
+  },
   "devDependencies": {
-    "css-mqpacker": "^7.0.0",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.0",
-    "gulp-changed": "^4.0.1",
-    "gulp-clean-css": "^4.2.0",
+    "autoprefixer": "^6.3.1",
+    "browser-sync": "^2.24.4",
+    "change-case": "^3.0.2",
+    "css-mqpacker": "^6.0.2",
+    "del": "^3.0.0",
+    "fs": "0.0.1-security",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-bump": "^2.9.0",
+    "gulp-cached": "*",
+    "gulp-clean-css": "^3.9.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssbeautify": "^0.1.3",
     "gulp-csscomb": "^3.0.8",
     "gulp-cssnano": "^2.1.3",
-    "gulp-filter": "^6.0.0",
+    "gulp-filter": "^5.1.0",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^3.4.0",
     "gulp-notify": "^3.2.0",
     "gulp-pixrem": "^1.0.0",
-    "gulp-plumber": "^1.2.1",
-    "gulp-postcss": "^8.0.0",
-    "gulp-rename": "^1.4.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-postcss": "^6.3.0",
+    "gulp-rename": "^1.3.0",
+    "gulp-replace": "^0.5.4",
+    "gulp-s3-publish": "^2.0.0",
     "gulp-sass": "^4.0.1",
-    "gulp-sourcemaps": "^2.6.5",
-    "js-yaml": "^3.13.1",
-    "postcss-focus": "^4.0.0"
+    "gulp-sort": "^1.1.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "*",
+    "gulp-wp-pot": "^1.1.1",
+    "gulp-zip": "^4.1.0",
+    "postcss-focus": "^3.0.0",
+    "prettier": "^1.13.4",
+    "prettier-stylelint": "^0.4.2",
+    "stylelint-config-recommended-scss": "^3.2.0",
+    "stylelint-config-wordpress": "^13.0.0",
+    "stylelint-order": "^0.8.1",
+    "yargs": "^9.0.1"
   },
   "scripts": {
     "test": "echo \"No test specified\""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/richardblythe/unity3"
+    "url": "git+https://github.com/seothemes/corporate-pro"
   },
   "keywords": [
-    "plugin"
+    "theme"
   ],
-  "author": "RichardBlythe",
+  "author": "SeoThemes",
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/richardblythe/unity3/issues"
+    "url": "https://github.com/seothemes/corporate-pro/issues"
   },
-  "homepage": "https://github.com/richardblythe/unity3"
+  "homepage": "https://github.com/seothemes/corporate-pro"
 }
