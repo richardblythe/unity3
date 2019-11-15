@@ -2,56 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="80532d29-054a-42be-98bb-c50c5dd0907c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Test.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/R_Blythe.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/unity3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/unity3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/tasks.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/unity3-editor.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/unity3-editor.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/unity3-editor.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/unity3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/unity3.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/unity3.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/unity3.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/unity3.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scripts/unity3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/unity3.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scripts/unity3.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/_avatar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/_avatar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/_gallery.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/_gallery.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/_image-effects.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/_image-effects.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/_jetpack.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/_jetpack.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/_login.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/_login.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/_post_groups.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/_post_groups.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/_sliderpro.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/_sliderpro.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/_the-events-calendar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/_the-events-calendar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/_unity3_utilities.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/_unity3_utilities.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/_utilities.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/_utilities.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/_wpgmaps.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/_wpgmaps.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/editor/_unity3-audio.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/editor/_unity3-audio.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/editor/unity3-editor.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/editor/unity3-editor.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/editor/unity3-editor.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/editor/unity3-editor.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/editor/unity3-editor.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/editor/unity3-editor.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/editor/unity3-editor.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/editor/unity3-editor.min.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/editor/unity3-editor.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/editor/unity3-editor.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/unity3.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/unity3.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/unity3.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/unity3.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/unity3.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/unity3.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/unity3.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/unity3.min.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/unity3.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/unity3.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/gulpfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/utilities/defaults.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utilities/defaults.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unity3.code-workspace" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/unity3.php" beforeDir="false" afterPath="$PROJECT_DIR$/unity3.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/corporate-pro/unity3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/corporate-pro/unity3.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/corporate-pro/unity3.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/corporate-pro/unity3.min.css.map" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -165,8 +119,16 @@
       <updated>1573846815033</updated>
       <workItem from="1573846817485" duration="2553000" />
       <workItem from="1573849386807" duration="1771000" />
-      <workItem from="1573851170618" duration="3077000" />
+      <workItem from="1573851170618" duration="3818000" />
     </task>
+    <task id="LOCAL-00001" summary="Testing hooks">
+      <created>1573854495453</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1573854495453</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

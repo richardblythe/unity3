@@ -1,6 +1,6 @@
 {
   "name": "unity3",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Customized widgets and functions for client websites",
   "main": "gulpfile.js",
   "dependencies": {

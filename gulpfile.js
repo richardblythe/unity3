@@ -354,31 +354,30 @@ gulp.task('watch', function () {
  */
 gulp.task('bump', function () {
 
+	var kind = 'patch';
+
+	if (args.major) {
+		var kind = 'major';
+	} else if (args.minor) {
+		var kind = 'minor';
+	}
+
 	gulp.src(['./package.json'])
 
-		.pipe(prompt.prompt({
-			type: 'list',
-			name: 'bump',
-			message: 'What type of bump would you like to do?',
-			choices: ['patch', 'minor', 'major']
-		}, function(res){
-			//value is in res.bump (as an array)
-			gulp.src(['./package.json'])
-				.pipe(bump({
-					type: res.bump,
-					version: args.to
-				}))
-				.pipe(gulp.dest('./'));
+		.pipe(bump({
+			type: kind,
+			version: args.to
+		}))
+		.pipe(gulp.dest('./'));
 
-			gulp.src(['./unity3.php'])
-				.pipe(bump({
-					key: "Version:",
-					type: res.bump,
-					version: args.to
-				}))
-				.pipe(gulp.dest('./'));
+	gulp.src(['./unity3.php'])
+		.pipe(bump({
+			key: "Version:",
+			type: kind,
+			version: args.to
+		}))
+		.pipe(gulp.dest('./'));
 
-	}))
 });
 
 
