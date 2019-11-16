@@ -3,6 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="80532d29-054a-42be-98bb-c50c5dd0907c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/email.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/email.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/events-calendar-bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/events-calendar-bg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/login-bg-mountains.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/login-bg-mountains.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/sample-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/sample-image.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/sprites16x16.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/sprites16x16.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/unity3-logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/unity3-logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/unity3_logo_100.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/unity3_logo_100.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/unity3_logo_admin_bar.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/unity3_logo_admin_bar.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/wait-spinner.gif" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/wait-spinner.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/wait.gif" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/wait.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/wp_login_bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/wp_login_bg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/wp_login_icon.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/wp_login_icon.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/_wpgmaps.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/_wpgmaps.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/unity3.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/unity3.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/gulpfile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unity3.php" beforeDir="false" afterPath="$PROJECT_DIR$/unity3.php" afterDir="false" />
@@ -47,6 +61,11 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1TfMhTqL7HqL0AWPwDDAXhBUMD5" />
+  <component name="ProjectStartupLocalConfiguration">
+    <configurations>
+      <configuration id="Gulp.js.Default" name="Default" />
+    </configurations>
+  </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.13.0" />
@@ -59,7 +78,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="preferences.startup.tasks" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -78,7 +97,18 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gulp.js.Default">
+    <configuration name="Default" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile>$PROJECT_DIR$/gulpfile.js</gulpfile>
+      <tasks>
+        <task>default</task>
+      </tasks>
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -101,6 +131,10 @@
       <envs />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Gulp.js.Default" />
+      <item itemvalue="Gulp.js.bump" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gulp.js.bump" />
@@ -119,7 +153,9 @@
       <updated>1573846815033</updated>
       <workItem from="1573846817485" duration="2553000" />
       <workItem from="1573849386807" duration="1771000" />
-      <workItem from="1573851170618" duration="3818000" />
+      <workItem from="1573851170618" duration="4337000" />
+      <workItem from="1573855701371" duration="72000" />
+      <workItem from="1573921510112" duration="19000" />
     </task>
     <task id="LOCAL-00001" summary="Testing hooks">
       <created>1573854495453</created>
@@ -128,7 +164,21 @@
       <option name="project" value="LOCAL" />
       <updated>1573854495453</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Testing hooks again 1">
+      <created>1573855200856</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1573855200856</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Testing hooks again 2">
+      <created>1573855232106</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1573855232106</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,7 +199,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Testing hooks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing hooks" />
+    <MESSAGE value="Testing hooks again" />
+    <MESSAGE value="Testing hooks again 1" />
+    <MESSAGE value="Testing hooks again 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing hooks again 2" />
   </component>
   <component name="WordPressConfiguration" doNotAskConfigAgain="true" enabled="true">
     <wordpressPath>E:\WORDPRESS\unity3dev</wordpressPath>

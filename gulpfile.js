@@ -154,10 +154,10 @@ gulp.task('styles', function () {
 		.pipe(csscomb())
 
 		// Write source map.
-		.pipe(sourcemaps.write('./'))
+		.pipe(sourcemaps.write('assets/styles/'))
 
 		// Output non minified css to theme directory.
-		.pipe(gulp.dest('./'))
+		.pipe(gulp.dest('assets/styles/'))
 
 		// Inject changes via browsersync.
 		.pipe(browsersync.reload({
