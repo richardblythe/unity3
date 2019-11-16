@@ -1,25 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="80532d29-054a-42be-98bb-c50c5dd0907c" name="Default Changelist" comment="">
+    <list default="true" id="80532d29-054a-42be-98bb-c50c5dd0907c" name="Default Changelist" comment="Testing hooks again 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/email.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/email.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/events-calendar-bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/events-calendar-bg.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/login-bg-mountains.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/login-bg-mountains.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/sample-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/sample-image.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/sprites16x16.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/sprites16x16.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/unity3-logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/unity3-logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/unity3_logo_100.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/unity3_logo_100.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/unity3_logo_admin_bar.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/unity3_logo_admin_bar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/wait-spinner.gif" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/wait-spinner.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/wait.gif" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/wait.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/wp_login_bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/wp_login_bg.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/wp_login_icon.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/wp_login_icon.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/_wpgmaps.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/_wpgmaps.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/unity3.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/unity3.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/gulpfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unity3.php" beforeDir="false" afterPath="$PROJECT_DIR$/unity3.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -155,7 +138,7 @@
       <workItem from="1573849386807" duration="1771000" />
       <workItem from="1573851170618" duration="4337000" />
       <workItem from="1573855701371" duration="72000" />
-      <workItem from="1573921510112" duration="19000" />
+      <workItem from="1573921510112" duration="165000" />
     </task>
     <task id="LOCAL-00001" summary="Testing hooks">
       <created>1573854495453</created>
@@ -178,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573855232106</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Testing hooks again 2">
+      <created>1573921559320</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1573921559320</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
