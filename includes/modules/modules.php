@@ -177,36 +177,37 @@ class Unity3_Modules {
 
 
 	public function Activate( $args ) {
+		throw new Exception('This function is now deprecated.');
 
-		if (!isset( $args ))
-			return false;
-
-		if (!is_array( $args ) ) {
-			$args = array( $args => null); //convert to an associative array
-		}
-		//check to see if the array is sequential. (we need an associative array)
-		if ( array_keys($args) === range(0, count($args) - 1) ) {
-			//convert to an associative array
-			$new_array = array();
-			foreach ($args as $key ) {
-				$new_array[$key] = null;
-			}
-			$args = $new_array; //assign the converted array;
-		}
-
-		$activated_any = false;
-		$module = null;
-		if (0 !== count($args)) {
-			foreach ($args as $id => $settings ) {
-				$module = $this->Get( $id );
-				if (isset($module) && !$module->IsActivated()) {
-					$module->Activate( $settings );
-					$activated_any = true;
-				}
-			}
-		}
-
-		return $activated_any;
+//		if (!isset( $args ))
+//			return false;
+//
+//		if (!is_array( $args ) ) {
+//			$args = array( $args => null); //convert to an associative array
+//		}
+//		//check to see if the array is sequential. (we need an associative array)
+//		if ( array_keys($args) === range(0, count($args) - 1) ) {
+//			//convert to an associative array
+//			$new_array = array();
+//			foreach ($args as $key ) {
+//				$new_array[$key] = null;
+//			}
+//			$args = $new_array; //assign the converted array;
+//		}
+//
+//		$activated_any = false;
+//		$module = null;
+//		if (0 !== count($args)) {
+//			foreach ($args as $id => $settings ) {
+//				$module = $this->Get( $id );
+//				if (isset($module) && !$module->IsActivated()) {
+//					$module->Activate( $settings );
+//					$activated_any = true;
+//				}
+//			}
+//		}
+//
+//		return $activated_any;
 	}
 
     public function GetImageSizes( $format = 'raw' ) {
