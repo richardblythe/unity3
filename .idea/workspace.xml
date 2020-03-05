@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="80532d29-054a-42be-98bb-c50c5dd0907c" name="Default Changelist" comment="Forgot to add files the commit">
+    <list default="true" id="80532d29-054a-42be-98bb-c50c5dd0907c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/integrations/genesis/genesis.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/integrations/genesis/genesis.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unity3.php" beforeDir="false" afterPath="$PROJECT_DIR$/unity3.php" afterDir="false" />
     </list>
@@ -176,8 +175,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gulp.js.styles" />
         <item itemvalue="Gulp.js.bump" />
+        <item itemvalue="Gulp.js.styles" />
       </list>
     </recent_temporary>
   </component>
@@ -227,7 +226,7 @@
       <workItem from="1582731989998" duration="14700000" />
       <workItem from="1582911384486" duration="23188000" />
       <workItem from="1583180228145" duration="59000" />
-      <workItem from="1583437426710" duration="6289000" />
+      <workItem from="1583437426710" duration="7134000" />
     </task>
     <task id="LOCAL-00001" summary="Testing hooks">
       <created>1573854495453</created>
@@ -292,7 +291,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583440852674</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Hide main menu from non-admin users">
+      <created>1583450505136</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1583450505136</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,7 +325,8 @@
     <MESSAGE value="Deprecated unity3_modules()-&gt;Activate() function" />
     <MESSAGE value="Structural changes to the plugin" />
     <MESSAGE value="Forgot to add files the commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Forgot to add files the commit" />
+    <MESSAGE value="Hide main menu from non-admin users" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hide main menu from non-admin users" />
   </component>
   <component name="WindowStateProjectService">
     <state x="667" y="111" key="#PHP" timestamp="1582573366325">
@@ -342,10 +349,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583437987835" />
-    <state x="585" y="109" key="CommitChangelistDialog2" timestamp="1583450424440">
+    <state x="1045" y="131" key="CommitChangelistDialog2" timestamp="1583451270356">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="109" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583450424440" />
+    <state x="1045" y="131" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583451270356" />
     <state width="534" height="466" key="DebuggerActiveHint" timestamp="1582934827997">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -430,10 +437,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="708" y="339" key="StringManipulation.TextAlignmentForm/0.0.1920.1040@0.0.1920.1040" timestamp="1581443409806" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1583440860033">
+    <state x="933" y="154" key="Vcs.Push.Dialog.v2" timestamp="1583450531615">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583440860033" />
+    <state x="933" y="154" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583450531615" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1582048456060">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -442,10 +449,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="450" y="101" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583437950789" />
-    <state x="656" y="252" width="866" height="536" key="find.popup" timestamp="1583443937195">
+    <state x="656" y="252" width="866" height="536" key="find.popup" timestamp="1583451237951">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="252" width="866" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583443937195" />
+    <state x="656" y="252" width="866" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583451237951" />
     <state x="1471" y="208" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1582050115958">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
