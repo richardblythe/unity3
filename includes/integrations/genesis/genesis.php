@@ -7,8 +7,13 @@ class Genesis {
 
 	private function __construct() {
 
-		//* Change the default footer text
+		//* Deprecated - Change the default footer text
 		add_filter('genesis_footer_creds_text', function () {
+			return unity3_footer_info_shortcode();
+		});
+
+		//Override default footer text
+		add_filter( 'genesis_footer_output', function () {
 			return unity3_footer_info_shortcode();
 		});
 

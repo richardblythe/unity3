@@ -2,33 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="80532d29-054a-42be-98bb-c50c5dd0907c" name="Default Changelist" comment="Forgot to add files the commit">
-      <change afterPath="$PROJECT_DIR$/.idea/composerJson.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/styles/admin/unity3-admin.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/styles/admin/unity3-admin.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/styles/front/unity3-front.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/styles/front/unity3-front.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/boxed.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/casual.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/custom.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/default.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/gateway.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/gateway.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/minimal.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/overlay.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/acf-image-select/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/acf-image-select/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/acf-image-select/acf-image-select.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/acf-image-select/css/image-select.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/acf-image-select/image-select-v3.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/acf-image-select/image-select-v4.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/acf-image-select/image-select-v5.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/acf-image-select/js/image-select.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/acf-image-select/readme.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/integrations/genesis/genesis.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/integrations/genesis/genesis.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unity3.php" beforeDir="false" afterPath="$PROJECT_DIR$/unity3.php" afterDir="false" />
     </list>
@@ -252,7 +227,7 @@
       <workItem from="1582731989998" duration="14700000" />
       <workItem from="1582911384486" duration="23188000" />
       <workItem from="1583180228145" duration="59000" />
-      <workItem from="1583437426710" duration="3408000" />
+      <workItem from="1583437426710" duration="6289000" />
     </task>
     <task id="LOCAL-00001" summary="Testing hooks">
       <created>1573854495453</created>
@@ -310,7 +285,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583440583504</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Forgot to add files the commit">
+      <created>1583440852674</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1583440852674</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,7 +318,8 @@
     <MESSAGE value="Testing hooks again 2" />
     <MESSAGE value="Deprecated unity3_modules()-&gt;Activate() function" />
     <MESSAGE value="Structural changes to the plugin" />
-    <option name="LAST_COMMIT_MESSAGE" value="Structural changes to the plugin" />
+    <MESSAGE value="Forgot to add files the commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Forgot to add files the commit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="667" y="111" key="#PHP" timestamp="1582573366325">
@@ -359,10 +342,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583437987835" />
-    <state x="585" y="109" key="CommitChangelistDialog2" timestamp="1583440815267">
+    <state x="585" y="109" key="CommitChangelistDialog2" timestamp="1583450424440">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="109" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583440815267" />
+    <state x="585" y="109" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583450424440" />
     <state width="534" height="466" key="DebuggerActiveHint" timestamp="1582934827997">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -447,10 +430,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="708" y="339" key="StringManipulation.TextAlignmentForm/0.0.1920.1040@0.0.1920.1040" timestamp="1581443409806" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1583440601277">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1583440860033">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583440601277" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583440860033" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1582048456060">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -459,10 +442,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="450" y="101" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583437950789" />
-    <state x="656" y="252" width="866" height="536" key="find.popup" timestamp="1582914547794">
+    <state x="656" y="252" width="866" height="536" key="find.popup" timestamp="1583443937195">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="252" width="866" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1582914547794" />
+    <state x="656" y="252" width="866" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583443937195" />
     <state x="1471" y="208" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1582050115958">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
