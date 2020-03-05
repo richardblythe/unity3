@@ -2,6 +2,9 @@
 /**
  * Unity 3 SliderPro Widget Class
  */
+
+if( class_exists('ACF') ) :
+
 class Unity3_SliderPro_Widget extends WP_Widget {
 
     const version = '1.0';
@@ -1361,3 +1364,5 @@ function unity3_post_fieldset_sliderpro() {
 	);
 }
 add_filter("unity3/post/fieldset/sliderpro", 'unity3_post_fieldset_sliderpro');
+
+endif;

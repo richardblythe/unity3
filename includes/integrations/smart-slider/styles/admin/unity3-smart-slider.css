@@ -1,0 +1,14 @@
+div[data-name="ss3_slide_preset"] ul.acf-image-select-list
+{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+div[data-name="ss3_slide_preset"] ul.acf-image-select-list .acf-image-select-selected img {
+    border: solid 8px #23cc04;
+}
+
+div[data-name="ss3_slide_preset"] ul.acf-image-select-list .acf-image-select-selected .item-title {
+    font-weight: 700;
+}

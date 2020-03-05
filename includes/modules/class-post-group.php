@@ -1,7 +1,8 @@
 <?php
 
+if( class_exists('ACF') ) :
 
-class Unity3_Post_Group extends Unity3_Post_Type {
+abstract class Unity3_Post_Group extends Unity3_Post_Type {
 
 	public function __construct( $post_type, $singular, $plural ) {
 		parent::__construct( $post_type, $singular, $plural );
@@ -55,26 +56,87 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 
 		//wire up admin functions
 		if (is_admin()) {
-			add_action( 'admin_body_class', array($this, 'admin_body_class'));
-			add_action( 'admin_menu', array($this, 'admin_menu') );
-			add_action( 'admin_notices', array($this, 'admin_notices') );
-			//Customize the Taxonomy Table
-			add_filter( "manage_edit-{$this->GetTaxonomy()}_columns" , array($this,'custom_columns') );
-			add_filter( "manage_{$this->GetTaxonomy()}_custom_column", array($this,'custom_columns_content'),10,3);
-			add_filter( 'list_table_primary_column', array($this, 'default_primary_column'), 10, 2 );
-			add_filter( "{$this->GetTaxonomy()}_row_actions", array($this, 'tax_row_actions'), 10, 2);
-			//			
-			add_filter( 'admin_url', array($this, 'add_new_post_url'), 10, 3 );
-			add_action( 'save_post', array($this, 'auto_set_group'), 100, 2 );
 
-			//add_action( 'admin_enqueue_scripts', array($this, 'admin_enqueue') );
-			//add_filter( 'unity3_dragsortposts',  array($this, 'register_drag_sort') );
+//			if (!$this->get_current_term()) {
+//				function EditLink( $data = '' ) {
+//					return admin_url("edit-tags.php?taxonomy={$this->GetTaxonomy()}&post_type={$this->GetPostType()}");
+//				}
+//			}
+
+
+			add_action( 'admin_body_class', array(&$this, 'admin_body_class'));
+			add_action( 'admin_menu', array(&$this, 'admin_menu'), 20 );
+//			add_action( 'admin_menu', array(&$this, 'admin_menu_last'), 1000 );
+			add_action( 'admin_notices', array(&$this, 'admin_notices') );
+			
+			//Customize the Taxonomy Table
+			add_filter( "manage_edit-{$this->GetTaxonomy()}_columns" , array(&$this,'custom_columns') );
+			add_filter( "manage_{$this->GetTaxonomy()}_custom_column", array(&$this,'custom_columns_content'),10,3);
+			add_filter( 'list_table_primary_column', array(&$this, 'default_primary_column'), 10, 2 );
+			add_filter( "{$this->GetTaxonomy()}_row_actions", array(&$this, 'tax_row_actions'), 10, 2);
+			//			
+			//Customize the Post table with the tax filter
+			add_filter("views_edit-{$this->GetPostType()}", array(&$this, 'edit_quick_links'), 1000); //we want to be the last filter
+			
+			add_filter( 'admin_url', array(&$this, 'add_new_post_url'), 10, 3 );
+			add_action( 'save_post', array(&$this, 'auto_set_group'), 1, 2 );
+
+			//add_action( 'admin_enqueue_scripts', array(&$this, 'admin_enqueue') );
+			//add_filter( 'unity3_dragsortposts',  array(&$this, 'register_drag_sort') );
 		} 
 
 		if ($this->settings['group_rewrite']) {
 			add_filter( 'rewrite_rules_array', array(&$this, 'rewrite_rules') );
 			add_filter( 'post_type_link', array(&$this, 'rewrite_permalink_with_tax'), 10, 2 );
 		}
+	}
+
+
+	function edit_quick_links( $views ) {
+
+		global $wp_query;
+		$current_slug = $this->get_current_term();
+		$edit_link = $this->EditLink(array('group_slug' =>  $current_slug));
+
+		$types = array(
+			array( 'label' => __('All', Unity3::domain),     'status' => NULL, 'link' => $edit_link),
+			array( 'label' => __('Publish', Unity3::domain), 'status' => 'publish', 'link' => $edit_link),
+			array( 'label' => __('Trash', Unity3::domain),   'status' => 'trash', 'link' => $edit_link )
+		);
+
+		foreach( $types as $type ) {
+
+			$args = array(
+				'post_type'     => $this->GetPostType(),
+				'posts_per_page' => -1,
+				'tax_query' => array(
+					array(
+						'taxonomy' => $this->GetTaxonomy(),
+						'field' => 'slug',
+						'terms' => $current_slug
+					)
+				)
+			);
+
+			if (isset($type['status'])) {
+				$args['post_status'] = $type['status'];
+				$type['link'] = add_query_arg(array('post_status' => $type['status']), $type['link']);
+			}
+
+			$result = new WP_Query($args);
+			$class = ($wp_query->query_vars['post_status'] == $type['status']) ? ' class="current"' : '';
+
+
+			$views[ isset($type['status']) ? $type['status'] : 'all'] = sprintf(
+				'<a href="%1$s"%2$s>%4$s <span class="count">(%3$d)</span></a>',
+				$type['link'],
+				$class,
+				$result->found_posts,
+				$type['label']
+			);
+
+		}
+		return $views;
 	}
 
 
@@ -86,12 +148,159 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 		return get_taxonomy($this->GetTaxonomy());
 	}
 
-
 	public function GetGroups( $hide_empty = false) {
 		return get_terms( array(
 			'taxonomy' => $this->GetTaxonomy(),
 			'hide_empty' => $hide_empty,
 		) );
+	}
+
+	public function GetPostGroupMeta($post, $term_meta_key, $single = true) {
+		if ( $post = get_post($post) ) {
+			$terms = wp_get_post_terms($post->ID, $this->GetTaxonomy());
+			return count($terms) ? get_term_meta( $terms[0]->term_id, $term_meta_key, $single ) : null;
+		}
+
+		return null;
+	}
+
+
+
+	public function GetGroupPosts($args, $selector = 'slug', $post_status = 'all') {
+		$post_args = array(
+			'post_type' => $this->GetPostType(),
+//			'post_status' => $post_status,
+			'numberposts' => -1,
+			'order'       => 'ASC',
+			'orderby'     =>  'menu_order title'
+		);
+
+		//convert to an array so our code logic will be cleaner
+		$arr_id = is_array($args) ? $args : array( $args );
+
+		switch ($selector) {
+			case 'term_id':
+			case 'slug':
+				$post_args['tax_query'] = array(
+					array(
+						'taxonomy' => $this->GetTaxonomy(),
+						'field' => $selector,
+						'terms' => 'term_id' == $selector ? array_map('intval', $arr_id) : $arr_id,
+					)
+				);
+				break;
+			case 'tax_query':
+				$post_args['tax_query'] = $args;
+				break;
+		}
+
+		return get_posts($post_args);
+	}
+
+	protected function getSettingsFields() {
+		$fields = parent::getSettingsFields();
+		$fields[] =	array(
+			'key' => $this->GetPostType() . '_force_single',
+			'label' => 'Force Single',
+			'name' => $this->GetPostType() . '_force_single',
+			'type' => 'true_false',
+			'ui'   => 1,
+			'instructions' => '',
+			'required' => 0,
+			'wrapper' => array(
+				'width' => '20%',
+				'class' => '',
+				'id' => '',
+			),
+		);
+
+		$fields[] =	array(
+			'key' => $this->GetPostType() . '_force_single_slug',
+			'label' => 'Single Slug',
+			'name' => $this->GetPostType() . '_force_single_slug',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'wrapper' => array(
+				'width' => '80%',
+				'class' => '',
+				'id' => '',
+			),
+		);
+
+		$fields[] = array(
+			'label' => '',
+			'key' => "{$this->GetPostType()}_menu_shortcuts",
+			'name' => "{$this->GetPostType()}_menu_shortcuts",
+			'type' => 'repeater',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'collapsed' => "{$this->GetPostType()}_subfield_group_slug",
+			'min' => 0,
+			'max' => 0,
+			'layout' => 'block',
+			'button_label' => 'Add Menu Shortcut',
+			'sub_fields' => array(
+				array(
+					'label' => 'Group Slug',
+					'key' => "{$this->GetPostType()}_subfield_group_slug",
+					'name' => "{$this->GetPostType()}_subfield_group_slug",
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '33%',
+						'class' => '',
+						'id' => '',
+					),
+					'allow_null' => 0,
+					'placeholder' => '',
+				),
+				array(
+					'label' => 'Target Menu Slug',
+					'key' => "{$this->GetPostType()}_subfield_target_menu_slug",
+					'name' => "{$this->GetPostType()}_subfield_target_menu_slug",
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '33%',
+						'class' => '',
+						'id' => '',
+					),
+					'allow_null' => 0,
+				),
+				array(
+					'label' => 'Target Menu Position',
+					'key' => "{$this->GetPostType()}_subfield_target_menu_position",
+					'name' => "{$this->GetPostType()}_subfield_target_menu_position",
+					'type' => 'number',
+					'instructions' => '',
+					'required' => 1,
+					'default_value' => 10,
+					'min'			=> 0,
+					'max'			=> 1000,
+					'step'			=> 1,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '33%',
+						'class' => '',
+						'id' => '',
+					),
+					'allow_null' => 0,
+				),
+			),
+		);
+
+		return $fields;
 	}
 
 	protected function getControllerScopes() {
@@ -325,10 +534,13 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 			'hide_empty' => false,
 		) );
 
+		$force_single = get_option("options_{$this->GetPostType()}_force_single");
+		$force_single_slug = get_option("options_{$this->GetPostType()}_force_single_slug");
 		$force_single_term = null;
-		if ( isset($this->args['force_single']) && !$terms instanceof WP_Error ) {
+
+		if ( $force_single && $force_single_slug && !$terms instanceof WP_Error ) {
 			foreach ($terms as $t) {
-				if ($t->slug == $this->args['force_single']) {
+				if ($t->slug == $force_single_slug) {
 					$force_single_term = $t;
 					break;
 				}
@@ -336,7 +548,7 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 		}
 
 		if ( isset($force_single_term) ) {
-			$top_level_menu_slug = $this->EditLink( array('slug' => $force_single_term->slug) );
+			$top_level_menu_slug = $this->EditLink( array('group_slug' => $force_single_term->slug) );
 		} else {
 			$top_level_menu_slug = $this->EditLink();
 		}
@@ -362,7 +574,7 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 				$post_obj->labels->all_items,
 				$post_obj->labels->all_items,
 				'edit_others_posts',
-				$this->EditLink( array('slug' => $force_single_term->slug) ),
+				$this->EditLink( array('group_slug' => $force_single_term->slug) ),
 				''
 			);
 
@@ -395,9 +607,35 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 						$term->name,
 						$term->name,
 						'edit_others_posts',
-						$this->EditLink( array('slug' => $term->slug) ),
+						$this->EditLink( array('group_slug' => $term->slug) ),
 						''
 					);
+				}
+			}
+		}
+
+		//Shortcut Menu
+		//Allows a group item to be inserted under another menu for shortcut functionality
+		if( $rows = get_field("{$this->GetPostType()}_menu_shortcuts", 'option') ) {
+
+			$groups = $this->GetGroups();
+			$group_slug_field = "{$this->GetPostType()}_subfield_group_slug";
+			$target_menu_field = "{$this->GetPostType()}_subfield_target_menu_slug";
+			$target_menu_position_field = "{$this->GetPostType()}_subfield_target_menu_position";
+
+			foreach($rows as $row) {
+				foreach ($groups as $group) {
+					if ( $group->slug == $row[$group_slug_field] ) {
+						add_submenu_page(
+							$row[$target_menu_field],
+							$group->name,
+							$group->name,
+							'edit_others_posts',
+							$this->EditLink( array('group_slug' => $group->slug) ),
+							'',
+							intval($row[$target_menu_position_field])
+						);
+					}
 				}
 			}
 		}
@@ -440,11 +678,20 @@ class Unity3_Post_Group extends Unity3_Post_Type {
 		echo "&nbsp;"; // This helps prevent issues with empty cells
 	}
 
-	function EditLink( $data = '' ) {
-		if ( !empty($data['slug']) ) {
-			return 'edit.php?post_type=' . $this->GetPostType() . "&{$this->GetTaxonomy()}=" . $data['slug'];
-		} else {
-			return "edit-tags.php?taxonomy={$this->GetTaxonomy()}&post_type={$this->GetPostType()}";
+	function EditLink( $data = null ) {
+
+		if (isset($data) && is_array($data)) {
+
+			$url = 'edit.php?post_type=' . $this->GetPostType();
+			if ( $group_slug = $data['group_slug']) {
+				unset($data['group_slug']);
+				$data[$this->GetTaxonomy()] = $group_slug;
+			}
+			return add_query_arg($data, $url);
 		}
+
+		return "edit-tags.php?taxonomy={$this->GetTaxonomy()}&post_type={$this->GetPostType()}";
 	}
 }
+
+endif;

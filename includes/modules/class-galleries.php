@@ -1,13 +1,14 @@
 <?php
 
+if( class_exists('ACF') ) :
+
 class Unity3_Galleries extends Unity3_Post_Group {
 
-	protected $acf_gallery_field_name, $archive_columns, $archive_image_size;
+	const IMAGES_META_FIELD = 'unity3_gallery_images';
+	protected $archive_columns, $archive_image_size;
 
 	public function __construct() {
 		parent::__construct( 'unity3_gallery', 'Gallery', 'Galleries' );
-
-		$this->acf_gallery_field_name = 'gallery';
 
 		$this->mergeSettings( array(
 			'post' => array(
@@ -27,22 +28,32 @@ class Unity3_Galleries extends Unity3_Post_Group {
 			add_action( 'genesis_before', 'unity3_gallery_genesis_before' );
 			add_filter( 'post_class', 'unity3_gallery_archive_post_class' );
 		}
+		//global action
+		add_action( 'delete_attachment', array(&$this, 'delete_attachment' ), 10, 1 );
 	}
 
-	// protected function ThemeSetup() {
-	// 	if (is_tax($this->GetTaxonomy())) {	
-	// 		add_action( 'genesis_before',  'unity3_gallery_do_genesis_tax' );
-	// 	} else if ( is_singular( $this->GetPostType() ) ) {
-	// 		add_action( 'genesis_before',  'unity3_gallery_do_genesis_single' );
-	// 	}
-	// }
+	function delete_attachment( $attachment_id ) {
+		global $wpdb;
+		$meta_key = Unity3_Galleries::IMAGES_META_FIELD;
+		$querystr = "SELECT * FROM `{$wpdb->postmeta}` WHERE `meta_key` = '{$meta_key}'";
+		if ( $rows = $wpdb->get_results( $querystr, ARRAY_A ) ) {
+			foreach ($rows as $index => $row) {
+				$image_ids = maybe_unserialize($row['meta_value']);
+				$found_ids = $image_ids && is_array($image_ids) ? array_keys($image_ids, $attachment_id) : array();
+				if ( count($found_ids) ) {
+					foreach ($found_ids as $key) { unset($image_ids[$key]); }
+					update_post_meta( $row['post_id'], Unity3_Galleries::IMAGES_META_FIELD, count($image_ids) ? $image_ids : null );
+				}
+			}
+		}
+	}
 
     protected function getFields() {
 		return array(
 			array(
 				'label' => 'Gallery',
 				'key' => $this->GetPostType() . '_field_gallery',
-				'name' => $this->acf_gallery_field_name,
+				'name' => Unity3_Galleries::IMAGES_META_FIELD,
 				'type' => 'gallery',
 				'instructions' => '',
 				'required' => 0,
@@ -134,7 +145,7 @@ class Unity3_Galleries extends Unity3_Post_Group {
 			$featured_image = get_the_post_thumbnail();
 
 			if ( empty($featured_image) ) {
-				$images = get_post_meta( get_the_ID(), $this->acf_gallery_field_name, true );
+				$images = get_post_meta( get_the_ID(), Unity3_Galleries::IMAGES_META_FIELD, true );
 				if (is_array($images) && count($images)) {
 					$featured_image = wp_get_attachment_image( $images[0], $this->archive_image_size );
 				}
@@ -200,14 +211,14 @@ class Unity3_Galleries extends Unity3_Post_Group {
 	}
 
 
-	public function GetRecentImages( $selector, $id, $count = 10 ) {
+	public function GetRecentImages( $selector, $args, $count = 10 ) {
 		$post_args = array(
 			'post_type' => $this->GetPostType(),
 			'numberposts' => -1
 		);
 
 		//convert to an array so our code logic will be cleaner
-		$arr_id = is_array($id) ? $id : array( $id );
+		$arr_id = is_array($args) ? $args : array( $args );
 
 		switch ($selector) {
 			case 'term_id':
@@ -219,6 +230,9 @@ class Unity3_Galleries extends Unity3_Post_Group {
 					'include_children' => false
 				);
 				break;
+			case 'tax_query':
+				$post_args['tax_query'] = $args;
+				break;
 			case 'post_id':
 				$post_args['include'] = $arr_id;
 				break;
@@ -228,15 +242,15 @@ class Unity3_Galleries extends Unity3_Post_Group {
 
 		if ( $posts = get_posts($post_args) ) {
 			global $wpdb;
-			$table_name = "{$wpdb->prefix}postmeta";
 			$post_ids = wp_list_pluck( $posts, 'ID' );
 			$in_str_arr = array_fill( 0,  count( $post_ids ) , '%s' );
 			$in_str = join( ',', $in_str_arr );
+			$images_meta_key = Unity3_Galleries::IMAGES_META_FIELD;
 			$meta_rows = $wpdb->get_results(
 				$wpdb->prepare(
 					"SELECT `post_id`, `meta_value` ".
-					"FROM `$table_name` ".
-					"WHERE `meta_key` = '{$this->acf_gallery_field_name}' AND `post_id` IN ( $in_str )",
+					"FROM `{$wpdb->postmeta}` ".
+					"WHERE `meta_key` = '{$images_meta_key}' AND `post_id` IN ( $in_str )",
 					$post_ids
 				),
 				ARRAY_A
@@ -331,7 +345,32 @@ function unity3_gallery_get_recent_images( $selector, $id, $count ) {
 	return $module ? $module->GetRecentImages( $selector, $id, $count ) : array();
 }
 
+function unity3_galleries( $args = null ) {
 
+	$query_args = array(
+		'post_type'   => 'unity3_gallery',
+		'post_status' => 'publish',
+		'numberposts' => -1,
+		'order'       => 'ASC',
+		'orderby'     =>  'menu_order title'
+	);
+
+	if ( $args ) {
+		if ( is_array($args) ) {
+			$query_args['tax_query'] = $args;
+		} else {
+			$query_args['tax_query'] = array(
+				array(
+					'taxonomy' => unity3_modules()->Get('unity3_gallery')->GetTaxonomy(),
+					'field' => 'slug',
+					'terms' => $args
+				)
+			);
+		}
+	}
+
+	return get_posts($query_args);
+}
 
 function unity3_media_get_galleries( $slug ) {
 
@@ -353,3 +392,5 @@ function unity3_media_get_gallery( $id, $format = true ) {
 
 	return null;
 }
+
+endif;

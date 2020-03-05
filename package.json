@@ -1,10 +1,11 @@
 {
   "name": "unity3",
-  "version": "2.3.21",
+  "version": "2.3.23",
   "description": "Customized widgets and functions for client websites",
   "main": "gulpfile.js",
   "dependencies": {
-    "gulp-prompt": "^1.2.0"
+    "gulp-prompt": "^1.2.0",
+    "merge-stream": "latest"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.1",

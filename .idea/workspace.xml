@@ -1,9 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="80532d29-054a-42be-98bb-c50c5dd0907c" name="Default Changelist" comment="Testing hooks again 2">
+    <list default="true" id="80532d29-054a-42be-98bb-c50c5dd0907c" name="Default Changelist" comment="Structural changes to the plugin">
+      <change afterPath="$PROJECT_DIR$/assets/styles/admin/_unity3_slide.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/styles/admin/unity3-admin.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/integrations/genesis/genesis.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/class-generator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/controllers/unity3-gallery.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/controllers/unity3-slide.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/elements/unity3-slide-list.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/boxed.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/casual.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/default.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/minimal.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/overlay.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/scripts/admin/unity3-smart-slider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/smart-slider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/sources/unity3-slide.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/styles/admin/unity3-smart-slider.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scripts/unity3.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scripts/admin/unity3-admin.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scripts/unity3.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scripts/admin/unity3-admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/_avatar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/front/_avatar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/_gallery.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/front/_gallery.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/_image-effects.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/front/_image-effects.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/_jetpack.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/admin/_jetpack.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/_login.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/front/_login.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/_post_groups.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/admin/_unity3_post_group.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/_sliderpro.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/front/_sliderpro.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/_the-events-calendar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/front/_the-events-calendar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/_utilities.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/_utilities.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/_wpgmaps.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/front/_wpgmaps.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/editor/_unity3-audio.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/admin/_unity3_audio.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/editor/unity3-editor.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/editor/unity3-editor.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/editor/unity3-editor.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/editor/unity3-editor.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/editor/unity3-editor.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/admin/_editor.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/unity3.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/unity3.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/unity3.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/unity3.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/unity3.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/front/unity3-front.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/gulpfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/drag-sort-posts/drag-sort-posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/drag-sort-posts/drag-sort-posts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/loader.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/loader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/modules/class-audio.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-audio.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/modules/class-galleries.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-galleries.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/modules/class-module-controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-module-controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/modules/class-module.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-module.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/modules/class-post-group.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-post-group.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/modules/class-post-type.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-post-type.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/modules/class-service-time.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-service.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/modules/class-services.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/modules/class-slides.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-slides.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/modules/modules.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/modules.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/smart-slider/dynamic.png" beforeDir="false" afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/dynamic.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/smart-slider/elements/unity3-gallery-list.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/elements/unity3-gallery-list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/smart-slider/smart-slider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/smart-slider/sources/unity3-gallery.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/sources/unity3-gallery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/utilities/defaults.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utilities/defaults.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/widgets/recent-gallery-images.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/widgets/recent-gallery-images.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/widgets/sliderpro.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/widgets/sliderpro.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unity3.php" beforeDir="false" afterPath="$PROJECT_DIR$/unity3.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +75,31 @@
       <executable />
     </execution>
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="DrupalConfiguration">
     <drupalPath />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="tsconfig.json" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -31,16 +114,29 @@
       <selected-paths>
         <path>
           <id value="$PROJECT_DIR$/gulpfile.js" />
-          <id value="bump" />
+          <id value="styles" />
         </path>
       </selected-paths>
     </layout>
+  </component>
+  <component name="PhpDebugGeneral" show_user_defined_constants="false" xdebug_force_break_when_no_path_mapping="false" xdebug_force_break_when_outside_project="false" />
+  <component name="PhpServers">
+    <servers>
+      <server host="unity3dev.localhost.com" id="4c525e71-1967-4cf7-af0a-21aa1111c42b" name="unity3dev.localhost.com" />
+      <server host="dev.unity3.localhost.com" id="3b3b6038-d070-4c61-a3e7-2670ba73497a" name="dev.unity3.localhost.com">
+        <path_mappings>
+          <mapping local-root="$PROJECT_DIR$/../../../wp-admin" remote-root="E:/WORDPRESS/unity3dev" />
+        </path_mappings>
+      </server>
+    </servers>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/../advanced-custom-fields-pro" />
       <path value="$PROJECT_DIR$/../../../wp-admin" />
       <path value="$PROJECT_DIR$/../../../wp-includes" />
+      <path value="$PROJECT_DIR$/../nextend-smart-slider3-pro" />
+      <path value="$PROJECT_DIR$/../woocommerce" />
     </include_path>
   </component>
   <component name="ProjectId" id="1TfMhTqL7HqL0AWPwDDAXhBUMD5" />
@@ -56,9 +152,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="PHP" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.13.0" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="$PROJECT_DIR$/node_modules/gulp" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/includes/integrations/smart-slider/presets" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -66,14 +164,25 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.startup.tasks" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\includes\integrations\smart-slider\scripts\admin" />
+      <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\includes\integrations\smart-slider" />
+      <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\assets" />
+      <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\assets\scripts\admin" />
+      <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\assets\styles\admin" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3" />
+      <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\includes\integrations\smart-slider\presets" />
+      <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\assets\styles\admin" />
+      <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\assets\styles" />
+      <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\includes\smart-slider\controllers" />
+      <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\includes\smart-slider\elements" />
     </key>
   </component>
-  <component name="RunManager" selected="Gulp.js.bump">
+  <component name="RunManager" selected="Gulp.js.styles">
     <configuration name="Default" type="js.build_tools.gulp">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -107,12 +216,25 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="styles" type="js.build_tools.gulp" temporary="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile>$PROJECT_DIR$/gulpfile.js</gulpfile>
+      <tasks>
+        <task>styles</task>
+      </tasks>
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Gulp.js.Default" />
       <item itemvalue="Gulp.js.bump" />
+      <item itemvalue="Gulp.js.styles" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gulp.js.styles" />
         <item itemvalue="Gulp.js.bump" />
       </list>
     </recent_temporary>
@@ -144,7 +266,26 @@
       <workItem from="1573851170618" duration="4337000" />
       <workItem from="1573855701371" duration="72000" />
       <workItem from="1573921510112" duration="3765000" />
-      <workItem from="1575342902514" duration="348000" />
+      <workItem from="1575342902514" duration="1365000" />
+      <workItem from="1579891092488" duration="7926000" />
+      <workItem from="1580232460667" duration="47000" />
+      <workItem from="1580236814874" duration="2754000" />
+      <workItem from="1580517770252" duration="8000" />
+      <workItem from="1580931996556" duration="13507000" />
+      <workItem from="1581377862819" duration="5499000" />
+      <workItem from="1581388331004" duration="5439000" />
+      <workItem from="1581439317062" duration="13199000" />
+      <workItem from="1581718902594" duration="6902000" />
+      <workItem from="1581952761962" duration="20397000" />
+      <workItem from="1582035558802" duration="9715000" />
+      <workItem from="1582047742677" duration="10154000" />
+      <workItem from="1582132247950" duration="16544000" />
+      <workItem from="1582572985448" duration="9952000" />
+      <workItem from="1582651563842" duration="15273000" />
+      <workItem from="1582731989998" duration="14700000" />
+      <workItem from="1582911384486" duration="23188000" />
+      <workItem from="1583180228145" duration="59000" />
+      <workItem from="1583437426710" duration="3102000" />
     </task>
     <task id="LOCAL-00001" summary="Testing hooks">
       <created>1573854495453</created>
@@ -181,7 +322,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573921686465</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Deprecated unity3_modules()-&gt;Activate() function">
+      <created>1575343395387</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1575343395387</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,27 +353,210 @@
     <MESSAGE value="Testing hooks again" />
     <MESSAGE value="Testing hooks again 1" />
     <MESSAGE value="Testing hooks again 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing hooks again 2" />
+    <MESSAGE value="Deprecated unity3_modules()-&gt;Activate() function" />
+    <MESSAGE value="Structural changes to the plugin" />
+    <option name="LAST_COMMIT_MESSAGE" value="Structural changes to the plugin" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1575343291385">
+    <state x="667" y="111" key="#PHP" timestamp="1582573366325">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1575343291385" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1575343291385">
+    <state x="667" y="111" key="#PHP/0.0.1920.1040@0.0.1920.1040" timestamp="1582573366325" />
+    <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582047845743">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1575343291385" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1575343291385">
+    <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582047845743" />
+    <state x="600" y="287" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog" timestamp="1582044404280">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1575343291385" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1575343291385">
+    <state x="600" y="287" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582044404280" />
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582052112677">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1575343291385" />
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582052112677" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1583437987835">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583437987835" />
+    <state x="585" y="109" key="CommitChangelistDialog2" timestamp="1583440236673">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="585" y="109" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583440236673" />
+    <state width="534" height="466" key="DebuggerActiveHint" timestamp="1582934827997">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="534" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1582934827997" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1582048456060">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582048456060" />
+    <state x="739" y="275" key="FileChooserDialogImpl" timestamp="1583180276222">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="739" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1583180276222" />
+    <state width="1877" height="280" key="GridCell.Tab.0.bottom" timestamp="1583440236750">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583440236750" />
+    <state width="1877" height="280" key="GridCell.Tab.0.center" timestamp="1583440236749">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="280" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583440236749" />
+    <state width="1877" height="280" key="GridCell.Tab.0.left" timestamp="1583440236749">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="280" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583440236749" />
+    <state width="1877" height="280" key="GridCell.Tab.0.right" timestamp="1583440236749">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="280" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583440236749" />
+    <state width="1877" height="357" key="GridCell.Tab.1.bottom" timestamp="1582942326610">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="357" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1582942326610" />
+    <state width="1877" height="357" key="GridCell.Tab.1.center" timestamp="1582942326610">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="357" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1582942326610" />
+    <state width="1877" height="357" key="GridCell.Tab.1.left" timestamp="1582942326610">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="357" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1582942326610" />
+    <state width="1877" height="357" key="GridCell.Tab.1.right" timestamp="1582942326610">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="357" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1582942326610" />
+    <state width="1877" height="357" key="GridCell.Tab.2.bottom" timestamp="1582942326610">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="357" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1582942326610" />
+    <state width="1877" height="357" key="GridCell.Tab.2.center" timestamp="1582942326610">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="357" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1582942326610" />
+    <state width="1877" height="357" key="GridCell.Tab.2.left" timestamp="1582942326610">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="357" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1582942326610" />
+    <state width="1877" height="357" key="GridCell.Tab.2.right" timestamp="1582942326610">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="357" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1582942326610" />
+    <state x="625" y="335" key="NewPhpClassDialog" timestamp="1581387236979">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="625" y="335" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581387236979" />
+    <state x="794" y="444" key="NewPhpFileDialog" timestamp="1583437921836">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="794" y="444" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583437921836" />
+    <state x="743" y="294" width="1056" height="528" key="PhpMappingAdvancedResolveDialog" timestamp="1580935648347">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="743" y="294" width="1056" height="528" key="PhpMappingAdvancedResolveDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580935648347" />
+    <state x="461" y="163" key="SettingsEditor" timestamp="1580936307218">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1580936307218" />
+    <state x="721" y="353" key="SimpleOpenTaskDialog" timestamp="1582047689713">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="721" y="353" key="SimpleOpenTaskDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582047689713" />
+    <state x="708" y="339" key="StringManipulation.TextAlignmentForm" timestamp="1581443409806">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="708" y="339" key="StringManipulation.TextAlignmentForm/0.0.1920.1040@0.0.1920.1040" timestamp="1581443409806" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1575343430011">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1575343430011" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1582048456060">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582048456060" />
+    <state x="450" y="101" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1583437950789">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="450" y="101" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583437950789" />
+    <state x="656" y="252" width="866" height="536" key="find.popup" timestamp="1582914547794">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="252" width="866" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1582914547794" />
+    <state x="1471" y="208" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1582050115958">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1471" y="208" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup/0.0.1920.1040@0.0.1920.1040" timestamp="1582050115958" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1581391853835">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1581391853835" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1583437603463">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583437603463" />
   </component>
   <component name="WordPressConfiguration" doNotAskConfigAgain="true" enabled="true">
     <wordpressPath>E:\WORDPRESS\unity3dev</wordpressPath>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/includes/modules/class-audio.php</url>
+          <line>190</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/../nextend-smart-slider3-pro/nextend/wordpress/libraries/mvc/db.php</url>
+          <line>203</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/../nextend-smart-slider3-pro/library/smartslider/models/Slides.php</url>
+          <line>75</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/../nextend-smart-slider3-pro/library/smartslider/models/generator.php</url>
+          <line>310</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/../nextend-smart-slider3-pro/library/smartslider/models/Slides.php</url>
+          <line>464</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/../nextend-smart-slider3-pro/library/smartslider/models/Sliders.php</url>
+          <line>1179</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/includes/integrations/smart-slider/controllers/unity3-slide.php</url>
+          <line>233</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/includes/integrations/smart-slider/controllers/unity3-slide.php</url>
+          <line>262</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/includes/modules/class-slides.php</url>
+          <line>209</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/includes/integrations/smart-slider/controllers/unity3-slide.php</url>
+          <line>390</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/includes/integrations/smart-slider/controllers/unity3-slide.php</url>
+          <line>332</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

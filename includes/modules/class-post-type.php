@@ -1,7 +1,8 @@
 <?php
 
+if( class_exists('ACF') ) :
 
-class Unity3_Post_Type extends Unity3_Module {
+abstract class Unity3_Post_Type extends Unity3_Module {
 	protected $acf_block_id;
 	public function __construct( $post_type, $singular, $plural ) {
 		parent::__construct( $post_type, $plural );
@@ -11,7 +12,7 @@ class Unity3_Post_Type extends Unity3_Module {
 			die('Required initialization data for the post type was not specified!');
 		}
 
-		$slugified = acf_slugify( $this->ID() );
+		$slugified = sanitize_title_with_dashes( $this->ID() );
 		$this->acf_block_id = 'acf/' . $slugified;
 
 
@@ -116,6 +117,13 @@ class Unity3_Post_Type extends Unity3_Module {
 	public function GetPostType() {
 		return $this->id;
 	}
+
+	public function GetPostTypeLabel($single = true) {
+	    $obj = get_post_type_object($this->GetPostType());
+	    return $single ? $obj->labels->singular_name : $obj->labels->name;
+    }
+
+
 
 	public function GetPostTypeObject() {
 		return get_post_type_object($this->GetPostType());
@@ -245,27 +253,47 @@ class Unity3_Post_Type extends Unity3_Module {
 		global $post;
 		//Get the ID of that post
 		$post_id = $post->ID;
-
+		$html = '';
 
 		foreach ($this->settings['admin_columns'] as $key => $col) {
 			if ($column_key != $key)
 				continue;
 
-			$field = isset($col['acf']) ? get_field_object($col['acf'], $post_id, false) : null;
-			$html = '';
-			if (isset($field)) {
-				switch ($field['type']) {
-					case 'image':
-						$image_size = isset($col['image_size']) ? $col['image_size'] : 'thumbnail';
-						$html = wp_get_attachment_image(
-							$field['value'],
-							$image_size
-						);
-						break;
-					default:
-						$html = get_field($col['acf'], $post_id);
+			if (isset($col['post'])) {
+			    $arr_post = (array)$post;
+			    $html = isset($arr_post[$col['post']]) ? esc_html($arr_post[$col['post']]) : '';
+            } elseif (isset($col['acf'])) {
+                $field = get_field_object($col['acf'], $post_id, false);
+
+				if (isset($field)) {
+					switch ($field['type']) {
+						case 'image':
+							$image_size = isset($col['image_size']) ? $col['image_size'] : 'thumbnail';
+							$html = wp_get_attachment_image(
+								$field['value'],
+								$image_size
+							);
+							break;
+						default:
+							$html = get_field($col['acf'], $post_id);
+					}
 				}
-			}
+			} elseif (isset($col['callback'])) {
+			    $html = call_user_func($col['callback'], $column_key );
+            }
+
+			if ( !empty($html) && isset($col['link']) ) {
+			    switch ($col['link']) {
+                    case 'POST_EDIT':
+                        $edit_label = sprintf(__('Edit %s'), $this->GetPostTypeLabel());
+                        $html = (
+                            '<a href="' . get_edit_post_link($post_id, null) .
+                                '" aria-label="'. $edit_label .
+                                '" title="'. $edit_label . '">' . $html .
+                            '</a>');
+                        break;
+                }
+            }
 
 			echo apply_filters('unity3/post/column/content', $html, $column_key, $post_id);
 		}
@@ -365,16 +393,16 @@ class Unity3_Post_Type extends Unity3_Module {
 			'maxlength' => '',
 		);
 			
-		$fields[] =	array (
-			'key'           => $this->GetPostType() . '_default_image',
-			'label'         => 'Default Image',
-			'name'          => $this->GetPostType() . '_default_image',
-			'type'          => 'image',
-			'return_format' => 'id',
-			'required'      => 0,
-			'mime_types'    => 'jpg,jpeg,jpe,gif,png',
-			'preview_size'  => 'thumbnail',
-		);
+//		$fields[] =	array (
+//			'key'           => $this->GetPostType() . '_default_image',
+//			'label'         => 'Default Image',
+//			'name'          => $this->GetPostType() . '_default_image',
+//			'type'          => 'image',
+//			'return_format' => 'id',
+//			'required'      => 0,
+//			'mime_types'    => 'jpg,jpeg,jpe,gif,png',
+//			'preview_size'  => 'thumbnail',
+//		);
 
 		return $fields;
 	} 
@@ -478,4 +506,6 @@ function unity3_register_taxonomy($taxonomy, $object_type, $singular, $plural, $
 
     return register_taxonomy( $taxonomy, $object_type, $args );
 }
+
+endif;
 

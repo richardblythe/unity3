@@ -1,17 +1,13 @@
 <?php
+
+namespace Unity3\Integrations\SmartSlider;
+use Unity3, Unity3_Galleries, N2Loader, N2GeneratorAbstract;
+
 N2Loader::import('libraries.slider.generator.abstract', 'smartslider');
 
 class N2GeneratorUnity3Gallery extends N2GeneratorAbstract {
 
     protected $layout = 'image';
-
-    // public function renderFields($form) {
-    //     parent::renderFields($form);
-
-    //     $filter = new N2Tab($form, 'Filter', n2_('Filter'));
-
-    //     new N2ElementUnity3GalleryList($filter, 'group', n2_('Gallery Group'), '');
-    // }
 
     protected function _getData($count, $startIndex) {
 
@@ -30,7 +26,7 @@ class N2GeneratorUnity3Gallery extends N2GeneratorAbstract {
             
         //Get the global post that is being requested
         $post = get_post();
-        $images = get_post_meta($post->ID, 'gallery', true);
+        $images = get_post_meta($post->ID, Unity3_Galleries::IMAGES_META_FIELD, true);
         
         $data = array();
         if (false == $images)

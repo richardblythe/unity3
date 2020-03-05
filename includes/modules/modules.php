@@ -1,15 +1,21 @@
 <?php
-
-use Unity3\IModuleRender;
-
 if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 if( ! class_exists('Unity3_Modules') ) :
 
 class Unity3_Modules {
 
-	/** @var array Storage for class instances */
+	/**
+	 * Array of modules
+	 *
+	 * @var Unity3_Module[]
+	 */
 	private $modules = array();
+	/**
+	 * Array of module controllers
+	 *
+	 * @var Unity3ModuleController[]
+	 */
 	private $controllers = array();
 
 	function initialize() {
@@ -29,11 +35,19 @@ class Unity3_Modules {
 		require_once (Unity3::$dir . 'includes/modules/class-post-type.php');
 		require_once (Unity3::$dir . 'includes/modules/class-post-group.php');
 
+		//load dependencies
+		require_once (Unity3::$dir . 'includes/modules/class-audio.php');
+		require_once (Unity3::$dir . 'includes/modules/class-galleries.php');
+		require_once (Unity3::$dir . 'includes/modules/class-service.php');
+		require_once (Unity3::$dir . 'includes/modules/class-slides.php');
+		//
+		require_once (Unity3::$dir . 'includes/modules/class-clearbase-converter.php');
+		require_once (Unity3::$dir . 'includes/modules/class-module-controller.php');
 
-		$files = array_diff(scandir(Unity3::$dir . 'includes/modules'), array('.', '..', 'modules.php', 'class-module.php', 'class-post-type.php', 'class-post-group.php'));
-		foreach ($files as $file) {
-			require_once (Unity3::$dir . 'includes/modules/' . $file);
-		}
+//		$files = array_diff(scandir(Unity3::$dir . 'includes/modules'), array('.', '..', 'modules.php', 'class-module.php', 'class-post-type.php', 'class-post-group.php'));
+//		foreach ($files as $file) {
+//			require_once (Unity3::$dir . 'includes/modules/' . $file);
+//		}
 
 		do_action('unity3/modules/load' );
 		do_action('unity3/modules/controllers/load');
@@ -140,6 +154,11 @@ class Unity3_Modules {
 		return $result;
 	}
 
+		/**
+		 * Attempts to get a module instance based on it's id
+		 *
+		 * @return Unity3_Module|null
+		 */
 	public function Get( $module_id ) {
 		return isset($this->modules[ $module_id]) ? $this->modules[ $module_id] : null;
 	}
@@ -172,7 +191,7 @@ class Unity3_Modules {
 	}
 
 	public function GetController( $controller_id ) {
-		return empty($controller_id) ? null : $this->controllers[$controller_id];		
+		return isset($this->controllers[$controller_id]) ? $this->controllers[$controller_id] : null;
 	}
 
 

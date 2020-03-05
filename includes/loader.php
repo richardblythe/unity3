@@ -4,6 +4,9 @@ if (file_exists($upload['basedir'] . '/unity3-functions.php')) {
    require_once($upload['basedir'] . '/unity3-functions.php');
 }
 
+//vendor
+require_once (Unity3::$dir . 'vendor/acf-image-select/acf-image-select.php');
+
 //utility functions
 require_once (Unity3::$dir . 'includes/utilities/defaults.php');
 require_once (Unity3::$dir . 'includes/utilities/media-crop-fix.php');
@@ -14,7 +17,10 @@ require_once (Unity3::$dir . 'includes/drag-sort-posts/drag-sort-posts.php');
 
 //custom post type functionality
 require_once (Unity3::$dir . 'includes/modules/modules.php');
-require_once (Unity3::$dir . 'includes/smart-slider/smart-slider.php');
+
+//load integrations
+require_once (Unity3::$dir . 'includes/integrations/smart-slider/smart-slider.php');
+require_once (Unity3::$dir . 'includes/integrations/genesis/genesis.php');
 
 
 require_once (Unity3::$dir . 'includes/flexible-widget-area/plugin.php');

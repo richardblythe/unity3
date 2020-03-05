@@ -4,25 +4,14 @@ function Load_Unity3Defaults() {
 		public function __construct() {
 			add_action( 'admin_init', array( &$this, 'admin_init') );
 			add_action( 'admin_head', array( &$this, 'admin_head') );
-			add_action( 'get_header', array( &$this,'tribe_genesis_bypass_genesis_do_post_content') );
 
-			add_filter( 'single_template', 'single_cat_template' );
+			add_filter( 'single_template', array( &$this, 'single_cat_template') );
 
 			add_filter('comment_moderation_recipients', array(&$this, 'comment_moderation_recipients'), 11, 2);
-			//Remove the URL section on comments
-			if (apply_filters('unity3_remove_genesis_comment_url', true)) {
-				add_filter( 'genesis_comment_form_args', array(&$this, 'url_filtered') );
-				add_filter( 'comment_form_default_fields', array(&$this, 'url_filtered') );
-			}
+
 
 			//convert Clearbase templates to Genesis
 			add_action('clearbase_template_start', array(&$this, 'clearbase_template_start'));
-
-			//allow for overrides on the archive pages
-			add_action('template_redirect', array(&$this, 'archive_settings') );
-
-			//* Change the footer text
-			add_filter('genesis_footer_creds_text', array(&$this, 'genesis_footer_creds') );
 
 			//this disables (among other things) the uploading of audio.
 			add_filter('upload_mimes', array( &$this, 'default_mime_types' ), 10, 1 );
@@ -47,26 +36,7 @@ function Load_Unity3Defaults() {
 			do_action('unity3_register_post_types');
 		}
 
-		//forces the archive contents to show full content instead of excerpts
-		public function archive_settings(){
-			//this is a patch for the Tribe Events Calender. There is a conflict with Genesis on
-			//the archive 'events' page where it pulls in the site logo as a featured image if the
-			//Featured image option is selected in the Genesis archive settings
-			if ( is_post_type_archive(apply_filters('unity3_archive_no_featured_image', array('tribe_events'))) ) {
-				remove_action( 'genesis_entry_content', 'genesis_do_post_image', 8 );
-				remove_action( 'genesis_post_content', 'genesis_do_post_image' );
-			}
 
-			//forces the specified archive pages to show full content instead of excerpts
-			if( is_post_type_archive(apply_filters('unity3_archive_full_content', array('tribe_events'))) ){
-				remove_action( 'genesis_entry_content', 'genesis_do_post_content' );
-				remove_action( 'genesis_post_content', 'genesis_do_post_content' );
-				add_action( 'genesis_entry_content', 'the_content' );
-				add_action( 'genesis_post_content', 'the_content' );
-			}
-
-
-		}
 
 		/**
 		 * Single template function which will choose our template
@@ -95,8 +65,107 @@ function Load_Unity3Defaults() {
 
 		public function admin_init() {
 			add_action( 'pre_get_posts', array(&$this,'admin_hide_pages') );
+			add_action( 'hidden_meta_boxes', array(&$this, 'remove_meta_boxes'), 1000, 2 );
 			add_filter( 'mce_buttons_2', array(&$this, 'mce_buttons_2') );
 			add_filter( 'tiny_mce_before_init', array(&$this, 'mce_before_init'), 10, 2 );
+			add_filter('acf/load_field/type=date_time_picker', array(&$this, 'acf_default_date'));
+		}
+
+		/**
+		 * Removes the category, author, post excerpt, and slug meta boxes.
+		 *
+		 * @since    1.0.0
+		 *
+		 * @param    array    $hidden    The array of meta boxes that should be hidden for Acme Post Types
+		 * @param    object   $screen    The current screen object that's being displayed on the screen
+		 * @return   array    $hidden    The updated array that removes other meta boxes
+		 */
+		function remove_meta_boxes( $hidden, $screen ) {
+
+			global $wp_meta_boxes;
+
+			$post_type = $screen->post_type;
+			//example
+            /*
+             * $includes = array(
+             *    'post' => array(
+             *        'commentdiv' => 'equals|true',
+             *        'acf_'        => 'startsWith',
+             *        '_mybox'     => 'endsWith',
+             *        '_editbox_'    => 'contains',
+             *     )
+             * );
+             *
+             */
+			$includes = apply_filters('unity3/hide_metaboxes/include', false, $screen->post_type);
+			if (!$includes) {
+			    return $hidden;
+            }
+
+			$post_types = array_keys($includes);
+
+
+			if( in_array($post_type, $post_types) && isset( $wp_meta_boxes[$post_type] ) )
+			{
+				$tmp = array();
+				foreach( (array) $wp_meta_boxes[$post_type] as $context_key => $context_item )
+				{
+					foreach( $context_item as $priority_key => $priority_item )
+					{
+						foreach( $priority_item as $metabox_key => $metabox_item ) {
+                            //establish the bias to remove the meta_box
+							$remove_the_metabox = true;
+						    //now loop through our "include" filters
+                            foreach ($includes[$post_type] as $target_metabox_key => $value) {
+
+						        switch ($value) {
+                                    case 'startsWith':
+	                                    if ( strpos($metabox_key, $target_metabox_key) === 0 ) {
+		                                    $remove_the_metabox = false;
+	                                    }
+                                        break;
+                                    case 'endsWith':
+	                                    $len = strlen($target_metabox_key);
+	                                    if ($len == 0 || substr($metabox_key, -$len) === $target_metabox_key) {
+		                                    $remove_the_metabox = false;
+	                                    }
+	                                    break;
+                                    case 'contains':
+	                                    if ( strpos($metabox_key, $target_metabox_key) !== false ) {
+		                                    $remove_the_metabox = false;
+	                                    }
+                                        break;
+							        case 'equals':
+							        case true:
+                                    default:
+								        if ($target_metabox_key == $metabox_key) {
+									        $remove_the_metabox = false;
+								        }
+								        break;
+                                }
+
+                                if (!$remove_the_metabox)
+                                    break;
+                            }
+
+							if ( $remove_the_metabox ) {
+								unset($wp_meta_boxes[$post_type][$context_key][$priority_key][$metabox_key]);
+							}
+						}
+					}
+				}
+			}
+
+			return $hidden;
+
+		}
+
+		function acf_default_date($field) {
+			if ( strpos($field['default_value'], '__') === 0 ) {
+			    $field['default_value'] = strtotime(substr($field['default_value'], 2), time());
+			}
+
+			return $field;
 		}
 
 		/**
@@ -162,22 +231,6 @@ function Load_Unity3Defaults() {
 			<?php
 
 		}
-
-		function tribe_genesis_bypass_genesis_do_post_content() {
-
-			if ( class_exists( 'Tribe__Events__Main' ) || class_exists( 'Tribe__Events__Pro__Main' ) ) {
-				if ( tribe_is_event_query() ) { // tribe_is_month() || tribe_is_upcoming() || tribe_is_past() || tribe_is_day() || tribe_is_map() || tribe_is_photo() || tribe_is_week() || ( tribe_is_recurring_event() && ! is_singular( 'tribe_events' ) ) ) {
-					remove_all_actions('genesis_entry_header');
-					remove_all_actions('genesis_entry_content');
-					//remove_action( 'genesis_entry_content', 'genesis_do_post_image', 8 );
-					//remove_action( 'genesis_entry_content', 'genesis_do_post_content' );
-					add_action( 'genesis_entry_content', 'the_content', 15 );
-				}
-			}
-		}
-
-
-
 
 		public function admin_hide_pages( $query ) {
 			if( isset( $_GET['post_type'] )
@@ -448,10 +501,6 @@ function Load_Unity3Defaults() {
 				'3gp|3gpp' => 'video/3gpp', // Can also be audio
 				'3g2|3gp2' => 'video/3gpp2', // Can also be audio
 			);
-		}
-
-		public function genesis_footer_creds( $creds ) {
-			return unity3_footer_info_shortcode();
 		}
 
 	}

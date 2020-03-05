@@ -11,6 +11,8 @@
 if ( !defined('ABSPATH') )
 	die('-1');
 
+if( class_exists('ACF') ) :
+
 class Recent_Gallery_Images_Widget extends WP_Widget {
 
     protected $gallery_images;
@@ -208,3 +210,5 @@ class Recent_Gallery_Images_Widget extends WP_Widget {
 }
 
 unity3()->AddWidget('Recent_Gallery_Images_Widget' );
+
+endif;

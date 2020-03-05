@@ -1,16 +1,20 @@
 <?php
 //
-class Unity3_Service_Time extends Unity3_Post_Type {
+
+if( class_exists('ACF') ) :
+
+class Unity3_Service extends Unity3_Post_Type {
 
 
 	public function __construct( ) {
-		parent::__construct('unity3_service_time', 'Service Time', 'Service Times');
+		parent::__construct('unity3_service', 'Service', 'Services');
 
 		$this->mergeSettings( array(
 			'post' => array(
 				'menu_position' => 9,
 				'menu_icon'     => 'dashicons-clock',
-				'rewrite' => array( 'slug' => 'service-times' )
+				'rewrite' => array( 'slug' => 'service' ),
+
 			),
 			'admin_columns' => array(
 				'cb'           => array('header' => '<input type="checkbox" />'),
@@ -19,7 +23,7 @@ class Unity3_Service_Time extends Unity3_Post_Type {
 				'date'         => array('header' => 'Date'),
 			),
 			'block' => array(
-				'description'       => __('Displays the current list of services times'),
+				'description'       => __('Displays the current list of services'),
 				'icon'              => 'clock',
 				'keywords'          => array( 'services', 'service times' ),
 			)
@@ -127,7 +131,8 @@ class Unity3_Service_Time extends Unity3_Post_Type {
 ////*************************
 ////       Register
 ////*************************
-unity3_modules()->Register(new Unity3_Service_Time());
+unity3_modules()->Register(new Unity3_Service());
 
+endif;
 
 

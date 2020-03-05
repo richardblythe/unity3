@@ -1,5 +1,5 @@
 <?php
-class Unity3_Module {
+abstract class Unity3_Module {
 
 	protected $id, $name, $sanitized_id, $settings, $attached_controllers, $controller_scopes, $acf_settings_menu_slug;
 
@@ -47,9 +47,41 @@ class Unity3_Module {
 					acf_add_local_field_group( $group );
 				}
 			}
+
+
+			//Now Init the controllers that are attached to this module
+			$attached_controllers = $this->GetAttachedControllers();
+			if ( $attached_controllers && is_array($attached_controllers) ) {
+
+				//We will now loop through the list of controller data that has been sorted by scope priority.
+				//If a controller is valid in the specified scope, it's id and the stored args will be load.
+				foreach($attached_controllers as $data) {
+
+					//now let's try to load the actual controller
+					$controller = unity3_modules()->GetController( $data['controller_id'] );
+					//one final check to make sure that the controller still exists and that it still supports this module
+					if ( isset($controller) && $controller->Supports( $this->ID() ) ) {
+						$controller->Init();
+					}
+				}
+			}
 		}
 	}
-	
+
+//	function _updated_option($option, $old_value, $value) {
+//		//if the option name starts with...
+//		if (0 === strpos($option, "options_{$this->id}_controllers_field_controllers")) {
+//
+//			//if the option name is equal to...
+//			if ("options_{$this->id}_controllers_field_controllers" == $option) {
+//				do_action("unity3/modules/{$this->id}/controllers/change", $option, $old_value, $value);
+//			}// else if option name ends with: scope_id
+//			elseif (substr($option, -(strlen('scope_id'))) === 'scope_id' ) {
+//				do_action("unity3/modules/{$this->id}/controllers/scope_change", $option, $old_value, $value);
+//			}
+//		}
+//	}
+
 	protected function getSettingsMenu() { 
 		return array(
 			'page_title' 	=> $this->Name() . ' Page Title',
@@ -95,7 +127,7 @@ class Unity3_Module {
 	//Gets the controllers that have been attached to this module (From the Module Settings page)
 	public function GetAttachedControllers() {
 		
-		if ( !$this->attached_controllers ) {
+		if ( is_null( $this->attached_controllers ) ) {
 
 			$this->attached_controllers = get_field($this->sanitized_id . '_controllers_field_controllers', 'options');
 
@@ -103,20 +135,22 @@ class Unity3_Module {
 			$this->_getControllerScopes();
 
 			//Sort the saved list of controllers by their scope priority values
-			uasort($this->attached_controllers, function ($item1, $item2) {
-				//we have a scope_id stored in both item1 and item2. We first check to make sure that both of these
-				//scope ids are valid and make sure that the priorities are not of equal value
-				if ( isset($this->controller_scopes[$item1['scope_id']]) && 
-					 isset($this->controller_scopes[$item2['scope_id']]) &&
-					 $this->controller_scopes[$item1['scope_id']]['priority'] != $this->controller_scopes[$item1['scope_id']]['priority'] ) {
+			if ( is_array($this->attached_controllers) ) {
+				uasort($this->attached_controllers, function ($item1, $item2) {
+					//we have a scope_id stored in both item1 and item2. We first check to make sure that both of these
+					//scope ids are valid and make sure that the priorities are not of equal value
+					if ( isset($this->controller_scopes[$item1['scope_id']]) &&
+					     isset($this->controller_scopes[$item2['scope_id']]) &&
+					     $this->controller_scopes[$item1['scope_id']]['priority'] != $this->controller_scopes[$item2['scope_id']]['priority'] ) {
 						return $this->controller_scopes[$item1['scope_id']]['priority'] < $this->controller_scopes[$item2['scope_id']]['priority'] ? -1 : 1;
-				} //else
-				
-				return 0;
-			});
+					} //else
 
-			foreach($this->attached_controllers as $key => $c) {
-				$this->attached_controllers[$key]['controller_settings'] = empty($c['controller_settings']) ? array() : shortcode_parse_atts( $c['controller_settings'] ); //converts stored values in att format to array
+					return 0;
+				});
+
+				foreach($this->attached_controllers as $key => $c) {
+					$this->attached_controllers[$key]['controller_settings'] = empty($c['controller_settings']) ? array() : shortcode_parse_atts( $c['controller_settings'] ); //converts stored values in att format to array
+				}
 			}
 		}
 

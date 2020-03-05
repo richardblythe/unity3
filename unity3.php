@@ -3,29 +3,28 @@
     Plugin Name: Unity 3 Software
     Plugin URI: http://www.unity3software.com/
     Description: Customized widgets and functions for client websites
-    Version: 2.3.21
+    Version: 2.3.3
     Author: Richard Blythe
     Author URI: http://unity3software.com/richardblythe
     GitHub Plugin URI: https://github.com/richardblythe/unity3
  */
 class Unity3 {
-    public static $ver, $dir, $url, $assets_url, $vendor_url, $blank_img, $menu_slug;
+	const ver    = '2.3.3';
+	const assets_ver = '2.0.1';
+    const domain = 'unity3';
+
+    public static $dir, $url, $assets_url, $vendor_url, $blank_img, $menu_slug;
     private $widgets;
     private $min;
     function __construct() {
-
-    	$debug = (defined('WP_DEBUG') && true === WP_DEBUG);
-
-        //
-	    Unity3::$ver = '2.3.18';
-        Unity3::$dir = plugin_dir_path( __FILE__ );
+	    Unity3::$dir = plugin_dir_path( __FILE__ );
         Unity3::$url = plugin_dir_url( __FILE__ );
 	    Unity3::$assets_url = Unity3::$url . 'assets';
         Unity3::$vendor_url = Unity3::$url  . 'vendor';
 	    Unity3::$blank_img = Unity3::$assets_url . '/images/blank.gif';
         Unity3::$menu_slug = 'unity3-settings-general';
         
-	    $this->min = $debug ? '.min.' : '.';
+	    $this->min = (defined('WP_DEBUG') && true === WP_DEBUG) ? '.' : '.min.';
     }
 
     public function initialize() {
@@ -45,8 +44,7 @@ class Unity3 {
 		    add_action('wp_enqueue_scripts', array(&$this, 'enqueue'));
 		    add_action('admin_enqueue_scripts', array(&$this, 'enqueue'));
 		    add_action('login_enqueue_scripts', array(&$this, 'enqueue'));
-		    // Hook the enqueue functions into the editor
-		    add_action( 'enqueue_block_editor_assets', array(&$this, 'enqueue_editor') );
+		    add_action( 'enqueue_block_editor_assets', array(&$this, 'enqueue') );
 
 
 		    add_filter( 'login_message', array(&$this, 'custom_login_message') );
@@ -57,8 +55,6 @@ class Unity3 {
 
 		    if (is_admin()) {
                 add_action('admin_init', array(&$this, 'admin_init'));
-			    add_action('admin_menu', array(&$this,'hide_update_notice'), 9999 );
-
 			    add_filter('admin_footer_text', array(&$this,'modify_admin_footer'),999);
                 add_filter('update_footer', array(&$this, 'modify_admin_version_footer'), 999);
                 
@@ -115,15 +111,6 @@ class Unity3 {
         return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
     }
 
-    function hide_update_notice() {
-    	//yes I want to comment this out
-        // global $current_user, $wp_filter;
-        // if ($current_user && !in_array('developer', $current_user->roles)) {
-        //     $admin_notices = $wp_filter['admin_notices'];
-        //     unset($wp_filter['admin_notices']);
-        // }
-    }
-
     function home_page_menu_args( $args ) {
         $args['show_home'] = true;
         return $args;
@@ -131,18 +118,14 @@ class Unity3 {
 
     
     function enqueue() {
-	    wp_enqueue_script('unity3',       Unity3::$assets_url . "/scripts/unity3{$this->min}js", array('jquery'), Unity3::$ver);
-	    wp_enqueue_style( 'unity3-style', Unity3::$assets_url . "/styles/unity3{$this->min}css", false, Unity3::$ver);
-    }
+    	$folder = is_admin() ? 'admin' : 'front';
 
-    function enqueue_editor() {
-		// Enqueue block editor styles
-	    wp_enqueue_style(
-		    'unity3-editor-css',
-		    Unity3::$assets_url . "/styles/unity3-editor{$this->min}css",
-		    false,
-		    Unity3::$ver
-	    );
+    	//currently there is only an admin scripts folder
+    	if (is_admin()) {
+	        wp_enqueue_script('unity3',       Unity3::$assets_url . "/scripts/{$folder}/unity3-{$folder}{$this->min}js", array('jquery'), Unity3::assets_ver);
+	    }
+
+    	wp_enqueue_style( 'unity3-style', Unity3::$assets_url . "/styles/{$folder}/unity3-{$folder}{$this->min}css", false, Unity3::assets_ver);
     }
 
     function unity3_admin_bar_logo($wp_admin_bar) {      
@@ -182,11 +165,6 @@ class Unity3 {
         $wp_admin_bar->remove_menu('wp-logo');
         $wp_admin_bar->remove_node('appearance');
         $wp_admin_bar->remove_node('updates');
-        //remove the customize bar for all users who are not developers
-        // $user = wp_get_current_user();
-        // if ($user && !in_array('developer', $user->roles))
-        //     $wp_admin_bar->remove_node('customize');
-        //var_dump($wp_admin_bar);
     }
     
     
@@ -201,18 +179,6 @@ class Unity3 {
     
     function admin_init() {
         add_filter( 'request', array(&$this, 'unity3_filter_admin_posts' ));
-
-        //this code only runs one time
-       // $user = get_user_by('login', 'unity3software');
-       // if ($user && !in_array('developer', $user->roles)) {
-       //      if (!get_role('developer')) {
-       //          $role_admin = get_role('administrator');
-       //          $role_dev = add_role('developer', 'Developer', $role_admin->capabilities);
-       //      }
-
-       //      $user->set_role('developer');
-       //      //grant_super_admin($user->ID);
-       //  }
     }
 
     function unity3_filter_admin_posts($request) {

@@ -1,5 +1,8 @@
 <?php
 //
+
+if( class_exists('ACF') ) :
+
 class Unity3_Audio extends Unity3_Post_Group {
 
 	protected $field_audio = 'audio';
@@ -72,6 +75,7 @@ class Unity3_Audio extends Unity3_Post_Group {
 			'group_field' => 'term_id',
 			'max' => $block['data']['max'],
 			'is_admin_block' => false,
+			'more_link' => $block['data']['more_link'],
 		));
 	}
 
@@ -85,7 +89,8 @@ class Unity3_Audio extends Unity3_Post_Group {
 				'group_field' => 'slug',
 				'max' => get_field('max'),
 				'is_admin_block' => true,
-				'artists' => false
+				'artists' => false,
+				'more_link' => get_field('more_link'),
 			));
 		}
 	}
@@ -185,7 +190,8 @@ class Unity3_Audio extends Unity3_Post_Group {
 
 		if ( !empty($atts['more_link']) && !empty($atts['group']) ) {
 
-			$term = get_term_by('slug', $atts['group'],$this->GetTaxonomy() );
+			$term_field = ( 'term_id' == $atts['group_field'] ? 'id' : 'slug' );
+			$term = get_term_by( $term_field, $atts['group'], $this->GetTaxonomy() );
 			if ($term instanceof WP_Term) {
 				$args = apply_filters('unity3/audio/playlist/more_link', array(
 					'class' => '',
@@ -207,7 +213,7 @@ class Unity3_Audio extends Unity3_Post_Group {
 		echo '</ul>';
 
 		echo $this->renderAdminBlockOverlay(
-			$this->EditLink( array( 'slug' => $atts['group'] ) )
+			$this->EditLink( array( 'group_slug' => $atts['group'] ) )
 		);
 	}
 
@@ -226,7 +232,7 @@ class Unity3_Audio extends Unity3_Post_Group {
 	   ));
 	 }
 
-	protected function fetFields() {
+	protected function getFields() {
 		return array (
 			array(
 				'key' => 'field_5d3b597197c47',
@@ -295,6 +301,14 @@ class Unity3_Audio extends Unity3_Post_Group {
 				'max' => '',
 				'step' => '',
 			),
+			array(
+				'key' => "{$this->GetPostType()}_blockfield_more_link",
+				'label' => 'Show More Link?',
+				'name' => 'more_link',
+				'type' => 'true_false',
+				'instructions' => 'If true, shows the More Audio link',
+				'ui' => '1',
+			),
 		);
 	}
 
@@ -310,5 +324,6 @@ function unity3_audio_do_genesis_attachment() {
 ////*************************
 unity3_modules()->Register(new Unity3_Audio());
 
+endif;
 
 
