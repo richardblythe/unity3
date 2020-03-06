@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="80532d29-054a-42be-98bb-c50c5dd0907c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unity3.php" beforeDir="false" afterPath="$PROJECT_DIR$/unity3.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,11 +80,6 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1TfMhTqL7HqL0AWPwDDAXhBUMD5" />
-  <component name="ProjectStartupLocalConfiguration">
-    <configurations>
-      <configuration id="Gulp.js.Default" name="Default" />
-    </configurations>
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />

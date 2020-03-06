@@ -3,7 +3,7 @@
     Plugin Name: Unity 3 Software
     Plugin URI: http://www.unity3software.com/
     Description: Customized widgets and functions for client websites
-    Version: 2.3.9
+    Version: 2.3.10
     Author: Richard Blythe
     Author URI: http://unity3software.com/richardblythe
     GitHub Plugin URI: https://github.com/richardblythe/unity3
@@ -56,6 +56,18 @@ class Unity3 {
                 add_action('admin_init', array(&$this, 'admin_init'));
 			    add_filter('admin_footer_text', array(&$this,'modify_admin_footer'),999);
                 add_filter('update_footer', array(&$this, 'modify_admin_version_footer'), 999);
+
+			    if( function_exists('acf_add_options_page') ) {
+
+				    acf_add_options_page(array(
+					    'page_title' 	=> 'Unity 3 Software',
+					    'menu_title'	=> 'Unity 3 Software',
+					    'menu_slug' 	=> Unity3::$menu_slug,
+					    'icon_url'      => Unity3::$url . 'assets/images/unity3_logo_admin_bar.png',
+					    'capability'	=> 'manage_options',
+					    'redirect'		=> false
+				    ));
+			    }
 		    }
 	    } else {
 		    //add_filter( 'ajax_query_attachments_args', array(&$this, 'filter_media' ));
@@ -166,18 +178,6 @@ class Unity3 {
     
     function admin_init() {
         add_filter( 'request', array(&$this, 'unity3_filter_admin_posts' ));
-
-	    if( current_user_can('manage_options') && function_exists('acf_add_options_page') ) {
-
-		    acf_add_options_page(array(
-			    'page_title' 	=> 'Unity 3 Software',
-			    'menu_title'	=> 'Unity 3 Software',
-			    'menu_slug' 	=> Unity3::$menu_slug,
-			    'icon_url'      => Unity3::$url . 'assets/images/unity3_logo_admin_bar.png',
-			    'capability'	=> 'edit_posts',
-			    'redirect'		=> false
-		    ));
-	    }
     }
 
     function unity3_filter_admin_posts($request) {
