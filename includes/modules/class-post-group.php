@@ -4,7 +4,7 @@ if( class_exists('ACF') ) :
 
 abstract class Unity3_Post_Group extends Unity3_Post_Type {
 
-	protected function __construct( $post_type, $singular, $plural ) {
+	public function __construct( $post_type, $singular, $plural ) {
 		parent::__construct( $post_type, $singular, $plural );
 
 		$this->mergeSettings( array(

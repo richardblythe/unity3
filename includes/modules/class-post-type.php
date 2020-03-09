@@ -4,7 +4,7 @@ if( class_exists('ACF') ) :
 
 abstract class Unity3_Post_Type extends Unity3_Module {
 	protected $acf_block_id;
-	protected function __construct( $post_type, $singular, $plural ) {
+	public function __construct( $post_type, $singular, $plural ) {
 		parent::__construct( $post_type, $plural );
 
 

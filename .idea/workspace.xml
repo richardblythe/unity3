@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="80532d29-054a-42be-98bb-c50c5dd0907c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/integrations/smart-slider/smart-slider.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/smart-slider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/modules/class-post-group.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-post-group.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/modules/class-post-type.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-post-type.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unity3.php" beforeDir="false" afterPath="$PROJECT_DIR$/unity3.php" afterDir="false" />
     </list>
@@ -238,7 +240,7 @@
       <workItem from="1582911384486" duration="23188000" />
       <workItem from="1583180228145" duration="59000" />
       <workItem from="1583437426710" duration="7134000" />
-      <workItem from="1583767240256" duration="16903000" />
+      <workItem from="1583767240256" duration="17124000" />
     </task>
     <task id="LOCAL-00001" summary="Testing hooks">
       <created>1573854495453</created>
@@ -324,7 +326,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583785914920</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="More restructuring of the plugin">
+      <created>1583785982256</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1583785982256</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,10 +386,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583770527711" />
-    <state x="1045" y="131" key="CommitChangelistDialog2" timestamp="1583785905341">
+    <state x="1045" y="131" key="CommitChangelistDialog2" timestamp="1583785978714">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1045" y="131" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583785905341" />
+    <state x="1045" y="131" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583785978714" />
     <state width="534" height="466" key="DebuggerActiveHint" timestamp="1582934827997">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -465,10 +474,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="708" y="339" key="StringManipulation.TextAlignmentForm/0.0.1920.1040@0.0.1920.1040" timestamp="1581443409806" />
-    <state x="933" y="154" key="Vcs.Push.Dialog.v2" timestamp="1583785918207">
+    <state x="933" y="154" key="Vcs.Push.Dialog.v2" timestamp="1583786006544">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="933" y="154" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583785918207" />
+    <state x="933" y="154" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583786006544" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1582048456060">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
