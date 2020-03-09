@@ -56,7 +56,7 @@ class SmartSlider {
 		$screen = get_current_screen();
 
 		// SMART SLIDER HIDE IF NOT ADMIN USER
-		if ('toplevel_page_smart-slider3' == $screen->base) {
+		if (!$is_admin_role && 'toplevel_page_smart-slider3' == $screen->base) {
 			$selectors = $selectors + array(
 					//Global
 					'.n2-header-menu.n2-header-right a[href*="nextendplugin=settings"]',

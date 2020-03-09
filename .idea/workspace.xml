@@ -2,39 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="80532d29-054a-42be-98bb-c50c5dd0907c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/scripts/admin/_unity3-adminimize.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/scripts/admin/_unity3-drag-sort-posts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/styles/admin/_unity3_drag_sort.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scripts/admin/unity3-admin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scripts/admin/unity3-admin.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/admin/unity3-admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/admin/unity3-admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/admin/unity3-admin.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/admin/unity3-admin.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/admin/unity3-admin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/admin/unity3-admin.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/front/unity3-front.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/front/unity3-front.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/front/unity3-front.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/front/unity3-front.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/gulpfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/drag-sort-posts/drag-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/drag-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/drag-sort-posts/drag-sort-posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/class-drag-sort-posts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/drag-sort-posts/dragsortposts.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/drag-sort-posts/dragsortposts.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/drag-sort-posts/jquery.ui.touch-punch.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/jquery.ui.touch-punch.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/integrations/smart-slider/controllers/unity3-gallery.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/plugins/unity3-gallery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/integrations/smart-slider/controllers/unity3-slide.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/plugins/unity3-slide.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/integrations/smart-slider/elements/unity3-slide-list.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/integrations/smart-slider/scripts/admin/unity3-smart-slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/scripts/admin/unity3-smart-slider.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/integrations/smart-slider/smart-slider.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/smart-slider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/integrations/smart-slider/sources/unity3-slide.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/integrations/smart-slider/styles/admin/unity3-smart-slider.css" beforeDir="false" afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/styles/admin/unity3-smart-slider.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/loader.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/loader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/modules/class-module-controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-module-plugin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/modules/class-module.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-module.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/modules/class-post-group.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-post-group.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/modules/class-post-type.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-post-type.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/modules/class-slides.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-slides.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/modules/modules.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/modules.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/post-expiration/post-expiration.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unity3.php" beforeDir="false" afterPath="$PROJECT_DIR$/unity3.php" afterDir="false" />
     </list>
@@ -269,7 +238,7 @@
       <workItem from="1582911384486" duration="23188000" />
       <workItem from="1583180228145" duration="59000" />
       <workItem from="1583437426710" duration="7134000" />
-      <workItem from="1583767240256" duration="16607000" />
+      <workItem from="1583767240256" duration="16903000" />
     </task>
     <task id="LOCAL-00001" summary="Testing hooks">
       <created>1573854495453</created>
@@ -348,7 +317,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583453673330</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="More restructuring of the plugin">
+      <created>1583785914920</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1583785914920</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,7 +353,8 @@
     <MESSAGE value="Forgot to add files the commit" />
     <MESSAGE value="Hide main menu from non-admin users" />
     <MESSAGE value="Further changes to the admin menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Further changes to the admin menu" />
+    <MESSAGE value="More restructuring of the plugin" />
+    <option name="LAST_COMMIT_MESSAGE" value="More restructuring of the plugin" />
   </component>
   <component name="WindowStateProjectService">
     <state x="667" y="111" key="#PHP" timestamp="1583777248732">
@@ -400,10 +377,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583770527711" />
-    <state x="1045" y="131" key="CommitChangelistDialog2" timestamp="1583453669265">
+    <state x="1045" y="131" key="CommitChangelistDialog2" timestamp="1583785905341">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1045" y="131" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583453669265" />
+    <state x="1045" y="131" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583785905341" />
     <state width="534" height="466" key="DebuggerActiveHint" timestamp="1582934827997">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -488,10 +465,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="708" y="339" key="StringManipulation.TextAlignmentForm/0.0.1920.1040@0.0.1920.1040" timestamp="1581443409806" />
-    <state x="933" y="154" key="Vcs.Push.Dialog.v2" timestamp="1583453677601">
+    <state x="933" y="154" key="Vcs.Push.Dialog.v2" timestamp="1583785918207">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="933" y="154" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583453677601" />
+    <state x="933" y="154" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583785918207" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1582048456060">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
