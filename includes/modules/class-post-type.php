@@ -4,7 +4,7 @@ if( class_exists('ACF') ) :
 
 abstract class Unity3_Post_Type extends Unity3_Module {
 	protected $acf_block_id;
-	public function __construct( $post_type, $singular, $plural ) {
+	protected function __construct( $post_type, $singular, $plural ) {
 		parent::__construct( $post_type, $plural );
 
 
@@ -129,8 +129,8 @@ abstract class Unity3_Post_Type extends Unity3_Module {
 		return get_post_type_object($this->GetPostType());
 	}
 
-	protected function getControllerScopes( ) {
-		$scopes = parent::GetControllerScopes();
+	protected function getPluginScopes( ) {
+		$scopes = parent::getPluginScopes();
 		$scopes['post'] = array(
 			'priority' => 1000,
 			'acf'	   => array(

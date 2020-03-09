@@ -13,7 +13,7 @@ require_once (Unity3::$dir . 'includes/utilities/media-crop-fix.php');
 require_once (Unity3::$dir . 'includes/utilities/pods-integration.php');
 require_once (Unity3::$dir . 'includes/utilities/restrict-pages.php');
 require_once (Unity3::$dir . 'includes/utilities/shortcodes.php');
-require_once (Unity3::$dir . 'includes/drag-sort-posts/drag-sort-posts.php');
+require_once (Unity3::$dir . 'includes/class-drag-sort-posts.php');
 
 //custom post type functionality
 require_once (Unity3::$dir . 'includes/modules/modules.php');

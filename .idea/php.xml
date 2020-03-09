@@ -7,6 +7,7 @@
       <path value="$PROJECT_DIR$/../../../wp-includes" />
       <path value="$PROJECT_DIR$/../nextend-smart-slider3-pro" />
       <path value="$PROJECT_DIR$/../woocommerce" />
+      <path value="$PROJECT_DIR$/../ninja-forms" />
     </include_path>
   </component>
 </project>

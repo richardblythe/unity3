@@ -1,3 +1,7 @@
+/*
+    ADMIN SCREEN - unity3_slide
+    Is used to style the ACF metabox in the unity3_slide post edit screen
+ */
 div[data-name="ss3_slide_preset"] ul.acf-image-select-list
 {
     overflow-x: scroll;

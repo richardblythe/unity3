@@ -26,15 +26,6 @@ class Unity3_Slides extends Unity3_Post_Group {
 		));
 	}
 
-	/**
-	 * Return the email classes - used in admin to load settings.
-	 *
-	 * @return Unity3_Slides|null
-	 */
-	public static function instance() {
-		return unity3_modules()->Get(self::ID);
-	}
-
 	public function Init( ) {
 		parent::Init();
 
@@ -431,62 +422,12 @@ class Unity3_Slides extends Unity3_Post_Group {
 	        ) );
         }
 	}
-
-	static function Get($group_slug) {
-		return unity3_modules()->Get(Unity3_Slides::ID)->GetGroupPosts( $group_slug );
-	}
-
-//  Todo: Toobar code from ACF
-//    public function my_toolbars( $toolbars )
-//	{
-//		// Uncomment to view format of $toolbars
-//		/*
-//		echo '< pre >';
-//			print_r($toolbars);
-//		echo '< /pre >';
-//		die;
-//		*/
-//
-//		// Add a new toolbar called "Very Simple"
-//		// - this toolbar has only 1 row of buttons
-//		$toolbars['Very Simple' ] = array();
-//		$toolbars['Very Simple' ][1] = array('bold' , 'italic' , 'underline' );
-//
-//		// Edit the "Full" toolbar and remove 'code'
-//		// - delete from array code from http://stackoverflow.com/questions/7225070/php-array-delete-by-value-not-key
-//		if( ($key = array_search('code' , $toolbars['Full' ][2])) !== false )
-//		{
-//			unset( $toolbars['Full'][2][$key] );
-//		}
-//
-//		// remove the 'Basic' toolbar completely
-//		unset( $toolbars['Basic' ] );
-//
-//	// return $toolbars - IMPORTANT!
-//		return $toolbars;
-//	}
-
-//	public function override_default_image( $image_id, $post_id, $meta_key, $single ) {
-//
-//		if ('_thumbnail_id' == $meta_key && get_post_type($post_id) === $this->GetPostType()) {
-//			return get_field('image', $post_id);
-//		}
-//		return $image_id;
-//	}
-//
-//	public function override_excerpt($post_excerpt, $post) {
-//		if (get_post_type($post) === $this->GetPostType()) {
-//			return get_field('caption', $post);
-//		}
-//
-//		return $post_excerpt;
-//	}
 }
 
 ////*************************
 ////       Register
 ////*************************
-unity3_modules()->Register(Unity3_Slides::instance());
+unity3_modules()->Register( new Unity3_Slides());
 
 endif;
 

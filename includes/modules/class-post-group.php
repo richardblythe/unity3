@@ -4,7 +4,7 @@ if( class_exists('ACF') ) :
 
 abstract class Unity3_Post_Group extends Unity3_Post_Type {
 
-	public function __construct( $post_type, $singular, $plural ) {
+	protected function __construct( $post_type, $singular, $plural ) {
 		parent::__construct( $post_type, $singular, $plural );
 
 		$this->mergeSettings( array(
@@ -303,8 +303,8 @@ abstract class Unity3_Post_Group extends Unity3_Post_Type {
 		return $fields;
 	}
 
-	protected function getControllerScopes() {
-		$scopes = parent::getControllerScopes();
+	protected function getPluginScopes() {
+		$scopes = parent::getPluginScopes();
 		$scopes['taxonomy'] = array(
 			'priority' => 500,
 			'acf'	   => array(

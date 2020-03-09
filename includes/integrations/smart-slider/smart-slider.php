@@ -4,57 +4,37 @@ namespace Unity3\Integrations\SmartSlider;
 use Exception;
 use Unity3;
 
-if( class_exists('Unity3_Slides') ) :
-
 class SmartSlider {
 	public static $dir, $url;
 	private static $instance;
 
-	private function __construct() {
+	public function __construct() {
 		self::$dir = plugin_dir_path( __FILE__ );
 		self::$url = plugin_dir_url( __FILE__ );
+	}
 
+	function init() {
 		add_action('smartslider3_generator', function() {
 			require_once ( self::$dir . 'class-generator.php' );
 		});
 
-		add_action( 'unity3/modules/controllers/load', array(&$this, 'init_controllers') );
+		add_action( 'unity3/modules/plugins/load', array(&$this, 'init_plugins') );
 		add_filter('unity3/admin/css/hide/',  array( &$this, 'smartslider_hide_css') );
 		add_action('admin_enqueue_scripts', array(&$this, 'enqueue'));
-
 	}
 
-	static function instance() {
-		if (!self::$instance) {
-			self::$instance = new SmartSlider();
-		}
-
-		return self::$instance;
-	}
-
-	protected function __clone() { }
-
-	/**
-	 * Singletons should not be restorable from strings.
-	 * @throws Exception
-	 */
-	public function __wakeup()
-	{
-		throw new Exception("Cannot unserialize a singleton.");
-	}
-
-	function init_controllers() {
+	function init_plugins() {
 
 		if ( !class_exists('N2Loader') )
 			return;
 
 
-		require_once(self::$dir . '/controllers/unity3-gallery.php');
-		require_once(self::$dir. '/controllers/unity3-slide.php');
+		require_once(self::$dir . '/plugins/unity3-gallery.php');
+		require_once(self::$dir. '/plugins/unity3-slide.php');
 
 
-		unity3_modules()->RegisterController( new Unity3_Gallery_Controller() );
-		unity3_modules()->RegisterController( new Unity3_Slide_Controller() );
+		unity3_modules()->RegisterPlugin( new Unity3_Gallery_SmartSlider3() );
+		unity3_modules()->RegisterPlugin( new Unity3_Slide_Smart_Slider3() );
 	}
 
 	function enqueue() {
@@ -76,15 +56,18 @@ class SmartSlider {
 		$screen = get_current_screen();
 
 		// SMART SLIDER HIDE IF NOT ADMIN USER
-		if (!$is_admin_role && 'toplevel_page_smart-slider3' == $screen->base) {
+		if ('toplevel_page_smart-slider3' == $screen->base) {
 			$selectors = $selectors + array(
 					//Global
-					'.n2-header-menu.n2-header-right a[href*="nextendcontroller=settings"]',
+					'.n2-header-menu.n2-header-right a[href*="nextendplugin=settings"]',
 					'.n2-heading-actions',
 					'#n2-ss-create-group',
 					//Dashboard
+					'.n2-ss-sliders-header .n2-bulk-select',
 					'.n2-box-new-slider',
 					'.n2-box-template-library',
+					'.n2-ss-box-slider .n2-ss-box-select',
+					'#n2-ss-slider-menu',
 					'.n2-h1.n2-heading a[href*="changelog"]',
 					'.n2-ss-box-slider[data-title^="_unity3"]', //reserved for Unity3 controlled slides
 					//Slide Screen
@@ -100,7 +83,10 @@ class SmartSlider {
 	}
 }
 
-SmartSlider::instance();
+add_action('unity3/modules/load', function (){
+	$smartslider = new SmartSlider();
+	$smartslider->init();
+});
 
-endif;
+
 

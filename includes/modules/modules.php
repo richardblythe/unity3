@@ -12,17 +12,13 @@ class Unity3_Modules {
 	 */
 	private $modules = array();
 	/**
-	 * Array of module controllers
+	 * Array of module plugins
 	 *
-	 * @var Unity3ModuleController[]
+	 * @var Unity3_Module_Plugin[]
 	 */
-	private $controllers = array();
+	private $plugins = array();
 
 	function initialize() {
-
-//		if (is_admin()) {
-//			add_filter('unity3_dragsortposts',  array($this, 'register_dragsort_posts') );
-//		}
 
 		//load modules immediately before the widgets! Note the priority of zero
 		add_action( 'init', array($this, 'load_modules'), 0 );
@@ -42,7 +38,7 @@ class Unity3_Modules {
 		require_once (Unity3::$dir . 'includes/modules/class-slides.php');
 		//
 		require_once (Unity3::$dir . 'includes/modules/class-clearbase-converter.php');
-		require_once (Unity3::$dir . 'includes/modules/class-module-controller.php');
+		require_once (Unity3::$dir . 'includes/modules/class-module-plugin.php');
 
 //		$files = array_diff(scandir(Unity3::$dir . 'includes/modules'), array('.', '..', 'modules.php', 'class-module.php', 'class-post-type.php', 'class-post-group.php'));
 //		foreach ($files as $file) {
@@ -50,12 +46,12 @@ class Unity3_Modules {
 //		}
 
 		do_action('unity3/modules/load' );
-		do_action('unity3/modules/controllers/load');
+		do_action('unity3/modules/plugins/load');
 
 		
 		//load the modules that are set to activate
 		if ( $module_ids = get_option( 'options_unity3_modules_active', false )) {
-			//now that controllers have been loaded, initialize the modules
+			//now that plugins have been loaded, initialize the modules
 			foreach ($module_ids as $m) {
 				if ( $module = $this->Get($m) ) {
 					$module->Init();
@@ -99,25 +95,6 @@ class Unity3_Modules {
 
 	}
 
-//	public function register_dragsort_posts( $post_types ) {
-//		return array_merge($post_types, array_keys($this->modules));
-//	}
-//
-//	public function admin_body_class( $classes ) {
-//		$screen = get_current_screen();
-//
-//		foreach ( $this->modules as $type ) {
-//
-//			if ( $type->GetPostType() == $screen->post_type ) {
-//				$classes .= " unity3-post-type {$type->GetPostType()}";
-//				break;
-//			}
-//		}
-//
-//		return $classes;
-//	}
-
-
 	public function Register( $class ) {
 
 		$result = false;
@@ -137,7 +114,7 @@ class Unity3_Modules {
 		return $result;
 	}
 
-	public function RegisterController( $class ) {
+	public function RegisterPlugin( $class ) {
 		$result = false;
 		try {
 			$instance = $class;
@@ -145,8 +122,8 @@ class Unity3_Modules {
 				$instance = new $class();
 			}
 
-			if(is_object($instance) && is_subclass_of( $instance, 'Unity3ModuleController') ) {
-				$this->controllers[ $instance->ID() ] = $instance;
+			if(is_object($instance) && is_subclass_of( $instance, 'Unity3_Module_Plugin') ) {
+				$this->plugins[ $instance->ID() ] = $instance;
 				$result = true;
 			}
 		} catch (Exception $e) { };
@@ -175,12 +152,12 @@ class Unity3_Modules {
 		return $this->modules;
 	}
 
-	public function GetControllers( $module_id = null, $display = true ) {
+	public function GetPlugins( $module_id = null, $display = true ) {
 		if (empty($module_id)) {
-			return $this->controllers;
+			return $this->plugins;
 		} else {
 			$results = array();
-			foreach ($this->controllers as $c) {
+			foreach ($this->plugins as $c) {
 				if  ($c->Supports( $module_id) ) {
 					$results[$c->ID()] = $display ? $c->Name() : $c;
 				}
@@ -190,8 +167,8 @@ class Unity3_Modules {
 		}
 	}
 
-	public function GetController( $controller_id ) {
-		return isset($this->controllers[$controller_id]) ? $this->controllers[$controller_id] : null;
+	public function GetPlugin( $plugin_id ) {
+		return isset($this->plugins[$plugin_id]) ? $this->plugins[$plugin_id] : null;
 	}
 
 

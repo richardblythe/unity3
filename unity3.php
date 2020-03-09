@@ -3,13 +3,13 @@
     Plugin Name: Unity 3 Software
     Plugin URI: http://www.unity3software.com/
     Description: Customized widgets and functions for client websites
-    Version: 2.3.10
+    Version: 2.3.11
     Author: Richard Blythe
     Author URI: http://unity3software.com/richardblythe
     GitHub Plugin URI: https://github.com/richardblythe/unity3
  */
 class Unity3 {
-	const assets_ver = '2.0.1';
+	const assets_ver = '2.0.5';
     const domain = 'unity3';
 
     public static $dir, $url, $assets_url, $vendor_url, $blank_img, $menu_slug;

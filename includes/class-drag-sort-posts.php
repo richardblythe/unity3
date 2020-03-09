@@ -50,9 +50,9 @@ class DragSortPosts {
 
 	public function admin_enqueue() {
 		wp_enqueue_script( 'jquery-ui-sortable' );
-		wp_enqueue_script( 'jquery-ui-touch-punch', plugins_url( 'jquery.ui.touch-punch.min.js', __FILE__ ), array( 'jquery-ui-sortable' ), '0.2.3', true );
-		wp_enqueue_script( 'dragsortposts-js', plugins_url( 'dragsortposts.js', __FILE__ ), array( 'jquery-ui-sortable' ), '1.0', true );
-		wp_enqueue_style( 'dragsortposts-css', plugins_url( 'dragsortposts.css', __FILE__ ), '', '1.1' );
+		wp_enqueue_script( 'jquery-ui-touch-punch', Unity3::$vendor_url . '/jquery.ui.touch-punch.min.js', array( 'jquery-ui-sortable' ), '0.2.3', true );
+//		wp_enqueue_script( 'dragsortposts-js', plugins_url( 'dragsortposts.js', __FILE__ ), array( 'jquery-ui-sortable' ), '1.0', true );
+//		wp_enqueue_style( 'dragsortposts-css', plugins_url( 'dragsortposts.css', __FILE__ ), '', '1.1' );
 	}
 
 	/* Add custom column to post list */

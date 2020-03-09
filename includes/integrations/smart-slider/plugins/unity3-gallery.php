@@ -1,9 +1,7 @@
 <?php
 namespace Unity3\Integrations\SmartSlider;
-use Unity3ModuleController;
 
-
-class Unity3_Gallery_Controller extends Unity3ModuleController {
+class Unity3_Gallery_SmartSlider3 extends \Unity3_Module_Plugin {
 	public function __construct() {
 		parent::__construct( 'Unity3_Gallery_SmartSlider3', 'Smart Slider 3', 'unity3_gallery' );
 

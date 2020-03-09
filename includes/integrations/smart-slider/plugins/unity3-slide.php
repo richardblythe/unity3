@@ -3,12 +3,12 @@
 namespace Unity3\Integrations\SmartSlider;
 
 use N2Loader;
+use N2SmartsliderSlidersModel;
 use N2SmartsliderSlidesModel;
 use Unity3;
 use Unity3_Slides;
-use Unity3ModuleController;
 
-class Unity3_Slide_Controller extends Unity3ModuleController {
+class Unity3_Slide_Smart_Slider3 extends \Unity3_Module_Plugin {
 
 	protected $preset_url, $preset_dir;
 
@@ -17,7 +17,7 @@ class Unity3_Slide_Controller extends Unity3ModuleController {
 	}
 
 	function Init() {
-		//parent returns TRUE if initialization runs, returns false if the controller has already been initialized
+		//parent returns TRUE if initialization runs, returns false if the plugin has already been initialized
 		if ( parent::Init() ) {
 
 			$this->preset_dir = Unity3::$dir . 'includes/integrations/smart-slider/presets/';
@@ -29,8 +29,8 @@ class Unity3_Slide_Controller extends Unity3ModuleController {
 			add_action( 'before_delete_post', array( &$this, 'slide_delete' ), 101 );
 			add_action( 'unity3/drag_sort_posts', array( &$this, 'unity3_slide_order_change' ));
 
-			if ( is_admin()  ) {
-				$slide_tax = unity3_modules()->Get( $this->module_id )->GetTaxonomy();
+			if ( is_admin() ) {
+				$slide_tax = unity3_modules()->Get(Unity3_Slides::ID)->GetTaxonomy();
 				add_action( "created_{$slide_tax}", array( &$this, 'create_slider' ) );
 				add_action( 'pre_delete_term', array( &$this, 'pre_delete_term' ), 10, 2 );
 

@@ -4,6 +4,10 @@ jQuery(document).ready( function($) {
     var $slide_image_top_label = $('label[for="acf-unity3_slide_field_image"]');
     var $slide_image_bg = $('div[data-key="unity3_slide_field_image"] .image-wrap.show-if-value');
     var $slide_image = $slide_image_bg.find('img[data-name="image"]');
+    
+    if (0 === $slide_image.length)
+        return;
+
     //
     var $slide_preset_ul = $('div[data-name="ss3_slide_preset"] ul.acf-image-select-list');
     var $selected_preset_li = $slide_preset_ul.find('.acf-image-select-selected').closest("li");
@@ -15,7 +19,10 @@ jQuery(document).ready( function($) {
 
     //functions
     var set_bg_color = function( bg_color ) {
-        bg_color = ( '' === bg_color ? '' : bg_color.trim());
+        if ('string' !== typeof bg_color) {
+            bg_color = '';
+        }
+        bg_color = bg_color.trim();
         bg_color = ( '' === bg_color ? 'transparent' : bg_color );
         $slide_image_bg.css('background-color', bg_color);
     };

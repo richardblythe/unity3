@@ -15,6 +15,7 @@ var args         = require('yargs').argv,
 	bump         = require('gulp-bump'),
 	gulp         = require('gulp'),
 	cache        = require('gulp-cached'),
+	concat		 = require('gulp-concat'),
 	cleancss     = require('gulp-clean-css'),
 	imagemin     = require('gulp-imagemin'),
 	notify       = require('gulp-notify'),
@@ -33,7 +34,11 @@ var paths = {
 	concat:  ['assets/scripts/menus.js', 'assets/scripts/superfish.js'],
 	images:  ['assets/images/*', '!assets/images/*.svg'],
 	php:     ['./*.php', './**/*.php', './**/**/*.php'],
-	scripts: ['assets/scripts/*.js', '!assets/scripts/min/'],
+	assets: 'assets/',
+	scripts: [
+		{ path: 'assets/scripts/admin/', dest: 'unity3-admin' },
+		{ path: 'assets/scripts/front/', dest: 'unity3-front'  }
+	],
 	styles:  ['assets/styles/admin/', 'assets/styles/front/']
 };
 
@@ -92,35 +97,39 @@ gulp.task('styles', function () {
  */
 gulp.task('scripts', function () {
 
-	gulp.src(paths.scripts)
+	var path = paths.assets + 'scripts/';
+	var tasks = paths.scripts.map(function(folder) {
+		return gulp.src([folder.path + '*.js', '!' + folder.path + folder.dest + '.js', '!' + folder.path + folder.dest + '.min.js'])
+			// Notify on error.
+			.pipe(plumber({
+				errorHandler: notify.onError("Error: <%= error.message %>")
+			}))
 
-		// Notify on error.
-		.pipe(plumber({
-			errorHandler: notify.onError("Error: <%= error.message %>")
-		}))
+			.pipe(concat(folder.dest + '.js'))
 
-		// Cache files to avoid processing files that haven't changed.
-		.pipe(cache('js'))
+			// Output the processed js to this directory.
+			.pipe(gulp.dest(folder.path))
 
-		// Add .min suffix.
-		.pipe(rename({
-			suffix: '.min'
-		}))
+			//MINIFY
+			// Add .min suffix.
+			.pipe(rename({
+				suffix: '.min'
+			}))
 
-		// Minify.
-		.pipe(uglify())
+			// MIN Version
+			.pipe(uglify())
 
-		// Output the processed js to this directory.
-		.pipe(gulp.dest('assets/scripts/min'))
+			// Output the processed js to this directory.
+			.pipe(gulp.dest(folder.path))
 
-		// Inject changes via browsersync.
-		.pipe(browsersync.reload({
-			stream: true
-		}))
+			// Inject changes via browsersync.
+			.pipe(browsersync.reload({
+				stream: true
+			}))
 
-		// Notify on successful compile.
-		.pipe(notify("Minified: <%= file.relative %>"));
-
+			// Notify on successful compile.
+			.pipe(notify("Minified: <%= file.relative %>"));
+	});
 });
 
 /**
