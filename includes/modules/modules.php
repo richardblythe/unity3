@@ -205,40 +205,6 @@ class Unity3_Modules {
 //
 //		return $activated_any;
 	}
-
-    public function GetImageSizes( $format = 'raw' ) {
-		
-		$builtin_sizes = array(
-			'large'   => array(
-				'width'  => get_option( 'large_size_w' ),
-				'height' => get_option( 'large_size_h' ),
-			),
-			'medium'  => array(
-				'width'  => get_option( 'medium_size_w' ),
-				'height' => get_option( 'medium_size_h' ),
-			),
-			'thumbnail' => array(
-				'width'  => get_option( 'thumbnail_size_w' ),
-				'height' => get_option( 'thumbnail_size_h' ),
-				'crop'   => get_option( 'thumbnail_crop' ),
-			),
-		);
-
-		global $_wp_additional_image_sizes;
-		$additional_sizes = $_wp_additional_image_sizes ? $_wp_additional_image_sizes : array();
-
-		$sizes = array_merge( $builtin_sizes, $additional_sizes );
-
-		if ('display' == $format) {
-			$formatted = array();
-			foreach ($sizes as $name => $size) {
-				$formatted[$name] = (esc_html( $name ) . ' (' . absint( $size['width'] ) . 'x' . absint( $size['height'] ) . ')');
-			}
-			$sizes = $formatted;
-		}
-
-		return $sizes;
-	}
 }
 
 

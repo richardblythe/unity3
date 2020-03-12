@@ -506,19 +506,6 @@ function Load_Unity3Defaults() {
 	}
 	new Unity3Defaults();
 }
-function unity3_footer_info_shortcode( ) {
-	return '&#169;' . date( 'Y' ) . ' &middot; Site design by 
-    <a href="mailto:unity3software@gmail.com" 
-       title="Unity 3 Software"
-       class="credits-unity3"
-       style="white-space: nowrap;"
-    >
-      Unity 3 Software
-   </a>';
-}
-add_shortcode( 'unity3_footer_info', 'unity3_footer_info_shortcode' );
-
-
 
 function array_merge_recursive_distinct(array &$array1, array &$array2)
 {

@@ -23,6 +23,7 @@ class Unity3_Slide_Smart_Slider3 extends \Unity3_Module_Plugin {
 			$this->preset_dir = Unity3::$dir . 'includes/integrations/smart-slider/presets/';
 			$this->preset_url = Unity3::$url . 'includes/integrations/smart-slider/presets/';
 
+			add_filter('acf/validate_value/name=ss3_slide_link', array(&$this, 'validate_slide_link'), 101, 4);
 			add_action( 'acf/save_post', array( &$this, 'slide_save' ), 101 );
 			add_action( 'trashed_post', array( &$this, 'slide_trashed' ), 101 );
 			add_action( 'untrashed_post', array( &$this, 'slide_untrashed' ), 101 );
@@ -89,7 +90,7 @@ class Unity3_Slide_Smart_Slider3 extends \Unity3_Module_Plugin {
 			'title' => 'Appearance',
 			'fields' => array(
 				array(
-					'key' => 'field_5e56a742a185b',
+					'key' => 'ss3_slide_preset',
 					'label' => 'Preset Layouts',
 					'name' => 'ss3_slide_preset',
 					'type' => 'image_select',
@@ -114,7 +115,15 @@ class Unity3_Slide_Smart_Slider3 extends \Unity3_Module_Plugin {
 					'type' => 'accordion',
 					'instructions' => '',
 					'required' => 0,
-					'conditional_logic' => 0,
+//					'conditional_logic' => array(
+//						array(
+//							array(
+//								'field' => 'ss3_slide_preset',
+//								'operator' => '==',
+//								'value' => 'default',
+//							),
+//						),
+//					),
 					'wrapper' => array(
 						'width' => '',
 						'class' => '',
@@ -128,7 +137,7 @@ class Unity3_Slide_Smart_Slider3 extends \Unity3_Module_Plugin {
 					'key' => "{$group_key}_slide_link",
 					'label' => 'Slide Link',
 					'name' => 'ss3_slide_link',
-					'type' => 'url',
+					'type' => 'text',
 					'instructions' => 'Use this field to direct visitors to another page when they click the slide',
 					'required' => 0,
 					'conditional_logic' => 0,
@@ -138,7 +147,7 @@ class Unity3_Slide_Smart_Slider3 extends \Unity3_Module_Plugin {
 						'id' => '',
 					),
 					'default_value' => '',
-					'placeholder' => 'example: http://google.com',
+					'placeholder' => 'example: https://google.com',
 				),
 				array(
 					'key' => "{$group_key}_background_color",
@@ -271,6 +280,27 @@ class Unity3_Slide_Smart_Slider3 extends \Unity3_Module_Plugin {
 		$slidersModel->delete($slider_id);
 	}
 
+	function validate_slide_link($valid, $value, $field, $input) {
+		// bail early if empty or contains a link to an element id
+		if( empty($value) ||  0 === strpos($value, '#')) {
+			return $valid;
+		}
+
+
+		if( strpos($value, '://') !== false ) {
+			// url
+		} elseif( strpos($value, '//') === 0 ) {
+			// relative url
+		} else {
+			$value = strpos($value, 'http') !== 0 ? "http://$value" : $value;
+		}
+
+		$valid = filter_var($value, FILTER_VALIDATE_URL) ? true : false;
+
+		// return
+		return $valid;
+	}
+
 	function slide_save() {
 
 		$post_id = get_the_ID();
@@ -334,7 +364,7 @@ class Unity3_Slide_Smart_Slider3 extends \Unity3_Module_Plugin {
 					$slide_link = '#';
 				}
 
-				$visible_if_link = ( '#' == $slide_link ? 0 : 1);
+				$visible_if_link = ( '#' === $slide_link ? 0 : 1);
 
 				//replace key vars in string form before decoding the json
 				$contents = str_replace(
@@ -383,10 +413,9 @@ class Unity3_Slide_Smart_Slider3 extends \Unity3_Module_Plugin {
 
 	function unity3_slide_order_change($posts) {
 
+		//get the first post_id
 		reset($posts);
 		$post_id = key($posts);
-
-//		Unity3_Slides::instance()->
 
 		if ($slider_id = $this->maybeGetSliderID($post_id)) {
 			N2Loader::import(array( 'models.Sliders', 'models.Slides' ), 'smartslider');
@@ -440,7 +469,7 @@ class Unity3_Slide_Smart_Slider3 extends \Unity3_Module_Plugin {
 
 	function maybeGetSliderID( $post_id ) {
 		if (Unity3_Slides::ID == get_post_type($post_id)) {
-			return Unity3_Slides::instance()->GetPostGroupMeta( $post_id, $this->ID() );
+			return unity3_modules()->Get(Unity3_Slides::ID)->GetPostGroupMeta( $post_id, $this->ID() );
 		}
 		return null;
 	}

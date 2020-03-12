@@ -12,10 +12,14 @@ class Unity3_Slides extends Unity3_Post_Group {
 
 		$this->mergeSettings( array(
 			'post' => array(
-				'menu_position' => 9,
-				'menu_icon'     => 'dashicons-images-alt2'
+				'menu_position' => 6.1,
+				'menu_icon'     => 'dashicons-images-alt2',
+				'exclude_from_search' => true,
+				'show_in_admin_bar'   => false,
+				'show_in_nav_menus'   => false,
+				'publicly_queryable'  => false,
+				'query_var'           => false
 			),
-			'group_rewrite' => array( 'base' => 'slides'),
 			'admin_columns' => array(
 				'cb'    => array('header' => '<input type="checkbox" />'),
 				'slide-image' => array('header' => '', 'acf' => 'image', 'image_size' => 'unity3_slide_xsmall', 'link' => 'POST_EDIT' ),

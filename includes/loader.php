@@ -24,7 +24,7 @@ require_once (Unity3::$dir . 'includes/integrations/genesis/genesis.php');
 
 
 require_once (Unity3::$dir . 'includes/flexible-widget-area/plugin.php');
-require_once (Unity3::$dir . 'includes/site-updated-notice/plugin.php');
+require_once (Unity3::$dir . 'includes/class-site-update-notice.php');
 
 require_once (Unity3::$dir . 'includes/taxonomy-metabox/plugin.php');
 

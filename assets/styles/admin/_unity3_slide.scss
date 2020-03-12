@@ -1,6 +1,34 @@
 body.wp-admin {
   div[data-key="unity3_slide_field_image"] {
-      a[data-name="edit"] {
+
+    min-height: 0!important;
+
+    .acf-input {
+      background-color: #4c4c4c;
+      padding: 10px;
+
+      .show-if-value.image-wrap {
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hide-if-value {
+        color: #fff;
+        text-align: center;
+        padding-top: 100px;
+        padding-bottom: 100px;
+
+        .acf-button {
+          display: block;
+          width: 150px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    }
+
+    a[data-name="edit"] {
         display: none;
     }
   }

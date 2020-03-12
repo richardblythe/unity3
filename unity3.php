@@ -3,18 +3,18 @@
     Plugin Name: Unity 3 Software
     Plugin URI: http://www.unity3software.com/
     Description: Customized widgets and functions for client websites
-    Version: 2.3.13
+    Version: 2.3.14
     Author: Richard Blythe
     Author URI: http://unity3software.com/richardblythe
     GitHub Plugin URI: https://github.com/richardblythe/unity3
  */
 class Unity3 {
-	const assets_ver = '2.0.5';
+	const assets_ver = '2.0.11';
     const domain = 'unity3';
 
     public static $dir, $url, $assets_url, $vendor_url, $blank_img, $menu_slug;
-    private $widgets;
-    private $min;
+    private static $admin_menu_uid;
+    private $widgets, $min;
     function __construct() {
 	    Unity3::$dir = plugin_dir_path( __FILE__ );
         Unity3::$url = plugin_dir_url( __FILE__ );
@@ -24,6 +24,7 @@ class Unity3 {
         Unity3::$menu_slug = 'unity3-settings-general';
         
 	    $this->min = (defined('WP_DEBUG') && true === WP_DEBUG) ? '.' : '.min.';
+	    self::$admin_menu_uid = 10.1;
     }
 
     public function initialize() {
@@ -74,6 +75,11 @@ class Unity3 {
 	    }
     }
 
+    static function AdminMenuUID() {
+    	self::$admin_menu_uid += 0.1;
+    	return self::$admin_menu_uid;
+    }
+
 	function Dir( $sub_directory ) {
 		return Unity3::$dir . $sub_directory;
 	}
@@ -122,6 +128,11 @@ class Unity3 {
     	//currently there is only an admin scripts folder
     	if (is_admin()) {
 	        wp_enqueue_script('unity3',       Unity3::$assets_url . "/scripts/{$folder}/unity3-{$folder}{$this->min}js", array('jquery'), Unity3::assets_ver);
+	    }
+
+    	$localized = apply_filters("unity3/localize/{$folder}", array());
+    	if (isset($localized) && is_array($localized) && count($localized)) {
+		    wp_localize_script('unity3', 'unity3', $localized );
 	    }
 
     	wp_enqueue_style( 'unity3-style', Unity3::$assets_url . "/styles/{$folder}/unity3-{$folder}{$this->min}css", false, Unity3::assets_ver);

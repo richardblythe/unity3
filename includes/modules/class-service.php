@@ -11,7 +11,7 @@ class Unity3_Service extends Unity3_Post_Type {
 
 		$this->mergeSettings( array(
 			'post' => array(
-				'menu_position' => 9,
+				'menu_position' => 6.3,
 				'menu_icon'     => 'dashicons-clock',
 				'rewrite' => array( 'slug' => 'service' ),
 

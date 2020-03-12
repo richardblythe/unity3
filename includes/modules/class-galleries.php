@@ -12,7 +12,7 @@ class Unity3_Galleries extends Unity3_Post_Group {
 
 		$this->mergeSettings( array(
 			'post' => array(
-				'menu_position' => 9,
+				'menu_position' => 6.2,
 				'menu_icon'     => 'dashicons-format-gallery'
 			),
 			'group_rewrite' => array( 'base' => 'galleries' )

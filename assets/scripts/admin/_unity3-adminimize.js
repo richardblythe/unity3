@@ -1,3 +1,6 @@
+/*
+Adminimize
+ */
 jQuery(document).ready( function($) {
 
     //adminimize helper function

@@ -39,10 +39,11 @@
       "lastplacement": "content",
       "animv2": "",
       "desktopportraitfontsize": 100,
-      "desktopportraitmaxwidth": 1000,
+      "desktopportraitmaxwidth": "999999",
       "desktopportraitinneralign": "inherit",
-      "desktopportraitpadding": "10|*|10|*|10|*|10|*|px+",
+      "desktopportraitpadding": "0|*|0|*|0|*|0|*|px+",
       "desktopportraitselfalign": "center",
+      "tabletportraitpadding": "0|*|0|*|0|*|0|*|px+",
       "opened": 1,
       "id": "",
       "uniqueclass": "",
@@ -81,7 +82,7 @@
           "desktopportraitfontsize": 100,
           "desktopportraitinneralign": "inherit",
           "desktopportraitpadding": "0|*|0|*|0|*|0|*|px+",
-          "desktopportraitgutter": 20,
+          "desktopportraitgutter": 0,
           "desktopportraitwrapafter": 0,
           "desktopportraitmargin": "0|*|0|*|0|*|0|*|px+",
           "desktopportraitheight": 0,
@@ -209,16 +210,16 @@
                     "type": "image",
                     "values": {
                       "image": "{SLIDE_IMAGE}",
+                      "alt": "Image is not available",
+                      "title": "",
                       "href": "{SLIDE_LINK}",
                       "href-target": "_self",
                       "href-rel": "",
                       "href-class": "",
-                      "alt": "Image is not available",
-                      "title": "",
                       "size": "auto|*|auto",
-                      "image-optimize": "1",
                       "style": "",
-                      "cssclass": ""
+                      "cssclass": "",
+                      "image-optimize": "1"
                     }
                   }
                 },

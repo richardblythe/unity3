@@ -1,3 +1,6 @@
+/*
+Site Update Notice
+ */
 jQuery(document).ready( function($) {
 
     "use strict";
@@ -10,9 +13,9 @@ jQuery(document).ready( function($) {
             var $buttonset = $('#unity3-site-update-dialog').parent().find('.ui-dialog-buttonset');
             var $progress = $buttonset.find('.ajax-progress');
             //if the ajax progress bar does not exists...
-            if (0 == $progress.length) {
+            if (0 === $progress.length) {
                 $progress = $('<img style="display: none;" class="ajax-progress">');
-                $progress.attr("src", unity3_site_update_notice.progress_gif);
+                $progress.attr("src", unity3.site_update.progress_gif);
                 $buttonset.append($progress);
             }
             $buttonset.find('.ui-button').show();
@@ -30,7 +33,7 @@ jQuery(document).ready( function($) {
                     data: {
                         action: 'unity3_site_updated_notice',
                         unity3_time: $("#unity3-site-update-time").val(),
-                        unity3_inspiration: $("#unity3-site-update-inspiration").val()
+                        unity3_message: $("#unity3-site-update-message").val()
                     },
                     success: function(data) {
                         if ($.trim(data)) {
@@ -50,7 +53,7 @@ jQuery(document).ready( function($) {
 
         $( "#unity3-site-update-dialog" ).dialog( "open" );
 
-    })
+    });
 
     $(document).on( 'click', '.unity3-site-updated-notice .notice-dismiss', function() {
 
@@ -61,7 +64,7 @@ jQuery(document).ready( function($) {
             }
         })
 
-    })
+    });
 
 });
 

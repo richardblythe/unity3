@@ -12,8 +12,9 @@ class Unity3_Audio extends Unity3_Post_Group {
 
 		$this->mergeSettings( array(
 			'post' => array(
-				'menu_icon'     => 'dashicons-controls-volumeon',
 				'menu_title'    => 'Audio',
+				'menu_position' => 6.3,
+				'menu_icon'     => 'dashicons-controls-volumeon',
 			),
 			'group_rewrite' => array(
 				'base' => 'audio'

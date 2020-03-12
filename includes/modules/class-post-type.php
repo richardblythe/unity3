@@ -50,6 +50,12 @@ abstract class Unity3_Post_Type extends Unity3_Module {
 		}
 		add_filter( 'post_updated_messages', array($this, 'post_updated_messages') );
 
+		//Register Post Type
+		$this->settings['post']['page_title']    = get_field($this->ID() . '_page_title', 'options');
+		$this->settings['post']['menu_title']    = get_field($this->ID() . '_menu_title', 'options');
+		$this->settings['post']['menu_position'] = get_field($this->ID() . '_menu_position', 'options');
+		$this->settings['post']['menu_icon']     = get_field($this->ID() . '_menu_icon', 'options');
+
 		unity3_register_post_type(
 			$this->GetPostType(),
 			$this->settings['post']['labels']['singular_name'],
@@ -110,7 +116,19 @@ abstract class Unity3_Post_Type extends Unity3_Module {
 		
 
 		if ( !is_admin() ) {
-			add_action( 'the_content', array( &$this, '_the_content' ), 100 );
+			add_action( 'the_content', function ( $content ){
+				global $post;
+
+				if ( $post && $post->post_type == $this->GetPostType() ) {
+
+					if ( $result = $this->doPlugin( $content ) )
+						return $result;
+					else
+						return $this->Render( $content );
+				}
+
+				return $content;
+            }, 100 );
 		} 
 	}
 
@@ -161,34 +179,27 @@ abstract class Unity3_Post_Type extends Unity3_Module {
 		return $scopes;
 	}
 
-	public function _the_content( $content ) {
-		global $post;
-
-		if ( $post && $post->post_type == $this->GetPostType() ) {
-
-			if ( $result = $this->doController( $content ) )
-				return $result;
-			else 
-				return $this->Render( $content );
-		}
-
-		return $content;
-	}
-
-
 	public function Render( $content ) {
 		return $content; //needs to be overriden be child class
 	}
 
+	protected function getSettingsFields() {
 
+	    $fields = parent::getSettingsFields();
 
-	protected function getSettingsMenu() { 
-		return array(
-			'page_title' 	=> $this->settings['post']['labels']['name'] . ' - Settings',
-			'menu_title'	=> $this->settings['post']['labels']['name'],
-			'menu_slug'		=> 'unity3-settings-' . $this->sanitized_id,
-			'parent_slug'	=> 'unity3-settings-general',
-		);
+	    //Override defaults
+	    if ( isset($this->settings['post']['labels']['name']) ) {
+            $fields['page_title']['default_value'] = $this->settings['post']['labels']['name'] . ' - Settings';
+            $fields['menu_title']['default_value'] = $this->settings['post']['labels']['name'];
+        }
+
+		if ( isset($this->settings['post']['menu_position']) )
+		    $fields['menu_position']['default_value'] = $this->settings['post']['menu_position'];
+
+		if ( isset($this->settings['post']['menu_icon']) )
+			$fields['menu_icon']['default_value'] = $this->settings['post']['menu_icon'];
+
+		return $fields;
 	}
 
 	function renderAdminBlock( $block, $content, $is_preview, $post_id ) {
@@ -371,41 +382,6 @@ abstract class Unity3_Post_Type extends Unity3_Module {
 		
 		return $groups;
 	}
-
-	protected function getSettingsFields() {
-		$fields = parent::getSettingsFields();
-		$fields[] =	array(
-			'key' => $this->GetPostType() . '_menu_position',
-			'label' => 'Menu Position',
-			'name' => $this->GetPostType() . '_menu_position',
-			'type' => 'text',
-			'instructions' => '',
-			'required' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'placeholder' => '',
-			'prepend' => '',
-			'append' => '',
-			'maxlength' => '',
-		);
-			
-//		$fields[] =	array (
-//			'key'           => $this->GetPostType() . '_default_image',
-//			'label'         => 'Default Image',
-//			'name'          => $this->GetPostType() . '_default_image',
-//			'type'          => 'image',
-//			'return_format' => 'id',
-//			'required'      => 0,
-//			'mime_types'    => 'jpg,jpeg,jpe,gif,png',
-//			'preview_size'  => 'thumbnail',
-//		);
-
-		return $fields;
-	} 
 
 	protected function getFields() {
 		return null;//inherited class does not have to override this

@@ -1,3 +1,6 @@
+/*
+Drag Sort Posts
+ */
 jQuery(document).ready( function($) {
 
     "use strict";
@@ -23,4 +26,5 @@ jQuery(document).ready( function($) {
         }
     });
 
+    $("#the-list .column-dragsort").attr('title', unity3.dragsort.tooltip);
 });

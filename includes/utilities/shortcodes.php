@@ -9,8 +9,8 @@ function unity3_register_shortcodes() {
     add_shortcode('permalink_list', 'unity3_permalink_list_function');
     add_shortcode('wooaudio', 'unity3_wooaudio_function');
     add_shortcode('unity3_gallery', 'unity3_gallery_shortcode');
+	add_shortcode( 'unity3_footer_info', 'unity3_footer_info_shortcode' );
 }
-
 
 function unity3_url_base_function() {
 	return get_bloginfo( "url" );
@@ -329,4 +329,15 @@ function unity3_gallery_shortcode( $attr ) {
 		</div>\n";
 
 	return $output;
+}
+
+function unity3_footer_info_shortcode( ) {
+	return '&#169;' . date( 'Y' ) . ' &middot; Site design by 
+    <a href="mailto:unity3software@gmail.com" 
+       title="Unity 3 Software"
+       class="credits-unity3"
+       style="white-space: nowrap;"
+    >
+      Unity 3 Software
+   </a>';
 }

@@ -200,9 +200,9 @@ abstract class Unity3_Post_Group extends Unity3_Post_Type {
 	protected function getSettingsFields() {
 		$fields = parent::getSettingsFields();
 		$fields[] =	array(
-			'key' => $this->GetPostType() . '_force_single',
+			'key' => $this->sanitized_id . '_force_single',
 			'label' => 'Force Single',
-			'name' => $this->GetPostType() . '_force_single',
+			'name' => $this->sanitized_id . '_force_single',
 			'type' => 'true_false',
 			'ui'   => 1,
 			'instructions' => '',
@@ -214,13 +214,20 @@ abstract class Unity3_Post_Group extends Unity3_Post_Type {
 			),
 		);
 
-		$fields[] =	array(
-			'key' => $this->GetPostType() . '_force_single_slug',
-			'label' => 'Single Slug',
-			'name' => $this->GetPostType() . '_force_single_slug',
-			'type' => 'text',
-			'instructions' => '',
-			'required' => 0,
+		$fields[] = array(
+			'key' => $this->sanitized_id . '_force_single_group',
+			'label' => 'Show Only This Group',
+			'name' => $this->sanitized_id . '_force_single_group',
+			'type' => 'taxonomy',
+			'instructions' => 'Limits the choices to selected group',
+			'taxonomy' => $this->GetTaxonomy(),
+			'field_type' => 'select',
+			'allow_null' => 0,
+			'add_term' => 0,
+			'save_terms' => 0,
+			'load_terms' => 0,
+			'return_format' => 'id',
+			'multiple' => 0,
 			'wrapper' => array(
 				'width' => '80%',
 				'class' => '',
@@ -230,8 +237,8 @@ abstract class Unity3_Post_Group extends Unity3_Post_Type {
 
 		$fields[] = array(
 			'label' => '',
-			'key' => "{$this->GetPostType()}_menu_shortcuts",
-			'name' => "{$this->GetPostType()}_menu_shortcuts",
+			'key' => "{$this->sanitized_id}_menu_shortcuts",
+			'name' => "{$this->sanitized_id}_menu_shortcuts",
 			'type' => 'repeater',
 			'instructions' => '',
 			'required' => 0,
@@ -241,34 +248,38 @@ abstract class Unity3_Post_Group extends Unity3_Post_Type {
 				'class' => '',
 				'id' => '',
 			),
-			'collapsed' => "{$this->GetPostType()}_subfield_group_slug",
+			'collapsed' => "{$this->sanitized_id}_subfield_group",
 			'min' => 0,
 			'max' => 0,
 			'layout' => 'block',
 			'button_label' => 'Add Menu Shortcut',
 			'sub_fields' => array(
 				array(
-					'label' => 'Group Slug',
-					'key' => "{$this->GetPostType()}_subfield_group_slug",
-					'name' => "{$this->GetPostType()}_subfield_group_slug",
-					'type' => 'text',
-					'instructions' => '',
-					'required' => 1,
-					'conditional_logic' => 0,
+					'label' => 'Group',
+					'key' => "{$this->sanitized_id}_subfield_group",
+					'name' => "{$this->sanitized_id}_subfield_group",
+					'type' => 'taxonomy',
+					'instructions' => 'The menu shortcut target group',
+					'taxonomy' => $this->GetTaxonomy(),
+					'field_type' => 'select',
+					'allow_null' => 0,
+					'add_term' => 0,
+					'save_terms' => 0,
+					'load_terms' => 0,
+					'return_format' => 'id',
+					'multiple' => 0,
 					'wrapper' => array(
 						'width' => '33%',
 						'class' => '',
 						'id' => '',
 					),
-					'allow_null' => 0,
-					'placeholder' => '',
 				),
 				array(
 					'label' => 'Target Menu Slug',
-					'key' => "{$this->GetPostType()}_subfield_target_menu_slug",
-					'name' => "{$this->GetPostType()}_subfield_target_menu_slug",
+					'key' => "{$this->sanitized_id}_subfield_target_menu_slug",
+					'name' => "{$this->sanitized_id}_subfield_target_menu_slug",
 					'type' => 'text',
-					'instructions' => '',
+					'instructions' => 'The slug of the target parent menu',
 					'required' => 1,
 					'conditional_logic' => 0,
 					'wrapper' => array(
@@ -280,10 +291,10 @@ abstract class Unity3_Post_Group extends Unity3_Post_Type {
 				),
 				array(
 					'label' => 'Target Menu Position',
-					'key' => "{$this->GetPostType()}_subfield_target_menu_position",
-					'name' => "{$this->GetPostType()}_subfield_target_menu_position",
+					'key' => "{$this->sanitized_id}_subfield_target_menu_position",
+					'name' => "{$this->sanitized_id}_subfield_target_menu_position",
 					'type' => 'number',
-					'instructions' => '',
+					'instructions' => 'Higher values position the menu lower',
 					'required' => 1,
 					'default_value' => 10,
 					'min'			=> 0,
@@ -535,12 +546,12 @@ abstract class Unity3_Post_Group extends Unity3_Post_Type {
 		) );
 
 		$force_single = get_option("options_{$this->GetPostType()}_force_single");
-		$force_single_slug = get_option("options_{$this->GetPostType()}_force_single_slug");
+		$force_single_group_id = get_option("options_{$this->GetPostType()}_force_single_group");
 		$force_single_term = null;
 
-		if ( $force_single && $force_single_slug && !$terms instanceof WP_Error ) {
+		if ( $force_single && $force_single_group_id && !$terms instanceof WP_Error ) {
 			foreach ($terms as $t) {
-				if ($t->slug == $force_single_slug) {
+				if ($t->term_id == $force_single_group_id) {
 					$force_single_term = $t;
 					break;
 				}
@@ -619,13 +630,13 @@ abstract class Unity3_Post_Group extends Unity3_Post_Type {
 		if( $rows = get_field("{$this->GetPostType()}_menu_shortcuts", 'option') ) {
 
 			$groups = $this->GetGroups();
-			$group_slug_field = "{$this->GetPostType()}_subfield_group_slug";
+			$group_field = "{$this->GetPostType()}_subfield_group";
 			$target_menu_field = "{$this->GetPostType()}_subfield_target_menu_slug";
 			$target_menu_position_field = "{$this->GetPostType()}_subfield_target_menu_position";
 
 			foreach($rows as $row) {
 				foreach ($groups as $group) {
-					if ( $group->slug == $row[$group_slug_field] ) {
+					if ( $group->term_id == $row[$group_field] ) {
 						add_submenu_page(
 							$row[$target_menu_field],
 							$group->name,

@@ -25,21 +25,34 @@ abstract class Unity3_Module {
 	}
 
 	public function Init() {
-		$menu_args = $this->GetSettingsMenu();
-		if (is_admin() && is_array($menu_args) && function_exists('acf_add_options_sub_page')) {
-			$menu_args = array_merge( array(
-				'page_title'  => $this->sanitized_id . ' Page Title',
-				'menu_title'  => $this->sanitized_id . ' Menu Title',
-				'parent_slug' => Unity3::$menu_slug,
-				'autoload'    => true,
-			), $menu_args );
-			$page = acf_add_options_sub_page( $menu_args );
-			$this->acf_settings_menu_slug = $page['menu_slug'];
-		}
 
 		//if ACF is disabled on the front end, this function will not exist
 		if(function_exists('acf_add_local_field_group') ) {
-			
+
+			if ( is_admin() ) {
+				$menu_args = apply_filters( 'unity3/module/settings/menu',  array(
+					'page_title'    => $this->Name() . ' - Settings',
+					'menu_title'    => $this->Name(),
+//					'menu_position' => Unity3::AdminMenuUID(),
+					'menu_slug'		=> 'unity3-settings-' . $this->sanitized_id,
+					'parent_slug'   => Unity3::$menu_slug,
+					'autoload'      => true,
+				), $this->ID() );
+				$page = acf_add_options_sub_page( $menu_args );
+				$this->acf_settings_menu_slug = $page['menu_slug'];
+
+				//override empty any module setting with an empty setting to the default value
+				add_filter( 'acf/load_value', function ($value, $post_id, $field) {
+					if ( empty($value) && isset($field['default_value']) && 0 === strpos( $field['key'], $this->sanitized_id)){
+						// Use field's default_value if $value belongs to this module and the value is empty
+						$value = $field['default_value'];
+					}
+					return $value;
+				}, 10, 3);
+			}
+
+
+
 			$acf_groups = apply_filters( 'unity3/module/acf_groups', $this->ACFGroups( array() ), $this->ID() );
 			if (isset($acf_groups) && is_array($acf_groups)) {
 				foreach ( $acf_groups as $group_id => $group) {
@@ -48,7 +61,9 @@ abstract class Unity3_Module {
 				}
 			}
 
-			//Now Init the plugins that are attached to this module
+			/*
+			 * Init the plugins that are attached to this module
+		    */
 			$attached_plugins = $this->GetAttachedPlugins();
 			if ( $attached_plugins && is_array($attached_plugins) ) {
 
@@ -67,16 +82,62 @@ abstract class Unity3_Module {
 		}
 	}
 
-	protected function getSettingsMenu() {
-		return array(
-			'page_title' 	=> $this->Name() . ' Page Title',
-			'menu_title'	=> $this->Name() . ' Menu Title',
-			'menu_slug'		=> 'unity3-settings-' . $this->sanitized_id,
-			'parent_slug'	=> Unity3::$menu_slug,
+	protected function getSettingsFields() {
+
+		$fields = array();
+
+		$fields['menu_title'] = array(
+			'key' => $this->ID() . '_menu_title',
+			'label' => 'Menu Title',
+			'name' => $this->ID() . '_menu_title',
+			'type' => 'text',
+			'instructions' => 'Sets the admin menu title',
+			'required' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placeholder' => $this->Name(),
+			'default_value' => $this->Name(),
 		);
+
+		$fields['menu_position'] =	array(
+			'key' => $this->ID() . '_menu_position',
+			'label' => 'Menu Position',
+			'name' => $this->ID() . '_menu_position',
+			'type' => 'number',
+			'instructions' => 'Sets the admin menu position',
+			'required' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placeholder' => 10,
+			'default_value' => 10,
+		);
+
+		$fields['menu_icon'] =	array(
+			'key' => $this->ID() . '_menu_icon',
+			'label' => 'Menu Icon',
+			'name' => $this->ID() . '_menu_icon',
+			'type' => 'text',
+			'instructions' => 'Sets the admin menu icon',
+			'required' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placeholder' => 'dashicons-admin-generic',
+			'default_value' => 'dashicons-admin-generic',
+		);
+
+		return $fields;
+
 	}
 
-	protected function getSettingsFields() { return array(); }
 
 	protected function getPluginScopes() {
 		$scopes = array();
