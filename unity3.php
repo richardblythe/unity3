@@ -3,7 +3,7 @@
     Plugin Name: Unity 3 Software
     Plugin URI: http://www.unity3software.com/
     Description: Customized widgets and functions for client websites
-    Version: 2.3.15
+    Version: 2.3.16
     Author: Richard Blythe
     Author URI: http://unity3software.com/richardblythe
     GitHub Plugin URI: https://github.com/richardblythe/unity3
@@ -128,7 +128,8 @@ class Unity3 {
 
     	//currently there is only an admin scripts folder
     	if (is_admin()) {
-	        wp_enqueue_script('unity3',       Unity3::$assets_url . "/scripts/{$folder}/unity3-{$folder}{$this->min}js", array('jquery'), Unity3::assets_ver);
+    		$dependencies  = apply_filters("unity3/script/dependencies/{$folder}", array('jquery'));
+	        wp_enqueue_script('unity3',       Unity3::$assets_url . "/scripts/{$folder}/unity3-{$folder}{$this->min}js", $dependencies, Unity3::assets_ver);
 	    }
 
     	$localized = apply_filters("unity3/localize/{$folder}", array());

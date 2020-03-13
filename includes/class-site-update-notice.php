@@ -9,7 +9,12 @@ function Load_SiteUpdatedNotice() {
 				add_action( 'wp_ajax_unity3_site_updated_notice_dismiss', array(&$this, 'dismiss'));
 				add_action( 'wp_ajax_unity3_site_updated_notice', array(&$this, 'update'));
 			} else {
-				add_action( 'admin_enqueue_scripts', array($this,'enqueue') );
+//				add_action( 'admin_enqueue_scripts', array($this,'enqueue') );
+
+				add_filter( 'unity3/script/dependencies/admin', function ( $dependencies ){
+					return array_merge($dependencies, array('jquery-ui-dialog', 'jquery-effects-core', 'wp-jquery-ui-dialog'));
+				});
+
 				add_filter( 'unity3/localize/admin', function ( $localize ) {
 				    return array_merge($localize,   array(
 				    	'site_update' => array(
@@ -49,6 +54,8 @@ function Load_SiteUpdatedNotice() {
 		function enqueue() {
 			if ($this->is_developer()) {
 				//enqueue the jquery dialog box code.  This allows the update notice to be updated
+
+
 				wp_enqueue_script( 'jquery-ui-dialog' );
 				wp_enqueue_script( 'jquery-effects-core' );
 				wp_enqueue_style( 'wp-jquery-ui-dialog' );
