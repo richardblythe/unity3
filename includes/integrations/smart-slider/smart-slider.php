@@ -43,7 +43,7 @@ class SmartSlider {
 
 		//currently there is only an admin scripts folder
 		if (get_current_screen() && get_current_screen()->post_type == \Unity3_Slides::ID ) {
-			wp_enqueue_script( 'unity3_slide_smartslider-admin-script',SmartSlider::$url . "scripts/admin/unity3-smart-slider.js", array('jquery'), Unity3::assets_ver);
+			wp_enqueue_script( 'unity3_slide_smartslider-admin-script',SmartSlider::$url . "scripts/admin/unity3-smart-slider.js", array('jquery', 'acf-input'), Unity3::assets_ver, false);
 			wp_enqueue_style( 'unity3_slide_smartslider-admin-style', SmartSlider::$url . "/styles/admin/unity3-smart-slider.css", false, Unity3::assets_ver);
 		}
 

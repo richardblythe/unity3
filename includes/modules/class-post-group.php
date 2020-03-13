@@ -57,16 +57,8 @@ abstract class Unity3_Post_Group extends Unity3_Post_Type {
 		//wire up admin functions
 		if (is_admin()) {
 
-//			if (!$this->get_current_term()) {
-//				function EditLink( $data = '' ) {
-//					return admin_url("edit-tags.php?taxonomy={$this->GetTaxonomy()}&post_type={$this->GetPostType()}");
-//				}
-//			}
-
-
 			add_action( 'admin_body_class', array(&$this, 'admin_body_class'));
 			add_action( 'admin_menu', array(&$this, 'admin_menu'), 20 );
-//			add_action( 'admin_menu', array(&$this, 'admin_menu_last'), 1000 );
 			add_action( 'admin_notices', array(&$this, 'admin_notices') );
 			
 			//Customize the Taxonomy Table
@@ -199,37 +191,37 @@ abstract class Unity3_Post_Group extends Unity3_Post_Type {
 
 	protected function getSettingsFields() {
 		$fields = parent::getSettingsFields();
-		$fields[] =	array(
-			'key' => $this->sanitized_id . '_force_single',
-			'label' => 'Force Single',
-			'name' => $this->sanitized_id . '_force_single',
-			'type' => 'true_false',
-			'ui'   => 1,
-			'instructions' => '',
-			'required' => 0,
-			'wrapper' => array(
-				'width' => '20%',
-				'class' => '',
-				'id' => '',
-			),
-		);
+//		$fields[] =	array(
+//			'key' => $this->sanitized_id . '_force_single',
+//			'label' => 'Force Single',
+//			'name' => $this->sanitized_id . '_force_single',
+//			'type' => 'true_false',
+//			'ui'   => 1,
+//			'instructions' => '',
+//			'required' => 0,
+//			'wrapper' => array(
+//				'width' => '20%',
+//				'class' => '',
+//				'id' => '',
+//			),
+//		);
 
 		$fields[] = array(
 			'key' => $this->sanitized_id . '_force_single_group',
 			'label' => 'Show Only This Group',
 			'name' => $this->sanitized_id . '_force_single_group',
 			'type' => 'taxonomy',
-			'instructions' => 'Limits the choices to selected group',
+			'instructions' => 'Limits and simplifies the UI to one selected group',
 			'taxonomy' => $this->GetTaxonomy(),
 			'field_type' => 'select',
-			'allow_null' => 0,
-			'add_term' => 0,
-			'save_terms' => 0,
+			'allow_null' => 1,
+			'add_term' => 1,
+			'save_terms' => 1,
 			'load_terms' => 0,
 			'return_format' => 'id',
 			'multiple' => 0,
 			'wrapper' => array(
-				'width' => '80%',
+				'width' => '',
 				'class' => '',
 				'id' => '',
 			),
@@ -545,11 +537,10 @@ abstract class Unity3_Post_Group extends Unity3_Post_Type {
 			'hide_empty' => false,
 		) );
 
-		$force_single = get_option("options_{$this->GetPostType()}_force_single");
-		$force_single_group_id = get_option("options_{$this->GetPostType()}_force_single_group");
+		$force_single_group_id = (int)get_option("options_{$this->GetPostType()}_force_single_group");
 		$force_single_term = null;
 
-		if ( $force_single && $force_single_group_id && !$terms instanceof WP_Error ) {
+		if ( $force_single_group_id && !$terms instanceof WP_Error ) {
 			foreach ($terms as $t) {
 				if ($t->term_id == $force_single_group_id) {
 					$force_single_term = $t;
@@ -627,7 +618,7 @@ abstract class Unity3_Post_Group extends Unity3_Post_Type {
 
 		//Shortcut Menu
 		//Allows a group item to be inserted under another menu for shortcut functionality
-		if( $rows = get_field("{$this->GetPostType()}_menu_shortcuts", 'option') ) {
+		if( $rows = get_field("{$this->GetPostType()}_menu_shortcuts", 'options', false) ) {
 
 			$groups = $this->GetGroups();
 			$group_field = "{$this->GetPostType()}_subfield_group";

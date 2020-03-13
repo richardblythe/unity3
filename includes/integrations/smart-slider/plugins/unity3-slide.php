@@ -115,15 +115,15 @@ class Unity3_Slide_Smart_Slider3 extends \Unity3_Module_Plugin {
 					'type' => 'accordion',
 					'instructions' => '',
 					'required' => 0,
-//					'conditional_logic' => array(
-//						array(
-//							array(
-//								'field' => 'ss3_slide_preset',
-//								'operator' => '==',
-//								'value' => 'default',
-//							),
-//						),
-//					),
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'ss3_slide_preset',
+								'operator' => '!=',
+								'value' => 'custom',
+							),
+						),
+					),
 					'wrapper' => array(
 						'width' => '',
 						'class' => '',

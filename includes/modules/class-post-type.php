@@ -342,8 +342,8 @@ abstract class Unity3_Post_Type extends Unity3_Module {
 	// 	}
 	// }
 
-	protected function acfGroups( $groups ) {
-		$groups = parent::acfGroups( $groups );
+	protected function acfGroups() {
+		$groups = parent::acfGroups();
 
 		$fields = $this->getFields();
 		if ( isset($fields) && is_array($fields) && count($fields) ) {

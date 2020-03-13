@@ -1,38 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="80532d29-054a-42be-98bb-c50c5dd0907c" name="Default Changelist" comment="More reorganizing and updates to Unity3_Slides">
+    <list default="true" id="80532d29-054a-42be-98bb-c50c5dd0907c" name="Default Changelist" comment="Fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scripts/admin/_unity3-adminimize.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scripts/admin/_unity3-adminimize.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scripts/admin/_unity3-drag-sort-posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scripts/admin/_unity3-drag-sort-posts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/admin/_unity3_slide.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/admin/_unity3_slide.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/admin/unity3-admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/admin/unity3-admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/admin/unity3-admin.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/admin/unity3-admin.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/class-drag-sort-posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/class-drag-sort-posts.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/integrations/smart-slider/plugins/unity3-slide.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/plugins/unity3-slide.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/boxed.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/boxed.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/boxed.json" beforeDir="false" afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/boxed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/casual.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/casual.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/casual.json" beforeDir="false" afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/casual.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/custom.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/custom.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/default.json" beforeDir="false" afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/default.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/gateway.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/gateway.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/overlay.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/overlay.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/overlay.json" beforeDir="false" afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/presets/overlay.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/loader.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/loader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/modules/class-audio.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-audio.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/modules/class-galleries.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-galleries.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/integrations/smart-slider/scripts/admin/unity3-smart-slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/scripts/admin/unity3-smart-slider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/integrations/smart-slider/smart-slider.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/integrations/smart-slider/smart-slider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/modules/class-module.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-module.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/modules/class-post-group.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-post-group.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/modules/class-post-type.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-post-type.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/modules/class-service.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-service.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/modules/class-slides.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-slides.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/modules/modules.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/modules.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/site-updated-notice/ajax-loader.gif" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/ajax-loader.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/site-updated-notice/plugin.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/class-site-update-notice.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/site-updated-notice/unity3-site-updated-notice.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scripts/admin/_unity3-site-updated-notice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/utilities/defaults.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utilities/defaults.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/utilities/shortcodes.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utilities/shortcodes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unity3.php" beforeDir="false" afterPath="$PROJECT_DIR$/unity3.php" afterDir="false" />
     </list>
@@ -136,19 +112,19 @@
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/includes/integrations/smart-slider/presets/overlay.json" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3" />
-      <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\includes\integrations\smart-slider\presets" />
-      <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\assets\styles\admin" />
-      <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\assets\styles" />
-      <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\includes\smart-slider\controllers" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\assets\scripts\admin" />
       <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\assets\scripts" />
       <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\includes" />
       <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\assets\images" />
       <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\vendor" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3" />
+      <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\includes\integrations\smart-slider\presets" />
+      <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\assets\styles\admin" />
+      <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\assets\styles" />
+      <recent name="E:\WORDPRESS\unity3dev\wp-content\plugins\unity3\includes\smart-slider\controllers" />
     </key>
   </component>
   <component name="RunManager" selected="Gulp.js.styles">
@@ -272,7 +248,8 @@
       <workItem from="1583873302385" duration="770000" />
       <workItem from="1583950026213" duration="11445000" />
       <workItem from="1584022804333" duration="12869000" />
-      <workItem from="1584043712750" duration="1944000" />
+      <workItem from="1584043712750" duration="3260000" />
+      <workItem from="1584109007232" duration="15412000" />
     </task>
     <task id="LOCAL-00001" summary="Testing hooks">
       <created>1573854495453</created>
@@ -372,7 +349,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583786222163</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="More reorganizing and updates to Unity3_Slides">
+      <created>1584045699876</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1584045699876</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -427,14 +411,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583770527711" />
-    <state x="870" y="131" key="CommitChangelistDialog2" timestamp="1584045581137">
+    <state x="870" y="131" key="CommitChangelistDialog2" timestamp="1584124063436">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="870" y="131" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1584045581137" />
-    <state width="534" height="466" key="DebuggerActiveHint" timestamp="1584036631030">
+    <state x="870" y="131" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1584124063436" />
+    <state width="534" height="466" key="DebuggerActiveHint" timestamp="1584113832846">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="534" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1584036631030" />
+    <state width="534" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1584113832846" />
     <state x="88" y="237" width="1736" height="856" key="DiffContextDialog" timestamp="1584043856547">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -443,54 +427,54 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="739" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1584043754024" />
-    <state width="1877" height="280" key="GridCell.Tab.0.bottom" timestamp="1584043698244">
+    <state width="937" height="358" key="GridCell.Tab.0.bottom" timestamp="1584125221247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584043698244" />
-    <state width="1877" height="280" key="GridCell.Tab.0.center" timestamp="1584043698244">
+    <state width="937" height="358" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584125221247" />
+    <state width="937" height="358" key="GridCell.Tab.0.center" timestamp="1584125221246">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584043698244" />
-    <state width="1877" height="280" key="GridCell.Tab.0.left" timestamp="1584043698244">
+    <state width="937" height="358" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584125221246" />
+    <state width="937" height="358" key="GridCell.Tab.0.left" timestamp="1584125221246">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584043698244" />
-    <state width="1877" height="280" key="GridCell.Tab.0.right" timestamp="1584043698244">
+    <state width="937" height="358" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584125221246" />
+    <state width="937" height="358" key="GridCell.Tab.0.right" timestamp="1584125221247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584043698244" />
-    <state width="1877" height="358" key="GridCell.Tab.1.bottom" timestamp="1584043698239">
+    <state width="937" height="358" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584125221247" />
+    <state width="937" height="358" key="GridCell.Tab.1.bottom" timestamp="1584125221247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="358" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584043698239" />
-    <state width="1877" height="358" key="GridCell.Tab.1.center" timestamp="1584043698239">
+    <state width="937" height="358" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584125221247" />
+    <state width="937" height="358" key="GridCell.Tab.1.center" timestamp="1584125221247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="358" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584043698239" />
-    <state width="1877" height="358" key="GridCell.Tab.1.left" timestamp="1584043698239">
+    <state width="937" height="358" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584125221247" />
+    <state width="937" height="358" key="GridCell.Tab.1.left" timestamp="1584125221247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="358" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584043698239" />
-    <state width="1877" height="358" key="GridCell.Tab.1.right" timestamp="1584043698239">
+    <state width="937" height="358" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584125221247" />
+    <state width="937" height="358" key="GridCell.Tab.1.right" timestamp="1584125221247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="358" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584043698239" />
-    <state width="1877" height="358" key="GridCell.Tab.2.bottom" timestamp="1584043698239">
+    <state width="937" height="358" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584125221247" />
+    <state width="937" height="358" key="GridCell.Tab.2.bottom" timestamp="1584125221247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="358" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584043698239" />
-    <state width="1877" height="358" key="GridCell.Tab.2.center" timestamp="1584043698239">
+    <state width="937" height="358" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584125221247" />
+    <state width="937" height="358" key="GridCell.Tab.2.center" timestamp="1584125221247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="358" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584043698239" />
-    <state width="1877" height="358" key="GridCell.Tab.2.left" timestamp="1584043698239">
+    <state width="937" height="358" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584125221247" />
+    <state width="937" height="358" key="GridCell.Tab.2.left" timestamp="1584125221247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="358" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584043698239" />
-    <state width="1877" height="358" key="GridCell.Tab.2.right" timestamp="1584043698239">
+    <state width="937" height="358" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584125221247" />
+    <state width="937" height="358" key="GridCell.Tab.2.right" timestamp="1584125221247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="358" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584043698239" />
+    <state width="937" height="358" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584125221247" />
     <state x="625" y="335" key="NewPhpClassDialog" timestamp="1581387236979">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -515,10 +499,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="708" y="339" key="StringManipulation.TextAlignmentForm/0.0.1920.1040@0.0.1920.1040" timestamp="1581443409806" />
-    <state x="933" y="154" key="Vcs.Push.Dialog.v2" timestamp="1583786224676">
+    <state x="933" y="154" key="Vcs.Push.Dialog.v2" timestamp="1584045710398">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="933" y="154" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583786224676" />
+    <state x="933" y="154" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1584045710398" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1582048456060">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -531,18 +515,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="450" y="101" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583437950789" />
-    <state x="656" y="252" width="866" height="606" key="find.popup" timestamp="1583952703206">
+    <state x="656" y="252" width="866" height="606" key="find.popup" timestamp="1584117016723">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="252" width="866" height="606" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583952703206" />
+    <state x="656" y="252" width="866" height="606" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584117016723" />
     <state x="1471" y="208" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1582050115958">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1471" y="208" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup/0.0.1920.1040@0.0.1920.1040" timestamp="1582050115958" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1584025336384">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1584118321874">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584025336384" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584118321874" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1583437603463">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
