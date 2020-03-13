@@ -3,6 +3,9 @@ Drag Sort Posts
  */
 jQuery(document).ready( function($) {
 
+    if ( 'undefined' === typeof unity3.dragsort )
+        return;
+
     "use strict";
 
     //Attach sortable to the tbody, NOT tr

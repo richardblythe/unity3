@@ -17,6 +17,9 @@ Drag Sort Posts
  */
 jQuery(document).ready( function($) {
 
+    if ( 'undefined' === typeof unity3.dragsort )
+        return;
+
     "use strict";
 
     //Attach sortable to the tbody, NOT tr
@@ -48,14 +51,18 @@ Site Update Notice
  */
 jQuery(document).ready( function($) {
 
+    var $dialog = $( "#unity3-site-update-dialog" );
+    if ( $dialog.length === 0)
+        return;
+
     "use strict";
 
-    $( "#unity3-site-update-dialog" ).dialog({
+    $dialog.dialog({
         autoOpen: false,
         modal: true,
 
         open: function( event, ui ) {
-            var $buttonset = $('#unity3-site-update-dialog').parent().find('.ui-dialog-buttonset');
+            var $buttonset = $dialog.parent().find('.ui-dialog-buttonset');
             var $progress = $buttonset.find('.ajax-progress');
             //if the ajax progress bar does not exists...
             if (0 === $progress.length) {
@@ -70,7 +77,7 @@ jQuery(document).ready( function($) {
         buttons: {
             "Update": function() {
                 var $this = $(this);
-                var $buttonset = $('#unity3-site-update-dialog').parent().find('.ui-dialog-buttonset');
+                var $buttonset = $dialog.parent().find('.ui-dialog-buttonset');
                 $buttonset.children().hide();
                 $buttonset.find('.ajax-progress').show();
                 $.ajax({
@@ -96,7 +103,7 @@ jQuery(document).ready( function($) {
 
     $(document).on( 'click', '#wp-admin-bar-unity3-site-updated-notice', function() {
 
-        $( "#unity3-site-update-dialog" ).dialog( "open" );
+        $dialog.dialog( "open" );
 
     });
 

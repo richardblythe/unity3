@@ -10,11 +10,18 @@ class DragSortPosts {
 			add_action( 'wp_insert_post_data', array( &$this, 'check_menu_order' ), 10, 2 );
 
 			add_filter( 'unity3/localize/admin', function ( $localize ) {
-				return array_merge($localize,   array(
-					'dragsort' => array(
-						'tooltip' => __('Reorder this item', Unity3::domain)
-					)
-				));
+				global $current_screen;
+
+				if ( in_array($current_screen->post_type, $this->getPostTypes()) ) {
+					$post_obj = get_post_type_object($current_screen->post_type);
+					$localize = array_merge($localize,   array(
+						'dragsort' => array(
+							'tooltip' => sprintf(__('Reorder %s', Unity3::domain), $post_obj->labels->singular_name)
+						)
+					));
+				}
+
+				return $localize;
 			});
 		}
 	}
@@ -27,8 +34,8 @@ class DragSortPosts {
 
 	public function current_screen() {
 		global $current_screen;
-		$post_types = apply_filters( 'unity3_dragsortposts', $this->post_types );
-		if ( 'edit' == $current_screen->base && in_array( $current_screen->post_type, $post_types ) ) {
+
+		if ( 'edit' == $current_screen->base && in_array( $current_screen->post_type, $this->getPostTypes() ) ) {
 			add_filter( 'pre_get_posts', array( &$this, 'set_post_order' ) );
 			add_action( 'admin_enqueue_scripts', array( &$this, 'admin_enqueue' ) );
 			add_filter( "manage_{$current_screen->post_type}_posts_columns", function ( $columns ) {
@@ -37,10 +44,13 @@ class DragSortPosts {
 		}
 	}
 
+	private function getPostTypes() {
+		return apply_filters( 'unity3_dragsortposts', $this->post_types );
+	}
+
 	public function check_menu_order( $post_data, $postarr ) {
-		$post_types = apply_filters( 'unity3_dragsortposts', $this->post_types );
 		//if the current post type is in our dragsort group and the current post is being created for the first time..
-		if ( in_array( $post_data['post_type'], $post_types ) && 'auto-draft' == $postarr['post_status'] ) {
+		if ( in_array( $post_data['post_type'], $this->getPostTypes() ) && 'auto-draft' == $postarr['post_status'] ) {
 			global $wpdb;
 			//update the menu_order to be on top of the stack..
 			$menu_order              = $wpdb->get_var( "SELECT MAX(menu_order)+1 AS menu_order FROM {$wpdb->posts} WHERE post_type='{$post_data['post_type']}'" );

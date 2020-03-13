@@ -3,6 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="80532d29-054a-42be-98bb-c50c5dd0907c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scripts/admin/_unity3-drag-sort-posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scripts/admin/_unity3-drag-sort-posts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scripts/admin/_unity3-site-updated-notice.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scripts/admin/_unity3-site-updated-notice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scripts/admin/unity3-admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scripts/admin/unity3-admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scripts/admin/unity3-admin.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scripts/admin/unity3-admin.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/class-drag-sort-posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/class-drag-sort-posts.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/class-site-update-notice.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/class-site-update-notice.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unity3.php" beforeDir="false" afterPath="$PROJECT_DIR$/unity3.php" afterDir="false" />
@@ -62,7 +67,7 @@
       </selected-paths>
     </layout>
   </component>
-  <component name="PhpDebugGeneral" show_user_defined_constants="false" xdebug_force_break_when_no_path_mapping="false" xdebug_force_break_when_outside_project="false" />
+  <component name="PhpDebugGeneral" listening_started="true" show_user_defined_constants="false" xdebug_force_break_when_no_path_mapping="false" xdebug_force_break_when_outside_project="false" />
   <component name="PhpServers">
     <servers>
       <server host="unity3dev.localhost.com" id="4c525e71-1967-4cf7-af0a-21aa1111c42b" name="unity3dev.localhost.com" />
@@ -186,8 +191,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gulp.js.styles" />
         <item itemvalue="Gulp.js.scripts" />
+        <item itemvalue="Gulp.js.styles" />
         <item itemvalue="Gulp.js.bump" />
       </list>
     </recent_temporary>
@@ -244,7 +249,7 @@
       <workItem from="1583950026213" duration="11445000" />
       <workItem from="1584022804333" duration="12869000" />
       <workItem from="1584043712750" duration="3260000" />
-      <workItem from="1584109007232" duration="16487000" />
+      <workItem from="1584109007232" duration="19488000" />
     </task>
     <task id="LOCAL-00001" summary="Testing hooks">
       <created>1573854495453</created>
@@ -358,7 +363,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584125475901</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="fixed javascript dependencies issue">
+      <created>1584126549537</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1584126549537</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,7 +403,8 @@
     <MESSAGE value="Fixed __construct error in two modules" />
     <MESSAGE value="More reorganizing and updates to Unity3_Slides" />
     <MESSAGE value="Improvements to Module Settings. Also created a patch for vendor acf-image-select" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improvements to Module Settings. Also created a patch for vendor acf-image-select" />
+    <MESSAGE value="fixed javascript dependencies issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed javascript dependencies issue" />
   </component>
   <component name="WindowStateProjectService">
     <state x="667" y="111" key="#PHP" timestamp="1583777248732">
@@ -414,14 +427,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583770527711" />
-    <state x="870" y="131" key="CommitChangelistDialog2" timestamp="1584125469401">
+    <state x="643" y="131" key="CommitChangelistDialog2" timestamp="1584126546010">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="870" y="131" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1584125469401" />
-    <state width="534" height="466" key="DebuggerActiveHint" timestamp="1584126417645">
+    <state x="643" y="131" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1584126546010" />
+    <state width="534" height="466" key="DebuggerActiveHint" timestamp="1584129518239">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="534" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1584126417645" />
+    <state width="534" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1584129518239" />
     <state x="88" y="237" width="1736" height="856" key="DiffContextDialog" timestamp="1584043856547">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -430,54 +443,54 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="739" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1584043754024" />
-    <state width="936" height="280" key="GridCell.Tab.0.bottom" timestamp="1584126476286">
+    <state width="937" height="358" key="GridCell.Tab.0.bottom" timestamp="1584129745248">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="936" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584126476286" />
-    <state width="936" height="280" key="GridCell.Tab.0.center" timestamp="1584126476286">
+    <state width="937" height="358" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584129745248" />
+    <state width="937" height="358" key="GridCell.Tab.0.center" timestamp="1584129745248">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="936" height="280" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584126476286" />
-    <state width="936" height="280" key="GridCell.Tab.0.left" timestamp="1584126476285">
+    <state width="937" height="358" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584129745248" />
+    <state width="937" height="358" key="GridCell.Tab.0.left" timestamp="1584129745248">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="936" height="280" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584126476285" />
-    <state width="936" height="280" key="GridCell.Tab.0.right" timestamp="1584126476286">
+    <state width="937" height="358" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584129745248" />
+    <state width="937" height="358" key="GridCell.Tab.0.right" timestamp="1584129745248">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="936" height="280" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584126476286" />
-    <state width="937" height="358" key="GridCell.Tab.1.bottom" timestamp="1584126421172">
+    <state width="937" height="358" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584129745248" />
+    <state width="937" height="358" key="GridCell.Tab.1.bottom" timestamp="1584129745248">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="937" height="358" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584126421172" />
-    <state width="937" height="358" key="GridCell.Tab.1.center" timestamp="1584126421172">
+    <state width="937" height="358" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584129745248" />
+    <state width="937" height="358" key="GridCell.Tab.1.center" timestamp="1584129745248">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="937" height="358" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584126421172" />
-    <state width="937" height="358" key="GridCell.Tab.1.left" timestamp="1584126421172">
+    <state width="937" height="358" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584129745248" />
+    <state width="937" height="358" key="GridCell.Tab.1.left" timestamp="1584129745248">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="937" height="358" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584126421172" />
-    <state width="937" height="358" key="GridCell.Tab.1.right" timestamp="1584126421172">
+    <state width="937" height="358" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584129745248" />
+    <state width="937" height="358" key="GridCell.Tab.1.right" timestamp="1584129745248">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="937" height="358" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584126421172" />
-    <state width="937" height="358" key="GridCell.Tab.2.bottom" timestamp="1584126421172">
+    <state width="937" height="358" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584129745248" />
+    <state width="937" height="358" key="GridCell.Tab.2.bottom" timestamp="1584129745249">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="937" height="358" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584126421172" />
-    <state width="937" height="358" key="GridCell.Tab.2.center" timestamp="1584126421172">
+    <state width="937" height="358" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584129745249" />
+    <state width="937" height="358" key="GridCell.Tab.2.center" timestamp="1584129745249">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="937" height="358" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584126421172" />
-    <state width="937" height="358" key="GridCell.Tab.2.left" timestamp="1584126421172">
+    <state width="937" height="358" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584129745249" />
+    <state width="937" height="358" key="GridCell.Tab.2.left" timestamp="1584129745248">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="937" height="358" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584126421172" />
-    <state width="937" height="358" key="GridCell.Tab.2.right" timestamp="1584126421172">
+    <state width="937" height="358" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584129745248" />
+    <state width="937" height="358" key="GridCell.Tab.2.right" timestamp="1584129745249">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="937" height="358" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584126421172" />
+    <state width="937" height="358" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584129745249" />
     <state x="625" y="335" key="NewPhpClassDialog" timestamp="1581387236979">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -502,10 +515,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="708" y="339" key="StringManipulation.TextAlignmentForm/0.0.1920.1040@0.0.1920.1040" timestamp="1581443409806" />
-    <state x="933" y="154" key="Vcs.Push.Dialog.v2" timestamp="1584125481461">
+    <state x="933" y="154" key="Vcs.Push.Dialog.v2" timestamp="1584126551516">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="933" y="154" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1584125481461" />
+    <state x="933" y="154" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1584126551516" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1582048456060">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -518,18 +531,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="450" y="101" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583437950789" />
-    <state x="656" y="252" width="866" height="606" key="find.popup" timestamp="1584117016723">
+    <state x="656" y="252" width="866" height="606" key="find.popup" timestamp="1584128606165">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="252" width="866" height="606" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584117016723" />
+    <state x="656" y="252" width="866" height="606" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584128606165" />
     <state x="1471" y="208" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1582050115958">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1471" y="208" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup/0.0.1920.1040@0.0.1920.1040" timestamp="1582050115958" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1584118321874">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1584129183343">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584118321874" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584129183343" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1583437603463">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -610,6 +623,11 @@
           <url>file://$PROJECT_DIR$/../advanced-custom-fields-pro/includes/fields/class-acf-field-url.php</url>
           <line>156</line>
           <option name="timeStamp" value="97" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/unity3.php</url>
+          <line>131</line>
+          <option name="timeStamp" value="118" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -3,13 +3,13 @@
     Plugin Name: Unity 3 Software
     Plugin URI: http://www.unity3software.com/
     Description: Customized widgets and functions for client websites
-    Version: 2.3.16
+    Version: 2.3.17
     Author: Richard Blythe
     Author URI: http://unity3software.com/richardblythe
     GitHub Plugin URI: https://github.com/richardblythe/unity3
  */
 class Unity3 {
-	const assets_ver = '2.0.21';
+	const assets_ver = '2.0.24';
     const domain = 'unity3';
 
     public static $dir, $url, $assets_url, $vendor_url, $blank_img, $menu_slug;
@@ -41,10 +41,10 @@ class Unity3 {
 		    add_action( 'admin_bar_menu', array(&$this, 'unity3_admin_bar_howdy'), 11 );
 		    //
 		    add_action( 'wp_before_admin_bar_render', array(&$this, 'modify_admin_bar'), 0);
-		    add_action('wp_enqueue_scripts', array(&$this, 'enqueue'));
-		    add_action('admin_enqueue_scripts', array(&$this, 'enqueue'));
-		    add_action('login_enqueue_scripts', array(&$this, 'enqueue'));
-		    add_action( 'enqueue_block_editor_assets', array(&$this, 'enqueue') );
+		    add_action('wp_enqueue_scripts', array(&$this, 'enqueue'), 100);
+		    add_action('admin_enqueue_scripts', array(&$this, 'enqueue'), 100);
+		    add_action('login_enqueue_scripts', array(&$this, 'enqueue'), 100);
+		    add_action( 'enqueue_block_editor_assets', array(&$this, 'enqueue'), 100 );
 
 
 		    add_filter( 'login_message', array(&$this, 'custom_login_message') );
