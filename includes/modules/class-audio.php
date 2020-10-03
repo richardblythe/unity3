@@ -8,7 +8,7 @@ class Unity3_Audio extends Unity3_Post_Group {
 	protected $field_audio = 'audio';
 
 	public function __construct( ) {
-		parent::__construct('unity3_audio', 'Audio File', 'Audio Files');
+		parent::__construct('unity3_audio', 'Audio File', 'Audio Files', 'An easy interface for adding/editing audio files');
 
 		$this->mergeSettings( array(
 			'post' => array(

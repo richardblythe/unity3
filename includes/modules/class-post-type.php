@@ -4,8 +4,8 @@ if( class_exists('ACF') ) :
 
 abstract class Unity3_Post_Type extends Unity3_Module {
 	protected $acf_block_id;
-	public function __construct( $post_type, $singular, $plural ) {
-		parent::__construct( $post_type, $plural );
+	public function __construct( $post_type, $singular, $plural, $description ) {
+		parent::__construct( $post_type, $plural, $description );
 
 
 		if (!isset( $singular ) || !isset( $plural )) {
@@ -26,7 +26,11 @@ abstract class Unity3_Post_Type extends Unity3_Module {
 				'menu_title'    => $plural,
 				'menu_position' => 12,
 				'menu_icon'     => 'dashicons-admin-media',
+                'show_in_rest' => true,
 			),
+
+			'drag_sort_posts' => true,
+
 			'block' => array(
 				'name'              => $slugified, //acf appends it's prefix later
 				'title'             => $plural,
@@ -40,22 +44,29 @@ abstract class Unity3_Post_Type extends Unity3_Module {
 		) );
 	}
 
-	public function Init() {
-		parent::Init();
+	public function wpLoaded() {
+		parent::wpLoaded();
 
-		if ( $this->settings['admin_columns'] ) {
-			add_filter( "manage_{$this->GetPostType()}_posts_custom_column", array(&$this, "admin_post_columns_content" ) );
-			add_filter( "manage_{$this->GetPostType()}_posts_columns", array(&$this, "admin_post_columns") );
-			add_action( 'admin_footer', array(&$this, '_admin_inline_scripts_styles') );
-		}
-		add_filter( 'post_updated_messages', array($this, 'post_updated_messages') );
+		if (is_admin()) {
+
+			if ( $this->settings['admin_columns'] ) {
+				add_filter( "manage_{$this->GetPostType()}_posts_custom_column", array(&$this, "admin_post_columns_content" ) );
+				add_filter( "manage_{$this->GetPostType()}_posts_columns", array(&$this, "admin_post_columns") );
+				add_action( 'admin_footer', array(&$this, '_admin_inline_scripts_styles') );
+			}
+			add_filter( 'post_updated_messages', array($this, 'post_updated_messages') );
+
+		    //we only need to overwrite these settings in the admin. They are not relevant to the front end
+            $this->settings['post']['page_title']    = get_field($this->ID() . '_page_title', 'options');
+            $this->settings['post']['menu_title']    = get_field($this->ID() . '_menu_title', 'options');
+            $this->settings['post']['menu_position'] = get_field($this->ID() . '_menu_position', 'options');
+            $this->settings['post']['menu_icon']     = get_field($this->ID() . '_menu_icon', 'options');
+
+            if ( isset($this->settings['drag_sort_posts']) && $this->settings['drag_sort_posts'])
+			    unity3_dragsort( $this->GetPostType() );
+        }
 
 		//Register Post Type
-		$this->settings['post']['page_title']    = get_field($this->ID() . '_page_title', 'options');
-		$this->settings['post']['menu_title']    = get_field($this->ID() . '_menu_title', 'options');
-		$this->settings['post']['menu_position'] = get_field($this->ID() . '_menu_position', 'options');
-		$this->settings['post']['menu_icon']     = get_field($this->ID() . '_menu_icon', 'options');
-
 		unity3_register_post_type(
 			$this->GetPostType(),
 			$this->settings['post']['labels']['singular_name'],
@@ -120,11 +131,7 @@ abstract class Unity3_Post_Type extends Unity3_Module {
 				global $post;
 
 				if ( $post && $post->post_type == $this->GetPostType() ) {
-
-					if ( $result = $this->doPlugin( $content ) )
-						return $result;
-					else
-						return $this->Render( $content );
+                    return $this->Render( $content );
 				}
 
 				return $content;
@@ -147,37 +154,37 @@ abstract class Unity3_Post_Type extends Unity3_Module {
 		return get_post_type_object($this->GetPostType());
 	}
 
-	protected function getPluginScopes( ) {
-		$scopes = parent::getPluginScopes();
-		$scopes['post'] = array(
-			'priority' => 1000,
-			'acf'	   => array(
-				'label' => 'Post',
-				'type' => 'post_object',
-				'instructions' => 'Controls the specified post',
-				'required' => 0,
-				'wrapper' => array(
-					'width' => '50',
-					'class' => '',
-					'id' => '',
-				),
-				'post_type' => array(
-					0 => $this->GetPostType(),
-				),
-				'taxonomy' => '',
-				'allow_null' => 0,
-				'multiple' => 0,
-				'return_format' => 'id',
-				'ui' => 1,
-			),
-			'validation_callback' => function( $scope ) {
-				global $post;
-				//returns true if we are looking at a 'post' scope and the current post id matches the id stored in post_scope_field
-				return 'post' == $scope['scope_id'] && isset($post) && $post->ID == $scope['scope_field_post'];
-			}
-		);
-		return $scopes;
-	}
+//	protected function getPluginScopes( ) {
+//		$scopes = parent::getPluginScopes();
+//		$scopes['post'] = array(
+//			'priority' => 1000,
+//			'acf'	   => array(
+//				'label' => 'Post',
+//				'type' => 'post_object',
+//				'instructions' => 'Controls the specified post',
+//				'required' => 0,
+//				'wrapper' => array(
+//					'width' => '50',
+//					'class' => '',
+//					'id' => '',
+//				),
+//				'post_type' => array(
+//					0 => $this->GetPostType(),
+//				),
+//				'taxonomy' => '',
+//				'allow_null' => 0,
+//				'multiple' => 0,
+//				'return_format' => 'id',
+//				'ui' => 1,
+//			),
+//			'validation_callback' => function( $scope ) {
+//				global $post;
+//				//returns true if we are looking at a 'post' scope and the current post id matches the id stored in post_scope_field
+//				return 'post' == $scope['scope_id'] && isset($post) && $post->ID == $scope['scope_field_post'];
+//			}
+//		);
+//		return $scopes;
+//	}
 
 	public function Render( $content ) {
 		return $content; //needs to be overriden be child class

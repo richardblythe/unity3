@@ -4,7 +4,7 @@ class Unity3_Clearbase_Converter extends Unity3_Module {
 
 
 	public function __construct( ) {
-        parent::__construct('unity3_clearbase_converter', 'Clearbase Converter');
+        parent::__construct('unity3_clearbase_converter', 'Clearbase Converter', 'Converts Clearbase object into the Unity3 version 2 system.');
 
         // Check function exists.
         if( !function_exists('acf_add_options_page') )
@@ -122,11 +122,15 @@ class Unity3_Clearbase_Converter extends Unity3_Module {
         if (!in_array($post_type, array( 'unity3_gallery', 'unity3_slide' )) ) {
             die('Post type: ' . $post_type . ' is not supported for conversion!');
         }
-        
+
+        if ( !$module = unity3_modules()->Get($post_type) ) {
+            die('Module does not exist: ' . $post_type);
+        }
+
         $child_folder_ids = clearbase_get_children( $folder->ID, true );
-        unity3_modules()->Activate($post_type);
-        $fields = unity3_modules()->Get($post_type)->GetFields();
-        $taxonomy = unity3_modules()->Get($post_type)->GetTaxonomy();
+
+        $fields = $module->GetFields();
+        $taxonomy = $module->GetTaxonomy();
         
         if ( !$term = get_term_by('name', $folder->post_title, $taxonomy) ) {
             $result = wp_insert_term( $folder->post_title, $taxonomy );

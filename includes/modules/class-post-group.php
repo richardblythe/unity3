@@ -4,8 +4,8 @@ if( class_exists('ACF') ) :
 
 abstract class Unity3_Post_Group extends Unity3_Post_Type {
 
-	public function __construct( $post_type, $singular, $plural ) {
-		parent::__construct( $post_type, $singular, $plural );
+	public function __construct( $post_type, $singular, $plural, $description ) {
+		parent::__construct( $post_type, $singular, $plural, $description );
 
 		$this->mergeSettings( array(
 			'show_custom_group_menu' => true,
@@ -51,7 +51,7 @@ abstract class Unity3_Post_Group extends Unity3_Post_Type {
 		);
 
 
-		//parent doActivate takes care of registering the post type
+		//parent Init() takes care of registering the post type
 		parent::Init();
 
 		//wire up admin functions

@@ -8,7 +8,7 @@ class Unity3_Galleries extends Unity3_Post_Group {
 	protected $archive_columns, $archive_image_size;
 
 	public function __construct() {
-		parent::__construct( 'unity3_gallery', 'Gallery', 'Galleries' );
+		parent::__construct( 'unity3_gallery', 'Gallery', 'Galleries', 'Easily add/edit galleries' );
 
 		$this->mergeSettings( array(
 			'post' => array(
@@ -22,15 +22,27 @@ class Unity3_Galleries extends Unity3_Post_Group {
 	public function Init() 	{
 		parent::Init();
 		if ( is_admin() ) {
-			unity3_dragsort( $this->GetPostType() );
+
 		} else {
 			//configure the default genesis configuration. Can be overriden by theme
 			add_action( 'genesis_before', 'unity3_gallery_genesis_before' );
 			add_filter( 'post_class', 'unity3_gallery_archive_post_class' );
 		}
-		//global action
+		//global
+        add_filter( "default_post_metadata", array(&$this, 'get_default_metadata'), 10, 5);
 		add_action( 'delete_attachment', array(&$this, 'delete_attachment' ), 10, 1 );
 	}
+
+	function get_default_metadata( $value, $object_id, $meta_key, $single, $meta_type ) {
+	    if ( '_thumbnail_id' == $meta_key && $this::GetPostType() == get_post_type( $object_id ) ) {
+	        $images = get_post_meta( $object_id, self::IMAGES_META_FIELD, true );
+	        if ( is_array($images) && count($images) ) {
+	            $value = $images[0];
+            }
+        }
+
+	    return $value;
+    }
 
 	function delete_attachment( $attachment_id ) {
 		global $wpdb;
@@ -139,6 +151,10 @@ class Unity3_Galleries extends Unity3_Post_Group {
 		if ( !isset( $this->archive_image_size )) {
 			//stored value is used when rendering the post content;
 			$this->archive_image_size = get_option( 'options_' . $this->GetPostType() . '_archive_image_size', '' );
+
+		    if (empty($this->archive_image_size)) {
+		        $this->archive_image_size = 'thumbnail';
+            }
 		}
 
 		if ( is_tax($this->GetTaxonomy()) ) {
@@ -159,7 +175,7 @@ class Unity3_Galleries extends Unity3_Post_Group {
 
 		} else if (is_singular( $this->GetPostType() )) {
 
-			$images = get_post_meta( get_the_ID(), 'gallery', true );
+			$images = get_post_meta( get_the_ID(), Unity3_Galleries::IMAGES_META_FIELD, true );
 			if (is_array($images) && count($images)) {
 				return do_shortcode('[gallery ids="' . implode(',', $images) . '" size="'. $this->archive_image_size .'"]');
 			} else {

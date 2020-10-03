@@ -5,7 +5,7 @@ function Load_Unity3Defaults() {
 			add_action( 'admin_init', array( &$this, 'admin_init') );
 			add_action( 'admin_head', array( &$this, 'admin_head') );
 
-			add_filter( 'single_template', array( &$this, 'single_cat_template') );
+			add_filter( 'single_template', array( &$this, 'single_template'), 100, 3 );
 
 			add_filter('comment_moderation_recipients', array(&$this, 'comment_moderation_recipients'), 11, 2);
 
@@ -45,22 +45,31 @@ function Load_Unity3Defaults() {
 		 *
 		 * @return string The possible filtered template path
 		 */
-		function single_cat_template( $single ) {
+		function single_template( $template, $type, $template_names ) {
 			global $wp_query, $post;
 
-			/**
-			 * Checks for single template by category
-			 * Check by category slug and ID
-			 */
-			foreach ( (array) get_the_category() as $cat ) {
-				if ( file_exists( STYLESHEETPATH . '/single-cat-' . $cat->slug . '.php' ) ) {
-					return STYLESHEETPATH . '/single-cat-' . $cat->slug . '.php';
-				} elseif ( file_exists( STYLESHEETPATH . '/single-cat-' . $cat->term_id . '.php' ) ) {
-					return STYLESHEETPATH . '/single-cat-' . $cat->term_id . '.php';
-				}
-			}
+			$paths = apply_filters( 'unity3_custom_template_path', array() );
+			foreach ( $paths as $path ) {
+                foreach ( (array) get_the_category() as $cat ) {
+                    if ( file_exists( $path . '/single-cat-' . $cat->slug . '.php' ) ) {
+                        return $path . '/single-cat-' . $cat->slug . '.php';
+                    } elseif ( file_exists( $path . '/single-cat-' . $cat->term_id . '.php' ) ) {
+                        return $path . '/single-cat-' . $cat->term_id . '.php';
+                    }
+                }
+                //
+                //else search for standard templates in the custom directory path
+                foreach ( (array) $template_names as $template_name ) {
+                    if (!$template_name) {
+                        continue;
+                    }
+                    if (file_exists($path . '/' . $template_name)) {
+                        return $path . '/' . $template_name;
+                    }
+                }
+            }
 
-			return $single;
+			return $template;
 		}
 
 		public function admin_init() {
@@ -669,4 +678,29 @@ function get_image_height( $size ) {
 	}
 
 	return false;
+}
+
+function unity3_embed_responsive( $url, $width = 123, $height = 456 ) {
+    $res = array(
+        'width'		=> $width,
+        'height'	=> $height
+    );
+
+    // get emebed
+    $embed = @wp_oembed_get( $url, $res );
+
+
+    // try shortcode
+    if( !$embed ) {
+
+        // global
+        global $wp_embed;
+
+
+        // get emebed
+        $embed = $wp_embed->shortcode($res, $url);
+
+    }
+
+    return $embed ? ('<div class="embed-container">' . $embed . '</div>') : '';
 }

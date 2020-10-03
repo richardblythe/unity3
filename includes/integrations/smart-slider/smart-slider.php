@@ -18,23 +18,21 @@ class SmartSlider {
 			require_once ( self::$dir . 'class-generator.php' );
 		});
 
-		add_action( 'unity3/modules/plugins/load', array(&$this, 'init_plugins') );
-		add_filter('unity3/admin/css/hide/',  array( &$this, 'smartslider_hide_css') );
-		add_action('admin_enqueue_scripts', array(&$this, 'enqueue'));
+		add_action( 'unity3/modules/load', array(&$this, 'load_modules') );
 	}
 
-	function init_plugins() {
+	function load_modules() {
 
-		if ( !class_exists('N2Loader') )
+		if ( !defined('NEXTEND_SMARTSLIDER_3') )
 			return;
 
+		require_once(self::$dir . '/modules/class-unity3-module-ss3.php');
+		require_once(self::$dir . '/modules/class-unity3-gallery-ss3.php');
+		require_once(self::$dir.  '/modules/class-unity3-slide-ss3.php');
 
-		require_once(self::$dir . '/plugins/unity3-gallery.php');
-		require_once(self::$dir. '/plugins/unity3-slide.php');
-
-
-		unity3_modules()->RegisterPlugin( new Unity3_Gallery_SmartSlider3() );
-		unity3_modules()->RegisterPlugin( new Unity3_Slide_Smart_Slider3() );
+		//
+        add_filter('unity3/admin/css/hide/',  array( &$this, 'smartslider_hide_css') );
+        add_action('admin_enqueue_scripts', array(&$this, 'enqueue'));
 	}
 
 	function enqueue() {
@@ -43,11 +41,11 @@ class SmartSlider {
 
 		//currently there is only an admin scripts folder
 		if (get_current_screen() && get_current_screen()->post_type == \Unity3_Slides::ID ) {
-			wp_enqueue_script( 'unity3_slide_smartslider-admin-script',SmartSlider::$url . "scripts/admin/unity3-smart-slider.js", array('jquery', 'acf-input'), Unity3::assets_ver, false);
-			wp_enqueue_style( 'unity3_slide_smartslider-admin-style', SmartSlider::$url . "/styles/admin/unity3-smart-slider.css", false, Unity3::assets_ver);
+			wp_enqueue_script( 'unity3_slide_smartslider-admin-script',SmartSlider::$url . "scripts/admin/unity3-smart-slider.js", array('jquery', 'acf-input'), Unity3::ver, false);
+			wp_enqueue_style( 'unity3_slide_smartslider-admin-style', SmartSlider::$url . "/styles/admin/unity3-smart-slider.css", false, Unity3::ver);
 		}
 
-//		wp_enqueue_style( 'unity3-style', Unity3::$assets_url . "/styles/{$folder}/unity3-{$folder}{$this->min}css", false, Unity3::assets_ver);
+//		wp_enqueue_style( 'unity3-style', Unity3::$assets_url . "/styles/{$folder}/unity3-{$folder}{$this->min}css", false, Unity3::ver);
 	}
 
 	function smartslider_hide_css( $selectors ) {
@@ -83,10 +81,8 @@ class SmartSlider {
 	}
 }
 
-add_action('unity3/modules/load', function (){
-	$smartslider = new SmartSlider();
-	$smartslider->init();
-});
+$smartslider = new SmartSlider();
+$smartslider->init();
 
 
 

@@ -9,11 +9,11 @@ function Load_SiteUpdatedNotice() {
 				add_action( 'wp_ajax_unity3_site_updated_notice_dismiss', array(&$this, 'dismiss'));
 				add_action( 'wp_ajax_unity3_site_updated_notice', array(&$this, 'update'));
 			} else {
-				add_action( 'admin_enqueue_scripts', array(&$this,'enqueue') );
+//				add_action( 'admin_enqueue_scripts', array(&$this,'enqueue') );
 
-				add_filter( 'unity3/script/dependencies/admin', function ( $dependencies ){
-					return array_merge($dependencies, array('jquery-ui-dialog', 'jquery-effects-core'));
-				});
+//				add_filter( 'unity3/script/dependencies/admin', function ( $dependencies ){
+//					return array_merge($dependencies, array('jquery-ui-dialog', 'jquery-effects-core'));
+//				});
 
 				add_filter( 'unity3/localize/admin', function ( $localize ) {
 				    return array_merge($localize,   array(
@@ -47,29 +47,53 @@ function Load_SiteUpdatedNotice() {
 			$wp_adminbar->add_node(array(
 				'id' => 'unity3-site-updated-notice',
 				'title' => 'Update Site Notice',
-				'href' => '#'
+				'href' => '#update-site-notice-popup',
+                'meta' => array(
+                    'class' => 'cd-popup-trigger'
+                ),
             ));
 		}
 
-		function enqueue() {
-            wp_enqueue_script( 'jquery-ui-dialog' );
-            wp_enqueue_script( 'jquery-effects-core' );
-            wp_enqueue_style( 'wp-jquery-ui-dialog' );
-		}
+//		function enqueue() {
+//            wp_enqueue_script( 'jquery-ui-dialog' );
+//            wp_enqueue_script( 'jquery-effects-core' );
+//            wp_enqueue_style( 'wp-jquery-ui-dialog' );
+//		}
 
 		public function print_dialog(){
 		    $option = get_option('unity3-site-update', array('time' => current_time('timestamp'), 'message' => __('God Bless!', 'unity3_site_update_notice')));
 		    ?>
 
-            <div id="unity3-site-update-dialog" title="Site Update" style="display: none">
-                <label for="unity3-site-update-time">Date:</label>
-                <input type="text" id="unity3-site-update-time" style="width: 99%;" autocomplete="off"
-                value="<?php echo date( 'm/j/Y' ); ?>"
-                >
+            <div id="update-site-notice-popup" class="cd-popup" role="alert">
+                <div class="cd-popup-container">
+                    <h2><?php _e('Site Update', Unity3::domain); ?></h2>
 
-                <label for="unity3-site-update-message">Message:</label>
-                <textarea id="unity3-site-update-message" rows="4" style="width: 99%;"><?php echo stripslashes($option['message']); ?></textarea>
-            </div>
+                    <label for="unity3-site-update-time"><?php _e('Date:', Unity3::domain); ?></label>
+                    <input type="text" id="unity3-site-update-time" style="width: 99%;" autocomplete="off"
+                        value="<?php echo date( 'm/j/Y' ); ?>"
+                    />
+
+                    <label for="unity3-site-update-message"><?php _e('Message:', Unity3::domain); ?></label>
+                    <textarea id="unity3-site-update-message" rows="4" style="width: 99%;"><?php echo stripslashes($option['message']); ?></textarea>
+
+                    <div class="spinner-container"><span class="spinner"></span></div>
+                    <ul class="cd-buttons">
+                        <li><a href="#" class="status-ok"><?php _e('Update', Unity3::domain); ?></a></li>
+                        <li><a href="#" class="cd-popup-close status-cancel"><?php _e('Cancel', Unity3::domain ); ?></a></li>
+                    </ul>
+                    <a href="#" class="cd-popup-close top-right img-replace"><?php _e('Cancel', Unity3::domain); ?></a>
+                </div> <!-- cd-popup-container -->
+            </div> <!-- cd-popup -->
+
+<!--            <div id="unity3-site-update-dialog" title="Site Update" style="display: none">-->
+<!--                <label for="unity3-site-update-time">Date:</label>-->
+<!--                <input type="text" id="unity3-site-update-time" style="width: 99%;" autocomplete="off"-->
+<!--                value="--><?php //echo date( 'm/j/Y' ); ?><!--"-->
+<!--                >-->
+<!---->
+<!--                <label for="unity3-site-update-message">Message:</label>-->
+<!--                <textarea id="unity3-site-update-message" rows="4" style="width: 99%;">--><?php //echo stripslashes($option['message']); ?><!--</textarea>-->
+<!--            </div>-->
 
             <?php
         }

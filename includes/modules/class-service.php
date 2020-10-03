@@ -7,7 +7,7 @@ class Unity3_Service extends Unity3_Post_Type {
 
 
 	public function __construct( ) {
-		parent::__construct('unity3_service', 'Service', 'Services');
+		parent::__construct('unity3_service', 'Service', 'Services', 'Add/Edit church service information');
 
 		$this->mergeSettings( array(
 			'post' => array(

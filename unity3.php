@@ -2,14 +2,14 @@
 /*
     Plugin Name: Unity 3 Software
     Plugin URI: http://www.unity3software.com/
-    Description: Customized widgets and functions for client websites
-    Version: 2.3.17
+    Description: Core components for building Wordpress sites that are easy for the client to use.
+    Version: 2.4.3
     Author: Richard Blythe
     Author URI: http://unity3software.com/richardblythe
     GitHub Plugin URI: https://github.com/richardblythe/unity3
  */
 class Unity3 {
-	const assets_ver = '2.0.24';
+	const ver = '2.4.3';//this is referenced when enqueuing the assets folder
     const domain = 'unity3';
 
     public static $dir, $url, $assets_url, $vendor_url, $blank_img, $menu_slug;
@@ -18,12 +18,13 @@ class Unity3 {
     function __construct() {
 	    Unity3::$dir = plugin_dir_path( __FILE__ );
         Unity3::$url = plugin_dir_url( __FILE__ );
-	    Unity3::$assets_url = Unity3::$url . 'assets';
+	    Unity3::$assets_url = Unity3::$url . 'assets/dist';
         Unity3::$vendor_url = Unity3::$url  . 'vendor';
 	    Unity3::$blank_img = Unity3::$assets_url . '/images/blank.gif';
         Unity3::$menu_slug = 'unity3-settings-general';
-        
-	    $this->min = (defined('WP_DEBUG') && true === WP_DEBUG) ? '.' : '.min.';
+
+
+	    $this->min = '.'; //todo (defined('WP_DEBUG') && true === WP_DEBUG) ? '.' : '.min.';
 	    self::$admin_menu_uid = 10.1;
     }
 
@@ -41,10 +42,10 @@ class Unity3 {
 		    add_action( 'admin_bar_menu', array(&$this, 'unity3_admin_bar_howdy'), 11 );
 		    //
 		    add_action( 'wp_before_admin_bar_render', array(&$this, 'modify_admin_bar'), 0);
-		    add_action('wp_enqueue_scripts', array(&$this, 'enqueue'), 100);
-		    add_action('admin_enqueue_scripts', array(&$this, 'enqueue'), 100);
-		    add_action('login_enqueue_scripts', array(&$this, 'enqueue'), 100);
-		    add_action( 'enqueue_block_editor_assets', array(&$this, 'enqueue'), 100 );
+		    add_action('wp_enqueue_scripts', array(&$this, 'enqueue_front'), 100);
+		    add_action('admin_enqueue_scripts', array(&$this, 'enqueue_admin'), 100);
+		    add_action('login_enqueue_scripts', array(&$this, 'enqueue_front'), 100);
+		    add_action( 'enqueue_block_editor_assets', array(&$this, 'enqueue_editor'), 100 );
 
 
 		    add_filter( 'login_message', array(&$this, 'custom_login_message') );
@@ -62,10 +63,19 @@ class Unity3 {
 						    'page_title' 	=> 'Unity 3 Software',
 						    'menu_title'	=> 'Unity 3 Software',
 						    'menu_slug' 	=> Unity3::$menu_slug,
-						    'icon_url'      => Unity3::$url . 'assets/images/unity3_logo_admin_bar.png',
+						    'icon_url'      => Unity3::$assets_url . '/images/unity3_logo_admin_bar.png',
 						    'capability'	=> 'manage_options',
 						    'redirect'		=> false
 					    ));
+
+//                        acf_add_options_sub_page(array(
+//                            'page_title' 	=> 'General Settings',
+//                            'menu_title'	=> 'General Settings',
+//                            'parent_slug'   => Unity3::$menu_slug,
+//                            'menu_slug' 	=> Unity3::$menu_slug . '-hello-world',
+//                            'capability'	=> 'manage_options',
+//                            'redirect'		=> false
+//                        ));
 				    }
 			    });
                 add_filter('admin_footer_text', array(&$this,'modify_admin_footer'),999);
@@ -122,30 +132,44 @@ class Unity3 {
         return $args;
     }
 
-    
-    function enqueue() {
-    	$folder = is_admin() ? 'admin' : 'front';
 
-    	//currently there is only an admin scripts folder
-    	if (is_admin()) {
-    		$dependencies  = apply_filters("unity3/script/dependencies/{$folder}", array('jquery'));
-	        wp_enqueue_script('unity3',       Unity3::$assets_url . "/scripts/{$folder}/unity3-{$folder}{$this->min}js", $dependencies, Unity3::assets_ver);
-	    }
+    function enqueue_front() {
+        wp_enqueue_script('unity3-front-js',       Unity3::$assets_url . "/scripts/unity3-front.js", array('jquery'), Unity3::ver);
+        wp_enqueue_style( 'unity3-front-css', Unity3::$assets_url . "/styles/unity3-front.css", false, Unity3::ver);
 
-    	$localized = apply_filters("unity3/localize/{$folder}", array());
-    	if (isset($localized) && is_array($localized) && count($localized)) {
-		    wp_localize_script('unity3', 'unity3', $localized );
-	    }
-
-    	wp_enqueue_style( 'unity3-style', Unity3::$assets_url . "/styles/{$folder}/unity3-{$folder}{$this->min}css", false, Unity3::assets_ver);
+        $localized = apply_filters("unity3/localize/front", array());
+        if (isset($localized) && is_array($localized) && count($localized)) {
+            wp_localize_script('unity3-front-js', 'unity3', $localized );
+        }
     }
 
-    function unity3_admin_bar_logo($wp_admin_bar) {      
+    function enqueue_admin() {
+        wp_enqueue_script('unity3-admin-js',       Unity3::$assets_url . "/scripts/unity3-admin.js", array('jquery'), Unity3::ver);
+        wp_enqueue_style( 'unity3-admin-css', Unity3::$assets_url . "/styles/unity3-admin.css", false, Unity3::ver);
+
+        $localized = apply_filters("unity3/localize/admin", array());
+        if (isset($localized) && is_array($localized) && count($localized)) {
+            wp_localize_script('unity3-admin-js', 'unity3', $localized );
+        }
+    }
+
+    function enqueue_editor() {
+
+        wp_enqueue_script('unity3-editor-js',       Unity3::$assets_url . "/scripts/unity3-editor.js", array('wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor'), Unity3::ver);
+        wp_enqueue_style( 'unity3-editor-css', Unity3::$assets_url . "/styles/unity3-editor.css", false, Unity3::ver);
+
+    }
+
+    function unity3_admin_bar_logo($wp_admin_bar) {
         $wp_admin_bar->add_node(array(
             'id' => 'unity3-logo',
-            'title' => '<img title="Thank you for choosing Unity 3 Software" src="' . Unity3::$url . 'assets/images/unity3_logo_admin_bar.png" alt="' . esc_attr__( 'Unity3' ) . '" width="32" height="24" style="vertical-align: middle;" />',
+            'title' => '<img title="Thank you for choosing Unity 3 Software" src="' . Unity3::$assets_url . '/images/unity3_logo_admin_bar.png" alt="' . esc_attr__( 'Unity3' ) . '" width="32" height="24" style="vertical-align: middle;" />',
             'parent' => false
         ));
+    }
+
+    static function Vendor( $subpath ) {
+    	return self::$vendor_url . '/' . $subpath;
     }
 
     function unity3_admin_bar_howdy( $wp_admin_bar ) {
@@ -191,6 +215,17 @@ class Unity3 {
     
     function admin_init() {
         add_filter( 'request', array(&$this, 'unity3_filter_admin_posts' ));
+
+        if ( !function_exists( 'acf' ) )
+            add_action( 'admin_notices', array( &$this, 'admin_notice_missing_plugins' ) );
+    }
+
+    function admin_notice_missing_plugins() {
+       ?>
+            <div class="notice notice-warning">
+                <p><?php esc_html_e('Unity 3 Software requires the plugin: Advanced Custom Fields Pro'); ?></p>
+            </div>
+            <?php
     }
 
     function unity3_filter_admin_posts($request) {

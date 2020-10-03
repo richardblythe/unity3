@@ -7,15 +7,31 @@ class Genesis {
 
 	private function __construct() {
 
-		//* Deprecated - Change the default footer text
-		add_filter('genesis_footer_creds_text', function () {
-			return unity3_footer_info_shortcode();
-		});
+	    //use this function to deprecate the default footer
+        add_action( 'genesis_before', function (){
 
-		//Override default footer text
-		add_filter( 'genesis_footer_output', function () {
-			return unity3_footer_info_shortcode();
-		});
+            //look for one block area that exists in the footer...
+            $results = get_posts( array(
+                'post_type'		=> \Unity3_Block_Area::CPT_NAME,
+                'posts_per_page'	=> 1,
+                'meta_key'          => 'genesis_hook',
+                'meta_value'        => 'genesis_footer'
+            ));
+
+            //if no block areas contain the footer hook then add the following default...
+            if ( 0 == count($results)) {
+                //* Deprecated - Change the default footer text
+                add_filter('genesis_footer_creds_text', function () {
+                    return unity3_footer_info_shortcode();
+                });
+
+                //Override default footer text
+                add_filter( 'genesis_footer_output', function () {
+                    return unity3_footer_info_shortcode();
+                });
+            }
+
+        });
 
 		//allow for overrides on the archive pages
 		add_action('template_redirect', array(&$this, 'archive_settings') );
@@ -28,7 +44,34 @@ class Genesis {
 
 		//Tribe Events Calendar
 		add_action( 'get_header', array( &$this,'tribe_genesis_bypass_genesis_do_post_content') );
+
+        add_filter( 'genesis_single_crumb', array(&$this, 'custom_post_group_crumb'), 10, 2 );
 	}
+
+    function custom_post_group_crumb( $crumb, $args ) {
+
+        // Only modify the breadcrumb if the current post type is connected to Unity3_Post_Group
+        $module = unity3_modules()->Get( get_post_type() );
+        if ( ! ($module && is_subclass_of($module, 'Unity3_Post_Group') ) )  {
+            return $crumb;
+        }
+
+
+        // Grab terms
+        $terms = get_the_terms( get_the_ID(), $module->GetTaxonomy() );
+        if( empty( $terms ) || is_wp_error( $terms ) )
+            return $crumb;
+
+        // Only use one term
+        $term = array_shift( $terms );
+
+        $post_obj = get_post_type_object( get_post_type() );
+
+        // Build the breadcrumb
+        $crumb = '<a href="' . get_post_type_archive_link( get_post_type() ) . '">' . $post_obj->label .'</a>' . $args['sep'] . '<a href="' . get_term_link( $term, $term->taxonomy ) . '">' . $term->name . '</a>' . $args['sep'] . get_the_title();
+
+        return $crumb;
+    }
 
 	static function instance() {
 		if (!self::$instance) {

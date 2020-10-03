@@ -21,24 +21,29 @@ class Unity3_Modules {
 	function initialize() {
 
 		//load modules immediately before the widgets! Note the priority of zero
-		add_action( 'init', array($this, 'load_modules'), 0 );
+		add_action( 'init',  array(&$this, '_load_modules'), 0 );
+		add_action( 'wp_loaded', function () { $this->_wp_loaded(); }, 100 );
+
+		// see if any modules are active/deactive
+		add_action('acf/save_post', array(&$this, '_module_activation'), 1);
 	}
 
 	//this is the place to fire the activation notice to theme listeners...
-	public function load_modules() {
+	public function _load_modules() {
+
 		//load base modules...
 		require_once (Unity3::$dir . 'includes/modules/class-module.php');
 		require_once (Unity3::$dir . 'includes/modules/class-post-type.php');
 		require_once (Unity3::$dir . 'includes/modules/class-post-group.php');
 
-		//load dependencies
+		//load bundled modules
 		require_once (Unity3::$dir . 'includes/modules/class-audio.php');
 		require_once (Unity3::$dir . 'includes/modules/class-galleries.php');
 		require_once (Unity3::$dir . 'includes/modules/class-service.php');
 		require_once (Unity3::$dir . 'includes/modules/class-slides.php');
 		//
 		require_once (Unity3::$dir . 'includes/modules/class-clearbase-converter.php');
-		require_once (Unity3::$dir . 'includes/modules/class-module-plugin.php');
+//		require_once (Unity3::$dir . 'includes/modules/class-module-plugin.php');
 
 //		$files = array_diff(scandir(Unity3::$dir . 'includes/modules'), array('.', '..', 'modules.php', 'class-module.php', 'class-post-type.php', 'class-post-group.php'));
 //		foreach ($files as $file) {
@@ -46,41 +51,128 @@ class Unity3_Modules {
 //		}
 
 		do_action('unity3/modules/load' );
-		do_action('unity3/modules/plugins/load');
+//		do_action('unity3/modules/plugins/load');
 
-		
-		//load the modules that are set to activate
-		if ( $module_ids = get_option( 'options_unity3_modules_active', false )) {
-			//now that plugins have been loaded, initialize the modules
-			foreach ($module_ids as $m) {
-				if ( $module = $this->Get($m) ) {
-					$module->Init();
-				}
-			}
+		//run initialization on all activated modules
+		foreach ($this->GetAllActive() as $module_id => $module) {
+			$module->Init();
 		}
-		do_action('unity3/modules/init' );
 
-		//Add modules list to the Unity 3 Software general settings page
+		do_action('unity3/modules/init' );
+	}
+
+	private function _wp_loaded() {
+		/*
+		 * Settings: Modules Metabox
+		 * Page: unity3-settings-general
+		 */
 		if(is_admin() && function_exists('acf_add_local_field_group') ) {
 
-			acf_add_local_field_group(array(
-				'key'	=> 'unity3_modules',
-				'title' => 'Modules',
-				'fields' => array(
-					array(
-						'label' => '',
-						'key' => 'unity3_modules_active',
-						'name' => 'unity3_modules_active',
-						'type' => 'checkbox',
-						'instructions' => '',
-						'choices' => $this->GetAll(),
-						'allow_custom' => 0,
-						'layout' => 'vertical',
-						'toggle' => 1,
-						'return_format' => 'value',
-						'save_custom' => 0,
+			$active_modules = $this->GetAllActive();
+			add_filter('acf/load_value/type=true_false', function ($value, $post_id, $field) use ($active_modules) {
+				foreach ( $active_modules as $module_id => $module ) {
+					if ($field['key'] === "unity3_module_{$module_id}_active") {
+						return true;
+					}
+				}
+				return false;
+			}, 10, 3);
+
+			uasort($this->modules, function ($module1, $module2){
+				return strcmp($module1->Name(), $module2->Name());
+			});
+
+			$module_fields = array();
+			foreach ($this->modules as $module_id => $module) {
+				$uid = "unity3_module_{$module_id}";
+
+				$module_name_html = '<p>' . $module->Name() . '</p>';
+				if ( $menu_slug = $module->GetSettingsMenuSlug() ) {
+					$module_name_html .=
+						'<p>'.
+						'<a href="' . admin_url( 'admin.php?page=' . $menu_slug ) . '">' .
+						__('Settings', Unity3::domain) .
+						'</a>' .
+						'</p>';
+				}
+
+				$module_description = $module->Description();
+
+				$module_fields[] = array(
+					'key' => $uid,
+					'label' => '',
+					'name' => $uid,
+					'type' => 'group',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
 					),
-				),
+					'layout' => 'block',
+					'sub_fields' => array(
+						array(
+							'key' => "{$uid}_active",
+							'label' => '',
+							'name' => "{$uid}_active",
+							'type' => 'true_false',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '10%',
+								'class' => '',
+								'id' => '',
+							),
+							'message' => '',
+							'default_value' => 0,
+							'ui' => 1,
+							'ui_on_text' => 'On',
+							'ui_off_text' => 'Off',
+						),
+						array(
+							'key' => "{$uid}_name",
+							'label' => '',
+							'name' => "{$uid}_name",
+							'type' => 'message',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '40%',
+								'class' => '',
+								'id' => '',
+							),
+							'message' => "<p>{$module_name_html}</p>" .
+							             '<p><a href="' . '#' . '"></a></p>',
+							'esc_html' => 0,
+						),
+						array(
+							'key' => "{$uid}_description",
+							'label' => '',
+							'name' => "{$uid}_description",
+							'type' => 'message',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '40%',
+								'class' => '',
+								'id' => '',
+							),
+							'message' => "<p>{$module_description}</p>",
+							'esc_html' => 0,
+						),
+					),
+				);
+			}
+
+			acf_add_local_field_group(array(
+				'key'	=> 'unity3_modules_field_group',
+				'title' => 'Modules',
+				'fields' => $module_fields,
 				'location' => array(
 					array(
 						array(
@@ -89,6 +181,7 @@ class Unity3_Modules {
 							'value' => Unity3::$menu_slug,
 						),
 					),
+					//todo: Need to establish location rules to check for caps()
 				),
 			));
 		}
@@ -114,96 +207,97 @@ class Unity3_Modules {
 		return $result;
 	}
 
-	public function RegisterPlugin( $class ) {
-		$result = false;
-		try {
-			$instance = $class;
-			if ( is_string( $class ) ) {
-				$instance = new $class();
-			}
-
-			if(is_object($instance) && is_subclass_of( $instance, 'Unity3_Module_Plugin') ) {
-				$this->plugins[ $instance->ID() ] = $instance;
-				$result = true;
-			}
-		} catch (Exception $e) { };
-
-		return $result;
-	}
-
-		/**
-		 * Attempts to get a module instance based on it's id
-		 *
-		 * @return Unity3_Module|null
-		 */
+	/**
+	 * Attempts to get a module instance based on it's id
+	 *
+	 * @return Unity3_Module|null
+	 */
 	public function Get( $module_id ) {
 		return isset($this->modules[ $module_id]) ? $this->modules[ $module_id] : null;
 	}
 
-	public function GetAll( $display = true ) {
-
-		if ( $display ) {
-			$arr = array();
-			foreach ( $this->modules as $m ) {
-				$arr[$m->ID()] = $m->Name();
-			}
-			return $arr;
+	public function GetAllActive() {
+		// get current active modules
+		if (!$active_ids = get_option('unity3_modules_active')) {
+			$active_ids = array(); //set an initial state
 		}
+
+		$active_modules = array();
+		foreach ( $active_ids as $module_id ) {
+			if (isset($this->modules[$module_id])) {
+				$active_modules[$module_id] = $this->modules[$module_id];
+			}
+		}
+
+		return $active_modules;
+	}
+
+
+	public function GetActive( $module_id ) {
+		$active_modules = $this->GetAllActive();
+		return isset($active_modules[$module_id]) ? $active_modules[$module_id] : null;
+	}
+
+	/**
+ * Checks if the specified module_id is active
+ *
+ * @return bool
+ */
+	public function IsActive( $module_id ) {
+		$active_modules = $this->GetAllActive();
+		return isset($active_modules[$module_id]);
+	}
+
+
+	public function GetAll() {
+
+//		if ( $display ) {
+//			$arr = array();
+//			foreach ( $this->modules as $m ) {
+//				$arr[$m->ID()] = $m->Name();
+//			}
+//
+//			asort($arr);
+//
+//			return $arr;
+//		}
 		return $this->modules;
 	}
 
-	public function GetPlugins( $module_id = null, $display = true ) {
-		if (empty($module_id)) {
-			return $this->plugins;
-		} else {
-			$results = array();
-			foreach ($this->plugins as $c) {
-				if  ($c->Supports( $module_id) ) {
-					$results[$c->ID()] = $display ? $c->Name() : $c;
+	public function _module_activation() {
+		$screen = get_current_screen();
+		//todo: need to test this code
+		if (false !== strpos($screen->id, 'unity3-settings-general')) {
+			// get all modules marked as active
+			$active_modules = array();
+			foreach ($_POST['acf'] as $module_field_key => $module_field_value) {
+				$module_id = substr($module_field_key, strpos($module_field_key, 'unity3_module_') + 14 );
+				if (unity3_modules()->Get($module_id) && $module_field_value["{$module_field_key}_active"]) {
+					$active_modules[] = $module_id;
 				}
 			}
 
-			return $results;
+			// specific old field value
+			if (!$prev_active_modules = get_option('unity3_modules_active')) {
+				$prev_active_modules = array(); //set an initial state
+			}
+
+			//now refresh the database with the new activated modules
+			update_option( 'unity3_modules_active', $active_modules, true );
+
+			$all_module_ids = array_unique(array_merge($active_modules, $prev_active_modules));
+
+			foreach ($all_module_ids as $module_id) {
+				//if the current module was not previously active, fire the activation function on the module
+				if ( !in_array( $module_id, $prev_active_modules) ) {
+					$this->Get($module_id)->Activate();
+				} elseif ( !in_array( $module_id, $active_modules) ) {
+					$this->Get($module_id)->Deactivate();
+				}
+			}
+
+
 		}
-	}
-
-	public function GetPlugin( $plugin_id ) {
-		return isset($this->plugins[$plugin_id]) ? $this->plugins[$plugin_id] : null;
-	}
-
-
-	public function Activate( $args ) {
-		throw new Exception('This function is now deprecated.');
-
-//		if (!isset( $args ))
-//			return false;
-//
-//		if (!is_array( $args ) ) {
-//			$args = array( $args => null); //convert to an associative array
-//		}
-//		//check to see if the array is sequential. (we need an associative array)
-//		if ( array_keys($args) === range(0, count($args) - 1) ) {
-//			//convert to an associative array
-//			$new_array = array();
-//			foreach ($args as $key ) {
-//				$new_array[$key] = null;
-//			}
-//			$args = $new_array; //assign the converted array;
-//		}
-//
-//		$activated_any = false;
-//		$module = null;
-//		if (0 !== count($args)) {
-//			foreach ($args as $id => $settings ) {
-//				$module = $this->Get( $id );
-//				if (isset($module) && !$module->IsActivated()) {
-//					$module->Activate( $settings );
-//					$activated_any = true;
-//				}
-//			}
-//		}
-//
-//		return $activated_any;
 	}
 }
 
@@ -252,6 +346,3 @@ class Unity3_Modules {
 	unity3_modules();
 
 endif; // class_exists check
-
-
-?>

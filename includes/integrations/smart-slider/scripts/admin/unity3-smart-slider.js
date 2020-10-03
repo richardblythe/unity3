@@ -19,47 +19,61 @@ jQuery(document).ready( function($) {
     var $input_blur = $('input[name="acf[unity3_slide_smartslider3_appearance_background_image_blur]"]');
 
     //functions
-    var set_bg_color = function( bg_color ) {
+    var set_bg_color = function (bg_color) {
         if ('string' !== typeof bg_color) {
             bg_color = '';
         }
         bg_color = bg_color.trim();
-        bg_color = ( '' === bg_color ? 'transparent' : bg_color );
+        bg_color = ('' === bg_color ? 'transparent' : bg_color);
         $slide_image_bg.css('background-color', bg_color);
     };
 
-    var set_opacity = function( opacity ) {
-        opacity = parseInt( opacity );
-        opacity = ( -1 === opacity ? 100 : opacity );
+    var set_opacity = function (opacity) {
+        opacity = parseInt(opacity);
+        opacity = (-1 === opacity ? 100 : opacity);
         $slide_image.css('opacity', opacity + '%');
     };
 
-    var set_blur = function ( blur ) {
-        blur = parseInt( blur );
-        blur = ( -1 === blur ? 0 : blur );
+    var set_blur = function (blur) {
+        blur = parseInt(blur);
+        blur = (-1 === blur ? 0 : blur);
         $slide_image.css('filter', 'blur(' + blur + 'px)');
     };
 
     //set the initial state...
-    set_bg_color( $input_bg_color.val() );
-    set_opacity( $input_opacity.val() );
-    set_blur( $input_blur.val() );
+    set_bg_color($input_bg_color.val());
+    set_opacity($input_opacity.val());
+    set_blur($input_blur.val());
 
     //scroll to the current slide preset
-    var leftOffset = $selected_preset_li.offset().left - $slide_preset_ul.offset().left +   $slide_preset_ul.scrollLeft();
-    $slide_preset_ul.animate({ scrollLeft: leftOffset });
+    var leftOffset = $selected_preset_li.offset().left - $slide_preset_ul.offset().left + $slide_preset_ul.scrollLeft();
+    $slide_preset_ul.animate({scrollLeft: leftOffset});
 
     //listen for changes
-    $input_bg_color.on('change', function(e) {  set_bg_color( $(this).val() );  });
-    $input_opacity.on('change', function(e) {  set_opacity( $(this).val() );  });
-    $input_blur.on('change', function(e) {  set_blur( $(this).val() );  });
+    $input_bg_color.on('change', function (e) {
+        set_bg_color($(this).val());
+    });
+    $input_opacity.on('change', function (e) {
+        set_opacity($(this).val());
+    });
+    $input_blur.on('change', function (e) {
+        set_blur($(this).val());
+    });
 
+    //wire up the custom preset popup dialog
+    var $popup = $('#ss3_custom_popup');
+    $('#acf-ss3_slide_preset-custom').on('click', function (e) {
+        $popup.open();
+    });
+
+    $popup.on('click', '.status-ok', function (e) {
+        $(window).off("beforeunload", null);
+    });
 });
-
 /*
  *   Vendor Patch: acf-image-select
  */
-(function($, undefined){
+(function($){
 
     var Field = acf.Field.extend({
 

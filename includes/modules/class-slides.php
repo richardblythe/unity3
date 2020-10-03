@@ -8,7 +8,7 @@ class Unity3_Slides extends Unity3_Post_Group {
     const ID = 'unity3_slide';
 
 	public function __construct( ) {
-		parent::__construct(Unity3_Slides::ID, 'Slide', 'Slides');
+		parent::__construct(Unity3_Slides::ID, 'Slide', 'Slides', 'Easy slider interface');
 
 		$this->mergeSettings( array(
 			'post' => array(
@@ -33,8 +33,8 @@ class Unity3_Slides extends Unity3_Post_Group {
 	public function Init( ) {
 		parent::Init();
 
-		add_image_size('unity3_slide', 1140,460, true);
-		add_image_size('unity3_slide_med', 768,310, true);
+		add_image_size('unity3_slide', 1140,460, false);
+		add_image_size('unity3_slide_med', 768,310, false);
 		add_image_size('unity3_slide_small', 512,206, true);
 		add_image_size('unity3_slide_xsmall', 200,80, true);
 
@@ -44,7 +44,6 @@ class Unity3_Slides extends Unity3_Post_Group {
 				$this->settings['admin_inline_styles']['.column-slide-image'] = "width: 200px;";
 			}
 
-			unity3_dragsort( $this->GetPostType() );
             add_filter( 'unity3/hide_metaboxes/include', array(&$this, 'hide_metaboxes_include'), 10, 2 );
 			add_action( 'current_screen', array(&$this, 'current_screen') );
 		}
