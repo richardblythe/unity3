@@ -20,8 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a3efbb9-c41c-4a65-a6bf-8480a9e17189" name="Default Changelist" comment="added responsive .embed-container class">
-      <change beforePath="$PROJECT_DIR$/assets/dist/styles/unity3-admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/dist/styles/unity3-admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/dist/styles/unity3-front.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/dist/styles/unity3-front.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/modules/class-clearbase-converter.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-clearbase-converter.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unity3.php" beforeDir="false" afterPath="$PROJECT_DIR$/unity3.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,6 +55,13 @@
       </selected-paths>
     </layout>
   </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/../clearbase" />
+      <path value="$PROJECT_DIR$/../../../wp-includes" />
+      <path value="$PROJECT_DIR$/../../../wp-admin" />
+    </include_path>
+  </component>
   <component name="ProjectId" id="1iNdRqXNKv82wWf3PfQZmJwjVT6" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -62,9 +70,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="$PROJECT_DIR$/node_modules/gulp" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/src/styles/front" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../wp-admin" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
@@ -131,7 +140,9 @@
       <workItem from="1601754034420" duration="121000" />
       <workItem from="1601754199282" duration="531000" />
       <workItem from="1601754731618" duration="90000" />
-      <workItem from="1602023541232" duration="511000" />
+      <workItem from="1602023541232" duration="1130000" />
+      <workItem from="1602085341944" duration="15000" />
+      <workItem from="1602085464085" duration="2054000" />
     </task>
     <task id="LOCAL-00001" summary="Some more housekeeping">
       <created>1601754233457</created>
@@ -161,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602023959141</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added responsive .embed-container class">
+      <created>1602024068664</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1602024068664</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,34 +210,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="845" y="383" width="230" height="389" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1601752509138" />
+    <state x="667" y="163" key="#PHP" timestamp="1602087152893">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="163" key="#PHP/0.0.1920.1040@0.0.1920.1040" timestamp="1602087152893" />
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601752901601">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601752901601" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1601754724053">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1602087148004">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1601754724053" />
-    <state width="1877" height="882" key="GridCell.Tab.0.bottom" timestamp="1602024020835">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602087148004" />
+    <state width="1877" height="882" key="GridCell.Tab.0.bottom" timestamp="1602028250916">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="882" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602024020835" />
-    <state width="1877" height="882" key="GridCell.Tab.0.center" timestamp="1602024020835">
+    <state width="1877" height="882" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602028250915" />
+    <state width="1877" height="882" key="GridCell.Tab.0.center" timestamp="1602028250915">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="882" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602024020835" />
-    <state width="1877" height="882" key="GridCell.Tab.0.left" timestamp="1602024020835">
+    <state width="1877" height="882" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602028250915" />
+    <state width="1877" height="882" key="GridCell.Tab.0.left" timestamp="1602028250915">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="882" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602024020835" />
-    <state width="1877" height="882" key="GridCell.Tab.0.right" timestamp="1602024020835">
+    <state width="1877" height="882" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602028250915" />
+    <state width="1877" height="882" key="GridCell.Tab.0.right" timestamp="1602028250915">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="882" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602024020835" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1602023969674">
+    <state width="1877" height="882" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602028250915" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1602024070503">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602023969674" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602024070503" />
     <state x="826" y="386" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1601753634460">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

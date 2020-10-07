@@ -129,7 +129,6 @@ class Unity3_Clearbase_Converter extends Unity3_Module {
 
         $child_folder_ids = clearbase_get_children( $folder->ID, true );
 
-        $fields = $module->GetFields();
         $taxonomy = $module->GetTaxonomy();
         
         if ( !$term = get_term_by('name', $folder->post_title, $taxonomy) ) {
@@ -140,8 +139,6 @@ class Unity3_Clearbase_Converter extends Unity3_Module {
 
             $term = get_term( $result['term_id'], $taxonomy );
         }
-        
-
 
         if ( 'unity3_gallery' == $post_type ) {
 
@@ -171,10 +168,10 @@ class Unity3_Clearbase_Converter extends Unity3_Module {
                 ));
 
                 //add attachment references to the ACF Gallery
-                update_field( $fields[0]['key'], $ids, $inserted_post_id );
+                update_post_meta($inserted_post_id, Unity3_Galleries::IMAGES_META_FIELD,  $ids );
 
             }
-            
+
         } else if ('unity3_slide' == $post_type) {
             
             $attachments = clearbase_get_attachments('', $folder);
@@ -195,10 +192,10 @@ class Unity3_Clearbase_Converter extends Unity3_Module {
                 ));
 
                 //attach IMAGE to ACF field
-                update_field( $fields[0]['key'], $a->ID, $inserted_post_id );
+                update_post_meta( $inserted_post_id, 'image', $a->ID );
 
                 //attach CAPTION to ACF field
-                update_field( $fields[1]['key'], $a->post_excerpt, $inserted_post_id );
+                update_field( $inserted_post_id, 'caption', $a->post_excerpt );
             }
         }
 
