@@ -19,8 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a3efbb9-c41c-4a65-a6bf-8480a9e17189" name="Default Changelist" comment="added responsive .embed-container class">
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="1a3efbb9-c41c-4a65-a6bf-8480a9e17189" name="Default Changelist" comment="updates to the Clearbase converter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/modules/class-clearbase-converter.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-clearbase-converter.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unity3.php" beforeDir="false" afterPath="$PROJECT_DIR$/unity3.php" afterDir="false" />
@@ -142,7 +141,7 @@
       <workItem from="1601754731618" duration="90000" />
       <workItem from="1602023541232" duration="1130000" />
       <workItem from="1602085341944" duration="15000" />
-      <workItem from="1602085464085" duration="2054000" />
+      <workItem from="1602085464085" duration="2492000" />
     </task>
     <task id="LOCAL-00001" summary="Some more housekeeping">
       <created>1601754233457</created>
@@ -179,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602024068664</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="updates to the Clearbase converter">
+      <created>1602087607178</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1602087607178</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,7 +209,8 @@
     <MESSAGE value="fixed more javascript issues" />
     <MESSAGE value="Some more housekeeping" />
     <MESSAGE value="added responsive .embed-container class" />
-    <option name="LAST_COMMIT_MESSAGE" value="added responsive .embed-container class" />
+    <MESSAGE value="updates to the Clearbase converter" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates to the Clearbase converter" />
   </component>
   <component name="WindowStateProjectService">
     <state x="845" y="383" width="230" height="389" key="#Notifications" timestamp="1601752509138">
@@ -238,10 +245,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="882" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602028250915" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1602024070503">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1602087612322">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602024070503" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602087612322" />
     <state x="826" y="386" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1601753634460">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

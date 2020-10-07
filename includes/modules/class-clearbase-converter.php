@@ -134,7 +134,7 @@ class Unity3_Clearbase_Converter extends Unity3_Module {
         if ( !$term = get_term_by('name', $folder->post_title, $taxonomy) ) {
             $result = wp_insert_term( $folder->post_title, $taxonomy );
             if ($result instanceof WP_Error) {
-                die( 'Problem creating term: ' . $folder->post_title );
+                die( "Problem creating term: {$folder->post_title}. Error message: {$result->get_error_message()}" );
             }
 
             $term = get_term( $result['term_id'], $taxonomy );
