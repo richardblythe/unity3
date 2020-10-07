@@ -21,6 +21,8 @@ class Recent_Images {
                 'icon'              => 'admin-comments',
                 'keywords'          => array( 'image', 'latest images', 'recent images'),
             ));
+
+            add_image_size( 'recent-image', 400, 250 );
         }
 
         if( function_exists('acf_add_local_field_group') ) {
@@ -181,11 +183,7 @@ class Recent_Images {
                         'class' => '',
                         'id' => '',
                     ),
-                    'choices' => array(
-                        'thumbnail' => 'Thumbnail',
-                        'medium' => 'Medium',
-                        'full' => 'Full',
-                    ),
+                    'choices' => unity3_get_image_sizes(),
                     'default_value' => 'thumbnail',
                     'allow_null' => 0,
                     'multiple' => 0,

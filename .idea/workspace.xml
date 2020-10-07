@@ -19,9 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a3efbb9-c41c-4a65-a6bf-8480a9e17189" name="Default Changelist" comment="added front end DragSort support to include taxonomy archives">
+    <list default="true" id="1a3efbb9-c41c-4a65-a6bf-8480a9e17189" name="Default Changelist" comment="changed dragsort registration from admin only to frontend as well">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/class-drag-sort-posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/class-drag-sort-posts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/blocks/class-recent-images.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/blocks/class-recent-images.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unity3.php" beforeDir="false" afterPath="$PROJECT_DIR$/unity3.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,7 +150,7 @@
       <workItem from="1601754731618" duration="90000" />
       <workItem from="1602023541232" duration="1130000" />
       <workItem from="1602085341944" duration="15000" />
-      <workItem from="1602085464085" duration="9067000" />
+      <workItem from="1602085464085" duration="10229000" />
     </task>
     <task id="LOCAL-00001" summary="Some more housekeeping">
       <created>1601754233457</created>
@@ -236,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602094211205</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="changed dragsort registration from admin only to frontend as well">
+      <created>1602094683381</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1602094683381</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,7 +271,8 @@
     <MESSAGE value="Fixed imported images that are not in the correct order" />
     <MESSAGE value="updated DragSort to include sorting functionality on front end post archive pages" />
     <MESSAGE value="added front end DragSort support to include taxonomy archives" />
-    <option name="LAST_COMMIT_MESSAGE" value="added front end DragSort support to include taxonomy archives" />
+    <MESSAGE value="changed dragsort registration from admin only to frontend as well" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed dragsort registration from admin only to frontend as well" />
   </component>
   <component name="WindowStateProjectService">
     <state x="845" y="383" width="230" height="389" key="#Notifications" timestamp="1601752509138">
@@ -299,10 +307,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="882" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602028250915" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1602094212450">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1602094691020">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602094212450" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602094691020" />
     <state x="826" y="386" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1601753634460">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
