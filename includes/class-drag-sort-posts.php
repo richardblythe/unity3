@@ -128,9 +128,6 @@ $unity3_dragsort_posts = new DragSortPosts();
 
 
 function unity3_dragsort( $post_type ) {
-	if ( is_admin() ) {
-		global $unity3_dragsort_posts;
-		$unity3_dragsort_posts->Register( $post_type );
-	}
-
+    global $unity3_dragsort_posts;
+    $unity3_dragsort_posts->Register( $post_type );
 }
