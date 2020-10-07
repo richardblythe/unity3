@@ -152,7 +152,8 @@ class Unity3_Clearbase_Converter extends Unity3_Module {
                 $attachments = clearbase_get_attachments('', $f);
                 $ids = $this->get_attachment_ids( $attachments );
 
-                array_reverse( $ids );
+                //10-07-20 Seems to fix the problem with ACF
+                $ids = array_reverse( $ids );
 
                 $inserted_post_id = wp_insert_post( array(
                     'post_type' => $post_type,
