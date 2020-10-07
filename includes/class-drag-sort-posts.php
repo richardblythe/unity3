@@ -6,8 +6,9 @@ class DragSortPosts {
 		if ( ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
 			add_action( 'wp_ajax_unity3_drag_sort_posts', array( &$this, 'update_sorting' ) );
 		} else {
-			add_action( 'current_screen', array( &$this, 'current_screen' ) );
-			add_action( 'wp_insert_post_data', array( &$this, 'check_menu_order' ), 10, 2 );
+            //add_action( 'current_screen', array( &$this, 'current_screen' ) );
+            add_filter( 'pre_get_posts', array( &$this, 'set_post_order' ) );
+            add_action( 'wp_insert_post_data', array( &$this, 'check_menu_order' ), 10, 2 );
 
 			add_filter( 'unity3/localize/admin', function ( $localize ) {
 				global $current_screen;
@@ -32,17 +33,17 @@ class DragSortPosts {
 		}
 	}
 
-	public function current_screen() {
-		global $current_screen;
-
-		if ( 'edit' == $current_screen->base && in_array( $current_screen->post_type, $this->getPostTypes() ) ) {
-			add_filter( 'pre_get_posts', array( &$this, 'set_post_order' ) );
-			add_action( 'admin_enqueue_scripts', array( &$this, 'admin_enqueue' ) );
-			add_filter( "manage_{$current_screen->post_type}_posts_columns", function ( $columns ) {
-				return array( 'dragsort' => '' ) + $columns;
-			} );
-		}
-	}
+//	public function current_screen() {
+//		global $current_screen;
+//
+//		if ( 'edit' == $current_screen->base && in_array( $current_screen->post_type, $this->getPostTypes() ) ) {
+//			add_filter( 'pre_get_posts', array( &$this, 'set_post_order' ) );
+//			add_action( 'admin_enqueue_scripts', array( &$this, 'admin_enqueue' ) );
+//			add_filter( "manage_{$current_screen->post_type}_posts_columns", function ( $columns ) {
+//				return array( 'dragsort' => '' ) + $columns;
+//			} );
+//		}
+//	}
 
 	private function getPostTypes() {
 		return apply_filters( 'unity3_dragsortposts', $this->post_types );
@@ -59,14 +60,34 @@ class DragSortPosts {
 
 		return $post_data;
 	}
+    public function set_post_order( $wp_query ) {
+	    $override_order = null;
+        $drag_sort_post_types = $this->getPostTypes();
 
-	/*
-	 * Set the post order for the current admin screen
-	 */
-	public function set_post_order( $wp_query ) {
-		$wp_query->set( 'orderby', 'menu_order' );
-		$wp_query->set( 'order', 'ASC' );
-	}
+        if ( is_admin() ) {
+            global $current_screen;
+            if ( 'edit' == $current_screen->base && in_array( $current_screen->post_type, $drag_sort_post_types ) ) {
+                $override_order = true;
+                add_action( 'admin_enqueue_scripts', array( &$this, 'admin_enqueue' ) );
+                add_filter( "manage_{$current_screen->post_type}_posts_columns", function ( $columns ) {
+                    return array( 'dragsort' => '' ) + $columns;
+                } );
+            }
+        } else {
+            //if on the front end, set the custom order on post archives
+           $override_order = $wp_query->is_post_type_archive( $drag_sort_post_types );
+        }
+
+        //Do we override the current order
+        if ( $override_order ) {
+            $wp_query->set( 'orderby', 'menu_order' );
+            $wp_query->set( 'order', 'ASC' );
+        }
+    }
+
+    /*
+     * Set the post order for the current admin screen
+     */
 
 	public function admin_enqueue() {
 		wp_enqueue_script( 'jquery-ui-sortable' );

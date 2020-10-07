@@ -19,9 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a3efbb9-c41c-4a65-a6bf-8480a9e17189" name="Default Changelist" comment="updates to the Clearbase converter">
+    <list default="true" id="1a3efbb9-c41c-4a65-a6bf-8480a9e17189" name="Default Changelist" comment="Fixed imported images that are not in the correct order">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/modules/class-clearbase-converter.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-clearbase-converter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/class-drag-sort-posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/class-drag-sort-posts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/modules/class-post-type.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-post-type.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unity3.php" beforeDir="false" afterPath="$PROJECT_DIR$/unity3.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -141,7 +142,7 @@
       <workItem from="1601754731618" duration="90000" />
       <workItem from="1602023541232" duration="1130000" />
       <workItem from="1602085341944" duration="15000" />
-      <workItem from="1602085464085" duration="4441000" />
+      <workItem from="1602085464085" duration="7500000" />
     </task>
     <task id="LOCAL-00001" summary="Some more housekeeping">
       <created>1601754233457</created>
@@ -206,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602089337494</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fixed imported images that are not in the correct order">
+      <created>1602090043534</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1602090043534</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,7 +239,8 @@
     <MESSAGE value="Some more housekeeping" />
     <MESSAGE value="added responsive .embed-container class" />
     <MESSAGE value="updates to the Clearbase converter" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates to the Clearbase converter" />
+    <MESSAGE value="Fixed imported images that are not in the correct order" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed imported images that are not in the correct order" />
   </component>
   <component name="WindowStateProjectService">
     <state x="845" y="383" width="230" height="389" key="#Notifications" timestamp="1601752509138">
@@ -266,10 +275,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="882" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602028250915" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1602089338621">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1602090044708">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602089338621" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602090044708" />
     <state x="826" y="386" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1601753634460">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

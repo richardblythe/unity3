@@ -61,10 +61,10 @@ abstract class Unity3_Post_Type extends Unity3_Module {
             $this->settings['post']['menu_title']    = get_field($this->ID() . '_menu_title', 'options');
             $this->settings['post']['menu_position'] = get_field($this->ID() . '_menu_position', 'options');
             $this->settings['post']['menu_icon']     = get_field($this->ID() . '_menu_icon', 'options');
-
-            if ( isset($this->settings['drag_sort_posts']) && $this->settings['drag_sort_posts'])
-			    unity3_dragsort( $this->GetPostType() );
         }
+
+        if ( isset($this->settings['drag_sort_posts']) && $this->settings['drag_sort_posts'])
+            unity3_dragsort( $this->GetPostType() );
 
 		//Register Post Type
 		unity3_register_post_type(
