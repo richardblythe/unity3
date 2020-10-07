@@ -23,6 +23,7 @@ class Recent_Images {
             ));
 
             add_image_size( 'recent-image', 400, 250 );
+            add_image_size( 'recent-image-cropped', 400, 250, true );
         }
 
         if( function_exists('acf_add_local_field_group') ) {
