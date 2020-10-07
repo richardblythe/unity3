@@ -65,6 +65,7 @@ class DragSortPosts {
         $drag_sort_post_types = $this->getPostTypes();
 
         if ( is_admin() ) {
+            //BACK END
             global $current_screen;
             if ( 'edit' == $current_screen->base && in_array( $current_screen->post_type, $drag_sort_post_types ) ) {
                 $override_order = true;
@@ -74,8 +75,21 @@ class DragSortPosts {
                 } );
             }
         } else {
+            //FRONT END
             //if on the front end, set the custom order on post archives
-           $override_order = $wp_query->is_post_type_archive( $drag_sort_post_types );
+            if ( $wp_query->is_post_type_archive( $drag_sort_post_types ) ) {
+                $override_order = true;
+            } else if ( $wp_query->is_tax()) {
+                foreach ( $drag_sort_post_types as $post_type ) {
+                    $module = unity3_modules()->Get( $post_type );
+                    //if a module does exist and is a Unity3_Post_Group
+                    if ( $module && is_subclass_of($module, "Unity3_Post_Group") ) {
+                         //override the default order if the module taxonomy is being processed
+                         $override_order = $wp_query->is_tax( $module->GetTaxonomy() );
+                         break;
+                    }
+                }
+            }
         }
 
         //Do we override the current order
