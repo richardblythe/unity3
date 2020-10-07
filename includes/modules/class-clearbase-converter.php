@@ -152,10 +152,13 @@ class Unity3_Clearbase_Converter extends Unity3_Module {
                 $attachments = clearbase_get_attachments('', $f);
                 $ids = $this->get_attachment_ids( $attachments );
 
+                array_reverse( $ids );
+
                 $inserted_post_id = wp_insert_post( array(
                     'post_type' => $post_type,
                     'post_title' => $f->post_title,
                     'post_status' => 'publish',
+                    'post_date' => isset( $f->post_date) ? $f->post_date : null,
                     'menu_order' => $f->menu_order,
                     'meta_input' => array(
                         'clearbase_conversion' => 1
