@@ -75,11 +75,13 @@ abstract class Unity3_Post_Group extends Unity3_Post_Type {
 
 			//add_action( 'admin_enqueue_scripts', array(&$this, 'admin_enqueue') );
 			//add_filter( 'unity3_dragsortposts',  array(&$this, 'register_drag_sort') );
-		} 
+		}
+
 
 		if ($this->settings['group_rewrite']) {
-			add_filter( 'rewrite_rules_array', array(&$this, 'rewrite_rules') );
+//			add_filter( 'rewrite_rules_array', array(&$this, 'rewrite_rules') );
 			add_filter( 'post_type_link', array(&$this, 'rewrite_permalink_with_tax'), 10, 2 );
+            add_filter( 'generate_rewrite_rules', array(&$this,'fix_taxonomy_pagination') );
 		}
 	}
 
@@ -340,11 +342,23 @@ abstract class Unity3_Post_Group extends Unity3_Post_Type {
 	function rewrite_rules($rules) {
 		$base = $this->settings['group_rewrite']['base'];
 		$newRules  = array();
-		$newRules[$base . '/(.+)/(.+)/?$'] = 'index.php?' . $this->GetPostType() . '=$matches[2]'; // my custom structure will always have the post name as the 5th uri segment
+		$newRules[$base . '/(.+)/(.+)/?$'] = 'index.php?' . $this->GetPostType() . '=$matches[2]';
 		$newRules[$base . '/(.+)/?$']                = 'index.php?' . $this->GetTaxonomy() . '=$matches[1]';
 
 		return array_merge($newRules, $rules);
 	}
+
+    function fix_taxonomy_pagination( $wp_rewrite ) {
+        $base = $this->settings['group_rewrite']['base'];
+
+        unset($wp_rewrite->rules[$base . '/([^/]+)/page/?([0-9]{1,})/?$']);
+        $wp_rewrite->rules = array(
+                ($base . '/?$') => $wp_rewrite->index . "?post_type={$this->GetPostType()}",
+                ($base . '/page/?([0-9]{1,})/?$') => $wp_rewrite->index . "?post_type={$this->GetPostType()}&paged=" . $wp_rewrite->preg_index( 1 ),
+                ($base . '/([^/]+)/page/?([0-9]{1,})/?$') => $wp_rewrite->index . "?{$this->GetTaxonomy()}=" . $wp_rewrite->preg_index( 1 ) . '&paged=' . $wp_rewrite->preg_index( 2 ),
+                ($base . '/(.+)/(.+)/?$') => $wp_rewrite->index . "?{$this->GetPostType()}". '=$matches[2]'
+        ) + $wp_rewrite->rules;
+    }
 
 	function rewrite_permalink_with_tax( $post_link, $post ){
 		if ( is_object( $post ) && $post->post_type == $this->GetPostType() ){
