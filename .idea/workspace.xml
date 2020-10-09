@@ -19,10 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a3efbb9-c41c-4a65-a6bf-8480a9e17189" name="Default Changelist" comment="fixed pagination issue with custom taxonomies">
+    <list default="true" id="1a3efbb9-c41c-4a65-a6bf-8480a9e17189" name="Default Changelist" comment="fixed rewrite taxonomy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/modules/class-post-group.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-post-group.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/utilities/defaults.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utilities/defaults.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unity3.php" beforeDir="false" afterPath="$PROJECT_DIR$/unity3.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -154,7 +153,8 @@
       <workItem from="1602085464085" duration="17799000" />
       <workItem from="1602183141400" duration="7072000" />
       <workItem from="1602206544065" duration="130000" />
-      <workItem from="1602259905655" duration="5222000" />
+      <workItem from="1602259905655" duration="6162000" />
+      <workItem from="1602279808260" duration="132000" />
     </task>
     <task id="LOCAL-00001" summary="Some more housekeeping">
       <created>1601754233457</created>
@@ -275,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602117844354</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="fixed rewrite taxonomy">
+      <created>1602266922479</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1602266922479</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,7 +314,8 @@
     <MESSAGE value="changes to the Recent Images block" />
     <MESSAGE value="added image size to RecentImages" />
     <MESSAGE value="fixed pagination issue with custom taxonomies" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed pagination issue with custom taxonomies" />
+    <MESSAGE value="fixed rewrite taxonomy" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed rewrite taxonomy" />
   </component>
   <component name="WindowStateProjectService">
     <state x="845" y="383" width="230" height="389" key="#Notifications" timestamp="1601752509138">
@@ -326,26 +334,58 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602094438549" />
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1602265649705">
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1602268464223">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602265649705" />
-    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1602265649705">
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602268464223" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1602268464223">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602265649705" />
-    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1602265649705">
+    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602268464223" />
+    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1602268464223">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602265649705" />
-    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1602265649705">
+    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602268464223" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1602268464223">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602265649705" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1602117845571">
+    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602268464223" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1602268464224">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602117845571" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602268464224" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1602268464224">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602268464224" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1602268464224">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602268464224" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1602268464224">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602268464224" />
+    <state width="1877" height="348" key="GridCell.Tab.2.bottom" timestamp="1602268464224">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602268464224" />
+    <state width="1877" height="348" key="GridCell.Tab.2.center" timestamp="1602268464224">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602268464224" />
+    <state width="1877" height="348" key="GridCell.Tab.2.left" timestamp="1602268464224">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602268464224" />
+    <state width="1877" height="348" key="GridCell.Tab.2.right" timestamp="1602268464224">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602268464224" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1602266925860">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602266925860" />
     <state x="826" y="386" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1601753634460">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

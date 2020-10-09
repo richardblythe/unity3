@@ -30,7 +30,7 @@ abstract class Unity3_Post_Group extends Unity3_Post_Type {
 			$base = $this->settings['group_rewrite']['base'];
 			//POST
 			$this->settings['post']['rewrite'] = array(
-				'slug' => $base . '/%taxonomy_term_slug%',
+				'slug' => $base . "/%{$this->GetTaxonomy()}%",
 				'with_front' => false,
 			);
 			$this->settings['post']['taxonomies'] = array( $this->GetTaxonomy() );
@@ -74,15 +74,11 @@ abstract class Unity3_Post_Group extends Unity3_Post_Type {
 			add_filter( 'admin_url', array(&$this, 'add_new_post_url'), 10, 3 );
 			add_action( 'save_post', array(&$this, 'auto_set_group'), 1, 2 );
 
-			//add_action( 'admin_enqueue_scripts', array(&$this, 'admin_enqueue') );
-			//add_filter( 'unity3_dragsortposts',  array(&$this, 'register_drag_sort') );
 		}
 
 
 		if ($this->settings['group_rewrite']) {
-//			add_filter( 'rewrite_rules_array', array(&$this, 'rewrite_rules') );
 			add_filter( 'post_type_link', array(&$this, 'rewrite_permalink_with_tax'), 10, 2 );
-            //add_filter( 'generate_rewrite_rules', array(&$this,'fix_taxonomy_pagination') );
 		}
 	}
 
@@ -309,37 +305,15 @@ abstract class Unity3_Post_Group extends Unity3_Post_Type {
 		return $fields;
 	}
 
-	function rewrite_rules($rules) {
-		$base = $this->settings['group_rewrite']['base'];
-		$newRules  = array();
-		$newRules[$base . '/(.+)/(.+)/?$'] = 'index.php?' . $this->GetPostType() . '=$matches[2]';
-		$newRules[$base . '/(.+)/?$']                = 'index.php?' . $this->GetTaxonomy() . '=$matches[1]';
-
-		return array_merge($newRules, $rules);
-	}
-
-    function fix_taxonomy_pagination( $wp_rewrite ) {
-        $base = $this->settings['group_rewrite']['base'];
-
-        unset($wp_rewrite->rules[$base . '/([^/]+)/page/?([0-9]{1,})/?$']);
-        $wp_rewrite->rules = array(
-                ($base . '/?$') => $wp_rewrite->index . "?post_type={$this->GetPostType()}",
-                ($base . '/page/?([0-9]{1,})/?$') => $wp_rewrite->index . "?post_type={$this->GetPostType()}&paged=" . $wp_rewrite->preg_index( 1 ),
-                ($base . '/([^/]+)/page/?([0-9]{1,})/?$') => $wp_rewrite->index . "?{$this->GetTaxonomy()}=" . $wp_rewrite->preg_index( 1 ) . '&paged=' . $wp_rewrite->preg_index( 2 ),
-                ($base . '/(.+)/(.+)/?$') => $wp_rewrite->index . "?{$this->GetPostType()}". '=$matches[2]',
-                ($base . '/([^/]+)/feed/?([0-9]{1,})/?$') => $wp_rewrite->index . "?{$this->GetTaxonomy()}=" . $wp_rewrite->preg_index( 1 ) . '&feed=rss2',
-        ) + $wp_rewrite->rules;
-    }
-
 	function rewrite_permalink_with_tax( $post_link, $post ){
 
         $post = get_post($post);
 		if ( $post && $post->post_type == $this->GetPostType() ){
 			$terms = wp_get_object_terms( $post->ID, $this->GetTaxonomy() );
 			if( $terms ){
-				return str_replace( '%taxonomy_term_slug%' , $terms[0]->slug , $post_link );
+				return str_replace( "%{$this->GetTaxonomy()}%" , $terms[0]->slug , $post_link );
 			} else {
-                return str_replace('%taxonomy_term_slug%/', '', $post_link);
+                return str_replace("%{$this->GetTaxonomy()}%/", '', $post_link);
             }
 		}
 		return $post_link;
