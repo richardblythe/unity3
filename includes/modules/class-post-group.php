@@ -33,6 +33,7 @@ abstract class Unity3_Post_Group extends Unity3_Post_Type {
 				'slug' => $base . '/%taxonomy_term_slug%',
 				'with_front' => false,
 			);
+			$this->settings['post']['taxonomies'] = array( $this->GetTaxonomy() );
 			$this->settings['post']['has_archive'] = $base;
 
 			//TAXONOMY
@@ -81,7 +82,7 @@ abstract class Unity3_Post_Group extends Unity3_Post_Type {
 		if ($this->settings['group_rewrite']) {
 //			add_filter( 'rewrite_rules_array', array(&$this, 'rewrite_rules') );
 			add_filter( 'post_type_link', array(&$this, 'rewrite_permalink_with_tax'), 10, 2 );
-            add_filter( 'generate_rewrite_rules', array(&$this,'fix_taxonomy_pagination') );
+            //add_filter( 'generate_rewrite_rules', array(&$this,'fix_taxonomy_pagination') );
 		}
 	}
 
@@ -308,37 +309,6 @@ abstract class Unity3_Post_Group extends Unity3_Post_Type {
 		return $fields;
 	}
 
-	protected function getPluginScopes() {
-		$scopes = parent::getPluginScopes();
-		$scopes['taxonomy'] = array(
-			'priority' => 500,
-			'acf'	   => array(
-				'label' => 'Taxonomy',
-				'type' => 'taxonomy',
-				'instructions' => 'Controls all modules that are grouped by the selected taxonomy terms (unless overridden by a post type scope)',
-				'required' => 0,
-				'wrapper' => array(
-					'width' => '50',
-					'class' => '',
-					'id' => '',
-				),
-				'taxonomy' => $this->GetTaxonomy(),
-				'field_type' => 'checkbox',
-				'add_term' => 0,
-				'save_terms' => 1,
-				'load_terms' => 1,
-				'return_format' => 'id',
-				'multiple' => 0,
-				'allow_null' => 0,
-			),
-			'validation_callback' => function( $scope ) {
-				//returns true if the current post has one of the terms selected by the scope_field_taxonomy
-				return 'taxonomy' == $scope['scope_id'] && has_term( $scope['scope_field_taxonomy'], $this->GetTaxonomy() );
-			}
-		);
-		return $scopes;
-	}
-
 	function rewrite_rules($rules) {
 		$base = $this->settings['group_rewrite']['base'];
 		$newRules  = array();
@@ -356,16 +326,21 @@ abstract class Unity3_Post_Group extends Unity3_Post_Type {
                 ($base . '/?$') => $wp_rewrite->index . "?post_type={$this->GetPostType()}",
                 ($base . '/page/?([0-9]{1,})/?$') => $wp_rewrite->index . "?post_type={$this->GetPostType()}&paged=" . $wp_rewrite->preg_index( 1 ),
                 ($base . '/([^/]+)/page/?([0-9]{1,})/?$') => $wp_rewrite->index . "?{$this->GetTaxonomy()}=" . $wp_rewrite->preg_index( 1 ) . '&paged=' . $wp_rewrite->preg_index( 2 ),
-                ($base . '/(.+)/(.+)/?$') => $wp_rewrite->index . "?{$this->GetPostType()}". '=$matches[2]'
+                ($base . '/(.+)/(.+)/?$') => $wp_rewrite->index . "?{$this->GetPostType()}". '=$matches[2]',
+                ($base . '/([^/]+)/feed/?([0-9]{1,})/?$') => $wp_rewrite->index . "?{$this->GetTaxonomy()}=" . $wp_rewrite->preg_index( 1 ) . '&feed=rss2',
         ) + $wp_rewrite->rules;
     }
 
 	function rewrite_permalink_with_tax( $post_link, $post ){
-		if ( is_object( $post ) && $post->post_type == $this->GetPostType() ){
+
+        $post = get_post($post);
+		if ( $post && $post->post_type == $this->GetPostType() ){
 			$terms = wp_get_object_terms( $post->ID, $this->GetTaxonomy() );
 			if( $terms ){
 				return str_replace( '%taxonomy_term_slug%' , $terms[0]->slug , $post_link );
-			}
+			} else {
+                return str_replace('%taxonomy_term_slug%/', '', $post_link);
+            }
 		}
 		return $post_link;
 	}

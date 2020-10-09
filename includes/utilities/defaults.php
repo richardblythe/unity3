@@ -377,7 +377,7 @@ function Load_Unity3Defaults() {
 				'png' => 'image/png',
 				// 'bmp' => 'image/bmp',
 				// 'tiff|tif' => 'image/tiff',
-				// 'ico' => 'image/x-icon',
+				 'ico' => 'image/x-icon',
 
 				// Video formats.
 				// 'asf|asx' => 'video/x-ms-asf',
