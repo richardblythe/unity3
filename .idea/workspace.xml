@@ -19,9 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a3efbb9-c41c-4a65-a6bf-8480a9e17189" name="Default Changelist" comment="fixed rewrite taxonomy">
+    <list default="true" id="1a3efbb9-c41c-4a65-a6bf-8480a9e17189" name="Default Changelist" comment="fixed rewrite taxonomy. For real :)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/modules/class-post-group.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-post-group.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/modules/class-post-type.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-post-type.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unity3.php" beforeDir="false" afterPath="$PROJECT_DIR$/unity3.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -154,7 +154,8 @@
       <workItem from="1602183141400" duration="7072000" />
       <workItem from="1602206544065" duration="130000" />
       <workItem from="1602259905655" duration="6162000" />
-      <workItem from="1602279808260" duration="132000" />
+      <workItem from="1602279808260" duration="756000" />
+      <workItem from="1610140227746" duration="139000" />
     </task>
     <task id="LOCAL-00001" summary="Some more housekeeping">
       <created>1601754233457</created>
@@ -282,7 +283,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602266922479</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="fixed rewrite taxonomy. For real :)">
+      <created>1602279959926</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1602279959926</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -315,7 +323,8 @@
     <MESSAGE value="added image size to RecentImages" />
     <MESSAGE value="fixed pagination issue with custom taxonomies" />
     <MESSAGE value="fixed rewrite taxonomy" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed rewrite taxonomy" />
+    <MESSAGE value="fixed rewrite taxonomy. For real :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed rewrite taxonomy. For real :)" />
   </component>
   <component name="WindowStateProjectService">
     <state x="845" y="383" width="230" height="389" key="#Notifications" timestamp="1601752509138">
@@ -382,10 +391,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602268464224" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1602266925860">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1602279963774">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602266925860" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602279963774" />
     <state x="826" y="386" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1601753634460">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

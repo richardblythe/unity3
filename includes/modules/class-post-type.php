@@ -12,7 +12,7 @@ abstract class Unity3_Post_Type extends Unity3_Module {
 			die('Required initialization data for the post type was not specified!');
 		}
 
-		$slugified = sanitize_title_with_dashes( $this->ID() );
+		$slugified = str_replace( '_', '-', sanitize_title_with_dashes( $this->ID() )) ;
 		$this->acf_block_id = 'acf/' . $slugified;
 
 
