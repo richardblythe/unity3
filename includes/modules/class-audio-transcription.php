@@ -561,8 +561,8 @@ class Unity3_Audio_Transcription extends Unity3_Module {
                     'Transcription in progress.  To check status: <button class="button" onClick="window.location.href=window.location.href">Reload Page</button>';
             }
 
-        } elseif ( $this->field_name('post_edit_visibility') !== $field['key'] ||
-                   $this->field_name('post_edit_content') !== $field['key'] ) {
+        } elseif ( $this->field_name('post_edit_visibility') === $field['key'] ||
+                   $this->field_name('post_edit_content') === $field['key'] ) {
 
             if ( 'COMPLETED' !== $status ) {
                 return false;
