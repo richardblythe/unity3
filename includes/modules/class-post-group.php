@@ -61,7 +61,10 @@ abstract class Unity3_Post_Group extends Unity3_Post_Type {
 			add_action( 'admin_body_class', array(&$this, 'admin_body_class'));
 			add_action( 'admin_menu', array(&$this, 'admin_menu'), 20 );
 			add_action( 'admin_notices', array(&$this, 'admin_notices') );
-			
+
+			//hack for retaining group filtering
+            add_action( 'restrict_manage_posts', array(&$this, 'restrict_manage_posts' ) );
+
 			//Customize the Taxonomy Table
 			add_filter( "manage_edit-{$this->GetTaxonomy()}_columns" , array(&$this,'custom_columns') );
 			add_filter( "manage_{$this->GetTaxonomy()}_custom_column", array(&$this,'custom_columns_content'),10,3);
@@ -82,11 +85,21 @@ abstract class Unity3_Post_Group extends Unity3_Post_Type {
 		}
 	}
 
+    public function restrict_manage_posts(){
+        $screen = get_current_screen();
+        if( $screen->parent_base == 'edit' && $term = $this->get_current_term() ){
+            echo '<input type="hidden" name="' . $this->GetTaxonomy() . '" value="'. $term .'" />';
+        }
+    }
 
 	function edit_quick_links( $views ) {
 
 		global $wp_query;
-		$current_slug = $this->get_current_term();
+		if ( !$current_slug = $this->get_current_term()) {
+		    return;
+        }
+
+
 		$edit_link = $this->EditLink(array('group_slug' =>  $current_slug));
 
 		$types = array(
@@ -381,9 +394,13 @@ abstract class Unity3_Post_Group extends Unity3_Post_Type {
 
 	}
 
-
 	protected function get_current_term() {
-		$result = sanitize_text_field( $_GET[$this->GetTaxonomy()] );
+	    $tax = $this->GetTaxonomy();
+	    $result = null;
+	    if ( isset($_GET[$this->GetTaxonomy()]) ) {
+            $result = sanitize_text_field( $_GET[$this->GetTaxonomy()] );
+        }
+
 		return empty($result) ? null : $result;
 	}
 

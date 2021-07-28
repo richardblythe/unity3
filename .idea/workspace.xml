@@ -20,8 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a3efbb9-c41c-4a65-a6bf-8480a9e17189" name="Default Changelist" comment="fixed rewrite taxonomy. For real :)">
+      <change afterPath="$PROJECT_DIR$/assets/src/scripts/editor/block-aws-transcribe.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/blocks/class-author-signature.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/blocks/class-gallery-images.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/modules/class-audio-transcription.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/unity3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/unity3.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/modules/class-post-type.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-post-type.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/class-drag-sort-posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/class-drag-sort-posts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/loader.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/loader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/modules/class-module.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-module.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/modules/class-post-group.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-post-group.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/modules/modules.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/modules.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unity3.php" beforeDir="false" afterPath="$PROJECT_DIR$/unity3.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,8 +39,16 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -56,9 +74,14 @@
   </component>
   <component name="PhpServers">
     <servers>
-      <server host="dev.unity3.localhost.com" id="42a7c65a-563e-4798-86b5-961302dc301e" name="dev.unity3.localhost.com" use_path_mappings="true">
+      <server host="dev.unity3.localhost.com" id="42a7c65a-563e-4798-86b5-961302dc301e" name="dev.unity3.localhost.com">
         <path_mappings>
           <mapping local-root="$PROJECT_DIR$" remote-root="S:/WORDPRESS/unity3dev" />
+        </path_mappings>
+      </server>
+      <server host="localhost" id="3cbc29fa-20b1-4891-9c92-ee8c3c5c4d25" name="localhost" use_path_mappings="true">
+        <path_mappings>
+          <mapping local-root="$PROJECT_DIR$/../the-events-calendar/common/vendor/freemius/includes/managers" remote-root="C:/xampp/phpMyAdmin" />
         </path_mappings>
       </server>
     </servers>
@@ -68,6 +91,33 @@
       <path value="$PROJECT_DIR$/../clearbase" />
       <path value="$PROJECT_DIR$/../../../wp-includes" />
       <path value="$PROJECT_DIR$/../../../wp-admin" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/sliderpro/src" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/sliderpro/libs" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/confirmation-popup/scss" />
+      <path value="$PROJECT_DIR$/vendor/acf-image-select/js" />
+      <path value="$PROJECT_DIR$/vendor/aos/dist" />
+      <path value="$PROJECT_DIR$/vendor/mtdowling/jmespath.php" />
+      <path value="$PROJECT_DIR$/vendor/sliderpro/docs" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/sliderpro/dist" />
+      <path value="$PROJECT_DIR$/vendor/sliderpro/examples" />
+      <path value="$PROJECT_DIR$/vendor/sliderpro/assets" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/aws/aws-sdk-php" />
+      <path value="$PROJECT_DIR$/vendor/confirmation-popup/css" />
+      <path value="$PROJECT_DIR$/vendor/confirmation-popup/js" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/acf-image-select/css" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/confirmation-popup/partials" />
+      <path value="$PROJECT_DIR$/../../themes/twentytwentyone" />
+      <path value="$PROJECT_DIR$/../the-events-calendar" />
+      <path value="$PROJECT_DIR$/../events-calendar-pro" />
+      <path value="$PROJECT_DIR$/../ninja-forms" />
     </include_path>
   </component>
   <component name="ProjectId" id="1iNdRqXNKv82wWf3PfQZmJwjVT6" />
@@ -80,12 +130,16 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="PHP" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="$PROJECT_DIR$/node_modules/gulp" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ninja-forms" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="S:\WORDPRESS\unity3dev\wp-content\plugins\unity3\includes\modules" />
+      <recent name="S:\WORDPRESS\unity3dev\wp-content\plugins\unity3\includes\blocks" />
+      <recent name="S:\WORDPRESS\unity3dev\wp-content\plugins\unity3\includes\blocks\template-parts" />
       <recent name="S:\WORDPRESS\unity3dev\wp-content\plugins\unity3\assets\src\styles\front" />
     </key>
   </component>
@@ -101,6 +155,17 @@
       <node-options />
       <gulpfile />
       <tasks />
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="build" type="js.build_tools.gulp" temporary="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile>$PROJECT_DIR$/gulpfile.babel.js</gulpfile>
+      <tasks>
+        <task>build</task>
+      </tasks>
       <arguments />
       <envs />
       <method v="2" />
@@ -129,6 +194,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gulp.js.build" />
         <item itemvalue="Gulp.js.styles" />
         <item itemvalue="Gulp.js.default" />
       </list>
@@ -155,7 +221,25 @@
       <workItem from="1602206544065" duration="130000" />
       <workItem from="1602259905655" duration="6162000" />
       <workItem from="1602279808260" duration="756000" />
-      <workItem from="1610140227746" duration="139000" />
+      <workItem from="1610140227746" duration="821000" />
+      <workItem from="1611356370273" duration="10000" />
+      <workItem from="1612200617759" duration="10221000" />
+      <workItem from="1612215499899" duration="4831000" />
+      <workItem from="1612370740570" duration="6709000" />
+      <workItem from="1612894700351" duration="5247000" />
+      <workItem from="1612978634539" duration="3801000" />
+      <workItem from="1612989498556" duration="5759000" />
+      <workItem from="1613061345090" duration="48000" />
+      <workItem from="1613166278005" duration="842000" />
+      <workItem from="1613235438300" duration="34000" />
+      <workItem from="1613753631941" duration="23102000" />
+      <workItem from="1617304776673" duration="4065000" />
+      <workItem from="1617375716009" duration="14509000" />
+      <workItem from="1617460573200" duration="1511000" />
+      <workItem from="1626806369562" duration="7752000" />
+      <workItem from="1626896635615" duration="706000" />
+      <workItem from="1627329791689" duration="17637000" />
+      <workItem from="1627402558772" duration="27140000" />
     </task>
     <task id="LOCAL-00001" summary="Some more housekeeping">
       <created>1601754233457</created>
@@ -290,7 +374,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602279959926</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Fixed naming issue where underscores where breaking down the Block registration process">
+      <created>1610140446738</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1610140446738</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,98 +415,187 @@
     <MESSAGE value="fixed pagination issue with custom taxonomies" />
     <MESSAGE value="fixed rewrite taxonomy" />
     <MESSAGE value="fixed rewrite taxonomy. For real :)" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed rewrite taxonomy. For real :)" />
+    <MESSAGE value="Fixed naming issue where underscores where breaking down the Block registration process" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed naming issue where underscores where breaking down the Block registration process" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="845" y="383" width="230" height="389" key="#Notifications" timestamp="1601752509138">
+    <state width="913" height="466" key="DebuggerActiveHint" timestamp="1627414258496">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="845" y="383" width="230" height="389" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1601752509138" />
-    <state x="667" y="163" key="#PHP" timestamp="1602087152893">
+    <state width="913" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1627414258496" />
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1627436325792">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="667" y="163" key="#PHP/0.0.1920.1040@0.0.1920.1040" timestamp="1602087152893" />
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601752901601">
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1627436325792" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1627436325792">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601752901601" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1602094438549">
+    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1627436325792" />
+    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1627436325792">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602094438549" />
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1602268464223">
+    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1627436325792" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1627436325792">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602268464223" />
-    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1602268464223">
+    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1627436325792" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1627436325744">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602268464223" />
-    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1602268464223">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1627436325744" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1627436325743">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602268464223" />
-    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1602268464223">
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1627436325743" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1627436325743">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602268464223" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1602268464224">
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1627436325743" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1627436325743">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602268464224" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1602268464224">
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1627436325743" />
+    <state width="1877" height="348" key="GridCell.Tab.2.bottom" timestamp="1627436325744">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602268464224" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1602268464224">
+    <state width="1877" height="348" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1627436325744" />
+    <state width="1877" height="348" key="GridCell.Tab.2.center" timestamp="1627436325744">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602268464224" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1602268464224">
+    <state width="1877" height="348" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1627436325744" />
+    <state width="1877" height="348" key="GridCell.Tab.2.left" timestamp="1627436325744">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602268464224" />
-    <state width="1877" height="348" key="GridCell.Tab.2.bottom" timestamp="1602268464224">
+    <state width="1877" height="348" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1627436325744" />
+    <state width="1877" height="348" key="GridCell.Tab.2.right" timestamp="1627436325744">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602268464224" />
-    <state width="1877" height="348" key="GridCell.Tab.2.center" timestamp="1602268464224">
+    <state width="1877" height="348" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1627436325744" />
+    <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1627408479022">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602268464224" />
-    <state width="1877" height="348" key="GridCell.Tab.2.left" timestamp="1602268464224">
+    <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1627408479022" />
+    <state x="667" y="253" width="585" height="534" key="find.popup" timestamp="1626813417189">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602268464224" />
-    <state width="1877" height="348" key="GridCell.Tab.2.right" timestamp="1602268464224">
+    <state x="667" y="253" width="585" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1626813417189" />
+    <state x="623" y="225" key="search.everywhere.popup" timestamp="1627335115565">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602268464224" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1602279963774">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602279963774" />
-    <state x="826" y="386" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1601753634460">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="826" y="386" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup/0.0.1920.1040@0.0.1920.1040" timestamp="1601753634460" />
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1601752909373">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1601752909373" />
+    <state x="623" y="225" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1627335115565" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/includes/class-drag-sort-posts.php</url>
-          <line>79</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/includes/blocks/class-author-signature.php</url>
+          <line>49</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/includes/modules/class-post-type.php</url>
-          <line>489</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/../events-calendar-pro/src/Tribe/Geo_Loc.php</url>
+          <line>1299</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/../events-calendar-pro/src/Tribe/Geo_Loc.php</url>
+          <line>408</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/../events-calendar-pro/src/Tribe/Service_Providers/Context.php</url>
+          <line>54</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/../events-calendar-pro/src/Tribe/Views/V2/Geo_Loc/Resolved_Coords_Handler.php</url>
+          <line>43</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/../events-calendar-pro/src/Tribe/Integrations/Elementor/Controls/Groups/Event_Query.php</url>
+          <line>419</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/../events-calendar-pro/src/Tribe/Geo_Loc.php</url>
+          <line>412</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/../events-calendar-pro/src/Tribe/Geo_Loc.php</url>
+          <line>386</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/../events-calendar-pro/src/Tribe/Geo_Loc.php</url>
+          <line>345</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/../events-calendar-pro/src/Tribe/Geo_Loc.php</url>
+          <line>175</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/includes/integrations/the-events-calendar/the-events-calendar.php</url>
+          <line>30</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/includes/integrations/the-events-calendar/the-events-calendar.php</url>
+          <line>79</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/includes/integrations/the-events-calendar/the-events-calendar.php</url>
+          <line>13</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/includes/modules/class-audio-transcription.php</url>
+          <line>163</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/includes/modules/class-audio-transcription.php</url>
+          <line>267</line>
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/includes/modules/class-audio-transcription.php</url>
+          <line>346</line>
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/includes/modules/class-audio-transcription.php</url>
+          <line>170</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/includes/modules/class-audio-transcription.php</url>
+          <line>389</line>
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/includes/modules/class-post-group.php</url>
+          <line>98</line>
+          <option name="timeStamp" value="93" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/includes/modules/class-post-group.php</url>
+          <line>90</line>
+          <option name="timeStamp" value="94" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/includes/modules/class-audio-transcription.php</url>
+          <line>97</line>
+          <option name="timeStamp" value="95" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/includes/modules/class-audio-transcription.php</url>
+          <line>226</line>
+          <option name="timeStamp" value="97" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

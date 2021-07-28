@@ -3,22 +3,24 @@
     Plugin Name: Unity 3 Software
     Plugin URI: http://www.unity3software.com/
     Description: Core components for building Wordpress sites that are easy for the client to use.
-    Version: 2.4.17
+    Version: 2.5.0
     Author: Richard Blythe
     Author URI: http://unity3software.com/richardblythe
     GitHub Plugin URI: https://github.com/richardblythe/unity3
  */
 class Unity3 {
-	const ver = '2.4.17';//this is referenced when enqueuing the assets folder
+	const ver = '2.5.0';//this is referenced when enqueuing the assets folder
     const domain = 'unity3';
 
-    public static $dir, $url, $assets_url, $vendor_url, $blank_img, $menu_slug;
+    public static $dir, $url, $assets_url, $vendor_autoload, $vendor_url, $blank_img, $menu_slug;
     private static $admin_menu_uid;
-    private $widgets, $min;
+    private $widgets, $min, $plugin_activated, $plugin_deactivated;
+
     function __construct() {
 	    Unity3::$dir = plugin_dir_path( __FILE__ );
         Unity3::$url = plugin_dir_url( __FILE__ );
 	    Unity3::$assets_url = Unity3::$url . 'assets/dist';
+        Unity3::$vendor_autoload = Unity3::$dir  . '/vendor/autoload.php';
         Unity3::$vendor_url = Unity3::$url  . 'vendor';
 	    Unity3::$blank_img = Unity3::$assets_url . '/images/blank.gif';
         Unity3::$menu_slug = 'unity3-settings-general';
@@ -33,11 +35,17 @@ class Unity3 {
 	    //load bundled plugins...
 	    require_once (Unity3::$dir . '/includes/loader.php');
 
+
+        register_activation_hook( __FILE__, function () { do_action('unity3/plugin-activate'); } );
+        register_deactivation_hook( __FILE__, function () { do_action('unity3/plugin-deactivate'); } );
+
+
 	    add_filter( 'wp_page_menu_args', array(&$this, 'home_page_menu_args' ));
 	    add_action( 'widgets_init', array(&$this, 'register_widgets'));
 
 	    if (!(defined('DOING_AJAX') && DOING_AJAX)) {
-		    //this can appear in both admin and frontend when the user is logged in...
+
+	        //this can appear in both admin and frontend when the user is logged in...
             add_action('admin_bar_menu', array(&$this, 'unity3_admin_bar_logo'), 0);
 		    add_action( 'admin_bar_menu', array(&$this, 'unity3_admin_bar_howdy'), 11 );
 		    //
@@ -46,6 +54,7 @@ class Unity3 {
 		    add_action('admin_enqueue_scripts', array(&$this, 'enqueue_admin'), 100);
 		    add_action('login_enqueue_scripts', array(&$this, 'enqueue_front'), 100);
 		    add_action( 'enqueue_block_editor_assets', array(&$this, 'enqueue_editor'), 100 );
+
 
 
 		    add_filter( 'login_message', array(&$this, 'custom_login_message') );
@@ -275,8 +284,6 @@ function unity3() {
 	return $unity3;
 
 }
-
-
 
 // initialize
 unity3();

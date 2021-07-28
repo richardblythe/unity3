@@ -67,7 +67,7 @@ class DragSortPosts {
         if ( is_admin() ) {
             //BACK END
             global $current_screen;
-            if ( 'edit' == $current_screen->base && in_array( $current_screen->post_type, $drag_sort_post_types ) ) {
+            if ( isset($current_screen) && 'edit' == $current_screen->base && in_array( $current_screen->post_type, $drag_sort_post_types ) ) {
                 $override_order = true;
                 add_action( 'admin_enqueue_scripts', array( &$this, 'admin_enqueue' ) );
                 add_filter( "manage_{$current_screen->post_type}_posts_columns", function ( $columns ) {

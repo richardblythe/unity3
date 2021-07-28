@@ -38,11 +38,13 @@ class Unity3_Modules {
 
 		//load bundled modules
 		require_once (Unity3::$dir . 'includes/modules/class-audio.php');
+        require_once (Unity3::$dir . 'includes/modules/class-audio-transcription.php');
 		require_once (Unity3::$dir . 'includes/modules/class-galleries.php');
 		require_once (Unity3::$dir . 'includes/modules/class-service.php');
 		require_once (Unity3::$dir . 'includes/modules/class-slides.php');
 		//
 		require_once (Unity3::$dir . 'includes/modules/class-clearbase-converter.php');
+
 //		require_once (Unity3::$dir . 'includes/modules/class-module-plugin.php');
 
 //		$files = array_diff(scandir(Unity3::$dir . 'includes/modules'), array('.', '..', 'modules.php', 'class-module.php', 'class-post-type.php', 'class-post-group.php'));
@@ -266,7 +268,6 @@ class Unity3_Modules {
 
 	public function _module_activation() {
 		$screen = get_current_screen();
-		//todo: need to test this code
 		if (false !== strpos($screen->id, 'unity3-settings-general')) {
 			// get all modules marked as active
 			$active_modules = array();

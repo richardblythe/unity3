@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/vendor/acf-image-select/css" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/acf-image-select/js" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/aos/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/aws/aws-sdk-php" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/confirmation-popup/css" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/confirmation-popup/js" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/confirmation-popup/partials" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/confirmation-popup/scss" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/promises" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/mtdowling/jmespath.php" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-client" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/ralouphie/getallheaders" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sliderpro/assets" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sliderpro/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sliderpro/docs" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sliderpro/examples" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sliderpro/libs" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sliderpro/src" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

@@ -25,6 +25,7 @@ require_once (Unity3::$dir . 'includes/integrations/juicebox/juicebox.php');
 require_once (Unity3::$dir . 'includes/integrations/genesis/genesis.php');
 require_once (Unity3::$dir . 'includes/integrations/aos/aos.php');
 
+
 require_once (Unity3::$dir . 'includes/flexible-widget-area/plugin.php');
 require_once (Unity3::$dir . 'includes/class-site-update-notice.php');
 
@@ -47,4 +48,6 @@ foreach ($files as $file) {
 //require_once (Unity3::$dir . 'includes/flexslider-widget/flexslider-widget.php');
 
 //BLOCKS
+require_once (Unity3::$dir . 'includes/blocks/class-author-signature.php');
 require_once (Unity3::$dir . 'includes/blocks/class-recent-images.php');
+require_once (Unity3::$dir . 'includes/blocks/class-gallery-images.php');
