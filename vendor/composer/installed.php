@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '83477c3d8e1f4ed728d260f4a29c32d4e2ea41d9',
+    'reference' => '3f74afdc540875ba138ad6d467c846f6d8021dee',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,52 +18,52 @@
       'aliases' => 
       array (
       ),
-      'reference' => '83477c3d8e1f4ed728d260f4a29c32d4e2ea41d9',
+      'reference' => '3f74afdc540875ba138ad6d467c846f6d8021dee',
     ),
     'aws/aws-sdk-php' => 
     array (
-      'pretty_version' => '3.172.4',
-      'version' => '3.172.4.0',
+      'pretty_version' => '3.186.0',
+      'version' => '3.186.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '506e60798bb7d13bdafadce9727ab9cc9ac987b0',
+      'reference' => 'e8511d38de286233bcb6a827d3344c0fc4808b75',
     ),
     'guzzlehttp/guzzle' => 
     array (
-      'pretty_version' => '7.2.0',
-      'version' => '7.2.0.0',
+      'pretty_version' => '7.3.0',
+      'version' => '7.3.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '0aa74dfb41ae110835923ef10a9d803a22d50e79',
+      'reference' => '7008573787b430c1c1f650e3722d9bba59967628',
     ),
     'guzzlehttp/promises' => 
     array (
-      'pretty_version' => '1.4.0',
-      'version' => '1.4.0.0',
+      'pretty_version' => '1.4.1',
+      'version' => '1.4.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => '60d379c243457e073cff02bc323a2a86cb355631',
+      'reference' => '8e7d04f1f6450fef59366c399cfad4b9383aa30d',
     ),
     'guzzlehttp/psr7' => 
     array (
-      'pretty_version' => '1.7.0',
-      'version' => '1.7.0.0',
+      'pretty_version' => '1.8.2',
+      'version' => '1.8.2.0',
       'aliases' => 
       array (
       ),
-      'reference' => '53330f47520498c0ae1f61f7e2c90f55690c06a3',
+      'reference' => 'dc960a912984efb74d0a90222870c72c87f10c91',
     ),
     'mtdowling/jmespath.php' => 
     array (
-      'pretty_version' => '2.6.0',
-      'version' => '2.6.0.0',
+      'pretty_version' => '2.6.1',
+      'version' => '2.6.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => '42dae2cbd13154083ca6d70099692fef8ca84bfb',
+      'reference' => '9b87907a81b87bc76d19a7fb2d61e61486ee9edb',
     ),
     'psr/http-client' => 
     array (
@@ -108,12 +108,12 @@
     ),
     'symfony/polyfill-mbstring' => 
     array (
-      'pretty_version' => 'v1.22.0',
-      'version' => '1.22.0.0',
+      'pretty_version' => 'v1.23.0',
+      'version' => '1.23.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'f377a3dd1fde44d37b9831d68dc8dea3ffd28e13',
+      'reference' => '2df51500adbaebdc4c38dea4c89a2e131c45c8a1',
     ),
   ),
 );

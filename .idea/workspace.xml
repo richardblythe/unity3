@@ -19,10 +19,496 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a3efbb9-c41c-4a65-a6bf-8480a9e17189" name="Default Changelist" comment="Added vendor files for AWS">
+    <list default="true" id="1a3efbb9-c41c-4a65-a6bf-8480a9e17189" name="Default Changelist" comment="Patches to the transcription module">
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/AppRunner/AppRunnerClient.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/AppRunner/Exception/AppRunnerException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/ApplicationCostProfiler/ApplicationCostProfilerClient.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/ApplicationCostProfiler/Exception/ApplicationCostProfilerException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Arn/ObjectLambdaAccessPointArn.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/FIS/Exception/FISException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/FIS/FISClient.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/FinSpaceData/Exception/FinSpaceDataException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/FinSpaceData/FinSpaceDataClient.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/LookoutEquipment/Exception/LookoutEquipmentException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/LookoutEquipment/LookoutEquipmentClient.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/LookoutMetrics/Exception/LookoutMetricsException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/LookoutMetrics/LookoutMetricsClient.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/NimbleStudio/Exception/NimbleStudioException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/NimbleStudio/NimbleStudioClient.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Proton/Exception/ProtonException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Proton/ProtonClient.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Route53RecoveryCluster/Exception/Route53RecoveryClusterException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Route53RecoveryCluster/Route53RecoveryClusterClient.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Route53RecoveryControlConfig/Exception/Route53RecoveryControlConfigException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Route53RecoveryControlConfig/Route53RecoveryControlConfigClient.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Route53RecoveryReadiness/Exception/Route53RecoveryReadinessException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Route53RecoveryReadiness/Route53RecoveryReadinessClient.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/SSMContacts/Exception/SSMContactsException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/SSMContacts/SSMContactsClient.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/SSMIncidents/Exception/SSMIncidentsException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/SSMIncidents/SSMIncidentsClient.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/applicationcostprofiler/2020-09-10/api-2.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/applicationcostprofiler/2020-09-10/paginators-1.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/apprunner/2020-05-15/api-2.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/apprunner/2020-05-15/paginators-1.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/codeguru-reviewer/2019-09-19/waiters-2.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/cognito-sync/2014-06-30/paginators-1.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/cognito-sync/2014-06-30/smoke.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/finspace-data/2020-07-13/api-2.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/finspace-data/2020-07-13/paginators-1.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/finspace/2021-03-12/api-2.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/finspace/2021-03-12/paginators-1.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/fis/2020-12-01/api-2.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/fis/2020-12-01/paginators-1.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/lookoutequipment/2020-12-15/api-2.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/lookoutequipment/2020-12-15/paginators-1.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/lookoutmetrics/2017-07-25/api-2.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/lookoutmetrics/2017-07-25/paginators-1.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/mediaconnect/2018-11-14/waiters-2.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/mgn/2020-02-26/api-2.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/mgn/2020-02-26/paginators-1.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/models.lex.v2/2020-08-07/waiters-2.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/nimble/2020-08-01/api-2.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/nimble/2020-08-01/paginators-1.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/proton/2020-07-20/api-2.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/proton/2020-07-20/paginators-1.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/proton/2020-07-20/waiters-2.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/route53-recovery-cluster/2019-12-02/api-2.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/route53-recovery-cluster/2019-12-02/paginators-1.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/route53-recovery-control-config/2020-11-02/api-2.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/route53-recovery-control-config/2020-11-02/paginators-1.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/route53-recovery-control-config/2020-11-02/waiters-2.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/route53-recovery-readiness/2019-12-02/api-2.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/route53-recovery-readiness/2019-12-02/paginators-1.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ssm-contacts/2021-05-03/api-2.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ssm-contacts/2021-05-03/paginators-1.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ssm-incidents/2018-05-10/api-2.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ssm-incidents/2018-05-10/paginators-1.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ssm-incidents/2018-05-10/waiters-2.json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/finspace/Exception/finspaceException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/finspace/finspaceClient.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/mgn/Exception/mgnException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/mgn/mgnClient.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/HeaderProcessor.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/vendor-bin/php-cs-fixer/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/vendor-bin/phpstan/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/vendor-bin/psalm/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/.github/workflows/bc.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/.github/workflows/ci.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/.github/workflows/integration.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/.github/workflows/static.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/mtdowling/jmespath.php/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/modules/class-audio-transcription.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-audio-transcription.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unity3.php" beforeDir="false" afterPath="$PROJECT_DIR$/unity3.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/AccessAnalyzer/AccessAnalyzerClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/AccessAnalyzer/AccessAnalyzerClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Acm/AcmClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Acm/AcmClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/AmplifyBackend/AmplifyBackendClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/AmplifyBackend/AmplifyBackendClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Api/Parser/Crc32ValidatingParser.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Api/Parser/Crc32ValidatingParser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Api/Parser/DecodingEventStreamIterator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Api/Parser/DecodingEventStreamIterator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Api/Serializer/RestSerializer.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Api/Serializer/RestSerializer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Api/Serializer/RestXmlSerializer.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Api/Serializer/RestXmlSerializer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Appstream/AppstreamClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Appstream/AppstreamClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Arn/ArnParser.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Arn/ArnParser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Arn/ResourceTypeAndIdTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Arn/ResourceTypeAndIdTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Arn/S3/AccessPointArn.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Arn/S3/AccessPointArn.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Arn/S3/OutpostsAccessPointArn.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Arn/S3/OutpostsAccessPointArn.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Arn/S3/OutpostsBucketArn.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Arn/S3/OutpostsBucketArn.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Athena/AthenaClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Athena/AthenaClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/AutoScaling/AutoScalingClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/AutoScaling/AutoScalingClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Backup/BackupClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Backup/BackupClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Chime/ChimeClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Chime/ChimeClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/ClientResolver.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/ClientResolver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/CloudFormation/CloudFormationClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/CloudFormation/CloudFormationClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/CloudFront/CloudFrontClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/CloudFront/CloudFrontClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/CloudFront/UrlSigner.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/CloudFront/UrlSigner.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/CloudSearchDomain/CloudSearchDomainClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/CloudSearchDomain/CloudSearchDomainClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/CloudTrail/LogFileIterator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/CloudTrail/LogFileIterator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/CloudWatch/CloudWatchClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/CloudWatch/CloudWatchClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/CloudWatchEvents/CloudWatchEventsClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/CloudWatchEvents/CloudWatchEventsClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/CodePipeline/CodePipelineClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/CodePipeline/CodePipelineClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/CognitoIdentityProvider/CognitoIdentityProviderClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/CognitoIdentityProvider/CognitoIdentityProviderClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Comprehend/ComprehendClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Comprehend/ComprehendClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/ComputeOptimizer/ComputeOptimizerClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/ComputeOptimizer/ComputeOptimizerClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/ConfigService/ConfigServiceClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/ConfigService/ConfigServiceClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Connect/ConnectClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Connect/ConnectClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Credentials/CredentialProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Credentials/CredentialProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Crypto/AesGcmDecryptingStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Crypto/AesGcmDecryptingStream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Crypto/AesGcmEncryptingStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Crypto/AesGcmEncryptingStream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Crypto/DecryptionTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Crypto/DecryptionTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Crypto/DecryptionTraitV2.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Crypto/DecryptionTraitV2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Crypto/EncryptionTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Crypto/EncryptionTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Crypto/EncryptionTraitV2.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Crypto/EncryptionTraitV2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/CustomerProfiles/CustomerProfilesClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/CustomerProfiles/CustomerProfilesClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/DataSync/DataSyncClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/DataSync/DataSyncClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/DatabaseMigrationService/DatabaseMigrationServiceClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/DatabaseMigrationService/DatabaseMigrationServiceClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Detective/DetectiveClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Detective/DetectiveClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/DevOpsGuru/DevOpsGuruClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/DevOpsGuru/DevOpsGuruClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/DirectConnect/DirectConnectClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/DirectConnect/DirectConnectClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/DocDB/DocDBClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/DocDB/DocDBClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/DynamoDb/BinaryValue.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/DynamoDb/BinaryValue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/EC2InstanceConnect/EC2InstanceConnectClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/EC2InstanceConnect/EC2InstanceConnectClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/ECRPublic/ECRPublicClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/ECRPublic/ECRPublicClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/EKS/EKSClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/EKS/EKSClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Ec2/Ec2Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Ec2/Ec2Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Ecs/EcsClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Ecs/EcsClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Efs/EfsClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Efs/EfsClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/ElasticsearchService/ElasticsearchServiceClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/ElasticsearchService/ElasticsearchServiceClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Emr/EmrClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Emr/EmrClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Endpoint/Partition.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Endpoint/Partition.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/EventBridge/EventBridgeClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/EventBridge/EventBridgeClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/FSx/FSxClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/FSx/FSxClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/ForecastService/ForecastServiceClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/ForecastService/ForecastServiceClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/FraudDetector/FraudDetectorClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/FraudDetector/FraudDetectorClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/GameLift/GameLiftClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/GameLift/GameLiftClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Glacier/MultipartUploader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Glacier/MultipartUploader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/GlueDataBrew/GlueDataBrewClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/GlueDataBrew/GlueDataBrewClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/GreengrassV2/GreengrassV2Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/GreengrassV2/GreengrassV2Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/HealthLake/HealthLakeClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/HealthLake/HealthLakeClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/IVS/IVSClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/IVS/IVSClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Iam/IamClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Iam/IamClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/IoTDeviceAdvisor/IoTDeviceAdvisorClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/IoTDeviceAdvisor/IoTDeviceAdvisorClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/IoTEvents/IoTEventsClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/IoTEvents/IoTEventsClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/IoTEventsData/IoTEventsDataClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/IoTEventsData/IoTEventsDataClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/IoTSiteWise/IoTSiteWiseClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/IoTSiteWise/IoTSiteWiseClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/IoTWireless/IoTWirelessClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/IoTWireless/IoTWirelessClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Iot/IotClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Iot/IotClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/KinesisAnalyticsV2/KinesisAnalyticsV2Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/KinesisAnalyticsV2/KinesisAnalyticsV2Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Kms/KmsClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Kms/KmsClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/LakeFormation/LakeFormationClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/LakeFormation/LakeFormationClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/LexModelBuildingService/LexModelBuildingServiceClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/LexModelBuildingService/LexModelBuildingServiceClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/LexModelsV2/LexModelsV2Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/LexModelsV2/LexModelsV2Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/LicenseManager/LicenseManagerClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/LicenseManager/LicenseManagerClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Lightsail/LightsailClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Lightsail/LightsailClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/LocationService/LocationServiceClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/LocationService/LocationServiceClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/LookoutforVision/LookoutforVisionClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/LookoutforVision/LookoutforVisionClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Macie2/Macie2Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Macie2/Macie2Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/MediaConnect/MediaConnectClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/MediaConnect/MediaConnectClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/MediaLive/MediaLiveClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/MediaLive/MediaLiveClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/MediaPackageVod/MediaPackageVodClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/MediaPackageVod/MediaPackageVodClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/MediaTailor/MediaTailorClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/MediaTailor/MediaTailorClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Middleware.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Middleware.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Multipart/AbstractUploader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Multipart/AbstractUploader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/PI/PIClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/PI/PIClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Personalize/PersonalizeClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Personalize/PersonalizeClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Polly/PollyClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Polly/PollyClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/QLDB/QLDBClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/QLDB/QLDBClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/QuickSight/QuickSightClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/QuickSight/QuickSightClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Rds/RdsClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Rds/RdsClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Redshift/RedshiftClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Redshift/RedshiftClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/RedshiftDataAPIService/RedshiftDataAPIServiceClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/RedshiftDataAPIService/RedshiftDataAPIServiceClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Rekognition/RekognitionClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Rekognition/RekognitionClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Route53Resolver/Route53ResolverClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Route53Resolver/Route53ResolverClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/ApplyChecksumMiddleware.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/ApplyChecksumMiddleware.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/BucketEndpointArnMiddleware.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/BucketEndpointArnMiddleware.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/Crypto/S3EncryptionClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/Crypto/S3EncryptionClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/Crypto/S3EncryptionClientV2.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/Crypto/S3EncryptionClientV2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/Crypto/S3EncryptionMultipartUploader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/Crypto/S3EncryptionMultipartUploader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/Crypto/S3EncryptionMultipartUploaderV2.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/Crypto/S3EncryptionMultipartUploaderV2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/EndpointRegionHelperTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/EndpointRegionHelperTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/MultipartCopy.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/MultipartCopy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/MultipartUploader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/MultipartUploader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/ObjectUploader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/ObjectUploader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/S3Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/S3Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/S3ClientInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/S3ClientInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/S3EndpointMiddleware.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/S3EndpointMiddleware.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/S3MultiRegionClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/S3MultiRegionClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/S3UriParser.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/S3UriParser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/StreamWrapper.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3/StreamWrapper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3Control/EndpointArnMiddleware.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3Control/EndpointArnMiddleware.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3Control/S3ControlClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3Control/S3ControlClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3Control/S3ControlEndpointMiddleware.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/S3Control/S3ControlEndpointMiddleware.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/SageMaker/SageMakerClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/SageMaker/SageMakerClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/SageMakerFeatureStoreRuntime/SageMakerFeatureStoreRuntimeClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/SageMakerFeatureStoreRuntime/SageMakerFeatureStoreRuntimeClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Sdk.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Sdk.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/SecretsManager/SecretsManagerClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/SecretsManager/SecretsManagerClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/SecurityHub/SecurityHubClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/SecurityHub/SecurityHubClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/ServiceDiscovery/ServiceDiscoveryClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/ServiceDiscovery/ServiceDiscoveryClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Ses/SesClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Ses/SesClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Shield/ShieldClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Shield/ShieldClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Signature/AnonymousSignature.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Signature/AnonymousSignature.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Signature/S3SignatureV4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Signature/S3SignatureV4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Signature/SignatureInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Signature/SignatureInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Signature/SignatureProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Signature/SignatureProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Signature/SignatureV4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Signature/SignatureV4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/SnowBall/SnowBallClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/SnowBall/SnowBallClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Sns/SnsClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Sns/SnsClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Ssm/SsmClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Ssm/SsmClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/StorageGateway/StorageGatewayClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/StorageGateway/StorageGatewayClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Textract/TextractClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Textract/TextractClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Transfer/TransferClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/Transfer/TransferClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/WellArchitected/WellArchitectedClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/WellArchitected/WellArchitectedClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/WorkMail/WorkMailClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/WorkMail/WorkMailClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/WorkMailMessageFlow/WorkMailMessageFlowClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/WorkMailMessageFlow/WorkMailMessageFlowClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/WorkSpaces/WorkSpacesClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/WorkSpaces/WorkSpacesClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/accessanalyzer/2019-11-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/accessanalyzer/2019-11-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/accessanalyzer/2019-11-01/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/accessanalyzer/2019-11-01/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/acm-pca/2017-08-22/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/acm-pca/2017-08-22/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/acm/2015-12-08/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/acm/2015-12-08/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/alexaforbusiness/2017-11-09/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/alexaforbusiness/2017-11-09/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/amplifybackend/2020-08-11/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/amplifybackend/2020-08-11/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/appflow/2020-08-23/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/appflow/2020-08-23/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/application-autoscaling/2016-02-06/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/application-autoscaling/2016-02-06/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/appmesh/2019-01-25/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/appmesh/2019-01-25/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/appstream/2016-12-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/appstream/2016-12-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/appsync/2017-07-25/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/appsync/2017-07-25/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/athena/2017-05-18/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/athena/2017-05-18/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/athena/2017-05-18/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/athena/2017-05-18/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/auditmanager/2017-07-25/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/auditmanager/2017-07-25/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/autoscaling/2011-01-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/autoscaling/2011-01-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/backup/2018-11-15/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/backup/2018-11-15/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/batch/2016-08-10/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/batch/2016-08-10/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/braket/2019-09-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/braket/2019-09-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ce/2017-10-25/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ce/2017-10-25/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/chime/2018-05-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/chime/2018-05-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/chime/2018-05-01/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/chime/2018-05-01/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/cloud9/2017-09-23/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/cloud9/2017-09-23/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/cloudformation/2010-05-15/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/cloudformation/2010-05-15/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/cloudformation/2010-05-15/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/cloudformation/2010-05-15/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/cloudfront/2020-05-31/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/cloudfront/2020-05-31/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/cloudhsm/2014-05-30/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/cloudhsm/2014-05-30/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/cloudsearch/2013-01-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/cloudsearch/2013-01-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/cloudtrail/2013-11-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/cloudtrail/2013-11-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/codebuild/2016-10-06/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/codebuild/2016-10-06/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/codedeploy/2014-10-06/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/codedeploy/2014-10-06/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/codeguru-reviewer/2019-09-19/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/codeguru-reviewer/2019-09-19/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/codeguruprofiler/2019-07-18/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/codeguruprofiler/2019-07-18/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/codepipeline/2015-07-09/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/codepipeline/2015-07-09/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/codepipeline/2015-07-09/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/codepipeline/2015-07-09/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/codestar-connections/2019-12-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/codestar-connections/2019-12-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/cognito-idp/2016-04-18/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/cognito-idp/2016-04-18/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/cognito-sync/2014-06-30/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/cognito-sync/2014-06-30/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/comprehend/2017-11-27/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/comprehend/2017-11-27/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/comprehendmedical/2018-10-30/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/comprehendmedical/2018-10-30/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/compute-optimizer/2019-11-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/compute-optimizer/2019-11-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/config/2014-11-12/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/config/2014-11-12/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/config/2014-11-12/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/config/2014-11-12/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/connect/2017-08-08/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/connect/2017-08-08/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/connect/2017-08-08/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/connect/2017-08-08/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/cur/2017-01-06/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/cur/2017-01-06/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/customer-profiles/2020-08-15/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/customer-profiles/2020-08-15/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/databrew/2017-07-25/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/databrew/2017-07-25/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/dataexchange/2017-07-25/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/dataexchange/2017-07-25/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/datapipeline/2012-10-29/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/datapipeline/2012-10-29/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/datapipeline/2012-10-29/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/datapipeline/2012-10-29/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/datasync/2018-11-09/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/datasync/2018-11-09/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/dax/2017-04-19/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/dax/2017-04-19/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/detective/2018-10-26/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/detective/2018-10-26/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/devicefarm/2015-06-23/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/devicefarm/2015-06-23/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/devops-guru/2020-12-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/devops-guru/2020-12-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/devops-guru/2020-12-01/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/devops-guru/2020-12-01/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/directconnect/2012-10-25/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/directconnect/2012-10-25/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/dlm/2018-01-12/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/dlm/2018-01-12/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/dms/2016-01-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/dms/2016-01-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/dms/2016-01-01/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/dms/2016-01-01/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/dms/2016-01-01/waiters-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/dms/2016-01-01/waiters-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/docdb/2014-10-31/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/docdb/2014-10-31/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/docdb/2014-10-31/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/docdb/2014-10-31/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ec2-instance-connect/2018-04-02/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ec2-instance-connect/2018-04-02/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ec2/2016-11-15/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ec2/2016-11-15/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ec2/2016-11-15/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ec2/2016-11-15/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ec2/2016-11-15/waiters-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ec2/2016-11-15/waiters-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ecr-public/2020-10-30/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ecr-public/2020-10-30/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ecs/2014-11-13/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ecs/2014-11-13/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/eks/2017-11-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/eks/2017-11-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/eks/2017-11-01/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/eks/2017-11-01/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/eks/2017-11-01/waiters-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/eks/2017-11-01/waiters-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/elasticache/2015-02-02/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/elasticache/2015-02-02/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/elasticfilesystem/2015-02-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/elasticfilesystem/2015-02-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/elasticmapreduce/2009-03-31/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/elasticmapreduce/2009-03-31/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/elasticmapreduce/2009-03-31/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/elasticmapreduce/2009-03-31/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/emr-containers/2020-10-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/emr-containers/2020-10-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/endpoints.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/endpoints.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/es/2015-01-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/es/2015-01-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/es/2015-01-01/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/es/2015-01-01/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/eventbridge/2015-10-07/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/eventbridge/2015-10-07/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/events/2015-10-07/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/events/2015-10-07/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/fms/2018-01-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/fms/2018-01-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/fms/2018-01-01/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/fms/2018-01-01/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/forecast/2018-06-26/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/forecast/2018-06-26/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/frauddetector/2019-11-15/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/frauddetector/2019-11-15/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/frauddetector/2019-11-15/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/frauddetector/2019-11-15/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/fsx/2018-03-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/fsx/2018-03-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/gamelift/2015-10-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/gamelift/2015-10-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/gamelift/2015-10-01/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/gamelift/2015-10-01/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/globalaccelerator/2018-08-08/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/globalaccelerator/2018-08-08/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/glue/2017-03-31/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/glue/2017-03-31/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/greengrass/2017-06-07/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/greengrass/2017-06-07/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/greengrassv2/2020-11-30/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/greengrassv2/2020-11-30/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/greengrassv2/2020-11-30/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/greengrassv2/2020-11-30/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/groundstation/2019-05-23/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/groundstation/2019-05-23/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/health/2016-08-04/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/health/2016-08-04/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/healthlake/2017-07-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/healthlake/2017-07-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/healthlake/2017-07-01/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/healthlake/2017-07-01/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/iam/2010-05-08/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/iam/2010-05-08/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/iam/2010-05-08/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/iam/2010-05-08/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/imagebuilder/2019-12-02/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/imagebuilder/2019-12-02/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/imagebuilder/2019-12-02/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/imagebuilder/2019-12-02/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/iot/2015-05-28/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/iot/2015-05-28/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/iotanalytics/2017-11-27/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/iotanalytics/2017-11-27/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/iotdeviceadvisor/2020-09-18/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/iotdeviceadvisor/2020-09-18/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/iotdeviceadvisor/2020-09-18/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/iotdeviceadvisor/2020-09-18/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/iotevents-data/2018-10-23/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/iotevents-data/2018-10-23/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/iotevents/2018-07-27/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/iotevents/2018-07-27/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/iotsitewise/2019-12-02/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/iotsitewise/2019-12-02/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/iotsitewise/2019-12-02/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/iotsitewise/2019-12-02/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/iotwireless/2020-11-22/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/iotwireless/2020-11-22/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ivs/2020-07-14/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ivs/2020-07-14/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ivs/2020-07-14/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ivs/2020-07-14/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/kafka/2018-11-14/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/kafka/2018-11-14/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/kendra/2019-02-03/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/kendra/2019-02-03/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/kinesis-video-archived-media/2017-09-30/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/kinesis-video-archived-media/2017-09-30/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/kinesisanalyticsv2/2018-05-23/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/kinesisanalyticsv2/2018-05-23/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/kms/2014-11-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/kms/2014-11-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/lakeformation/2017-03-31/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/lakeformation/2017-03-31/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/lambda/2015-03-31/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/lambda/2015-03-31/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/lex-models/2017-04-19/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/lex-models/2017-04-19/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/lex-models/2017-04-19/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/lex-models/2017-04-19/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/license-manager/2018-08-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/license-manager/2018-08-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/lightsail/2016-11-28/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/lightsail/2016-11-28/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/location/2020-11-19/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/location/2020-11-19/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/location/2020-11-19/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/location/2020-11-19/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/logs/2014-03-28/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/logs/2014-03-28/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/lookoutvision/2020-11-20/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/lookoutvision/2020-11-20/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/machinelearning/2014-12-12/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/machinelearning/2014-12-12/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/machinelearning/2014-12-12/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/machinelearning/2014-12-12/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/macie2/2020-01-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/macie2/2020-01-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/macie2/2020-01-01/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/macie2/2020-01-01/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/managedblockchain/2018-09-24/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/managedblockchain/2018-09-24/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/manifest.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/manifest.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/marketplace-catalog/2018-09-17/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/marketplace-catalog/2018-09-17/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/mediaconnect/2018-11-14/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/mediaconnect/2018-11-14/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/mediaconvert/2017-08-29/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/mediaconvert/2017-08-29/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/medialive/2017-10-14/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/medialive/2017-10-14/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/mediapackage-vod/2018-11-07/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/mediapackage-vod/2018-11-07/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/mediapackage/2017-10-12/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/mediapackage/2017-10-12/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/mediatailor/2018-04-23/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/mediatailor/2018-04-23/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/mediatailor/2018-04-23/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/mediatailor/2018-04-23/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/models.lex.v2/2020-08-07/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/models.lex.v2/2020-08-07/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/models.lex.v2/2020-08-07/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/models.lex.v2/2020-08-07/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/monitoring/2010-08-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/monitoring/2010-08-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/monitoring/2010-08-01/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/monitoring/2010-08-01/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/mq/2017-11-27/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/mq/2017-11-27/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/mwaa/2020-07-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/mwaa/2020-07-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/neptune/2014-10-31/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/neptune/2014-10-31/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/neptune/2014-10-31/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/neptune/2014-10-31/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/network-firewall/2020-11-12/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/network-firewall/2020-11-12/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/opsworkscm/2016-11-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/opsworkscm/2016-11-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/organizations/2016-11-28/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/organizations/2016-11-28/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/outposts/2019-12-03/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/outposts/2019-12-03/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/personalize-events/2018-03-22/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/personalize-events/2018-03-22/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/personalize/2018-05-22/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/personalize/2018-05-22/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/personalize/2018-05-22/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/personalize/2018-05-22/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/pi/2018-02-27/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/pi/2018-02-27/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/pinpoint/2016-12-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/pinpoint/2016-12-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/polly/2016-06-10/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/polly/2016-06-10/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/pricing/2017-10-15/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/pricing/2017-10-15/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/qldb-session/2019-07-11/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/qldb-session/2019-07-11/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/qldb/2019-01-02/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/qldb/2019-01-02/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/quicksight/2018-04-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/quicksight/2018-04-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/quicksight/2018-04-01/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/quicksight/2018-04-01/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ram/2018-01-04/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ram/2018-01-04/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ram/2018-01-04/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ram/2018-01-04/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/rds-data/2018-08-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/rds-data/2018-08-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/rds/2014-10-31/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/rds/2014-10-31/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/rds/2014-10-31/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/rds/2014-10-31/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/redshift-data/2019-12-20/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/redshift-data/2019-12-20/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/redshift/2012-12-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/redshift/2012-12-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/redshift/2012-12-01/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/redshift/2012-12-01/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/rekognition/2016-06-27/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/rekognition/2016-06-27/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/robomaker/2018-06-29/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/robomaker/2018-06-29/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/route53/2013-04-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/route53/2013-04-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/route53resolver/2018-04-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/route53resolver/2018-04-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/route53resolver/2018-04-01/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/route53resolver/2018-04-01/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/runtime.lex.v2/2020-08-07/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/runtime.lex.v2/2020-08-07/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/runtime.lex/2016-11-28/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/runtime.lex/2016-11-28/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/runtime.sagemaker/2017-05-13/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/runtime.sagemaker/2017-05-13/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/s3/2006-03-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/s3/2006-03-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/s3control/2018-08-20/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/s3control/2018-08-20/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/s3control/2018-08-20/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/s3control/2018-08-20/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/s3outposts/2017-07-25/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/s3outposts/2017-07-25/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/sagemaker-featurestore-runtime/2020-07-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/sagemaker-featurestore-runtime/2020-07-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/sagemaker/2017-07-24/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/sagemaker/2017-07-24/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/savingsplans/2019-06-28/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/savingsplans/2019-06-28/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/secretsmanager/2017-10-17/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/secretsmanager/2017-10-17/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/securityhub/2018-10-26/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/securityhub/2018-10-26/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/servicecatalog/2015-12-10/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/servicecatalog/2015-12-10/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/servicediscovery/2017-03-14/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/servicediscovery/2017-03-14/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/shield/2016-06-02/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/shield/2016-06-02/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/snowball/2016-06-30/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/snowball/2016-06-30/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/sns/2010-03-31/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/sns/2010-03-31/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/sns/2010-03-31/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/sns/2010-03-31/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ssm/2014-11-06/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ssm/2014-11-06/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ssm/2014-11-06/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/ssm/2014-11-06/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/sso-admin/2020-07-20/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/sso-admin/2020-07-20/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/storagegateway/2013-06-30/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/storagegateway/2013-06-30/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/storagegateway/2013-06-30/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/storagegateway/2013-06-30/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/sts/2011-06-15/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/sts/2011-06-15/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/synthetics/2017-10-11/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/synthetics/2017-10-11/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/textract/2018-06-27/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/textract/2018-06-27/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/transcribe/2017-10-26/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/transcribe/2017-10-26/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/transfer/2018-11-05/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/transfer/2018-11-05/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/transfer/2018-11-05/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/transfer/2018-11-05/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/wafv2/2019-07-29/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/wafv2/2019-07-29/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/wellarchitected/2020-03-31/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/wellarchitected/2020-03-31/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/workmail/2017-10-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/workmail/2017-10-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/workmailmessageflow/2019-05-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/workmailmessageflow/2019-05-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/workspaces/2015-04-08/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/data/workspaces/2015-04-08/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/imagebuilder/imagebuilderClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/imagebuilder/imagebuilderClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/kendra/kendraClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/aws/aws-sdk-php/src/kendra/kendraClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/EasyHandle.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/EasyHandle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/StreamHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/StreamHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Middleware.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Middleware.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/TransferStats.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/TransferStats.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Utils.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Utils.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/.php_cs.dist" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/.php_cs.dist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/promises/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/phpstan-baseline.neon" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/phpstan.neon.dist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/psalm.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/EachPromise.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/EachPromise.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/AppendStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/AppendStream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/BufferStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/BufferStream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/CachingStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/CachingStream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/DroppingStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/DroppingStream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/FnStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/FnStream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/InflateStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/InflateStream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/LazyOpenStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/LazyOpenStream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/LimitStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/LimitStream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/MultipartStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/MultipartStream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/NoSeekStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/NoSeekStream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/PumpStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/PumpStream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Query.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Query.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Request.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Request.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Response.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Response.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Rfc7230.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Rfc7230.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/ServerRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/ServerRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/StreamWrapper.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/StreamWrapper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/UploadedFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/UploadedFile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Uri.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Uri.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/UriNormalizer.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/UriNormalizer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/UriResolver.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/UriResolver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Utils.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Utils.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mtdowling/jmespath.php/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mtdowling/jmespath.php/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mtdowling/jmespath.php/src/SyntaxErrorException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mtdowling/jmespath.php/src/SyntaxErrorException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/Mbstring.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/Mbstring.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/Resources/unidata/lowerCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/Resources/unidata/lowerCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/Resources/unidata/upperCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/Resources/unidata/upperCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/bootstrap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/bootstrap80.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/bootstrap80.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/composer.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +517,9 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution />
+    <execution>
+      <executable path="composer" />
+    </execution>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -229,7 +717,7 @@
       <workItem from="1626806369562" duration="7752000" />
       <workItem from="1626896635615" duration="706000" />
       <workItem from="1627329791689" duration="17637000" />
-      <workItem from="1627402558772" duration="28831000" />
+      <workItem from="1627402558772" duration="31710000" />
     </task>
     <task id="LOCAL-00001" summary="Some more housekeeping">
       <created>1601754233457</created>
@@ -385,7 +873,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627437542999</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Patches to the transcription module">
+      <created>1627438486293</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1627438486293</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,9 +917,14 @@
     <MESSAGE value="Fixed naming issue where underscores where breaking down the Block registration process" />
     <MESSAGE value="Added transcription module. Also patched class-post-group.php code" />
     <MESSAGE value="Added vendor files for AWS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added vendor files for AWS" />
+    <MESSAGE value="Patches to the transcription module" />
+    <option name="LAST_COMMIT_MESSAGE" value="Patches to the transcription module" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="800" y="432" key="ComposerInitDialogKey" timestamp="1627441456074">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="800" y="432" key="ComposerInitDialogKey/0.0.1920.1040@0.0.1920.1040" timestamp="1627441456074" />
     <state width="913" height="466" key="DebuggerActiveHint" timestamp="1627414258496">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -477,10 +977,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1627436576048" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1627437563369">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1627438492994">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1627437563369" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1627438492994" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1627408479022">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
