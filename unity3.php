@@ -3,13 +3,13 @@
     Plugin Name: Unity 3 Software
     Plugin URI: http://www.unity3software.com/
     Description: Core components for building Wordpress sites that are easy for the client to use.
-    Version: 2.5.0
+    Version: 2.5.1
     Author: Richard Blythe
     Author URI: http://unity3software.com/richardblythe
     GitHub Plugin URI: https://github.com/richardblythe/unity3
  */
 class Unity3 {
-	const ver = '2.5.0';//this is referenced when enqueuing the assets folder
+	const ver = '2.5.1';//this is referenced when enqueuing the assets folder
     const domain = 'unity3';
 
     public static $dir, $url, $assets_url, $vendor_autoload, $vendor_url, $blank_img, $menu_slug;

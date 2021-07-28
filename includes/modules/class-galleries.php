@@ -143,10 +143,6 @@ class Unity3_Galleries extends Unity3_Post_Group {
 
 	public function Render( $content ) 	{
 
-		//TODO: DELETE DEV CODE BELOW
-//		$images = unity3_gallery_get_recent_images('term_slug', 'photos', 10);
-//		//---------- End Dev Code
-
 		//if the "cached" value is not set from wp_options, load it once
 		if ( !isset( $this->archive_image_size )) {
 			//stored value is used when rendering the post content;
