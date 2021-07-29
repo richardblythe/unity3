@@ -2,12 +2,12 @@
 
 require_once Unity3::$vendor_autoload;
 
-use Aws\TranscribeService\TranscribeServiceClient;
-use Aws\S3\S3Client;
-use Aws\Exception\AwsException;
-use Aws\S3\ObjectUploader;
-use Aws\S3\MultipartUploader;
-use Aws\Exception\MultipartUploadException;
+use Unity3_Vendor\Aws\TranscribeService\TranscribeServiceClient;
+use Unity3_Vendor\Aws\S3\S3Client;
+use Unity3_Vendor\Aws\Exception\AwsException;
+use Unity3_Vendor\Aws\S3\ObjectUploader;
+use Unity3_Vendor\Aws\S3\MultipartUploader;
+use Unity3_Vendor\Aws\Exception\MultipartUploadException;
 
 if( class_exists('ACF') ) :
 
@@ -158,7 +158,17 @@ class Unity3_Audio_Transcription extends Unity3_Module {
 	    return $this->post_data;
     }
 
+    function Activate()
+    {
+        parent::Activate();
+        $this->start_cron();
+    }
 
+    function Deactivate()
+    {
+        parent::Deactivate();
+        $this->stop_cron();
+    }
 
     public function start_cron() {
         if ( $this->api_ready() && !wp_next_scheduled( $this->cron_hook ) ) {
@@ -166,10 +176,17 @@ class Unity3_Audio_Transcription extends Unity3_Module {
         }
     }
 
+    public function stop_cron() {
+        $timestamp = wp_next_scheduled( $this->cron_hook );
+        wp_unschedule_event( $timestamp, $this->cron_hook );
+    }
+
     public function cron() {
 
-        if ( !$this->api_ready() )
+        if ( !$this->api_ready() ) {
+            $this->stop_cron();
             return null;
+        }
 
 	    $post_data = $this->get_post_data();
 	    $audio_meta_query = array('relation' => 'OR');
@@ -204,8 +221,7 @@ class Unity3_Audio_Transcription extends Unity3_Module {
         ]);
 
 	    if ( !count($posts) ) {
-            $timestamp = wp_next_scheduled( $this->cron_hook );
-            wp_unschedule_event( $timestamp, $this->cron_hook );
+            $this->stop_cron();
         } else {
             foreach ( $posts as $post ) {
                 if ( !$this->check_status( $post->ID ) ) {
@@ -326,13 +342,13 @@ class Unity3_Audio_Transcription extends Unity3_Module {
                 $source
             );
 
-            $audio_url = null;
+            $s3_audio_url = null;
             do {
                 try {
                     $result = $uploader->upload();
                     if ($result["@metadata"]["statusCode"] == '200') {
                         //print('<p>File successfully uploaded to ' . $result["ObjectURL"] . '.</p>');
-                        $audio_url = $result["ObjectURL"];
+                        $s3_audio_url = str_replace( '%2F', '/', $result["ObjectURL"] );
                     }
                     //print($result);
                 } catch (MultipartUploadException $e) {
@@ -344,7 +360,7 @@ class Unity3_Audio_Transcription extends Unity3_Module {
             } while (!isset($result));
 
 
-            if ( !$audio_url ) {
+            if ( !$s3_audio_url ) {
                 throw new Exception('Could not upload audio to S3');
             }
 
@@ -358,14 +374,12 @@ class Unity3_Audio_Transcription extends Unity3_Module {
                 ]
             ]);
 
-            $s3_url = str_replace( '%2F', '/', $audio_url);
-
             // Start a Transcription Job
-            $job_id = uniqid( basename( $url ) . '-');
+            $job_id = uniqid( basename( $s3_audio_url ) . '-');
             $transcriptionResult = $awsTranscribeClient->startTranscriptionJob([
                 'LanguageCode' => 'en-US',
                 'Media' => [
-                    'MediaFileUri' => $s3_url,
+                    'MediaFileUri' => $s3_audio_url,
                 ],
                 'TranscriptionJobName' => $job_id,
             ]);
@@ -547,6 +561,9 @@ class Unity3_Audio_Transcription extends Unity3_Module {
     public function acf_prepare_field( $field ) {
 
 	    global $post;
+	    if ( !$post )
+	        return $field;
+
         $status = get_post_meta( $post->ID, self::PM_STATUS, true );
 
         if ( $this->field_name('post_edit_status_message' ) === $field['key'] ) {

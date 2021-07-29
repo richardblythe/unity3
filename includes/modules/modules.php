@@ -26,6 +26,9 @@ class Unity3_Modules {
 
 		// see if any modules are active/deactive
 		add_action('acf/save_post', array(&$this, '_module_activation'), 1);
+
+        add_action('unity3/plugin-activate', array(&$this, '_root_plugin_activated'), 100);
+        add_action('unity3/plugin-deactivate', array(&$this, '_root_plugin_deactivated'), 100);
 	}
 
 	//this is the place to fire the activation notice to theme listeners...
@@ -252,19 +255,20 @@ class Unity3_Modules {
 
 
 	public function GetAll() {
-
-//		if ( $display ) {
-//			$arr = array();
-//			foreach ( $this->modules as $m ) {
-//				$arr[$m->ID()] = $m->Name();
-//			}
-//
-//			asort($arr);
-//
-//			return $arr;
-//		}
 		return $this->modules;
 	}
+
+	public function _root_plugin_activated() {
+        foreach ($this->GetAllActive() as $module) {
+            $module->Activate();
+        }
+    }
+
+    public function _root_plugin_deactivated() {
+        foreach ($this->GetAllActive() as $module) {
+            $module->Deactivate();
+        }
+    }
 
 	public function _module_activation() {
 		$screen = get_current_screen();
@@ -296,8 +300,6 @@ class Unity3_Modules {
 					$this->Get($module_id)->Deactivate();
 				}
 			}
-
-
 		}
 	}
 }

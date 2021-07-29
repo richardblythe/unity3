@@ -1,0 +1,14 @@
+<?php
+
+namespace Unity3_Vendor\App\Http\Middleware;
+
+use Unity3_Vendor\Illuminate\Cookie\Middleware\EncryptCookies as Middleware;
+class EncryptCookies extends Middleware
+{
+    /**
+     * The names of the cookies that should not be encrypted.
+     *
+     * @var array
+     */
+    protected $except = [];
+}

@@ -1,0 +1,3 @@
+#index:
+#    path: /
+#    controller: Unity3_Vendor\App\Controller\DefaultController::index

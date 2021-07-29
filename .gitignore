@@ -1,2 +1,4 @@
-node_modules
-unity3dev
+node_modules/
+vendor/
+!vendor_build/vendor/
+test

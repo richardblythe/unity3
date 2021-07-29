@@ -3,14 +3,16 @@
     Plugin Name: Unity 3 Software
     Plugin URI: http://www.unity3software.com/
     Description: Core components for building Wordpress sites that are easy for the client to use.
-    Version: 2.5.2
+    Version: 2.6.0
     Author: Richard Blythe
     Author URI: http://unity3software.com/richardblythe
     GitHub Plugin URI: https://github.com/richardblythe/unity3
  */
 class Unity3 {
-	const ver = '2.5.2';//this is referenced when enqueuing the assets folder
+	const ver = '2.6.0';//this is referenced when enqueuing the assets folder
     const domain = 'unity3';
+
+    const Vendor_Prefix = 'Unity3_Vendor';
 
     public static $dir, $url, $assets_url, $vendor_autoload, $vendor_url, $blank_img, $menu_slug;
     private static $admin_menu_uid;
@@ -20,7 +22,7 @@ class Unity3 {
 	    Unity3::$dir = plugin_dir_path( __FILE__ );
         Unity3::$url = plugin_dir_url( __FILE__ );
 	    Unity3::$assets_url = Unity3::$url . 'assets/dist';
-        Unity3::$vendor_autoload = Unity3::$dir  . '/vendor/autoload.php';
+        Unity3::$vendor_autoload = Unity3::$dir  . '/vendor_build/vendor/autoload.php';
         Unity3::$vendor_url = Unity3::$url  . 'vendor';
 	    Unity3::$blank_img = Unity3::$assets_url . '/images/blank.gif';
         Unity3::$menu_slug = 'unity3-settings-general';
@@ -36,7 +38,7 @@ class Unity3 {
 	    require_once (Unity3::$dir . '/includes/loader.php');
 
 
-        register_activation_hook( __FILE__, function () { do_action('unity3/plugin-activate'); } );
+        register_activation_hook( __FILE__, function () { add_option( 'Unity3_Plugin_Activated', true ); } );
         register_deactivation_hook( __FILE__, function () { do_action('unity3/plugin-deactivate'); } );
 
 
@@ -223,6 +225,12 @@ class Unity3 {
     }
     
     function admin_init() {
+
+        if ( get_option('Unity3_Plugin_Activated') ) {
+            do_action('unity3/plugin-activate');
+            delete_option( 'Unity3_Plugin_Activated' );
+        }
+
         add_filter( 'request', array(&$this, 'unity3_filter_admin_posts' ));
 
         if ( !function_exists( 'acf' ) )

@@ -32,7 +32,6 @@ require_once (Unity3::$dir . 'includes/class-site-update-notice.php');
 require_once (Unity3::$dir . 'includes/taxonomy-metabox/plugin.php');
 
 
-//require_once (Unity3::$dir . 'includes/sliderpro/sliderpro.php');
 
 
 //widgets:
@@ -41,7 +40,6 @@ foreach ($files as $file) {
 	require_once (Unity3::$dir . 'includes/widgets/' . $file);
 }
 //require_once (Unity3::$dir . 'includes/widgets/dashboard-welcome.php');
-//require_once (Unity3::$dir . 'includes/widgets/sliderpro.php');
 //require_once (Unity3::$dir . 'includes/widgets/textpro.php');
 //require_once (Unity3::$dir . 'includes/widgets/featured-url.php');
 //require_once (Unity3::$dir . 'includes/widgets/credits.php');

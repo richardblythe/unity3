@@ -1,0 +1,8 @@
+{
+    "require": {
+        "aws\/aws-sdk-php": "^3.172"
+    },
+    "require-dev": {
+        "humbug\/php-scoper": "^0.15.0"
+    }
+}
