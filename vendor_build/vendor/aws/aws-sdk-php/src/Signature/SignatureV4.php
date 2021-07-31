@@ -13,7 +13,7 @@ use Unity3_Vendor\Psr\Http\Message\RequestInterface;
 class SignatureV4 implements SignatureInterface
 {
     use SignatureTrait;
-    const ISO8601_BASIC = '\\Ymd\\THis\\Z';
+    const ISO8601_BASIC = 'Ymd\THis\Z';
     const UNSIGNED_PAYLOAD = 'UNSIGNED-PAYLOAD';
     const AMZ_CONTENT_SHA256_HEADER = 'X-Amz-Content-Sha256';
     /** @var string */

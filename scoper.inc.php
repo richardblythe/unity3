@@ -79,7 +79,14 @@ return [
             } elseif ( strpos( $filePath, 'aws\aws-sdk-php\src\Signature\SignatureV4.php' ) ) {
                 return preg_replace(
                     "%Unity3_Vendor\\\\\\\\Ymd\\\\\\\\THis\\\\\\\\Z%",
-                    '\\\\\\\\Ymd\\\\\\\\THis\\\\\\\\Z',
+                    'Ymd\\\\THis\\\\Z',
+                    $content
+                );
+            } elseif ( strpos( $filePath, 'composer\autoload_real.php' ) ) {
+                //          'Composer\\Autoload\\ClassLoader' === $class
+                return preg_replace(
+                    '%\'Composer\\\\\\\\Autoload\\\\\\\\ClassLoader\' === \$class%',
+                    "'" . $prefix . "\\\\\\\\Composer\\\\\\\\Autoload\\\\\\\\ClassLoader' === \$class",
                     $content
                 );
             }

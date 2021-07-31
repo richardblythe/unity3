@@ -1,0 +1,66 @@
+.unity3-audio-transcription {
+
+  border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  border-color: #ebebeb;
+
+  .tab {
+    width: 100%;
+    overflow: hidden;
+    &-label {
+      display: flex;
+      justify-content: space-between;
+      padding: 1em;
+      margin: 0;
+      background: #eee;
+      font-weight: bold;
+      cursor: pointer;
+      /* Icon */
+      &::after {
+        content: "\276F";
+        width: 1em;
+        height: 1em;
+        text-align: center;
+        transition: all .35s;
+      }
+    }
+    &-content {
+      height: 0;
+      padding: 0 1em;
+      //color: $midnight;
+      transition: all .35s;
+    }
+    &-close {
+      display: flex;
+      justify-content: flex-end;
+      padding: 1em;
+      font-size: 0.75em;
+      background: #eee;
+      cursor: pointer;
+      &:hover {
+        background: darken(#eee, 10%);
+      }
+    }
+  }
+
+  input.tab-toggle {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  // :checked
+  input:checked {
+    + .tab-label {
+      background: darken(#eee, 10%);
+      &::after {
+        transform: rotate(90deg);
+      }
+    }
+    ~ .tab-content {
+      height: auto;
+      padding: 1em;
+    }
+  }
+
+}

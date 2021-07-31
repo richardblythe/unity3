@@ -30,8 +30,8 @@ export const styles = () => {
 		.pipe(sass().on('error', sass.logError))
 		.pipe(gulpif(PRODUCTION, postcss([ autoprefixer ])))
 		.pipe(gulpif(PRODUCTION, cleanCss({compatibility:'ie8'})))
-		.pipe(gulpif(!PRODUCTION, cssnano()))
-		.pipe(gulpif(!PRODUCTION, sourcemaps.write('sourcemaps')))
+		.pipe(gulpif(PRODUCTION, cssnano()))
+		.pipe(gulpif(PRODUCTION, sourcemaps.write('sourcemaps')))
 		.pipe(dest('assets/dist/styles'));
 }
 
@@ -58,7 +58,7 @@ export const scripts = () => {
 				filename: '[name].js'
 			},
 		}))
-		.pipe(gulpif(!PRODUCTION, uglify()))
+		.pipe(gulpif(PRODUCTION, uglify()))
 		.pipe(dest('assets/dist/scripts'));
 }
 

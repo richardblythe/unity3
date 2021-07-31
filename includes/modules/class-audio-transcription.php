@@ -21,7 +21,13 @@ class Unity3_Audio_Transcription extends Unity3_Module {
     const PM_ERROR      = 'transcription_error';
     const PM_CONTENT    = 'transcription_content';
     const PM_VISIBILITY = 'transcription_visibility';
-    
+
+    const STATUS_UPLOADING = 'UNITY3_UPLOADING';
+    const STATUS_QUEUED = 'QUEUED';
+    const STATUS_IN_PROGRESS = 'IN_PROGRESS';
+    const STATUS_COMPLETED = 'COMPLETED';
+    const STATUS_FAILED = 'FAILED';
+
 	public function __construct( ) {
 		parent::__construct('unity3_audio_transcription', 'Audio Transcription', 'Transcribes audio from attached post media');
 	}
@@ -44,8 +50,15 @@ class Unity3_Audio_Transcription extends Unity3_Module {
         if ( is_admin() ) {
             add_action( 'restrict_manage_posts', array(&$this, 'restrict_manage_posts' ) );
             add_action( 'pre_get_posts', array( &$this, 'restrict_manage_posts_filter') );
-
+        } else {
+            //Front End
+            add_filter( 'the_content', 'unity3_audio_transcription_post_append', 999 );
         }
+
+
+
+
+
         add_filter('acf/prepare_field', array( &$this,'acf_prepare_field') );
         add_action( "added_post_meta", array(&$this, 'post_meta_changed'), 100, 4 );
         add_action( "updated_post_meta", array(&$this, 'post_meta_changed'), 100, 4 );
@@ -137,11 +150,15 @@ class Unity3_Audio_Transcription extends Unity3_Module {
 	    return "options_{$this->field_name($name)}";
     }
 
-    function get_option( $name ) {
+    public function get_option( $name ) {
         return get_option( "options_{$this->field_name($name)}" );
     }
 
-    function get_post_data() {
+    /**
+     * @param $post_type (Optional)
+     * @return array|string|null If $post_type is specified, returns the specific post type transcription data
+     */
+    function get_post_data( $post_type = null ) {
 
 	    if (!$this->post_data) {
             $this->post_data = [];
@@ -149,13 +166,19 @@ class Unity3_Audio_Transcription extends Unity3_Module {
             $option_post_types = $this->field_name('post_types');
 	        if ( $row_count = $this->get_option( 'post_types' ) ) {
 	            for ( $i = 0; $i < $row_count; $i++ ) {
-	                $post_type = $this->get_option( "post_types_{$i}_post_type" );
+	                $p_type = $this->get_option( "post_types_{$i}_post_type" );
+
 	                $meta_field = $this->get_option( "post_types_{$i}_audio_meta_field" );
-                    $this->post_data[ $post_type ] = $meta_field;
+                    $title = $this->get_option( "post_types_{$i}_title" );
+
+	                $this->post_data[ $p_type ] = [
+	                    'title'      => $title,
+	                    'meta_field' => $meta_field
+                    ];
                 }
             }
         }
-	    return $this->post_data;
+	    return !$post_type ? $this->post_data : ( isset( $this->post_data[$post_type] ) ? $this->post_data[$post_type] : null );
     }
 
     function Activate()
@@ -190,9 +213,9 @@ class Unity3_Audio_Transcription extends Unity3_Module {
 
 	    $post_data = $this->get_post_data();
 	    $audio_meta_query = array('relation' => 'OR');
-	    foreach ( $post_data as $post_type => $meta ) {
+	    foreach ( $post_data as $post_type => $data ) {
 	        $audio_meta_query[] = array(
-                'key' => $meta,
+                'key' => $data['meta_field'],
                 'compare' => 'EXISTS',
             );
         }
@@ -213,7 +236,7 @@ class Unity3_Audio_Transcription extends Unity3_Module {
                     //OR
                     array(
                         'key' => self::PM_STATUS,
-                        'value' => array( 'QUEUED', 'IN_PROGRESS' ),
+                        'value' => array( self::STATUS_QUEUED, self::STATUS_IN_PROGRESS ),
                         'compare' => 'IN',
                     )
                 )
@@ -236,7 +259,7 @@ class Unity3_Audio_Transcription extends Unity3_Module {
 
 	    $post_type = get_post_type( $post_id );
 	    $post_data = $this->get_post_data();
-	    $transcription_audio_meta = isset( $post_data[$post_type] ) ? $post_data[$post_type] : null;
+	    $transcription_audio_meta = isset( $post_data[$post_type] ) ? $post_data[$post_type]['meta_field'] : null;
 
 	    if ( $transcription_audio_meta === $meta_key ) {
             //reset any existing data
@@ -254,7 +277,7 @@ class Unity3_Audio_Transcription extends Unity3_Module {
     function get_audio_url( $post_id ) {
 	    $post_type = get_post_type( $post_id );
         $post_data = $this->get_post_data();
-        $audio_meta_field = isset( $post_data[$post_type] ) ? $post_data[$post_type] : null;
+        $audio_meta_field = isset( $post_data[$post_type] ) ? $post_data[$post_type]['meta_field'] : null;
 
         $meta_value = $audio_meta_field ? get_post_meta( $post_id, $audio_meta_field, true ) : null;
         $url = null;
@@ -286,7 +309,7 @@ class Unity3_Audio_Transcription extends Unity3_Module {
 
 
         $status = get_post_meta(  $post_id,self::PM_STATUS, true );
-        if ( in_array($status, [ 'COMPLETED', 'FAILED' ]) )
+        if ( in_array($status, [ self::STATUS_COMPLETED, self::STATUS_FAILED, self::STATUS_UPLOADING ]) )
             return $status;
 
         $region = $s3_folder = $this->get_option('region');;
@@ -296,7 +319,7 @@ class Unity3_Audio_Transcription extends Unity3_Module {
         $secret_access_key = UNITY3_AWS_SECRET_ACCESS_KEY;
 
 
-        $status = 'QUEUED';
+        $status = false;
         $error_msg = '';
         // upload file on S3 Bucket
         try {
@@ -345,6 +368,11 @@ class Unity3_Audio_Transcription extends Unity3_Module {
             $s3_audio_url = null;
             do {
                 try {
+
+                    $status = self::STATUS_UPLOADING;
+                    //update status now because upload() is a blocking function
+                    update_post_meta( $post_id, self::PM_STATUS, $status );
+
                     $result = $uploader->upload();
                     if ($result["@metadata"]["statusCode"] == '200') {
                         //print('<p>File successfully uploaded to ' . $result["ObjectURL"] . '.</p>');
@@ -386,17 +414,17 @@ class Unity3_Audio_Transcription extends Unity3_Module {
 
 
             update_post_meta( $post_id, self::PM_JOB, $job_id );
-
+            $status = self::STATUS_QUEUED;
 
         }  catch (Exception $e) {
 
-            $status = 'FAILED';
+            $status = self::STATUS_FAILED;
             $error_msg = $e->getMessage();
             update_post_meta( $post_id, self::PM_ERROR, $e->getMessage() );
         }
 
         update_post_meta( $post_id, self::PM_STATUS, $status );
-        return $status !== 'FAILED';
+        return $status !== self::STATUS_FAILED;
     }
 
     function check_status( $post_id ) {
@@ -409,7 +437,7 @@ class Unity3_Audio_Transcription extends Unity3_Module {
         }
 
         $status = get_post_meta(  $post_id,self::PM_STATUS, true );
-        if ( in_array($status, [ 'COMPLETED', 'FAILED' ]) )
+        if ( in_array($status, [ self::STATUS_COMPLETED, self::STATUS_FAILED ]) )
             return $status;
 
         try {
@@ -430,7 +458,7 @@ class Unity3_Audio_Transcription extends Unity3_Module {
 
             $status = $transcriptionJob->get('TranscriptionJob')['TranscriptionJobStatus'];
 
-            if ($status != 'COMPLETED') {
+            if ($status != self::STATUS_COMPLETED) {
                 update_post_meta( $post_id, self::PM_STATUS,  $status);
                 return $status;
             }
@@ -446,7 +474,7 @@ class Unity3_Audio_Transcription extends Unity3_Module {
 
 
             if ( $error_msg ) {
-                $status = 'FAILED';
+                $status = self::STATUS_FAILED;
                 update_post_meta( $post_id, self::PM_STATUS, $status );
                 update_post_meta( $post_id, self::PM_ERROR, $error_msg);
                 update_post_meta( $post_id, self::PM_CONTENT, '');
@@ -455,12 +483,13 @@ class Unity3_Audio_Transcription extends Unity3_Module {
                 update_post_meta( $post_id, self::PM_CONTENT,  $arr_data->results->transcripts[0]->transcript);
                 update_post_meta( $post_id, self::PM_STATUS, $status );
                 update_post_meta( $post_id, self::PM_ERROR, '');
+                update_post_meta( $post_id, self::PM_VISIBILITY, 'private');
             }
 
 
 
         } catch (Exception $e) {
-            update_post_meta( $post_id, self::PM_STATUS, 'FAILED' );
+            update_post_meta( $post_id, self::PM_STATUS, self::STATUS_FAILED );
             update_post_meta( $post_id, self::PM_ERROR, $e->getMessage() );
         }
 
@@ -566,22 +595,35 @@ class Unity3_Audio_Transcription extends Unity3_Module {
 
         $status = get_post_meta( $post->ID, self::PM_STATUS, true );
 
+
         if ( $this->field_name('post_edit_status_message' ) === $field['key'] ) {
 
-            if ( 'COMPLETED' === $status ) {
+            if ( self::STATUS_COMPLETED === $status ) {
                 return false; //dont need this when transcription is complete
-            } elseif( 'FAILED' === $status ) {
+            } elseif( self::STATUS_FAILED === $status ) {
                 $field['message'] = 'Transcription failed. Please re-add the audio and try again';
-            } else {
+            } elseif ( self::STATUS_UPLOADING === $status || get_post_meta( $post->ID, self::PM_JOB, true ) ) {
+                //has a job going
                 $field['message'] =
                     '<span class="spinner" style="float: left;visibility: visible;display: block;margin-top: 10px;"></span>'.
                     'Transcription in progress.  To check status: <button class="button" onClick="window.location.href=window.location.href">Reload Page</button>';
+            } else {
+                $field['message'] = apply_filters('unity3/audio/transcription/no_job_msg',
+                    '<h3>No transcription job exists</h3>' .
+                    '<ol>' .
+                        '<li>Please specify a valid mp3 audio file</li>' .
+                        '<li>Save/Update the post</li>' .
+                        '<li><button class="button" onClick="window.location.href=window.location.href">Reload Page</button></li>' .
+                     '</ol>' ,
+
+                    $post
+                );
             }
 
         } elseif ( $this->field_name('post_edit_visibility') === $field['key'] ||
                    $this->field_name('post_edit_content') === $field['key'] ) {
 
-            if ( 'COMPLETED' !== $status ) {
+            if ( self::STATUS_COMPLETED !== $status ) {
                 return false;
             }
 
@@ -755,7 +797,26 @@ class Unity3_Audio_Transcription extends Unity3_Module {
                             'label' => 'Audio Meta Field',
                             'name' => 'audio_meta_field',
                             'type' => 'text',
-                            'instructions' => '',
+                            'instructions' => 'The post meta field that contains the transcription audio. (Url, Attachment ID)',
+                            'required' => 1,
+                            'conditional_logic' => 0,
+                            'wrapper' => array(
+                                'width' => '',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'default_value' => '',
+                            'placeholder' => '',
+                            'prepend' => '',
+                            'append' => '',
+                            'maxlength' => '',
+                        ),
+                        array(
+                            'key' => $this->field_name( 'post_types__title' ),
+                            'label' => 'Title',
+                            'name' => 'title',
+                            'type' => 'text',
+                            'instructions' => 'Is used on front (Speaker Transcripts, Episode Transcripts, etc)',
                             'required' => 1,
                             'conditional_logic' => 0,
                             'wrapper' => array(
@@ -785,6 +846,62 @@ class Unity3_Audio_Transcription extends Unity3_Module {
 ////*************************
 
 unity3_modules()->Register( new Unity3_Audio_Transcription() );
+
+//public functions
+
+function unity3_audio_transcription_post_append( $content ){
+
+    $post = get_post();
+    $module = unity3_modules()->Get( 'unity3_audio_transcription' );
+    $data = ( $post && $module) ? $module->get_post_data( $post->post_type ) : null;
+
+    if( $data && is_single() && is_main_query() ) {
+
+        ob_start();
+        unity3_audio_transcription_output( $post );
+        $transcription_html = ob_get_clean();
+
+        $content .= $transcription_html;
+    }
+    return $content;
+}
+
+function unity3_audio_transcription_output( $post ) {
+
+    $post = get_post( $post );
+    $module = unity3_modules()->Get( 'unity3_audio_transcription' );
+    $data = ( $post && $module) ? $module->get_post_data( $post->post_type ) : null;
+    $visibility = $data ? get_post_meta( $post->ID, Unity3_Audio_Transcription::PM_VISIBILITY, true ) : null;
+
+    if ( !$post || !$data ) {
+        return;
+    }
+
+    $title = !empty( $data['title'] ) ? $data['title'] : 'Transcription';
+    $content = '';
+
+    if ( 'public' === $visibility ) {
+        $content = get_post_meta( $post->ID, Unity3_Audio_Transcription::PM_CONTENT, true );
+    }
+
+    if ( empty( $content )) {
+        $content = 'No transcription exists at this time';
+    }
+
+    ?>
+
+    <div class="unity3-audio-transcription">
+        <div class="tab">
+            <input type="checkbox" class="tab-toggle" id="transcription-<?php echo $post->ID; ?>">
+            <label class="tab-label" for="transcription-<?php echo $post->ID; ?>"><?php echo $title ?></label>
+            <div class="tab-content">
+                <?php the_field( Unity3_Audio_Transcription::PM_CONTENT, false, false ); ?>
+            </div>
+        </div>
+    </div>
+
+    <?php
+}
 
 endif;
 

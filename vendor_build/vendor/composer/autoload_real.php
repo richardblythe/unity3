@@ -8,7 +8,7 @@ class ComposerAutoloaderInit7538c5330aca6bb340ef652a14c520d5
     private static $loader;
     public static function loadClassLoader($class)
     {
-        if ('Composer\\Autoload\\ClassLoader' === $class) {
+        if ('Unity3_Vendor\\Composer\\Autoload\\ClassLoader' === $class) {
             require __DIR__ . '/ClassLoader.php';
         }
     }
@@ -29,19 +29,12 @@ class ComposerAutoloaderInit7538c5330aca6bb340ef652a14c520d5
             require __DIR__ . '/autoload_static.php';
             \call_user_func(\Unity3_Vendor\Composer\Autoload\ComposerStaticInit7538c5330aca6bb340ef652a14c520d5::getInitializer($loader));
         } else {
-            $map = (require __DIR__ . '/autoload_namespaces.php');
-            foreach ($map as $namespace => $path) {
-                $loader->set($namespace, $path);
-            }
-            $map = (require __DIR__ . '/autoload_psr4.php');
-            foreach ($map as $namespace => $path) {
-                $loader->setPsr4($namespace, $path);
-            }
             $classMap = (require __DIR__ . '/autoload_classmap.php');
             if ($classMap) {
                 $loader->addClassMap($classMap);
             }
         }
+        $loader->setClassMapAuthoritative(\true);
         $loader->register(\true);
         if ($useStaticLoader) {
             $includeFiles = Composer\Autoload\ComposerStaticInit7538c5330aca6bb340ef652a14c520d5::$files;

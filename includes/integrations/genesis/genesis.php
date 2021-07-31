@@ -37,10 +37,10 @@ class Genesis {
 		add_action('template_redirect', array(&$this, 'archive_settings') );
 
 		//Remove the URL section on comments
-		if (apply_filters('unity3_remove_genesis_comment_url', true)) {
-			add_filter( 'genesis_comment_form_args', array(&$this, 'url_filtered') );
-			add_filter( 'comment_form_default_fields', array(&$this, 'url_filtered') );
-		}
+//		if (apply_filters('unity3_remove_genesis_comment_url', true)) {
+//			add_filter( 'genesis_comment_form_args', array(&$this, 'url_filtered') );
+//			add_filter( 'comment_form_default_fields', array(&$this, 'url_filtered') );
+//		}
 
 		//Tribe Events Calendar
 		add_action( 'get_header', array( &$this,'tribe_genesis_bypass_genesis_do_post_content') );

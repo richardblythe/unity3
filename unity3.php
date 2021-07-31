@@ -9,26 +9,28 @@
     GitHub Plugin URI: https://github.com/richardblythe/unity3
  */
 class Unity3 {
-	const ver = '2.6.1';//this is referenced when enqueuing the assets folder
     const domain = 'unity3';
 
     const Vendor_Prefix = 'Unity3_Vendor';
 
-    public static $dir, $url, $assets_url, $vendor_autoload, $vendor_url, $blank_img, $menu_slug;
+    public static $dir, $url, $assets_dir, $assets_url, $vendor_autoload, $vendor_url, $blank_img, $menu_slug;
     private static $admin_menu_uid;
     private $widgets, $min, $plugin_activated, $plugin_deactivated;
 
     function __construct() {
+
+        $assets_folder = 'dist';//(defined('WP_DEBUG') && true === WP_DEBUG) ? 'src' : 'dist';
+
 	    Unity3::$dir = plugin_dir_path( __FILE__ );
         Unity3::$url = plugin_dir_url( __FILE__ );
-	    Unity3::$assets_url = Unity3::$url . 'assets/dist';
+	    Unity3::$assets_dir = Unity3::$dir  . 'assets/' . $assets_folder;
+        Unity3::$assets_url = Unity3::$url . 'assets/' . $assets_folder;
         Unity3::$vendor_autoload = Unity3::$dir  . '/vendor_build/vendor/autoload.php';
         Unity3::$vendor_url = Unity3::$url  . 'vendor';
 	    Unity3::$blank_img = Unity3::$assets_url . '/images/blank.gif';
         Unity3::$menu_slug = 'unity3-settings-general';
 
 
-	    $this->min = '.'; //todo (defined('WP_DEBUG') && true === WP_DEBUG) ? '.' : '.min.';
 	    self::$admin_menu_uid = 10.1;
     }
 
@@ -145,8 +147,18 @@ class Unity3 {
 
 
     function enqueue_front() {
-        wp_enqueue_script('unity3-front-js',       Unity3::$assets_url . "/scripts/unity3-front.js", array('jquery'), Unity3::ver);
-        wp_enqueue_style( 'unity3-front-css', Unity3::$assets_url . "/styles/unity3-front.css", false, Unity3::ver);
+        wp_enqueue_script(
+            'unity3-front-js',
+            Unity3::$assets_url . "/scripts/unity3-front.js",
+            array('jquery'),
+            filemtime(Unity3::$assets_dir . "/scripts/unity3-front.js")
+        );
+        wp_enqueue_style(
+            'unity3-front-css',
+            Unity3::$assets_url . "/styles/unity3-front.css",
+            false,
+            filemtime(Unity3::$assets_dir . "/styles/unity3-front.css")
+        );
 
         $localized = apply_filters("unity3/localize/front", array());
         if (isset($localized) && is_array($localized) && count($localized)) {
@@ -155,8 +167,17 @@ class Unity3 {
     }
 
     function enqueue_admin() {
-        wp_enqueue_script('unity3-admin-js',       Unity3::$assets_url . "/scripts/unity3-admin.js", array('jquery'), Unity3::ver);
-        wp_enqueue_style( 'unity3-admin-css', Unity3::$assets_url . "/styles/unity3-admin.css", false, Unity3::ver);
+        wp_enqueue_script(
+            'unity3-admin-js',
+            Unity3::$assets_url . "/scripts/unity3-admin.js", array('jquery'),
+            filemtime(Unity3::$assets_dir . "/scripts/unity3-admin.js")
+        );
+        wp_enqueue_style(
+            'unity3-admin-css',
+             Unity3::$assets_url . "/styles/unity3-admin.css",
+             false,
+             filemtime(Unity3::$assets_dir . "/styles/unity3-admin.css")
+        );
 
         $localized = apply_filters("unity3/localize/admin", array());
         if (isset($localized) && is_array($localized) && count($localized)) {
@@ -166,8 +187,18 @@ class Unity3 {
 
     function enqueue_editor() {
 
-        wp_enqueue_script('unity3-editor-js',       Unity3::$assets_url . "/scripts/unity3-editor.js", array('wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor'), Unity3::ver);
-        wp_enqueue_style( 'unity3-editor-css', Unity3::$assets_url . "/styles/unity3-editor.css", false, Unity3::ver);
+        wp_enqueue_script(
+            'unity3-editor-js',
+            Unity3::$assets_url . "/scripts/unity3-editor.js",
+            array('wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor'),
+            Unity3::$assets_dir . "/scripts/unity3-editor.js"
+        );
+        wp_enqueue_style(
+            'unity3-editor-css',
+            Unity3::$assets_url . "/styles/unity3-editor.css",
+            false,
+            Unity3::$assets_dir . "/styles/unity3-editor.css"
+        );
 
     }
 

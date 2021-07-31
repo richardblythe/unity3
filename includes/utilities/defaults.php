@@ -7,6 +7,15 @@ function Load_Unity3Defaults() {
 
 			add_filter( 'single_template', array( &$this, 'single_template'), 100, 3 );
 
+            add_filter( 'tiny_mce_before_init', function ( $init ){
+                if ( apply_filters('unity3/no_autop', true ) ) {
+                    $init['wpautop'] = false;
+                    $init['indent'] = true;
+                    $init['tadv_noautop'] = true;
+                    return $init;
+                }
+            }, 999, 1 );
+
 			add_filter('comment_moderation_recipients', array(&$this, 'comment_moderation_recipients'), 11, 2);
 
 

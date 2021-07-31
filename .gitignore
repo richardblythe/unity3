@@ -1,4 +1,3 @@
-node_modules/
-vendor/
-!vendor_build/vendor/
-test
+/test/
+/vendor/
+/node_modules/
