@@ -5,7 +5,7 @@ if (file_exists($upload['basedir'] . '/unity3-functions.php')) {
 }
 
 //vendor
-require_once (Unity3::$dir . 'vendor/acf-image-select/acf-image-select.php');
+require_once (Unity3::$vendor_dir . '/acf-image-select/acf-image-select.php');
 
 //utility functions
 require_once (Unity3::$dir . 'includes/utilities/defaults.php');

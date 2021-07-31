@@ -3,7 +3,7 @@
     Plugin Name: Unity 3 Software
     Plugin URI: http://www.unity3software.com/
     Description: Core components for building Wordpress sites that are easy for the client to use.
-    Version: 2.6.2
+    Version: 2.6.3
     Author: Richard Blythe
     Author URI: http://unity3software.com/richardblythe
     GitHub Plugin URI: https://github.com/richardblythe/unity3
@@ -13,7 +13,7 @@ class Unity3 {
 
     const Vendor_Prefix = 'Unity3_Vendor';
 
-    public static $dir, $url, $assets_dir, $assets_url, $vendor_autoload, $vendor_url, $blank_img, $menu_slug;
+    public static $dir, $url, $assets_dir, $assets_url, $vendor_autoload, $vendor_dir, $vendor_url, $blank_img, $menu_slug;
     private static $admin_menu_uid;
     private $widgets, $min, $plugin_activated, $plugin_deactivated;
 
@@ -26,6 +26,7 @@ class Unity3 {
 	    Unity3::$assets_dir = Unity3::$dir  . 'assets/' . $assets_folder;
         Unity3::$assets_url = Unity3::$url . 'assets/' . $assets_folder;
         Unity3::$vendor_autoload = Unity3::$dir  . '/vendor_build/vendor/autoload.php';
+        Unity3::$vendor_dir = Unity3::$dir  . '/vendor/';
         Unity3::$vendor_url = Unity3::$url  . 'vendor';
 	    Unity3::$blank_img = Unity3::$assets_url . '/images/blank.gif';
         Unity3::$menu_slug = 'unity3-settings-general';
