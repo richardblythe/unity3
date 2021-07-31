@@ -6,12 +6,6 @@ $loader = require_once __DIR__.'/autoload.php';
 
 // Aliases for the whitelisted classes. For more information see:
 // https://github.com/humbug/php-scoper/blob/master/README.md#class-whitelisting
-if (!class_exists('acf_field_image_select_plugin', false) && !interface_exists('acf_field_image_select_plugin', false) && !trait_exists('acf_field_image_select_plugin', false)) {
-    spl_autoload_call('Unity3_Vendor\acf_field_image_select_plugin');
-}
-if (!class_exists('acf_field_image_select', false) && !interface_exists('acf_field_image_select', false) && !trait_exists('acf_field_image_select', false)) {
-    spl_autoload_call('Unity3_Vendor\acf_field_image_select');
-}
 if (!class_exists('ComposerAutoloaderInit7538c5330aca6bb340ef652a14c520d5', false) && !interface_exists('ComposerAutoloaderInit7538c5330aca6bb340ef652a14c520d5', false) && !trait_exists('ComposerAutoloaderInit7538c5330aca6bb340ef652a14c520d5', false)) {
     spl_autoload_call('Unity3_Vendor\ComposerAutoloaderInit7538c5330aca6bb340ef652a14c520d5');
 }
@@ -1647,111 +1641,6 @@ if (!class_exists('ValueError', false) && !interface_exists('ValueError', false)
 
 // Functions whitelisting. For more information see:
 // https://github.com/humbug/php-scoper/blob/master/README.md#functions-whitelisting
-if (!function_exists('add_action')) {
-    function add_action() {
-        return \Unity3_Vendor\add_action(...func_get_args());
-    }
-}
-if (!function_exists('register_field')) {
-    function register_field() {
-        return \Unity3_Vendor\register_field(...func_get_args());
-    }
-}
-if (!function_exists('plugin_dir_path')) {
-    function plugin_dir_path() {
-        return \Unity3_Vendor\plugin_dir_path(...func_get_args());
-    }
-}
-if (!function_exists('__')) {
-    function __() {
-        return \Unity3_Vendor\__(...func_get_args());
-    }
-}
-if (!function_exists('get_template_directory_uri')) {
-    function get_template_directory_uri() {
-        return \Unity3_Vendor\get_template_directory_uri(...func_get_args());
-    }
-}
-if (!function_exists('apply_filters')) {
-    function apply_filters() {
-        return \Unity3_Vendor\apply_filters(...func_get_args());
-    }
-}
-if (!function_exists('esc_attr')) {
-    function esc_attr() {
-        return \Unity3_Vendor\esc_attr(...func_get_args());
-    }
-}
-if (!function_exists('_e')) {
-    function _e() {
-        return \Unity3_Vendor\_e(...func_get_args());
-    }
-}
-if (!function_exists('do_action')) {
-    function do_action() {
-        return \Unity3_Vendor\do_action(...func_get_args());
-    }
-}
-if (!function_exists('get_stylesheet_directory_uri')) {
-    function get_stylesheet_directory_uri() {
-        return \Unity3_Vendor\get_stylesheet_directory_uri(...func_get_args());
-    }
-}
-if (!function_exists('content_url')) {
-    function content_url() {
-        return \Unity3_Vendor\content_url(...func_get_args());
-    }
-}
-if (!function_exists('home_url')) {
-    function home_url() {
-        return \Unity3_Vendor\home_url(...func_get_args());
-    }
-}
-if (!function_exists('wp_register_script')) {
-    function wp_register_script() {
-        return \Unity3_Vendor\wp_register_script(...func_get_args());
-    }
-}
-if (!function_exists('wp_enqueue_script')) {
-    function wp_enqueue_script() {
-        return \Unity3_Vendor\wp_enqueue_script(...func_get_args());
-    }
-}
-if (!function_exists('wp_register_style')) {
-    function wp_register_style() {
-        return \Unity3_Vendor\wp_register_style(...func_get_args());
-    }
-}
-if (!function_exists('wp_enqueue_style')) {
-    function wp_enqueue_style() {
-        return \Unity3_Vendor\wp_enqueue_style(...func_get_args());
-    }
-}
-if (!function_exists('stripslashes_deep')) {
-    function stripslashes_deep() {
-        return \Unity3_Vendor\stripslashes_deep(...func_get_args());
-    }
-}
-if (!function_exists('acf_encode_choices')) {
-    function acf_encode_choices() {
-        return \Unity3_Vendor\acf_encode_choices(...func_get_args());
-    }
-}
-if (!function_exists('acf_render_field_setting')) {
-    function acf_render_field_setting() {
-        return \Unity3_Vendor\acf_render_field_setting(...func_get_args());
-    }
-}
-if (!function_exists('plugins_url')) {
-    function plugins_url() {
-        return \Unity3_Vendor\plugins_url(...func_get_args());
-    }
-}
-if (!function_exists('acf_decode_choices')) {
-    function acf_decode_choices() {
-        return \Unity3_Vendor\acf_decode_choices(...func_get_args());
-    }
-}
 if (!function_exists('composerRequire7538c5330aca6bb340ef652a14c520d5')) {
     function composerRequire7538c5330aca6bb340ef652a14c520d5() {
         return \Unity3_Vendor\composerRequire7538c5330aca6bb340ef652a14c520d5(...func_get_args());

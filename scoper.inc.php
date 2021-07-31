@@ -12,6 +12,25 @@ declare(strict_types=1);
 
 use Isolated\Symfony\Component\Finder\Finder;
 
+function getDirContents($dir, &$results = array()) {
+    $files = scandir($dir);
+
+    foreach ($files as $key => $value) {
+        $path = realpath($dir . DIRECTORY_SEPARATOR . $value);
+        if (!is_dir($path)) {
+            $results[] = $path;
+        } else if ($value != "." && $value != "..") {
+            getDirContents($path, $results);
+            $results[] = $path;
+        }
+    }
+
+    return $results;
+}
+
+$white_listed = array();
+getDirContents(dirname(__FILE__) .'/vendor/acf-image-select/', $white_listed);
+
 return [
     // The prefix configuration. If a non null value will be used, a random prefix will be generated.
     'prefix' => 'Unity3_Vendor',
@@ -49,13 +68,7 @@ return [
         ]),
     ],
 
-    // Whitelists a list of files. Unlike the other whitelist related features, this one is about completely leaving
-    // a file untouched.
-    // Paths are relative to the configuration file unless if they are already absolute
-    'files-whitelist' => [
-        'src/a-whitelisted-file.php',
-    ],
-
+    'files-whitelist' => $white_listed,
     // When scoping PHP files, there will be scenarios where some of the code being scoped indirectly references the
     // original namespace. These will include, for example, strings or string manipulations. PHP-Scoper has limited
     // support for prefixing such strings. To circumvent that, you can define patchers to manipulate the file to your
@@ -108,6 +121,7 @@ return [
         // 'PHPUnit\Framework\*',          // The whole namespace
         // '*',                            // Everything
 
+        //This doesn't seem to be working right now, but a patcher function resolves the issue
         'ISO8601_BASIC', //vendor/aws/aws-sdk-php/src/Signature/SignatureV4.php
     ],
 

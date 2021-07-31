@@ -99,13 +99,20 @@ class DragSortPosts {
         }
     }
 
-    /*
-     * Set the post order for the current admin screen
-     */
+    //******************************************************************
+    //
+    //
+    //      TODO    Should we move to an assets/src/vendor folder?
+    //
+    //
+    //******************************************************************
 
+    /*
+     * Sets the post order for the current admin screen
+     */
 	public function admin_enqueue() {
 		wp_enqueue_script( 'jquery-ui-sortable' );
-		wp_enqueue_script( 'jquery-ui-touch-punch', Unity3::$vendor_url . '/jquery.ui.touch-punch.min.js', array( 'jquery-ui-sortable' ), '0.2.3', true );
+		wp_enqueue_script( 'jquery-ui-touch-punch', Unity3::$assets_url . '/vendor/jquery.ui.touch-punch.min.js', array( 'jquery-ui-sortable' ), '0.2.3', true );
 	}
 
 	public function update_sorting() {

@@ -794,7 +794,7 @@ class Unity3_Audio_Transcription extends Unity3_Module {
                         ),
                         array(
                             'key' => $this->field_name( 'post_types__audio_meta_field' ),
-                            'label' => 'Audio Meta Field',
+                            'label' => 'Meta Field',
                             'name' => 'audio_meta_field',
                             'type' => 'text',
                             'instructions' => 'The post meta field that contains the transcription audio. (Url, Attachment ID)',
@@ -858,7 +858,7 @@ function unity3_audio_transcription_post_append( $content ){
     if( $data && is_single() && is_main_query() ) {
 
         ob_start();
-        unity3_audio_transcription_output( $post );
+        unity3_audio_transcription_post_output( $post );
         $transcription_html = ob_get_clean();
 
         $content .= $transcription_html;
@@ -866,7 +866,7 @@ function unity3_audio_transcription_post_append( $content ){
     return $content;
 }
 
-function unity3_audio_transcription_output( $post ) {
+function unity3_audio_transcription_post_output( $post ) {
 
     $post = get_post( $post );
     $module = unity3_modules()->Get( 'unity3_audio_transcription' );
