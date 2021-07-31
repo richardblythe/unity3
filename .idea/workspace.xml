@@ -19,18 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a3efbb9-c41c-4a65-a6bf-8480a9e17189" name="Default Changelist" comment="Patched a vendor referenced file to vendor_build">
+    <list default="true" id="1a3efbb9-c41c-4a65-a6bf-8480a9e17189" name="Default Changelist" comment="Various enhancements and fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/class-drag-sort-posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/class-drag-sort-posts.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/modules/class-audio-transcription.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-audio-transcription.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scoper.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/scoper.inc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unity3.php" beforeDir="false" afterPath="$PROJECT_DIR$/unity3.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/acf-image-select/acf-image-select.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/acf-image-select/acf-image-select.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/acf-image-select/image-select-v4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/acf-image-select/image-select-v4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/acf-image-select/image-select-v5.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/acf-image-select/image-select-v5.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/jquery.textchange.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/src/vendor/jquery.textchange.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/jquery.ui.touch-punch.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/src/vendor/jquery.ui.touch-punch.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/scoper-autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/scoper-autoload.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,7 +260,7 @@
       <workItem from="1627572413060" duration="13947000" />
       <workItem from="1627656300196" duration="33659000" />
       <workItem from="1627693209566" duration="3039000" />
-      <workItem from="1627756353457" duration="9514000" />
+      <workItem from="1627756353457" duration="11923000" />
     </task>
     <task id="LOCAL-00001" summary="Some more housekeeping">
       <created>1601754233457</created>
@@ -473,7 +465,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627697813226</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Various enhancements and fixes">
+      <created>1627766052570</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1627766052570</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -516,7 +515,8 @@
     <MESSAGE value="Updated npm dependencies" />
     <MESSAGE value="Added default front end rendering of transcription content.  Further tweaks to the scoping of vendor code." />
     <MESSAGE value="Patched a vendor referenced file to vendor_build" />
-    <option name="LAST_COMMIT_MESSAGE" value="Patched a vendor referenced file to vendor_build" />
+    <MESSAGE value="Various enhancements and fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Various enhancements and fixes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="667" y="163" key="#PHP" timestamp="1627692163361">
@@ -607,10 +607,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1860" height="344" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1627604362714" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1627697819032">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1627766058941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1627697819032" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1627766058941" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1627685058451">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -747,7 +747,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/includes/modules/class-audio-transcription.php</url>
-          <line>879</line>
+          <line>885</line>
           <option name="timeStamp" value="144" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">

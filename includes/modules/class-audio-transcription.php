@@ -593,7 +593,7 @@ class Unity3_Audio_Transcription extends Unity3_Module {
 	    if ( !$post )
 	        return $field;
 
-        $status = get_post_meta( $post->ID, self::PM_STATUS, true );
+        $status = self::STATUS_UPLOADING; //get_post_meta( $post->ID, self::PM_STATUS, true );
 
 
         if ( $this->field_name('post_edit_status_message' ) === $field['key'] ) {
@@ -601,12 +601,18 @@ class Unity3_Audio_Transcription extends Unity3_Module {
             if ( self::STATUS_COMPLETED === $status ) {
                 return false; //dont need this when transcription is complete
             } elseif( self::STATUS_FAILED === $status ) {
-                $field['message'] = 'Transcription failed. Please re-add the audio and try again';
+                $field['message'] = apply_filters('unity3/audio/transcription/job_error_msg', 'Transcription failed. Please re-add the audio and try again');
             } elseif ( self::STATUS_UPLOADING === $status || get_post_meta( $post->ID, self::PM_JOB, true ) ) {
                 //has a job going
-                $field['message'] =
-                    '<span class="spinner" style="float: left;visibility: visible;display: block;margin-top: 10px;"></span>'.
-                    'Transcription in progress.  To check status: <button class="button" onClick="window.location.href=window.location.href">Reload Page</button>';
+                $field['message'] = apply_filters('unity3/audio/transcription/job_progress_msg',
+                    '<p>' .
+                        '<span class="spinner" style="float: left;visibility: visible;display: block;margin: 10px;"></span>'.
+                        'Transcription in progress. (This could take several minutes)'.
+                    '</p>' .
+                    '<span style="margin-right: 20px">To check status:</span><button class="button" onClick="window.location.href=window.location.href">Reload Page</button>' ,
+
+                    $post
+                );
             } else {
                 $field['message'] = apply_filters('unity3/audio/transcription/no_job_msg',
                     '<h3>No transcription job exists</h3>' .
