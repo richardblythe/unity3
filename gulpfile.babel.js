@@ -16,7 +16,7 @@ import del from 'del';
 import webpack from 'webpack-stream';
 import named from 'vinyl-named';
 
-const PRODUCTION = false;
+const PRODUCTION = true;
 
 export const images = () => {
 	return src('assets/src/images/**/*.{jpg,jpeg,png,svg,gif}')
@@ -26,7 +26,7 @@ export const images = () => {
 
 export const styles = () => {
 	return src(['assets/src/styles/front/unity3-front.scss', 'assets/src/styles/admin/unity3-admin.scss', 'assets/src/styles/editor/unity3-editor.scss'])
-		.pipe(gulpif(!PRODUCTION, sourcemaps.init()))
+		.pipe(gulpif(PRODUCTION, sourcemaps.init()))
 		.pipe(sass().on('error', sass.logError))
 		.pipe(gulpif(PRODUCTION, postcss([ autoprefixer ])))
 		.pipe(gulpif(PRODUCTION, cleanCss({compatibility:'ie8'})))
