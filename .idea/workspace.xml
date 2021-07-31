@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a3efbb9-c41c-4a65-a6bf-8480a9e17189" name="Default Changelist" comment="Various enhancements and fixes">
+    <list default="true" id="1a3efbb9-c41c-4a65-a6bf-8480a9e17189" name="Default Changelist" comment="Added more filters to the transcription post edit screen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/modules/class-audio-transcription.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-audio-transcription.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unity3.php" beforeDir="false" afterPath="$PROJECT_DIR$/unity3.php" afterDir="false" />
@@ -260,7 +260,7 @@
       <workItem from="1627572413060" duration="13947000" />
       <workItem from="1627656300196" duration="33659000" />
       <workItem from="1627693209566" duration="3039000" />
-      <workItem from="1627756353457" duration="11923000" />
+      <workItem from="1627756353457" duration="12596000" />
     </task>
     <task id="LOCAL-00001" summary="Some more housekeeping">
       <created>1601754233457</created>
@@ -472,7 +472,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627766052570</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Added more filters to the transcription post edit screen">
+      <created>1627768855002</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1627768855002</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -491,7 +498,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Various minor updates" />
     <MESSAGE value="Various minor updates." />
     <MESSAGE value="fixed more javascript issues" />
     <MESSAGE value="Some more housekeeping" />
@@ -516,7 +522,8 @@
     <MESSAGE value="Added default front end rendering of transcription content.  Further tweaks to the scoping of vendor code." />
     <MESSAGE value="Patched a vendor referenced file to vendor_build" />
     <MESSAGE value="Various enhancements and fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Various enhancements and fixes" />
+    <MESSAGE value="Added more filters to the transcription post edit screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added more filters to the transcription post edit screen" />
   </component>
   <component name="WindowStateProjectService">
     <state x="667" y="163" key="#PHP" timestamp="1627692163361">
@@ -607,10 +614,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1860" height="344" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1627604362714" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1627766058941">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1627768856266">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1627766058941" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1627768856266" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1627685058451">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

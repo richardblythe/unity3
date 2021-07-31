@@ -593,7 +593,7 @@ class Unity3_Audio_Transcription extends Unity3_Module {
 	    if ( !$post )
 	        return $field;
 
-        $status = self::STATUS_UPLOADING; //get_post_meta( $post->ID, self::PM_STATUS, true );
+        $status = get_post_meta( $post->ID, self::PM_STATUS, true );
 
 
         if ( $this->field_name('post_edit_status_message' ) === $field['key'] ) {
