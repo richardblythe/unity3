@@ -56,9 +56,6 @@ class Unity3_Audio_Transcription extends Unity3_Module {
         }
 
 
-
-
-
         add_filter('acf/prepare_field', array( &$this,'acf_prepare_field') );
         add_action( "added_post_meta", array(&$this, 'post_meta_changed'), 100, 4 );
         add_action( "updated_post_meta", array(&$this, 'post_meta_changed'), 100, 4 );
@@ -170,10 +167,12 @@ class Unity3_Audio_Transcription extends Unity3_Module {
 
 	                $meta_field = $this->get_option( "post_types_{$i}_audio_meta_field" );
                     $title = $this->get_option( "post_types_{$i}_title" );
+                    $append = $this->get_option( "post_types_{$i}_append_transcription" );
 
 	                $this->post_data[ $p_type ] = [
 	                    'title'      => $title,
-	                    'meta_field' => $meta_field
+	                    'meta_field' => $meta_field,
+                        'append'     => $append
                     ];
                 }
             }
@@ -781,7 +780,7 @@ class Unity3_Audio_Transcription extends Unity3_Module {
                             'label' => 'Post Type',
                             'name' => 'post_type',
                             'type' => 'select',
-                            'instructions' => '',
+                            'instructions' => 'Monitors the specified post type for the changes to the meta field below.',
                             'required' => 1,
                             'conditional_logic' => 0,
                             'wrapper' => array(
@@ -818,11 +817,30 @@ class Unity3_Audio_Transcription extends Unity3_Module {
                             'maxlength' => '',
                         ),
                         array(
+                            'label' => 'Append',
+                            'key' => $this->field_name('post_types__append_transcription' ),
+                            'name' => 'append_transcription',
+                            'type' => 'true_false',
+                            'instructions' => 'Appends public transcription to the end of post content',
+                            'required' => 0,
+                            'conditional_logic' => 0,
+                            'wrapper' => array(
+                                'width' => '',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'message' => '',
+                            'default_value' => 0,
+                            'ui' => 1,
+                            'ui_on_text' => '',
+                            'ui_off_text' => '',
+                        ),
+                        array(
                             'key' => $this->field_name( 'post_types__title' ),
                             'label' => 'Title',
                             'name' => 'title',
                             'type' => 'text',
-                            'instructions' => 'Is used on front (Speaker Transcripts, Episode Transcripts, etc)',
+                            'instructions' => 'Front End UI title: (Speaker Transcripts, Episode Transcripts, etc)',
                             'required' => 1,
                             'conditional_logic' => 0,
                             'wrapper' => array(
@@ -861,7 +879,7 @@ function unity3_audio_transcription_post_append( $content ){
     $module = unity3_modules()->Get( 'unity3_audio_transcription' );
     $data = ( $post && $module) ? $module->get_post_data( $post->post_type ) : null;
 
-    if( $data && is_single() && is_main_query() ) {
+    if( $data && $data['append'] && is_single() && is_main_query() ) {
 
         ob_start();
         unity3_audio_transcription_post_output( $post );

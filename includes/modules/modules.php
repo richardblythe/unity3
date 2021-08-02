@@ -80,7 +80,7 @@ class Unity3_Modules {
 						return true;
 					}
 				}
-				return false;
+				return $value;
 			}, 10, 3);
 
 			uasort($this->modules, function ($module1, $module2){
