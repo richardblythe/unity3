@@ -14,7 +14,7 @@ if( class_exists('ACF') ) :
 class Unity3_Audio_Transcription extends Unity3_Module {
 
     private $post_data;
-    private $cron_hook = 'unity3_audio_transcription_check_status';
+    const CRON_HOOK = 'unity3_audio_transcription_check_status';
 
     const PM_JOB        = 'transcription_job';
     const PM_STATUS     = 'transcription_status';
@@ -69,9 +69,9 @@ class Unity3_Audio_Transcription extends Unity3_Module {
             return $schedules;
         });
 
-        add_action( $this->cron_hook, array($this, 'cron') );
+        add_action( self::CRON_HOOK, array(&$this, 'cron') );
         if ( $this->get_option('force_cron') ) {
-            update_option( $this->option_name('force_cron'), false );
+            $this->set_option( 'force_cron', false );
             $this->start_cron();
         }
         //*************************************************
@@ -129,7 +129,7 @@ class Unity3_Audio_Transcription extends Unity3_Module {
     }
 
 
-    function api_ready() {
+    public function api_ready() {
 	    return (
 	        defined('UNITY3_AWS_ACCESS_KEY') &&
             defined('UNITY3_AWS_SECRET_ACCESS_KEY') &&
@@ -139,16 +139,20 @@ class Unity3_Audio_Transcription extends Unity3_Module {
         );
     }
 
-    function field_name( $field_name ) {
+    private function field_name( $field_name ) {
         return $this->sanitized_id . '_' . $field_name;
     }
 
-    function option_name( $name ) {
+    private function option_name( $name ) {
 	    return "options_{$this->field_name($name)}";
     }
 
-    public function get_option( $name ) {
+    private function get_option( $name ) {
         return get_option( "options_{$this->field_name($name)}" );
+    }
+
+    private function set_option( $name, $value ) {
+        return update_option( $this->option_name('force_cron'), $value );
     }
 
     /**
@@ -193,14 +197,15 @@ class Unity3_Audio_Transcription extends Unity3_Module {
     }
 
     public function start_cron() {
-        if ( $this->api_ready() && !wp_next_scheduled( $this->cron_hook ) ) {
-            wp_schedule_event( time(), 'every_minute', $this->cron_hook );
+        if ( $this->api_ready() && !wp_next_scheduled( self::CRON_HOOK ) ) {
+            wp_schedule_event( time(), 'every_minute', self::CRON_HOOK );
         }
     }
 
     public function stop_cron() {
-        $timestamp = wp_next_scheduled( $this->cron_hook );
-        wp_unschedule_event( $timestamp, $this->cron_hook );
+        if ( $timestamp = wp_next_scheduled( self::CRON_HOOK ) ) {
+            wp_unschedule_event( $timestamp, self::CRON_HOOK );
+        }
     }
 
     public function cron() {
@@ -892,8 +897,12 @@ function unity3_audio_transcription_post_append( $content ){
 
 function unity3_audio_transcription_post_output( $post ) {
 
+    $module = unity3_modules()->GetActive( 'unity3_audio_transcription' );
+    if ( !$module ) {
+        return;
+    }
+
     $post = get_post( $post );
-    $module = unity3_modules()->Get( 'unity3_audio_transcription' );
     $data = ( $post && $module) ? $module->get_post_data( $post->post_type ) : null;
     $visibility = $data ? get_post_meta( $post->ID, Unity3_Audio_Transcription::PM_VISIBILITY, true ) : null;
 
