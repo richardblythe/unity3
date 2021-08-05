@@ -938,6 +938,8 @@ function unity3_audio_transcription_post_output( $post ) {
         $content = 'No transcription exists at this time';
     }
 
+    $content = apply_filters( 'unity3/audio/transcription/content/front', $content, $post );
+
     ?>
 
     <div class="unity3-audio-transcription">
