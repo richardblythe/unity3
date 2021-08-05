@@ -7,6 +7,7 @@ use ArrayAccess;
 use IteratorAggregate;
 use InvalidArgumentException;
 use JsonSerializable;
+use Unity3_Vendor\ReturnTypeWillChange;
 /**
  * Stores encryption metadata for reading and writing.
  *
@@ -41,6 +42,7 @@ class MetadataEnvelope implements ArrayAccess, IteratorAggregate, JsonSerializab
         }
         $this->data[$name] = $value;
     }
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return $this->data;

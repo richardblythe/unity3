@@ -2,6 +2,7 @@
 
 namespace Unity3_Vendor\Aws\DynamoDb;
 
+use Unity3_Vendor\ReturnTypeWillChange;
 /**
  * Provides an interface for using Amazon DynamoDB as a session store by hooking
  * into PHP's session handler hooks. Once registered, You may use the native
@@ -92,6 +93,7 @@ class SessionHandler implements \SessionHandlerInterface
      *
      * @return bool Whether or not the operation succeeded.
      */
+    #[ReturnTypeWillChange]
     public function open($savePath, $sessionName)
     {
         $this->savePath = $savePath;
@@ -103,6 +105,7 @@ class SessionHandler implements \SessionHandlerInterface
      *
      * @return bool Success
      */
+    #[ReturnTypeWillChange]
     public function close()
     {
         $id = \session_id();
@@ -121,6 +124,7 @@ class SessionHandler implements \SessionHandlerInterface
      *
      * @return string Session data.
      */
+    #[ReturnTypeWillChange]
     public function read($id)
     {
         $this->openSessionId = $id;
@@ -149,6 +153,7 @@ class SessionHandler implements \SessionHandlerInterface
      *
      * @return bool Whether or not the operation succeeded.
      */
+    #[ReturnTypeWillChange]
     public function write($id, $data)
     {
         $changed = $id !== $this->openSessionId || $data !== $this->dataRead;
@@ -164,6 +169,7 @@ class SessionHandler implements \SessionHandlerInterface
      *
      * @return bool Whether or not the operation succeeded.
      */
+    #[ReturnTypeWillChange]
     public function destroy($id)
     {
         $this->openSessionId = $id;
@@ -180,6 +186,7 @@ class SessionHandler implements \SessionHandlerInterface
      * @return bool Whether or not the operation succeeded.
      * @codeCoverageIgnore
      */
+    #[ReturnTypeWillChange]
     public function gc($maxLifetime)
     {
         // Garbage collection for a DynamoDB table must be triggered manually.

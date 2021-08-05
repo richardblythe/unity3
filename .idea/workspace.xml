@@ -19,10 +19,40 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a3efbb9-c41c-4a65-a6bf-8480a9e17189" name="Default Changelist" comment="Create Append option in the audio transcription settings page.  Patch to modules.php">
+    <list default="true" id="1a3efbb9-c41c-4a65-a6bf-8480a9e17189" name="Default Changelist" comment="More tweaks to the transcription module">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/modules/class-audio-transcription.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-audio-transcription.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unity3.php" beforeDir="false" afterPath="$PROJECT_DIR$/unity3.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/Api/DateTimeResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/Api/DateTimeResult.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/Crypto/MetadataEnvelope.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/Crypto/MetadataEnvelope.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/DynamoDb/BinaryValue.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/DynamoDb/BinaryValue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/DynamoDb/NumberValue.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/DynamoDb/NumberValue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/DynamoDb/SessionHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/DynamoDb/SessionHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/DynamoDb/SetValue.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/DynamoDb/SetValue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/Redshift/RedshiftClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/Redshift/RedshiftClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/Sdk.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/Sdk.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/TranscribeService/TranscribeServiceClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/TranscribeService/TranscribeServiceClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/data/endpoints.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/data/endpoints.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/data/glue/2017-03-31/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/data/glue/2017-03-31/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/data/greengrassv2/2020-11-30/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/data/greengrassv2/2020-11-30/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/data/iotsitewise/2019-12-02/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/data/iotsitewise/2019-12-02/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/data/mediaconvert/2017-08-29/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/data/mediaconvert/2017-08-29/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/data/rds/2014-10-31/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/data/rds/2014-10-31/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/data/redshift/2012-12-01/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/data/redshift/2012-12-01/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/data/ssm-contacts/2021-05-03/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/data/ssm-contacts/2021-05-03/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/data/ssm-incidents/2018-05-10/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/data/ssm-incidents/2018-05-10/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/data/transcribe/2017-10-26/api-2.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/data/transcribe/2017-10-26/api-2.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/data/transcribe/2017-10-26/paginators-1.json.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/aws/aws-sdk-php/src/data/transcribe/2017-10-26/paginators-1.json.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/composer/InstalledVersions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/composer/autoload_files.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/composer/autoload_real.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor_build/vendor/composer/package-versions-deprecated/src/PackageVersions/Versions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_build/vendor/composer/package-versions-deprecated/src/PackageVersions/Versions.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +95,6 @@
       </selected-paths>
     </layout>
   </component>
-  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpServers">
     <servers>
       <server host="dev.unity3.localhost.com" id="42a7c65a-563e-4798-86b5-961302dc301e" name="dev.unity3.localhost.com">
@@ -76,6 +105,11 @@
       <server host="localhost" id="3cbc29fa-20b1-4891-9c92-ee8c3c5c4d25" name="localhost" use_path_mappings="true">
         <path_mappings>
           <mapping local-root="$PROJECT_DIR$/../the-events-calendar/common/vendor/freemius/includes/managers" remote-root="C:/xampp/phpMyAdmin" />
+        </path_mappings>
+      </server>
+      <server host="dev.blythefamily.localhost.com" id="9106a3c0-4367-4ebc-86b4-4abc48e57d1a" name="dev.blythefamily.localhost.com" use_path_mappings="true">
+        <path_mappings>
+          <mapping local-root="$PROJECT_DIR$/../../../wp-admin" remote-root="S:/WORDPRESS/blythefamily/wp-admin" />
         </path_mappings>
       </server>
     </servers>
@@ -133,19 +167,19 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="S:\WORDPRESS\unity3dev\wp-content\plugins\unity3\test" />
-      <recent name="S:\WORDPRESS\unity3dev\wp-content\plugins\unity3" />
-      <recent name="S:\WORDPRESS\unity3dev\wp-content\plugins\unity3\assets\src\styles\front" />
-      <recent name="S:\WORDPRESS\unity3dev\wp-content\plugins\unity3\test\composer" />
-      <recent name="S:\WORDPRESS\unity3dev\wp-content\plugins\unity3\test\aws\aws-sdk-php\src" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="S:\WORDPRESS\unity3dev\wp-content\plugins\unity3\test" />
       <recent name="S:\WORDPRESS\unity3dev\wp-content\plugins\unity3" />
       <recent name="S:\WORDPRESS\unity3dev\wp-content\plugins\unity3\vendor" />
       <recent name="S:\WORDPRESS\unity3dev\wp-content\plugins\unity3\assets\src\vendor" />
       <recent name="S:\WORDPRESS\unity3dev\wp-content\plugins\unity3\test\aws\aws-sdk-php\src\Signature" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="S:\WORDPRESS\unity3dev\wp-content\plugins\unity3\test" />
+      <recent name="S:\WORDPRESS\unity3dev\wp-content\plugins\unity3" />
+      <recent name="S:\WORDPRESS\unity3dev\wp-content\plugins\unity3\assets\src\styles\front" />
+      <recent name="S:\WORDPRESS\unity3dev\wp-content\plugins\unity3\test\composer" />
+      <recent name="S:\WORDPRESS\unity3dev\wp-content\plugins\unity3\test\aws\aws-sdk-php\src" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -265,7 +299,8 @@
       <workItem from="1627919013306" duration="1022000" />
       <workItem from="1627921139112" duration="6487000" />
       <workItem from="1628003518404" duration="5000" />
-      <workItem from="1628007531979" duration="2037000" />
+      <workItem from="1628007531979" duration="7360000" />
+      <workItem from="1628174768189" duration="6268000" />
     </task>
     <task id="LOCAL-00001" summary="Some more housekeeping">
       <created>1601754233457</created>
@@ -498,7 +533,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627947815874</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="More tweaks to the transcription module">
+      <created>1628009608933</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1628009608933</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -517,7 +559,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Some more housekeeping" />
     <MESSAGE value="added responsive .embed-container class" />
     <MESSAGE value="updates to the Clearbase converter" />
     <MESSAGE value="Fixed imported images that are not in the correct order" />
@@ -542,7 +583,8 @@
     <MESSAGE value="Added more filters to the transcription post edit screen" />
     <MESSAGE value="Removed some testing code" />
     <MESSAGE value="Create Append option in the audio transcription settings page.  Patch to modules.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create Append option in the audio transcription settings page.  Patch to modules.php" />
+    <MESSAGE value="More tweaks to the transcription module" />
+    <option name="LAST_COMMIT_MESSAGE" value="More tweaks to the transcription module" />
   </component>
   <component name="WindowStateProjectService">
     <state x="667" y="163" key="#PHP" timestamp="1627692163361">
@@ -569,54 +611,54 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="739" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1627692161974" />
-    <state width="1877" height="347" key="GridCell.Tab.0.bottom" timestamp="1628009332152">
+    <state width="1877" height="347" key="GridCell.Tab.0.bottom" timestamp="1628017636422">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1628009332152" />
-    <state width="1877" height="347" key="GridCell.Tab.0.center" timestamp="1628009332152">
+    <state width="1877" height="347" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1628017636422" />
+    <state width="1877" height="347" key="GridCell.Tab.0.center" timestamp="1628017636422">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1628009332152" />
-    <state width="1877" height="347" key="GridCell.Tab.0.left" timestamp="1628009332152">
+    <state width="1877" height="347" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1628017636422" />
+    <state width="1877" height="347" key="GridCell.Tab.0.left" timestamp="1628017636422">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1628009332152" />
-    <state width="1877" height="347" key="GridCell.Tab.0.right" timestamp="1628009332152">
+    <state width="1877" height="347" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1628017636422" />
+    <state width="1877" height="347" key="GridCell.Tab.0.right" timestamp="1628017636422">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1628009332152" />
-    <state width="1877" height="347" key="GridCell.Tab.1.bottom" timestamp="1628009332152">
+    <state width="1877" height="347" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1628017636422" />
+    <state width="1877" height="347" key="GridCell.Tab.1.bottom" timestamp="1628017636423">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1628009332152" />
-    <state width="1877" height="347" key="GridCell.Tab.1.center" timestamp="1628009332152">
+    <state width="1877" height="347" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1628017636423" />
+    <state width="1877" height="347" key="GridCell.Tab.1.center" timestamp="1628017636422">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1628009332152" />
-    <state width="1877" height="347" key="GridCell.Tab.1.left" timestamp="1628009332152">
+    <state width="1877" height="347" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1628017636422" />
+    <state width="1877" height="347" key="GridCell.Tab.1.left" timestamp="1628017636422">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1628009332152" />
-    <state width="1877" height="347" key="GridCell.Tab.1.right" timestamp="1628009332152">
+    <state width="1877" height="347" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1628017636422" />
+    <state width="1877" height="347" key="GridCell.Tab.1.right" timestamp="1628017636423">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1628009332152" />
-    <state width="1877" height="347" key="GridCell.Tab.2.bottom" timestamp="1628009332152">
+    <state width="1877" height="347" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1628017636423" />
+    <state width="1877" height="347" key="GridCell.Tab.2.bottom" timestamp="1628017636423">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1628009332152" />
-    <state width="1877" height="347" key="GridCell.Tab.2.center" timestamp="1628009332152">
+    <state width="1877" height="347" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1628017636423" />
+    <state width="1877" height="347" key="GridCell.Tab.2.center" timestamp="1628017636423">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1628009332152" />
-    <state width="1877" height="347" key="GridCell.Tab.2.left" timestamp="1628009332152">
+    <state width="1877" height="347" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1628017636423" />
+    <state width="1877" height="347" key="GridCell.Tab.2.left" timestamp="1628017636423">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1628009332152" />
-    <state width="1877" height="347" key="GridCell.Tab.2.right" timestamp="1628009332152">
+    <state width="1877" height="347" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1628017636423" />
+    <state width="1877" height="347" key="GridCell.Tab.2.right" timestamp="1628017636423">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1628009332152" />
+    <state width="1877" height="347" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1628017636423" />
     <state width="1860" height="344" key="GridCell.Tab.3.bottom" timestamp="1627604362714">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -633,10 +675,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1860" height="344" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1627604362714" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1627947818382">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1628009610647">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1627947818382" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1628009610647" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1627685058451">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -738,17 +780,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/includes/modules/class-audio-transcription.php</url>
-          <line>107</line>
+          <line>112</line>
           <option name="timeStamp" value="95" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/includes/modules/class-audio-transcription.php</url>
-          <line>269</line>
+          <line>274</line>
           <option name="timeStamp" value="97" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/includes/modules/class-audio-transcription.php</url>
-          <line>380</line>
+          <line>385</line>
           <option name="timeStamp" value="112" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -773,7 +815,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/includes/modules/class-audio-transcription.php</url>
-          <line>912</line>
+          <line>919</line>
           <option name="timeStamp" value="144" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -794,7 +836,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/includes/modules/class-audio-transcription.php</url>
-          <line>253</line>
+          <line>258</line>
           <option name="timeStamp" value="161" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -810,7 +852,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/includes/modules/class-audio-transcription.php</url>
-          <line>212</line>
+          <line>217</line>
           <option name="timeStamp" value="200" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">

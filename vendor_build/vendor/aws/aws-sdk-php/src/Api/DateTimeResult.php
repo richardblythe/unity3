@@ -4,6 +4,7 @@ namespace Unity3_Vendor\Aws\Api;
 
 use Unity3_Vendor\Aws\Api\Parser\Exception\ParserException;
 use Exception;
+use Unity3_Vendor\ReturnTypeWillChange;
 /**
  * DateTime overrides that make DateTime work more seamlessly as a string,
  * with JSON documents, and with JMESPath.
@@ -91,6 +92,7 @@ class DateTimeResult extends \DateTime implements \JsonSerializable
      *
      * @return mixed|string
      */
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return (string) $this;

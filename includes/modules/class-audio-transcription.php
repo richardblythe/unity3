@@ -72,6 +72,11 @@ class Unity3_Audio_Transcription extends Unity3_Module {
         add_action( self::CRON_HOOK, array(&$this, 'cron') );
         if ( $this->get_option('force_cron') ) {
             $this->set_option( 'force_cron', false );
+
+            global $wpdb;
+            //Extend some mercy to the failed jobs. Give em another chance
+            $wpdb->delete( $wpdb->postmeta, array('meta_key' => 'transcription_status', 'meta_value' => 'FAILED') );
+
             $this->start_cron();
         }
         //*************************************************
@@ -330,8 +335,8 @@ class Unity3_Audio_Transcription extends Unity3_Module {
 
             if ( !$url = $this->get_audio_url( $post_id ) ) {
                 throw new Exception( 'No valid transcription audio url specified.');
-            }         
-            
+            }
+
             // Instantiate an Amazon S3 client.
             $s3 = new S3Client([
                 'version' => 'latest',
@@ -423,8 +428,8 @@ class Unity3_Audio_Transcription extends Unity3_Module {
         }  catch (Exception $e) {
 
             $status = self::STATUS_FAILED;
-            $error_msg = $e->getMessage();
-            update_post_meta( $post_id, self::PM_ERROR, $e->getMessage() );
+            update_post_meta( $post_id, self::PM_STATUS, $status );
+            update_post_meta( $post_id, self::PM_ERROR, $e->getTraceAsString());
         }
 
         update_post_meta( $post_id, self::PM_STATUS, $status );
@@ -493,8 +498,10 @@ class Unity3_Audio_Transcription extends Unity3_Module {
 
 
         } catch (Exception $e) {
-            update_post_meta( $post_id, self::PM_STATUS, self::STATUS_FAILED );
-            update_post_meta( $post_id, self::PM_ERROR, $e->getMessage() );
+
+            $status = self::STATUS_FAILED;
+            update_post_meta( $post_id, self::PM_STATUS, $status );
+            update_post_meta( $post_id, self::PM_ERROR, $e->getTraceAsString());
         }
 
         return $status;

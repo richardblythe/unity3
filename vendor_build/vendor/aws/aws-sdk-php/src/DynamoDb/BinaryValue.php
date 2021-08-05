@@ -3,6 +3,7 @@
 namespace Unity3_Vendor\Aws\DynamoDb;
 
 use Unity3_Vendor\GuzzleHttp\Psr7;
+use Unity3_Vendor\ReturnTypeWillChange;
 /**
  * Special object to represent a DynamoDB binary (B) value.
  */
@@ -22,6 +23,7 @@ class BinaryValue implements \JsonSerializable
         }
         $this->value = (string) $value;
     }
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return $this->value;
