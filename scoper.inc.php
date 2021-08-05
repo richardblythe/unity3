@@ -102,6 +102,25 @@ return [
                     "'" . $prefix . "\\\\\\\\Composer\\\\\\\\Autoload\\\\\\\\ClassLoader' === \$class",
                     $content
                 );
+            } elseif ( strpos( $filePath, 'composer\ClassLoader.php' ) ) {
+
+                return str_replace('$logicalPathPsr4 = \strtr($class',
+                    "\$class = \str_replace('Unity3_Vendor\\\\', '', \$class );\n\n\$logicalPathPsr4 = strtr(\$class", $content);
+
+            } elseif ( strpos( $filePath, 'composer\autoload_static.php' ) ) {
+                //php ./vendor/humbug/php-scoper/bin/php-scoper add-prefix --output-dir=./vendor_build
+
+                return preg_replace_callback(
+                    '/(.*files = array.*)([(].*[)])/misU',
+                    function ( $match ){
+                       return $match[1] . str_replace("' =>", "_Unity3_Vendor' =>", $match[2]);
+                       },
+                    $content
+                );
+            } elseif ( strpos( $filePath, 'composer\autoload_files.php' ) ) {
+                //php ./vendor/humbug/php-scoper/bin/php-scoper add-prefix --output-dir=./vendor_build
+
+                return str_replace("' =>", "_{$prefix}' =>", $content);
             }
             return $content;
         },

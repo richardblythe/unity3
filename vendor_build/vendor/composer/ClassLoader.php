@@ -338,7 +338,9 @@ class ClassLoader
     private function findFileWithExtension($class, $ext)
     {
         // PSR-4 lookup
-        $logicalPathPsr4 = \strtr($class, '\\', \DIRECTORY_SEPARATOR) . $ext;
+        $class = \str_replace('Unity3_Vendor\\', '', $class );
+
+$logicalPathPsr4 = strtr($class, '\\', \DIRECTORY_SEPARATOR) . $ext;
         $first = $class[0];
         if (isset($this->prefixLengthsPsr4[$first])) {
             $subPath = $class;

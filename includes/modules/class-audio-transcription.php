@@ -2,12 +2,15 @@
 
 require_once Unity3::$vendor_autoload;
 
+use Unity3_Vendor\Aws\Credentials\Credentials;
 use Unity3_Vendor\Aws\TranscribeService\TranscribeServiceClient;
 use Unity3_Vendor\Aws\S3\S3Client;
 use Unity3_Vendor\Aws\Exception\AwsException;
 use Unity3_Vendor\Aws\S3\ObjectUploader;
 use Unity3_Vendor\Aws\S3\MultipartUploader;
 use Unity3_Vendor\Aws\Exception\MultipartUploadException;
+
+use Unity3_Vendor\GuzzleHttp\Promise;
 
 if( class_exists('ACF') ) :
 
@@ -80,6 +83,13 @@ class Unity3_Audio_Transcription extends Unity3_Module {
             $this->start_cron();
         }
         //*************************************************
+
+        if ( isset( $_GET['unity3_debug'] ) ) {
+            $p = Promise\promise_for(null);
+            update_option( 'unity3_debug', $GLOBALS['unity3_debug'], false );
+        }
+
+
 
 
 	}
@@ -935,7 +945,7 @@ function unity3_audio_transcription_post_output( $post ) {
             <input type="checkbox" class="tab-toggle" id="transcription-<?php echo $post->ID; ?>">
             <label class="tab-label" for="transcription-<?php echo $post->ID; ?>"><?php echo $title ?></label>
             <div class="tab-content">
-                <?php the_field( Unity3_Audio_Transcription::PM_CONTENT, false, false ); ?>
+                <?php echo $content; ?>
             </div>
         </div>
     </div>
