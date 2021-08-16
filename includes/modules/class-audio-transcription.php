@@ -83,15 +83,6 @@ class Unity3_Audio_Transcription extends Unity3_Module {
             $this->start_cron();
         }
         //*************************************************
-
-        if ( isset( $_GET['unity3_debug'] ) ) {
-            $p = Promise\promise_for(null);
-            update_option( 'unity3_debug', $GLOBALS['unity3_debug'], false );
-        }
-
-
-
-
 	}
 
     public function restrict_manage_posts(){
@@ -241,6 +232,7 @@ class Unity3_Audio_Transcription extends Unity3_Module {
 
 	    $posts = get_posts([
             'post_type' => array_keys( $post_data ),
+            'post_status' => 'any',
             'numberposts' => 5,// limit the results to prevent a timeout
             'meta_query' => array(
                 'relation' => 'AND',
@@ -293,7 +285,7 @@ class Unity3_Audio_Transcription extends Unity3_Module {
 
     }
 
-    function get_audio_url( $post_id ) {
+    public function GetAudioUrl( $post_id ) {
 	    $post_type = get_post_type( $post_id );
         $post_data = $this->get_post_data();
         $audio_meta_field = isset( $post_data[$post_type] ) ? $post_data[$post_type]['meta_field'] : null;
@@ -343,7 +335,7 @@ class Unity3_Audio_Transcription extends Unity3_Module {
         // upload file on S3 Bucket
         try {
 
-            if ( !$url = $this->get_audio_url( $post_id ) ) {
+            if ( !$url = $this->GetAudioUrl( $post_id ) ) {
                 throw new Exception( 'No valid transcription audio url specified.');
             }
 
@@ -895,10 +887,23 @@ unity3_modules()->Register( new Unity3_Audio_Transcription() );
 
 //public functions
 
+function unity3_audio_transcription_src_url( $post_id ) {
+
+    $post = get_post( $post_id );
+    $module = unity3_modules()->GetActive( 'unity3_audio_transcription' );
+
+    if ( $post && $module ) {
+        return $module->GetAudioUrl( $post->ID );
+    }
+
+    return null;
+}
+
+
 function unity3_audio_transcription_post_append( $content ){
 
     $post = get_post();
-    $module = unity3_modules()->Get( 'unity3_audio_transcription' );
+    $module = unity3_modules()->GetActive( 'unity3_audio_transcription' );
     $data = ( $post && $module) ? $module->get_post_data( $post->post_type ) : null;
 
     if( $data && $data['append'] && is_single() && is_main_query() ) {
