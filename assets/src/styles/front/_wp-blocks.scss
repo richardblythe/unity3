@@ -1,3 +1,6 @@
-.youtube-centered {
-  margin:0 auto;
+.wp-block-embed {
+  &.youtube-centered iframe {
+    margin:0 auto;
+  }
 }
+
