@@ -21,9 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1a3efbb9-c41c-4a65-a6bf-8480a9e17189" name="Default Changelist" comment="Added public method for getting audio url from a transcription post id.  Fixed juicebox config file 403 error">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/dist/styles/sourcemaps/unity3-front.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/assets/dist/styles/sourcemaps/unity3-front.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/dist/styles/unity3-front.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/dist/styles/unity3-front.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/src/styles/front/_wp-blocks.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/src/styles/front/_wp-blocks.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulpfile.babel.js" beforeDir="false" afterPath="$PROJECT_DIR$/gulpfile.babel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/modules/class-post-type.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modules/class-post-type.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/utilities/class-block-area.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utilities/class-block-area.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unity3.php" beforeDir="false" afterPath="$PROJECT_DIR$/unity3.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -282,7 +282,12 @@
       <workItem from="1629128244498" duration="2442000" />
       <workItem from="1629303143394" duration="634000" />
       <workItem from="1630089445454" duration="9000" />
-      <workItem from="1631206478730" duration="1028000" />
+      <workItem from="1631206478730" duration="1653000" />
+      <workItem from="1631370989093" duration="25000" />
+      <workItem from="1634670013678" duration="2633000" />
+      <workItem from="1634757444801" duration="176000" />
+      <workItem from="1635467716363" duration="37000" />
+      <workItem from="1638908597076" duration="74000" />
     </task>
     <task id="LOCAL-00001" summary="Some more housekeeping">
       <created>1601754233457</created>
@@ -557,7 +562,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631206802303</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="More updates for centering a YouTube embed">
+      <created>1631207538824</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1631207538824</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -576,7 +588,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed dragsort registration from admin only to frontend as well" />
     <MESSAGE value="changes to the Recent Images block" />
     <MESSAGE value="added image size to RecentImages" />
     <MESSAGE value="fixed pagination issue with custom taxonomies" />
@@ -601,13 +612,18 @@
     <MESSAGE value="Allow filtering of the transcription front output before rendering" />
     <MESSAGE value="Added public method for getting audio url from a transcription post id.  Fixed juicebox config file 403 error" />
     <MESSAGE value="Updated css for centering a YouTube embed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated css for centering a YouTube embed" />
+    <MESSAGE value="More updates for centering a YouTube embed" />
+    <option name="LAST_COMMIT_MESSAGE" value="More updates for centering a YouTube embed" />
   </component>
   <component name="WindowStateProjectService">
     <state x="667" y="163" key="#PHP" timestamp="1627692163361">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="667" y="163" key="#PHP/0.0.1920.1040@0.0.1920.1040" timestamp="1627692163361" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1634670279072">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1634670279072" />
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1628184754758">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -632,22 +648,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="739" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1627692161974" />
-    <state width="1877" height="261" key="GridCell.Tab.0.bottom" timestamp="1631207444230">
+    <state width="1877" height="261" key="GridCell.Tab.0.bottom" timestamp="1631228052737">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="261" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1631207444230" />
-    <state width="1877" height="261" key="GridCell.Tab.0.center" timestamp="1631207444230">
+    <state width="1877" height="261" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1631228052737" />
+    <state width="1877" height="261" key="GridCell.Tab.0.center" timestamp="1631228052737">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="261" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1631207444230" />
-    <state width="1877" height="261" key="GridCell.Tab.0.left" timestamp="1631207444230">
+    <state width="1877" height="261" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1631228052737" />
+    <state width="1877" height="261" key="GridCell.Tab.0.left" timestamp="1631228052737">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="261" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1631207444230" />
-    <state width="1877" height="261" key="GridCell.Tab.0.right" timestamp="1631207444230">
+    <state width="1877" height="261" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1631228052737" />
+    <state width="1877" height="261" key="GridCell.Tab.0.right" timestamp="1631228052737">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="261" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1631207444230" />
+    <state width="1877" height="261" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1631228052737" />
     <state width="1877" height="347" key="GridCell.Tab.1.bottom" timestamp="1629156348311">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -700,10 +716,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="790" y="300" key="PhpDebugProjectChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1628188843518" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1631206815143">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1631207542846">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1631206815143" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1631207542846" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1628201064126">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -716,6 +732,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="667" y="32" width="1213" height="755" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1627924797664" />
+    <state x="826" y="386" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1634670773613">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="826" y="386" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup/0.0.1920.1040@0.0.1920.1040" timestamp="1634670773613" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1628191320297">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

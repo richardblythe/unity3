@@ -132,7 +132,7 @@ class Unity3_Block_Area {
                     if ( $post = get_post($post_id) ) {
                         $css_classes = get_post_meta($post_id, 'additional_css_classes', true);
                         echo '<div class="block-area block-area-' . $post->post_name . ( empty($css_classes) ? '' : " {$css_classes}" ) . '">';
-                        echo get_the_content( null, null, $post );
+                        echo apply_filters('the_content', get_the_content( null, null, $post ));
                         echo '</div>';
                     }
 

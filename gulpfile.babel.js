@@ -2,7 +2,6 @@
 //https://css-tricks.com/gulp-for-wordpress-creating-the-tasks/
 
 import { src, dest, watch, series, parallel } from 'gulp';
-import yargs from 'yargs';
 import sass from 'gulp-sass';
 import cleanCss from 'gulp-clean-css';
 import gulpif from 'gulp-if';
